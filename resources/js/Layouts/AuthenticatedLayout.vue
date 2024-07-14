@@ -51,7 +51,7 @@
                                     Alumni Testimonial
                                 </NavLink>
                                 <NavLink :href="route('users')" :active="route().current('users')">
-                                    Registration
+                                    Manage Users
                                 </NavLink>
                             </div>
                         </div>
