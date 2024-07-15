@@ -4,7 +4,7 @@
       <v-parallax src="/images/arellanobuilding.jpg" height="400" class="opacity-50"></v-parallax>
       <div class="absolute inset-0 bg-purple-200 opacity-50"></div>
     </div>
-    <div class="relative z-10 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 py-8">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 py-8">
       <!-- Left Column -->
       <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-8 bokeh-background">
         <h1 class="text-purple-900 font-bold mb-3 font-bold mt-2 text-xl sm:text-3xl text-center">Gallery</h1>

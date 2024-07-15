@@ -85,13 +85,13 @@
               </div>
               <!-- End Links, Events & Seminars -->
             </div>
+          </div>
 
             <Gallery class="my-4" />
 
-            <!-- <Publication class="my-4" /> -->
-
+          <!-- <Publication class="my-4" /> -->
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Testimonials class="my-4" :items="props.alumni" />
-
             <!-- start google|facebook area -->
             <div class="mt-6">
               <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-4">
