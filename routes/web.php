@@ -26,7 +26,8 @@ Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');
 Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('gallery.browse');
-
+Route::get('students', [StudentController::class, 'show'])->name('students');
+Route::get('faculty', [FacultyController::class, 'show'])->name('faculty');
 
 Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
