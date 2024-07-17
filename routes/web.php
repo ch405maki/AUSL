@@ -9,6 +9,8 @@ use App\Http\Controllers\CarousellController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\FacultyController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -19,10 +21,12 @@ Route::get('/', function () {
     ]);
  });
 
+// Start routes can be open without auth
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');
 Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('gallery.browse');
+
 
 Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
@@ -47,7 +51,6 @@ Route::prefix('office')->group(function () {
         return Inertia::render('Main/Office/Index');
     })->name('office');
 
-    // Accounting office route
     Route::get('/accounting', function () {
         return Inertia::render('Main/Office/Accounting/Index');
     })->name('office.accounting');
@@ -85,22 +88,29 @@ Route::get('/medInfo', function () {
     return Inertia::render('Main/MedInfo/Index');
 })->name('medInfo');
 
+// End routes can be open without auth -------------------------------------------------------------------------------------------------------//
+// Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
+
+// Dashboard route 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// User Management route
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::put('/users/{user}/role', [UserController::class, 'updateRole']);
 });
 
+// Profile route
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Posts route
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('posts');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -108,12 +118,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
+// Carousel route
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/carousell', [CarousellController::class, 'index'])->name('carousell');
     Route::post('/carousell/store', [CarousellController::class, 'store'])->name('carousell.store');
     Route::delete('/carousell/{id}', [CarousellController::class, 'destroy'])->name('carousell.destroy');
 });
 
+// Gallery route
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/galleries', [GalleryController::class, 'index'])->name('gallery');
     Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
@@ -121,6 +133,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });
 
+// Chat route
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/chat', function () {
         return Inertia::render('Chat/Index');
@@ -135,6 +148,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/alumni/approve/{id}', [AlumniController::class, 'approve'])->name('alumni.approve');
     Route::post('/alumni/forApproval/{id}', [AlumniController::class, 'forApproval'])->name('alumni.forApproval');
 });
+
+// End routes can be open with auth
 
 // USE THIS FOR SHARED HOSTING...
 // IMPORTANT REMINDER CHECK THE FOLDER PERMITON SET TO '0755'

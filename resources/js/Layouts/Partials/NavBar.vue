@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- First Navigation Bar -->
-    <nav ref="firstNav" class="hidden lg:block bg-purple-900 z-40 border-b-2 transition-all duration-300">
+    <nav ref="firstNav" class="hidden lg:block bg-purple-900 z-50 border-b-2 transition-all duration-300 fixed top-0 left-0 right-0">
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
@@ -17,65 +17,25 @@
               </div>
             </div>
           </div>
-          <!-- Search Icon and Input -->
-          <div class="relative">
-            <form class="flex items-center max-w-sm mx-auto">
-              <label for="simple-search" class="sr-only">Search</label>
-              <div class="relative w-full">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  id="simple-search"
-                  v-model="searchQuery"
-                  @focus="showSuggestions = true"
-                  @blur="hideSuggestions"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-blue-500"
-                  placeholder="Search something..."
-                  required
-                />
-                <!-- Suggestions Dropdown -->
-                <ul v-if="showSuggestions && filteredSuggestions.length" class="absolute bg-white border border-gray-300 w-full mt-1 rounded-lg shadow-lg z-50">
-                  <li v-for="suggestion in filteredSuggestions" :key="suggestion.text" class="p-2 hover:bg-gray-100">
-                    <a :href="suggestion.link" class="block text-gray-700">{{ suggestion.text }}</a>
-                  </li>
-                </ul>
-              </div>
-              <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-                <span class="sr-only">Search</span>
-              </button>
-            </form>
-          </div>
+          <SearchBar />
         </div>
       </div>
     </nav>
 
     <!-- Second Navigation Bar -->
-    <nav ref="navButtons" class="left-0 right-0 bg-purple-900 z-50 transition-all duration-300">
+    <nav ref="navButtons" class="left-0 right-0 bg-purple-900 z-40 transition-all duration-300 fixed top-20 second-nav">
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         <div class="flex justify-between h-12 items-center">
           <div class="flex items-center mt-1">
             <div class="hidden lg:flex sm:items-center">
-              <!-- Logo (hidden by default) -->
-              <!-- <div ref="logo" class="shrink-0 flex items-center text-white mr-4 hidden">
-                <Link :href="route('main')" class="flex items-center">
-                  <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 mb-1">
-                </Link>
-              </div> -->
               <v-btn variant="plain" :href="route('main')" :class="{ 'text-green-500': route().current('main') }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
                 Home
               </v-btn>
-              <v-btn variant="plain" href="https://aims.arellanolaw.edu/aims/students/" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('https://aims.arellanolaw.edu/aims/students/') }">
+              <v-btn variant="plain" href="students" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('students') }">
                 Student
               </v-btn>
-              <v-btn variant="plain" href="https://aims.arellanolaw.edu/aims/faculty/" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('https://aims.arellanolaw.edu/aims/faculty/') }">
+              <v-btn variant="plain" href="faculty" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('faculty') }">
                 Faculty
               </v-btn>
               <v-btn variant="plain" :href="route('alumni')" :class="{ 'text-green-500': route().current('alumni'), 'active-tab': isActive(route('login')) }" class="text-invicta tracking-wide uppercase nav-btn">
@@ -199,24 +159,39 @@
         </div>
       </div>
     </nav>
-    <div ref="mainContent" class="main-content">
-      <slot />
-    </div>
+    <div ref="mainContent" :class="mainContentClass">
+    <slot />
+  </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { usePage } from '@inertiajs/vue3';
+import SearchBar from './SearchBar.vue';
 
 const { props: { ziggy } } = usePage();
 const route = window.route;
 
+const mainContentClass = ref('');
+
+// Function to update the class based on window width
+const updateMainContentClass = () => {
+  const width = window.innerWidth;
+  mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
+};
+
+// Update the class on mount and when the window is resized
+onMounted(() => {
+  updateMainContentClass();
+  window.addEventListener('resize', updateMainContentClass);
+});
+
 // Menu links with child items
 const links = ref([
   { title: 'Home', url: '/' },
-  { title: 'Student', url: 'https://aims.arellanolaw.edu/aims/students/' },
+  { title: 'Student', url: '/student' },
   { title: 'Faculty', url: 'https://aims.arellanolaw.edu/aims/faculty/' },
   { title: 'Alumni', url: '/alumni' },
   { title: "Dean's Message", url: '/dean' },
@@ -234,33 +209,6 @@ const links = ref([
   },
   { title: 'About AUSL', url: '/about' },
 ]);
-
-// Search Suggestion
-const searchQuery = ref('');
-const showSuggestions = ref(false);
-const suggestions = ref([
-  { text: 'Alumni Directory', link: '#alumni-directory' },
-  { text: 'Course Offerings', link: '#course-offerings' },
-  { text: 'Faculty List', link: '#faculty-list' },
-]);
-
-const filteredSuggestions = ref([]);
-
-const hideSuggestions = () => {
-  setTimeout(() => {
-    showSuggestions.value = false;
-  }, 200);
-};
-
-watch(searchQuery, (newValue) => {
-  if (newValue) {
-    filteredSuggestions.value = suggestions.value.filter(suggestion =>
-      suggestion.text.toLowerCase().includes(newValue.toLowerCase())
-    );
-  } else {
-    filteredSuggestions.value = [];
-  }
-});
 
 // Manage menu visibility
 const menuVisible = ref(false);
@@ -321,44 +269,17 @@ const navButtons = ref(null);
 const firstNav = ref(null);
 const logo = ref(null);
 const mainContent = ref(null);
-let originalOffsetTop = 0;
-
-const handleScroll = () => {
-  const navButtonsElement = navButtons.value;
-  const firstNavElement = firstNav.value;
-  const logoElement = logo.value;
-  const mainContentElement = mainContent.value;
-
-  if (navButtonsElement && firstNavElement && mainContentElement) {
-    const rect = navButtonsElement.getBoundingClientRect();
-    if (window.scrollY >= originalOffsetTop) {
-      navButtonsElement.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'z-50');
-      firstNavElement.classList.add('hidden');
-      logoElement.classList.remove('hidden');
-      mainContentElement.style.paddingTop = `${navButtonsElement.offsetHeight}px`;
-    } else {
-      navButtonsElement.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'z-50');
-      firstNavElement.classList.remove('hidden');
-      logoElement.classList.add('hidden');
-      mainContentElement.style.paddingTop = '0';
-    }
-  }
-};
 
 const isActive = (url) => {
   return window.location.href.includes(url);
 };
 
 onMounted(() => {
-  const navButtonsElement = navButtons.value;
-  if (navButtonsElement) {
-    originalOffsetTop = navButtonsElement.offsetTop;
-  }
-  window.addEventListener('scroll', handleScroll);
+  // No need to add scroll event listener
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  // No need to remove scroll event listener
 });
 </script>
 
@@ -398,6 +319,19 @@ nav {
   border-radius: 0;
 }
 
+/* Ensure main content has smooth transition for padding */
+.main-content {
+  transition: padding-top 0.2s ease-in-out;
+}
+
+.main-content-desktop {
+  padding-top: 8rem; /* Desktop */
+}
+
+.main-content-mobile {
+  padding-top: 3rem; /* Mobile and tablet */
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .nav-btn {
@@ -418,22 +352,20 @@ nav {
 /* Ensure main content has smooth transition for padding */
 .main-content {
   transition: padding-top 0.2s ease-in-out;
+  padding-top: 8rem; /*computer*/
+  padding-top: 3rem;/*mobile tablet*/
 }
 
-/* Style for the search input */
-input[type="text"] {
-  background-color: white;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  width: 0;
-  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+/* Media query to adjust the second nav on smaller screens */
+@media (max-width: 1024px) {
+  .second-nav {
+    top: 0 !important; /* Remove the top-20 class effect on tablets */
+  }
 }
 
-input[type="text"]:focus {
-  width: 12rem; /* Adjust the width as needed */
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-color: #d1d5db; /* Adjust the border color as needed */
+@media (max-width: 768px) {
+  .second-nav {
+    top: 0 !important; /* Remove the top-20 class effect on mobile */
+  }
 }
 </style>
