@@ -8,6 +8,6 @@ use Inertia\Inertia;
 class StudentController extends Controller
 {
     public function show (){
-        return Inertia::render('User/Student/Index');
+        return Inertia::render('Main/Student/Index');
     }
 }
