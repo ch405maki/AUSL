@@ -3,7 +3,7 @@
     headline="Whoops!"
     title="This page is currently under development."
     text="The content you are looking for is not available yet."
-    image="/images/AUSL_Logo.png"
+    image="/images/ausllogo2.png"
     >
     </v-empty-state>
 </template>

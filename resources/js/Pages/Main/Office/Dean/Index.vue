@@ -39,12 +39,7 @@
                             <v-tabs-window-item value="option-2">
                                 <v-card flat>
                                 <v-card-text>
-                                    <v-empty-state
-                                        headline="Whoops!"
-                                        title="This page is currently under development."
-                                        text="The content you are looking for is not available yet."
-                                        image="/images/AUSL_Logo.png">
-                                    </v-empty-state>
+                                    <EmptyEstate />
                                 </v-card-text>
                                 </v-card>
                             </v-tabs-window-item>
@@ -93,6 +88,7 @@
     import { defineProps } from 'vue';
     import { ref, computed, onMounted, onUnmounted } from 'vue';
     import MainLayout from '@/Layouts/MainLayout.vue';
+    import EmptyEstate from '@/Pages/Main/Partials/EmptyState.vue'
     
     // Define props here
     const props = defineProps({
