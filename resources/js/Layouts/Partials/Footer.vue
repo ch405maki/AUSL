@@ -9,7 +9,7 @@
                         <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-purple-900">Arellano University School of Law</span>
                     </a>
                     <div class="ml-12 text-slate-700">
-                        <p>Taft mark Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
+                        <p>Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
                         <p>Tel. Nos. 8404-30 89to93</p>
                         <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-slate-700 hover:text-slate-900" >onlinesupport@arellanolaw.edu</a>
                     </div>

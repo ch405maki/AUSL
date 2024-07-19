@@ -17,7 +17,7 @@
         </v-carousel-item>
           <div class="absolute inset-0 flex items-center justify-end p-4">
           <button >
-              <a href="/enroll" class="enroll-link font-sans text-purple-900 hover:text-purple-950 pr-16 py-2 rounded relative">
+              <a href="#" class="enroll-link font-sans text-purple-900 hover:text-purple-950 pr-16 py-2 rounded relative">
                   Enroll Now!
                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
               </a>
