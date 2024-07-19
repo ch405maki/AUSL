@@ -6,12 +6,7 @@
             <div class="flex flex-col md:flex-row justify-center">
             <!-- Main content section -->
             <div class="w-full p-1">
-                <v-empty-state
-                    headline="Whoops!"
-                    title="This page is currently under development."
-                    text="The content you are looking for is not available yet."
-                    image="/images/AUSL_Logo.png">
-                </v-empty-state>
+                <EmptyEstate />
             </div>
             </div>
         </div>
@@ -24,5 +19,6 @@
     import { Head } from '@inertiajs/vue3';
     import { Inertia } from '@inertiajs/inertia';
     import MainLayout from '@/Layouts/MainLayout.vue';
+    import EmptyEstate from '@/Pages/Main/Partials/EmptyState.vue'
 
 </script>
