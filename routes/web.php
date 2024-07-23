@@ -102,6 +102,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::put('/users/{user}/role', [UserController::class, 'updateRole']);
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 });
 
 // Profile route
@@ -130,6 +131,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/galleries', [GalleryController::class, 'index'])->name('gallery');
     Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
+    Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });

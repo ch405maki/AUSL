@@ -60,7 +60,11 @@
                         <!-- User Creation Form -->
                         <div class="w-full md:w-1/3 p-2 flex justify-start">
                             <form @submit.prevent="submitForm" class="w-full">
-                                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
+                                <!-- Title -->
+                                <div class="text-left">
+                                    <h2 class="text-xl font-bold">Create New User</h2>
+                                </div>
+                                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                                     <!-- Name Input -->
                                     <div class="sm:col-span-12">
                                         <InputLabel for="name" value="Name" />
@@ -70,7 +74,7 @@
                                             autofocus
                                             required
                                             type="text"
-                                            class="mt-1 block w-full"
+                                            class="mt-1 block w-full border border-gray-300 rounded-lg "
                                             placeholder="Name Here..."
                                         />
                                     </div>
@@ -83,7 +87,7 @@
                                             v-model="form.email"
                                             required
                                             type="email"
-                                            class="mt-1 block w-full"
+                                            class="mt-1 block w-full border border-gray-300 rounded-lg "
                                             placeholder="Email Here..."
                                         />
                                     </div>
@@ -96,7 +100,7 @@
                                             v-model="form.password"
                                             required
                                             type="password"
-                                            class="mt-1 block w-full"
+                                            class="mt-1 block w-full border border-gray-300 rounded-lg "
                                             placeholder="Password Here..."
                                         />
                                     </div>
@@ -108,7 +112,7 @@
                                             id="role_id"
                                             v-model="form.role_id"
                                             required
-                                            class="mt-1 block w-full"
+                                            class="mt-1 block w-full border border-gray-300 rounded-lg "
                                         >
                                             <option v-for="role in roles" :key="role.id" :value="role.id">
                                                 {{ role.role_name }}
@@ -142,8 +146,8 @@
                 </v-card-title>
                 <v-card-text>
                     <div>
-                        <label for="role-select">Select Role</label>
-                        <select id="role-select" v-model="selectedRole" class="mt-1 block w-full">
+                        <label for="role-select" class="text-slate-600 font-bold">Select Role</label>
+                        <select id="role-select" v-model="selectedRole" class="mt-1 block w-full border border-gray-300 rounded-lg">
                             <option v-for="role in roles" :key="role.id" :value="role.id">
                                 {{ role.role_name }}
                             </option>

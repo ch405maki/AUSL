@@ -52,4 +52,12 @@ class UserController extends Controller
 
         return redirect()->route('users')->with('success', 'User role updated successfully.');
     }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users');
+    }
 }

@@ -2,17 +2,21 @@
         <Head title="Alumni" />
     
         <AuthenticatedLayout>
-            <template #header>
-            <div class="flex justify-between items-center">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Alumni Testimonials</h2>
-                <!-- Add button here for modal form -->
-                <v-btn color="primary" @click="showModal = true">
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Alumni Testimonials</h2>
+        </template>
+
+
+        <div class="flex justify-between my-8 mr-8 items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight"></h2>
+            <!-- Add button here for modal form -->
+            <v-btn color="primary" @click="showModal = true">
                 Add Testimonial
                 <v-icon right>mdi-plus</v-icon>
-                </v-btn>
-            </div>
-            </template>
-        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 lg:pt-2">
+            </v-btn>
+        </div>
+
+        <div class="flex flex-col min-h-screen mx-8 bg-gray-100 dark:bg-gray-900 lg:pt-2">
             <main class="flex-grow">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row w-full justify-center">

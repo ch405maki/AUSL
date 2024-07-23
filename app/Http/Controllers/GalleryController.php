@@ -15,10 +15,10 @@ class GalleryController extends Controller
         return Inertia::render('Gallery/Index', ['galleries' => $galleries]);
     }
 
-    // public function create()
-    // {
-    //     return Inertia::render('Gallery/Create');
-    // }
+    public function create()
+    {
+        return Inertia::render('Gallery/Create');
+    }
 
     public function store(Request $request)
     {
