@@ -29,17 +29,13 @@
         <div class="flex justify-between h-12 items-center">
           <div class="flex items-center mt-1">
             <div class="hidden lg:flex sm:items-center">
-              <v-btn variant="plain" :href="route('main')" :class="{ 'text-green-500': route().current('main') }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
-                Home
-              </v-btn>
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
+                </button>
+              </div>
               <v-btn variant="plain" href="students" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('students') }">
                 Student
-              </v-btn>
-              <v-btn variant="plain" href="faculty" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('faculty') }">
-                Faculty
-              </v-btn>
-              <v-btn variant="plain" :href="route('alumni')" :class="{ 'text-green-500': route().current('alumni'), 'active-tab': isActive(route('login')) }" class="text-invicta tracking-wide uppercase nav-btn">
-                Alumni
               </v-btn>
             </div>
           </div>
@@ -49,6 +45,49 @@
               <!-- <v-btn variant="plain" :href="route('dean')" :class="{ 'text-green-500': route().current('dean'), 'active-tab': isActive(route('dean')) }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
                 Dean's Message
               </v-btn> -->
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Student Resources</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">AIMS Portal</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Lawphil.net</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
+                  </li>
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Socials</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/juris-doctor" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">OSA Facebook Page</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/refresher" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
 
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
@@ -164,31 +203,13 @@
 
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Student Resources</span>
-                  <span>
-                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
-                  </span>
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">About Us</a></span>
                 </button>
-                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Upcoming Events</a>
-                  </li>
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Holidays</a>
-                  </li>
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Important Dates</a>
-                  </li>
-                </ul>
               </div>
 
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">About Us</a></span>
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">Contact Us</a></span>
                 </button>
               </div>
             </div>
