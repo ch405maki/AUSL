@@ -46,69 +46,151 @@
 
           <div class="flex items-center">
             <div class="hidden lg:flex sm:items-center mt-1">
-              <v-btn variant="plain" :href="route('dean')" :class="{ 'text-green-500': route().current('dean'), 'active-tab': isActive(route('dean')) }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
+              <!-- <v-btn variant="plain" :href="route('dean')" :class="{ 'text-green-500': route().current('dean'), 'active-tab': isActive(route('dean')) }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
                 Dean's Message
-              </v-btn>
-              <!-- Dropdown Menu for Academic Programs -->
-              <v-menu open-on-hover>
-                <template v-slot:activator="{ props }">
-                  <v-btn class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn" variant="plain" v-bind="props">
-                    Academic Programs
-                    <!-- Adding a dropdown indicator icon -->
-                    <v-icon right>mdi-chevron-down</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item v-for="(item, index) in academicLinks" :key="index">
-                    <v-list-item-title>
-                      <a :href="item.url" class="py-1 text-lg text-slate-600 font-medium hover:text-slate-900">{{ item.title }}</a>
-                    </v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              </v-btn> -->
 
-              <v-menu open-on-hover>
-                <template v-slot:activator="{ props }">
-                  <v-btn class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn" variant="plain" v-bind="props">
-                    Bar Review Program
-                    <!-- Adding a dropdown indicator icon -->
-                    <v-icon right>mdi-chevron-down</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <!-- Loop through the barReviewLinks to create the dropdown items -->
-                  <v-list-item v-for="(item, index) in barReviewLinks" :key="index">
-                    <v-list-item-title>
-                      <a :href="item.url" class="py-1 text-lg text-slate-600 font-medium hover:text-slate-900">
-                        {{ item.title }}
-                      </a>
-                    </v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Academics</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Curriculumn</a>
+                  </li>
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Departments</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Academic Programs</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/juris-doctor" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Juris Doctor</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/refresher" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Refresher</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
 
-              <!-- dropdown -->
-              <v-menu open-on-hover>
-                <template v-slot:activator="{ props }">
-                  <v-btn class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn" variant="plain" v-bind="props">
-                    AUSL Offices
-                    <!-- Adding a dropdown indicator icon -->
-                    <v-icon right>mdi-chevron-down</v-icon>
-                  </v-btn>
-                </template>
-                <v-list>
-                  <v-list-item v-for="(item, index) in officeLinks" :key="index">
-                    <v-list-item-title>
-                      <a :href="item.url" class="py-1 text-lg text-slate-600 font-medium hover:text-slate-900">{{ item.title }}</a>
-                    </v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-              <!-- dropdown -->
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Admissions</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admission Process</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Requirements</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Application Forms</a>
+                  </li>
+                </ul>
+              </div>
 
-              <v-btn variant="plain" :href="route('about')" :class="{ 'text-green-500': route().current('about'), 'active-tab': isActive(route('about')) }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
-                About AUSL
-              </v-btn>
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Events Calendar</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Upcoming Events</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Holidays</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Important Dates</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Student Resources</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </span>
+                </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Upcoming Events</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Holidays</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Important Dates</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="group inline-block relative">
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">About Us</a></span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -368,4 +450,24 @@ nav {
     top: 0 !important; /* Remove the top-20 class effect on mobile */
   }
 }
+
+/*-- working --*/
+
+    li>ul                 { transform: translatex(100%) scale(0) }
+    li:hover>ul           { transform: translatex(101%) scale(1) }
+    li > button svg       { transform: rotate(-90deg) }
+    li:hover > button svg { transform: rotate(-270deg) }
+
+    /* Below styles fake what can be achieved with the tailwind config
+      you need to add the group-hover variant to scale and define your custom
+      min width style.
+      See https://codesandbox.io/s/tailwindcss-multilevel-dropdown-y91j7?file=/index.html
+      for implementation with config file
+    */
+    .group:hover .group-hover\:scale-100 { transform: scale(1) }
+    .group:hover .group-hover\:-rotate-180 { transform: rotate(180deg) }
+    .scale-0 { transform: scale(0) }
+    .min-w-32 { min-width: 8rem }
+
+
 </style>
