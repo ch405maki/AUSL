@@ -27,8 +27,10 @@ class MainController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id); // Retrieve the post by ID
+        $allPost = Post::all();
         return Inertia::render('Main/Post/Show', [
-            'post' => $post
+            'post' => $post,
+            'allPost' => $allPost
         ]);
     }
 }
