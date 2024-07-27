@@ -1,8 +1,8 @@
 <template>
-    <div class="text-center text-white bg-purple-900 py-6">
+    <div class="text-center text-white bg-purple-100 py-8">
       <div class="max-w-7xl mx-auto flex flex-col items-center">
-        <h1 class="font-bold text-2xl mb-4">What's in the News</h1>
-        <p class="font-medium text-lg mb-6">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
+        <h1 class="font-bold text-gray-800 text-2xl mb-4">Anouncements and Advisories</h1>
+        <p class="font-medium text-gray-800 text-lg mb-6">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
         
         <div class="flex flex-wrap justify-center gap-6">
           <div v-for="card in cards" :key="card.title" class="bg-white rounded-xs shadow-md overflow-hidden w-72">
@@ -20,10 +20,10 @@
   import { ref } from 'vue';
   
   const cards = ref([
-    { title: 'AUSL Launches New Program', image: 'https://via.placeholder.com/300x200' },
-    { title: 'Students Achieve Top Honors', image: 'https://via.placeholder.com/300x200' },
-    { title: 'Upcoming Legal Symposium', image: 'https://via.placeholder.com/300x200' },
-    { title: 'New Research Initiatives', image: 'https://via.placeholder.com/300x200' }
+    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
+    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
+    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
+    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' }
   ]);
   </script>
   

@@ -25,26 +25,14 @@
     <!-- Second Navigation Bar -->
     <nav ref="navButtons" class="left-0 right-0 bg-purple-900 z-40 transition-all duration-300 fixed top-20 second-nav">
       <!-- Primary Navigation Menu -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+      <div class="max-w-7xl mx-auto">
         <div class="flex justify-between h-12 items-center">
-          <div class="flex items-center mt-1">
-            <div class="hidden lg:flex sm:items-center">
-              <div class="group inline-block relative">
-                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
-                </button>
-              </div>
-              <v-btn variant="plain" href="students" class="text-invicta tracking-wide uppercase nav-btn" :class="{ 'active-tab': isActive('students') }">
-                Student
-              </v-btn>
-            </div>
-          </div>
 
           <div class="flex items-center">
             <div class="hidden lg:flex sm:items-center mt-1">
-              <!-- <v-btn variant="plain" :href="route('dean')" :class="{ 'text-green-500': route().current('dean'), 'active-tab': isActive(route('dean')) }" class="inline-block text-invicta tracking-wide uppercase whitespace-nowrap nav-btn">
-                Dean's Message
-              </v-btn> -->
+              <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-center min-w-24">
+                <span class="font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
+              </button>
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
                   <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Student Resources</span>
@@ -102,7 +90,7 @@
                 </button>
                 <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Curriculumn</a>
+                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Curriculumn</a>
                   </li>
                   <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
                     <button class="w-full text-left flex items-center outline-none focus:outline-none">
@@ -166,7 +154,7 @@
                 </button>
                 <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admission Process</a>
+                    <a @click="$inertia.visit(route('admissions.process'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Admission Process</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
                     <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Requirements</a>
@@ -203,13 +191,13 @@
 
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">About Us</a></span>
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/about">About Us</a></span>
                 </button>
               </div>
 
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/office/curriculum">Contact Us</a></span>
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/contact">Contact Us</a></span>
                 </button>
               </div>
             </div>
@@ -271,6 +259,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+import { Inertia } from '@inertiajs/inertia';
 import { usePage } from '@inertiajs/vue3';
 import SearchBar from './SearchBar.vue';
 

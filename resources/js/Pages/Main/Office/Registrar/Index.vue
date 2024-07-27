@@ -106,7 +106,7 @@
     import { Link, Head } from '@inertiajs/vue3';
     import { defineProps, ref, computed } from 'vue';
     import MainLayout from '@/Layouts/MainLayout.vue';
-    import EmptyEstate from '@/Pages/Main/Partials/EmptyState.vue'
+    import EmptyEstate from '@/Pages/Main/Student/EmptyState.vue'
     
     // Define props here
     const props = defineProps({

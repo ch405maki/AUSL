@@ -60,7 +60,7 @@
   
   .my-card {
     height: 19rem;
-    width: 28rem; /* Increased width */
+    width: 30rem; /* Increased width */
     position: absolute;
     z-index: 1;
     transform: scale(0.6) translateY(-2rem);

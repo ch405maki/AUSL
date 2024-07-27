@@ -34,8 +34,8 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/academic', function () {
-    return Inertia::render('Main/AcademicProgram/Index');
-})->name('academic');
+    return Inertia::render('Main/AcademicProgram/Curiculumn/Index');
+})->name('academic.curiculumn');
 
 Route::get('/bar', function () {
     return Inertia::render('Main/BarProgram/Index');
@@ -69,9 +69,9 @@ Route::prefix('office')->group(function () {
     })->name('office.deans');
 });
 
-Route::get('/enrollment', function () {
+Route::get('process', function () {
     return Inertia::render('Main/EnrollmentGuide/Index');
-})->name('enrollment');
+})->name('admissions.process');
 
 Route::get('/idApplication', function () {
     return Inertia::render('Main/IdApplication/Index');
@@ -85,9 +85,6 @@ Route::get('/alumni', function () {
     return Inertia::render('Alumni/Index');
 })->name('alumni');
 
-Route::get('/medInfo', function () {
-    return Inertia::render('Main/MedInfo/Index');
-})->name('medInfo');
 
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
