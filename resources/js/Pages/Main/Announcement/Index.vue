@@ -20,7 +20,7 @@
   import { ref } from 'vue';
   
   const cards = ref([
-    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
+    { title: 'Face-to-face class suspension; all classes will be conducted online via Zoom.', image: 'https://via.placeholder.com/300x200' },
     { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
     { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
     { title: 'Header Here', image: 'https://via.placeholder.com/300x200' }
