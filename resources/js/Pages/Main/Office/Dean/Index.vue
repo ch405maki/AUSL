@@ -88,7 +88,7 @@
     import { defineProps } from 'vue';
     import { ref, computed, onMounted, onUnmounted } from 'vue';
     import MainLayout from '@/Layouts/MainLayout.vue';
-    import EmptyEstate from '@/Pages/Main/Student/EmptyState.vue'
+    import EmptyEstate from '@/Pages/Main/Partials/EmptyState.vue'
     
     // Define props here
     const props = defineProps({

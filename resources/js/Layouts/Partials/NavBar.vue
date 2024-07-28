@@ -206,7 +206,7 @@
           <!-- end of second nav -->
 
           <!-- Hamburger Menu for Smaller Screens -->
-          <div class="flex ml-0 lg:hidden container mx-auto justify-between items-center h-16">
+          <div class="flex ml-0 lg:hidden container ml-2 mr-2 justify-between items-center h-16">
             <div class="shrink-0 flex items-center text-white">
               <Link :href="route('main')" class="flex">
                 <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 mr-2">

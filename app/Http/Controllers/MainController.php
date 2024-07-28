@@ -33,4 +33,8 @@ class MainController extends Controller
             'allPost' => $allPost
         ]);
     }
+    public function showAnnouncement()
+    {
+        return Inertia::render('Main/Announcement/Show');
+    }
 }

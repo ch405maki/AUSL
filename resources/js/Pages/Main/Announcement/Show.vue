@@ -9,49 +9,27 @@
                 <!-- Main content section -->
                 <div class="w-full md:w-2/2 p-2">
                   <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-3xl text-pretty text-start">
-                    {{ post.title }}
+                    Classroom assignment and online class bulletin
                   </h1>
                   <hr class="mb-4 border-1 border-purple-900">
-                  <div class="text-lg font-normal text-gray-600 mb-4font-normal text-slate-700 mb-8">
-                      <p v-html="post.content"></p>
-                  </div>
-                  <div class="relative mb-8 flex justify-center items-center bg-slate-100">
-                    <img :src="post.image" alt="Image" class="object-center min-h-80 max-h-96 min-w-80 max-w-100">
-                  </div>
                   <!-- Breadcrumb -->
-                  <nav class="bg-grey-light w-full rounded-md" aria-label="breadcrumb">
+                  <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
                     <ol class="list-reset flex">
                       <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ {{ post.title }}</span></li>
+                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ Classroom assignment and online class bulletin</span></li>
                     </ol>
                   </nav>
-                  <!-- News and Announcement Section -->
-                <div class="w-full">
-                  <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
-                    Latest News
-                  </h1>
-                  <hr class="mb-4 border-1 border-purple-800">
-                  <div v-for="post in allPost" :key="post.id" id="news">
-                    <div class="text-left flex items-justify mb-4">
-                      <div class="mr-0">
-                        <img :src="post.image" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
-                      </div>
-                      <div class="text-justify ml-2">
-                        <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
-                          <a :href="`/show/${post.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ post.title }}</a>
-                        </h3>
-                        <p class="text-slate-600 ">{{ formattedDate(post.created_at) }}</p>
-                        <p v-if="post.content.length > 0">
-                          <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="post.content.substring(0, 200)"></div>
-                          <a :href="`/show/${post.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-green-600 hover:underline">Read more</a>
-                        </p>
-                        <p v-else>{{ post.content }}</p>
-                      </div>
-                    </div>
-                    <hr class="mb-4 border-1 border-purple-200">
+                  <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
+                      <p>Description Here</p>
                   </div>
-                  <!-- End Breadcrumb -->
-                </div>
+                  <div class="relative mb-8 flex justify-center items-center bg-slate-100">
+                    <div class="container">
+                        <iframe frameborder="0" height="800" scrolling="no" src="https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4/preview" width="100%"></iframe>
+                    </div>
+                  </div>
+                  
+                <!-- News and Announcement Section -->
+                 Content Here...
                 <!-- End News and Announcement Section -->
                 </div>
                 <!-- End main content section -->
@@ -87,8 +65,7 @@
       import { ref, computed } from 'vue';
       import MainLayout from '@/Layouts/MainLayout.vue';
   
-      // Define props here
-  // Define props here
+    // Define props here
     const { post, allPost } = defineProps(['post', 'allPost']);
   
       
@@ -107,5 +84,9 @@
     </script>
     
     <style scoped>
+    .container {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
     </style>
-    

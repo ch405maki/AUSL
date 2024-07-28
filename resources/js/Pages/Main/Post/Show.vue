@@ -1,17 +1,23 @@
 <template>
   <MainLayout>
     <Head title="Show Post" />
-    <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="flex flex-col min-h-screen bg-green-100">
       <main class="flex-grow">
         <div class="bg-white">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <div class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-3xl text-pretty text-start">
+                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
                   {{ post.title }}
                 </h1>
-                <hr class="mb-4 border-1 border-purple-900">
+                <hr class="mb-8 border-1 border-purple-900">
+                <nav class="bg-grey-light w-full rounded-md" aria-label="breadcrumb">
+                  <ol class="list-reset flex mb-8">
+                    <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
+                    <li><span class="mx-2 text-neutral-500 dark:text-neutral-200"> {{ formattedDate(post.created_at) }}</span></li>
+                  </ol>
+                </nav>
                 <div class="text-lg font-normal text-gray-600 mb-4font-normal text-slate-700 mb-8">
                     <p v-html="post.content"></p>
                 </div>
@@ -60,7 +66,7 @@
               <!-- Links, Events & Seminars --> 
               <div class="w-full md:w-1/3 p-2 flex justify-start">
                 <div class="text-left">
-                  <div class="mb-2 mt-10">
+                  <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                     <h1 class="text-purple-900 text-lg font-medium mb-4">See Also</h1>
                     <hr class="mb-4 border-1 border-purple-900">
                     <ul class="list-inside list-disc">
@@ -71,7 +77,7 @@
                   </div>
                 </div>
               </div>
-              <!-- End Links, Events & Seminars -->
+              <!-- End Links, Events & Seminars --> 
             </div>
           </div>
         </div>
@@ -88,8 +94,7 @@
     import MainLayout from '@/Layouts/MainLayout.vue';
 
     // Define props here
-// Define props here
-  const { post, allPost } = defineProps(['post', 'allPost']);
+    const { post, allPost } = defineProps(['post', 'allPost']);
 
     
     // Sample data for links and events

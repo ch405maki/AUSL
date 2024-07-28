@@ -1,35 +1,108 @@
 <template>
-    <div class="text-center text-white bg-purple-100 py-8">
-      <div class="max-w-7xl mx-auto flex flex-col items-center">
-        <h1 class="font-bold text-gray-800 text-2xl mb-4">Anouncements and Advisories</h1>
-        <p class="font-medium text-gray-800 text-lg mb-6">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
-        
-        <div class="flex flex-wrap justify-center gap-6">
-          <div v-for="card in cards" :key="card.title" class="bg-white rounded-xs shadow-md overflow-hidden w-72">
-            <img :src="card.image" alt="Card image" class="w-full h-48 object-cover">
-            <div class="p-4">
-              <h2 class="font-bold text-lg text-gray-800">{{ card.title }}</h2>
+  <div class="text-center text-white bg-purple-100 py-6">
+    <div class="max-w-7xl text-center text-white mx-auto py-4 px-4">
+      <h1 class="font-bold text-gray-800 text-2xl mb-2">Announcements and Advisories</h1>
+      <p class="font-medium text-gray-800 text-lg mb-8">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
+
+      <div
+        ref="swipeContainer"
+        @mousedown="handleMouseDown"
+        @mouseleave="handleMouseLeave"
+        @mouseup="handleMouseUp"
+        @mousemove="handleMouseMove"
+        @scroll="updateCurrentPage"
+        class="overflow-x-scroll scrollbar-hide mb-4 relative px-0.5"
+        style="overflow-y: hidden;"
+      >
+        <div class="flex snap-x snap-mandatory gap-6">
+          <div
+            v-for="(card, index) in cards"
+            :key="card.id"
+            class="flex-none w-72 snap-center"
+          >
+            <div class="bg-white border-1 border border-gray-200 overflow-hidden mb-4 flex flex-col h-full">
+              <iframe height="200" scrolling="no" :src="card.link + '/preview'" width="100%"></iframe>
+              <div class="p-4 flex flex-col flex-grow">
+                <h3 @click="$inertia.visit(route('announcement.show'))"
+                  class="text-lg leading-6 font-bold text-gray-900 hover:underline hover:text-purple-900 cursor-pointer">
+                  {{ card.title }}
+                </h3>
+                <p class="text-gray-600 mt-2 text-lg">date/date</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="flex justify-center mt-8">
+        <span v-for="(card, index) in cards" :key="index" class="mx-1">
+          <span :class="currentPage === index ? 'bg-gray-800' : 'bg-gray-400'" class="block w-3 h-3 rounded-full"></span>
+        </span>
+      </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  const cards = ref([
-    { title: 'Face-to-face class suspension; all classes will be conducted online via Zoom.', image: 'https://via.placeholder.com/300x200' },
-    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
-    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' },
-    { title: 'Header Here', image: 'https://via.placeholder.com/300x200' }
-  ]);
-  </script>
-  
-  <style scoped>
-  .shadow-md {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  </style>
-  
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const cards = ref([
+  { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
+  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
+  { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
+  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
+  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
+  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' }
+]);
+
+const swipeContainer = ref(null);
+const isDown = ref(false);
+const startX = ref(0);
+const scrollLeft = ref(0);
+const currentPage = ref(0);
+
+const handleMouseDown = (e) => {
+  isDown.value = true;
+  startX.value = e.pageX - swipeContainer.value.offsetLeft;
+  scrollLeft.value = swipeContainer.value.scrollLeft;
+};
+
+const handleMouseLeave = () => {
+  isDown.value = false;
+};
+
+const handleMouseUp = () => {
+  isDown.value = false;
+};
+
+const handleMouseMove = (e) => {
+  if (!isDown.value) return;
+  e.preventDefault();
+  const x = e.pageX - swipeContainer.value.offsetLeft;
+  const walk = (x - startX.value) * 1;
+  swipeContainer.value.scrollLeft = scrollLeft.value - walk;
+};
+
+const updateCurrentPage = () => {
+  const cardWidth = swipeContainer.value.scrollWidth / cards.value.length;
+  currentPage.value = Math.round(swipeContainer.value.scrollLeft / cardWidth);
+};
+
+onMounted(() => {
+  swipeContainer.value.addEventListener('mousedown', handleMouseDown);
+  swipeContainer.value.addEventListener('mouseleave', handleMouseLeave);
+  swipeContainer.value.addEventListener('mouseup', handleMouseUp);
+  swipeContainer.value.addEventListener('mousemove', handleMouseMove);
+  swipeContainer.value.addEventListener('scroll', updateCurrentPage);
+});
+</script>
+
+<style scoped>
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>

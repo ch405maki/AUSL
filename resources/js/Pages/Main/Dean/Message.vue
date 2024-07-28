@@ -2,7 +2,7 @@
     <section class="relative bg-purple-200 bg-blend-multiply">
       <div class="absolute inset-10 bg-center sm:bg-right bg-no-repeat bg-[url('/images/student/alflogo.png')] opacity-20 sm:opacity-30 bg-contain"></div>
       <div class="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 sm:py-6 lg:py-8 reveal-text">
-        <h1 class="mb-4 pt-4 text-2xl font-extrabold tracking-tight leading-none text-slate-700 md:text-2xl lg:text-2xl dark:text-white">
+        <h1 class="mb-4 pt-4 text-2xl font-extrabold tracking-tight leading-none text-slate-700 md:text-2xl lg:text-2xl">
           Welcome to Arellano Law Community
         </h1>
         <p class="mb-8 text-left text-lg font-medium text-slate-800">
@@ -11,7 +11,7 @@
       </div>
     </section>
   
-    <div class="container mx-auto px-4 py-4 lg:py-8">
+    <div class="container mx-auto py-4 lg:py-8">
       <!-- First Section -->
       <div class="flex flex-col md:flex-row justify-center bg-white rounded-lg p-1 reveal-text">
         <!-- Dean's information section -->

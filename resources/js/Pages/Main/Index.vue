@@ -10,7 +10,7 @@
             <Post :posts="posts" />
             <Announcement />
             <Gallery />
-            <GoogleFacebook />
+            <!-- <GoogleFacebook /> -->
         </div>
     </MainLayout>
     </template>
