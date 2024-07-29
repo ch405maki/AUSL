@@ -62,15 +62,18 @@
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20">
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>
+                        </svg>  
                       </span>
                     </button>
-                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-max mt-2">
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/juris-doctor" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">OSA Facebook Page</a>
+                        <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office for Student Affairs Facebook Page</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/refresher" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
+                        <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="https://www.facebook.com/profile.php?id=100063942916347" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Center for Legal Education and Research Facebook Page</a>
                       </li>
                     </ul>
                   </li>
@@ -131,10 +134,10 @@
                     </button>
                     <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/juris-doctor" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Juris Doctor</a>
+                        <a @click="$inertia.visit(route('academic.juris-doctor'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Juris Doctor</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/refresher" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Refresher</a>
+                        <a @click="$inertia.visit(route('academic.refresher'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Refresher</a>
                       </li>
                     </ul>
                   </li>

@@ -10,7 +10,7 @@
         <h1 class="text-purple-900 mb-3 font-bold mt-2 text-xl sm:text-3xl text-center">Photo Gallery</h1>
         <p class="text-lg font-medium text-slate-800 text-center tracking-wide">A collection of captured moments from recent </p>
         <p class="text-lg font-medium text-slate-800 text-center mb-4 tracking-wide">AUSL School Events.</p>
-        <v-btn color="#581c87" dark @click="navigateToGallery">
+        <v-btn color="#581c87" dark @click="$inertia.visit(route('gallery.browse'))">
           <v-icon left>mdi-rocket</v-icon>
           Explore More
         </v-btn>

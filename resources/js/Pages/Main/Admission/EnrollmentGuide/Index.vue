@@ -2,41 +2,43 @@
     <MainLayout>
       <Head title="Enrollment Guide" />
       <main class="flex-grow">
-        <div class="container mx-auto px-4 py-4 lg:py-8">
+        <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
-            <section class="w-full md:w-3/4 overflow-y-auto h-screen relative">
+            <section class="w-full md:w-3/4 relative">
+              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+                Online Enrollment Process
+              </h2>
               <!-- Step 1 -->
               <div v-show="step === 1">
-                <div class="bg-white border-none shadow-lg rounded-lg p-6 mb-6 relative">
-                  <h2 class="text-2xl sm:text-2xl font-bold text-purple-900 mb-4">Step One: Online Registration - New and Transferee Students</h2>
+                <div class="bg-white border-none rounded-lg p-6 mb-6 relative">
+                  <h2 class="text-xl sm:text-2xl text-left text-purple-900 font-bold mb-6 border-left">Step One: Online Registration - New and Transferee Students</h2>
                   <div class="text-slate-600 leading-relaxed">
                     <p class="mb-4 font-medium text-md">1. Go to <a href="https://aims.arellanolaw.edu/aims/applicants" target="_blank" class="text-blue-600 underline">https://aims.arellanolaw.edu/aims/applicants</a> <i>(For Old Students, proceed to No. 7)</i></p>
                     <p class="mb-4 font-medium text-md">2. Click "APPLY!"</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 2 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image1.jpg" alt="Step 2 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                     <p class="mb-4 font-medium">3. Fill Up the necessary fields</p>
                     <ul class="list-disc list-inside mb-4 font-medium">
                       <li>For New and Transferee students, choose LAW as Department and click "Continue."</li>
                       <li>For Refresher, choose LAW-REFRESHER as Department and click "Continue."</li>
                     </ul>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 3 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image2.jpg" alt="Step 3 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                     <p class="mb-4 font-medium">4. Fill up ALL the required fields <i>(Do not leave any blank spaces)</i>. If done, click "Save Changes".</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 4 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image3.jpg" alt="Step 4 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                     <p class="mb-4 font-medium">5. A pop-up will appear for Data Privacy Policy.</p>
                     <ul class="list-disc list-inside mb-4 font-medium">
                       <li>Check all boxes and click "Submit".</li>
                     </ul>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 5 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image4.jpg" alt="Step 5 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image5.jpg" alt="Step 6 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                     <p class="mb-4 font-medium">6. Jot down Username and Password <i>(Note: Username will be changed once officially enrolled into your Student Number)</i> Default password is your lastname, birthmonth and day.</p>
                     <ul class="list-disc list-inside mb-4 font-medium">
                       <li>For Refresher: Disregard Examination Schedule and wait for your account to be accepted.</li>
                       <li>For New Students and Transferees, you will be contacted by the Admissions office for further instructions.</li>
                     </ul>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 6 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    
                     <p class="mb-4 font-medium">7. Log in to <a href="https://aims.arellanolaw.edu/aims/students" target="_blank" class="text-blue-600 underline">https://aims.arellanolaw.edu/aims/students</a></p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 7 Image" class="mb-4 font-medium mx-auto rounded-lg" />
-                    <p class="mb-4 font-medium">8. Log in using your Username and Password.</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 8 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <img src="/images/admission/image6.jpg" alt="Step 7 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                   </div>
                   <div class="absolute bottom-4 right-4 flex space-x-2">
                     <v-btn color="primary" @click="nextStep">Next</v-btn>
@@ -46,30 +48,27 @@
   
               <!-- Step 2 -->
               <div v-show="step === 2">
-                <div class="bg-white border-none shadow-lg rounded-lg p-6 mb-6 relative">
-                  <h2 class="text-2xl sm:text-2xl font-bold text-purple-900 mb-4">Step Two: Enlist Subjects</h2>
-                  <div class="text-slate-600 leading-relaxed">
-                    <p class="mb-4 font-medium">1. Click "Enrollment" in the AIMS portal dashboard.</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 1 Image" class="mb-4 font-medium mx-auto rounded-lg" />
-                    <p class="mb-4 font-medium">2. Click "Enlist Subject(s)" button.</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 2 Image" class="mb-4 font-medium mx-auto rounded-lg" />
-                    <p class="mb-4 font-medium">3. Check the subjects you want to enroll in.</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 3 Image" class="mb-4 font-medium mx-auto rounded-lg" />
-                    <p class="mb-4 font-medium">4. Click "Enlist" button at the bottom of the page to save your enlistment.</p>
-                    <img src="https://via.placeholder.com/300x150" alt="Step 4 Image" class="mb-4 font-medium mx-auto rounded-lg" />
-                    <p class="mb-4 font-medium">5. Verify your enlistment through the enlistment summary.</p>
+                <div class="bg-white border-none rounded-lg p-6 mb-6 relative">
+                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-4">Step Two: Enlist Subjects</h2>
+                  <div class="text-slate-600 leading-relaxed mb-4">
+                    <p class="mb-4 font-medium">8. To enlist your subjects and schedules: Click on the "Registration" tab and select your preferred subjects and schedule. (Note: One subject / schedule at a time.).</p>
+                    <img src="/images/admission/image8.jpg" alt="Step 8 Image" class="mb-4 font-medium mx-auto rounded-lg" />
+                    <p class="mb-4 font-medium">For NEW, OLD & TRANSFEREE Students only.</p>
+                    <img src="/images/admission/image7.jpg" alt="Step 8 Image" class="mb-4 font-medium mx-auto rounded-lg" />
                   </div>
-                  <div class="absolute bottom-4 right-4 flex space-x-2">
+                  <div class="mt-8">
+                    <div class="absolute bottom-4 right-4 flex space-x-2 mt-8">
                     <v-btn color="secondary" @click="prevStep">Back</v-btn>
                     <v-btn color="primary" @click="nextStep">Next</v-btn>
+                  </div>
                   </div>
                 </div>
               </div>
   
               <!-- Step 3 -->
               <div v-show="step === 3">
-                <div class="bg-white border-none shadow-lg rounded-lg p-6 mb-6 relative">
-                  <h2 class="text-2xl sm:text-2xl font-bold text-purple-900 mb-4">Step Three: Payment Procedures</h2>
+                <div class="bg-white border-none rounded-lg p-6 mb-6 relative">
+                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-4">Step Three: Payment Procedures</h2>
                   <div class="text-slate-600 leading-relaxed">
                     <p class="mb-4 font-medium">1. Choose a payment option:</p>
                     <ul class="list-disc list-inside mb-4 font-medium">
@@ -105,9 +104,10 @@
               </div>
             </section>
   
-            <aside class="w-full md:w-1/4 sticky top-0 p-6">
+            <aside class="w-full md:w-1/4 sticky top-0">
+              <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                 <div class="ml-4">
-                    <h2 class="mb-2 text-md leading-6 font-bold text-purple-900 capitalize leading-tight">Online Enrollment Process</h2>
+                    <h2 class="mb-2 text-lg leading-6 font-bold text-purple-900 capitalize">On this page</h2>
                     <hr class="mb-4 border-1 border-purple-800">
                 </div>
                 <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">
@@ -137,14 +137,15 @@
                     </li>
                 </ol>
                 <div class="ml-4">
-                    <h2 class="mb-2 text-md leading-6 font-bold text-purple-900 capitalize leading-tight">Related Links</h2>
+                    <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                     <hr class="mb-4 border-1 border-purple-800">
                     <ul class="list-inside list-disc">
                       <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                        <a :href="item.url" class="py-1 text-sm text-slate-600 hover:text-slate-900">{{ item.text }}</a>
+                        <a :href="item.url" class="text-slate-700 text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
                       </li>
                     </ul>
                 </div>
+              </div>
             </aside>
         </div>
       </div>

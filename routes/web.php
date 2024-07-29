@@ -34,9 +34,17 @@ Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
 })->name('about');
 
-Route::get('/academic', function () {
+Route::get('/academic/curiculumn', function () {
     return Inertia::render('Main/AcademicProgram/Curiculumn/Index');
 })->name('academic.curiculumn');
+
+Route::get('/academic/juris-doctor', function () {
+    return Inertia::render('Main/AcademicProgram/JurisDoctor/Index');
+})->name('academic.juris-doctor');
+
+Route::get('/academic/refresher', function () {
+    return Inertia::render('Main/AcademicProgram/Refresher/Index');
+})->name('academic.refresher');
 
 Route::get('/bar', function () {
     return Inertia::render('Main/BarProgram/Index');
@@ -70,8 +78,8 @@ Route::prefix('office')->group(function () {
     })->name('office.deans');
 });
 
-Route::get('process', function () {
-    return Inertia::render('Main/EnrollmentGuide/Index');
+Route::get('admissions/process', function () {
+    return Inertia::render('Main/Admission/EnrollmentGuide/Index');
 })->name('admissions.process');
 
 Route::get('/idApplication', function () {

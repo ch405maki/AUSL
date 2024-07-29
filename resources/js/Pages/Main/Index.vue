@@ -1,19 +1,22 @@
 <template>
-    <MainLayout>
-        <Head title="Main Page" />
-        <div v-if="loading">
-            <LoadingAnimation/>
-        </div>
-        <div v-else>
-            <Carousel :items="props.carousells" />
-            <Message />
-            <Post :posts="posts" />
-            <Announcement />
-            <Gallery />
-            <!-- <GoogleFacebook /> -->
-        </div>
-    </MainLayout>
-    </template>
+  <div v-if="loading">
+      <LoadingAnimation/>
+  </div>
+  <div v-else>
+  <MainLayout>
+      <Head title="Main Page" />
+      
+      
+          <Carousel :items="props.carousells" />
+          <Message />
+          <Post :posts="posts" />
+          <Announcement />
+          <Gallery />
+          <!-- <GoogleFacebook /> -->
+      
+  </MainLayout>
+  </div>
+</template>
     
     <script setup>
     import { ref, onMounted } from 'vue';
