@@ -8,15 +8,15 @@
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <!-- Main content section -->
                 <div class="w-full md:w-2/2 p-2">
-                  <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-3xl text-pretty text-start">
+                  <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
                     Classroom assignment and online class bulletin
                   </h1>
                   <hr class="mb-4 border-1 border-purple-900">
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
                     <ol class="list-reset flex">
-                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ Classroom assignment and online class bulletin</span></li>
+                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
+                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">Date Here</span></li>
                     </ol>
                   </nav>
                   <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
@@ -27,6 +27,14 @@
                         <iframe frameborder="0" height="800" scrolling="no" src="https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4/preview" width="100%"></iframe>
                     </div>
                   </div>
+
+                  <!-- Breadcrumb -->
+                  <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
+                    <ol class="list-reset flex">
+                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
+                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ Classroom assignment and online class bulletin</span></li>
+                    </ol>
+                  </nav>
                   
                 <!-- News and Announcement Section -->
                  Content Here...
@@ -71,7 +79,7 @@
       
       // Sample data for links and events
       const links = ref([
-        { text: 'Latest Anouncement', url: 'https://aims.arellanolaw.edu/aims/students/' },
+        { text: 'Latest Anouncement', url: '#' },
         { text: 'Upcomming Events', url: '#event2' },
         { text: 'Related Article', url: '#event3' },
         { text: 'Related Article', url: '#event4' },

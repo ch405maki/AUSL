@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-6">
+    <div class="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-4">
         <h1 class="text-purple-900 font-bold mb-3 font-bold mt-2 text-xl sm:text-3xl text-center">Alumni Testimonials</h1>
         <p class="text-lg text-slate-700 text-center tracking-wide">

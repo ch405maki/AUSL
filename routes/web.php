@@ -30,25 +30,61 @@ Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('galle
 Route::get('students', [StudentController::class, 'show'])->name('students');
 Route::get('faculty', [FacultyController::class, 'show'])->name('faculty');
 
+// About
 Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
 })->name('about');
 
-Route::get('/academic/curiculumn', function () {
-    return Inertia::render('Main/AcademicProgram/Curiculumn/Index');
-})->name('academic.curiculumn');
+// contact
+Route::get('/contact', function () {
+    return Inertia::render('Main/Contact/Index');
+})->name('contact');
 
-Route::get('/academic/juris-doctor', function () {
-    return Inertia::render('Main/AcademicProgram/JurisDoctor/Index');
-})->name('academic.juris-doctor');
+// Academics
+Route::prefix('academic')->name('academic.')->group(function () {
+    Route::get('/curiculumn', function () {
+        return Inertia::render('Main/AcademicProgram/Curiculumn/Index');
+    })->name('curiculumn');
 
-Route::get('/academic/refresher', function () {
-    return Inertia::render('Main/AcademicProgram/Refresher/Index');
-})->name('academic.refresher');
+    Route::get('/juris-doctor', function () {
+        return Inertia::render('Main/AcademicProgram/JurisDoctor/Index');
+    })->name('juris-doctor');
 
-Route::get('/bar', function () {
-    return Inertia::render('Main/BarProgram/Index');
-})->name('bar');
+    Route::get('/refresher', function () {
+        return Inertia::render('Main/AcademicProgram/Refresher/Index');
+    })->name('refresher');
+});
+
+// admissions
+Route::prefix('admissions')->name('admissions.')->group(function () {
+    Route::get('/process', function () {
+        return Inertia::render('Main/Admission/EnrollmentGuide/Index');
+    })->name('process');
+    Route::get('/requirements', function () {
+        return Inertia::render('Main/Admission/Requirements/Index');
+    })->name('requirements');
+    Route::get('/application-forms', function () {
+        return Inertia::render('Main/Admission/ApplicationForm/Index');
+    })->name('application-forms');
+});
+
+// Events Calendar
+Route::prefix('events')->name('events.')->group(function () {
+    Route::get('/academic', function () {
+        return Inertia::render('Main/EventsCalendar/AcademicCalendar/Index');
+    })->name('academic');
+    Route::get('/upcomming', function () {
+        return Inertia::render('Main/EventsCalendar/UpcommingEvents/Index');
+    })->name('upcomming');
+    Route::get('/holidays', function () {
+        return Inertia::render('Main/EventsCalendar/Holidays/Index');
+    })->name('holidays');
+    Route::get('/important', function () {
+        return Inertia::render('Main/EventsCalendar/ImportantDays/Index');
+    })->name('important');
+    
+});
+
 
 Route::get('/dean', function () {
     return Inertia::render('Main/Dean/Index');
@@ -77,10 +113,6 @@ Route::prefix('office')->group(function () {
         return Inertia::render('Main/Office/Dean/Index');
     })->name('office.deans');
 });
-
-Route::get('admissions/process', function () {
-    return Inertia::render('Main/Admission/EnrollmentGuide/Index');
-})->name('admissions.process');
 
 Route::get('/idApplication', function () {
     return Inertia::render('Main/IdApplication/Index');

@@ -6,13 +6,13 @@
   <MainLayout>
       <Head title="Main Page" />
       
-      
           <Carousel :items="props.carousells" />
           <Message />
           <Post :posts="posts" />
           <Announcement />
           <Gallery />
-          <!-- <GoogleFacebook /> -->
+          <Alumni class="my-4" :items="props.alumni" />
+          <GoogleFacebook />
       
   </MainLayout>
   </div>
@@ -29,6 +29,7 @@
     import Announcement from '@/Pages/Main/Announcement/Index.vue';
     import Gallery from './Gallery/Index.vue';
     import GoogleFacebook from './Contact/GoogleFacebook.vue';
+    import Alumni from '@/Pages/Main/Alumni/Index.vue';
     
     const loading = ref(true);
 

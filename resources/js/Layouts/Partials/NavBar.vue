@@ -35,7 +35,7 @@
               </button>
               <div class="group inline-block relative">
                 <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Student Resources</span>
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-widest uppercase">Student Resources</span>
                   <span>
                     <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
                         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@
                     <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Lawphil.net</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
+                    <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
                   </li>
                   <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
                     <button class="w-full text-left flex items-center outline-none focus:outline-none">
@@ -160,10 +160,10 @@
                     <a @click="$inertia.visit(route('admissions.process'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Admission Process</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Requirements</a>
+                    <a @click="$inertia.visit(route('admissions.requirements'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Requirements</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Application Forms</a>
+                    <a @click="$inertia.visit(route('admissions.application-forms'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Application Forms</a>
                   </li>
                 </ul>
               </div>
@@ -181,26 +181,33 @@
                 </button>
                 <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Upcoming Events</a>
+                    <a @click="$inertia.visit(route('events.academic'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Academic Calendar</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Holidays</a>
+                    <a @click="$inertia.visit(route('events.upcomming'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Upcoming Events</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="/office/curriculum" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Important Dates</a>
+                    <a @click="$inertia.visit(route('events.holidays'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Holidays</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a @click="$inertia.visit(route('events.important'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Important Dates</a>
                   </li>
                 </ul>
               </div>
 
               <div class="group inline-block relative">
-                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/about">About Us</a></span>
+                <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
+                    About Us
+                  </span>
                 </button>
               </div>
 
               <div class="group inline-block relative">
-                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a href="/contact">Contact Us</a></span>
+                <button @click="$inertia.visit(route('contact'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
+                    Contact Us
+                  </span>
                 </button>
               </div>
             </div>
@@ -226,11 +233,18 @@
                 <template v-slot:activator="{ props }">
                   <v-icon v-bind="props" icon="mdi-menu" color="white" class="text-white"></v-icon>
                 </template>
-                <v-list @click.stop>
+                <v-list @click.stop minWidth="250px">
                   <!-- Loop through links to create menu items -->
                   <v-list-item v-for="(item, i) in links" :key="i">
                     <v-list-item-title @click="toggleDropdown(i)">
-                      <a :href="item.url" class="hover:text-purple-800 flex justify-between w-full items-center">
+                      <a :href="item.url" class="hover:text-purple-900 flex w-full items-left">
+                        <v-icon
+                          v-if="item.icon"
+                          :icon="item.icon"
+                          class="mr-2 rounded-full p-1"
+                          :color="item.color || 'primary'"
+                          :style="{ backgroundColor: item.bgColor || '#fff' }"
+                        ></v-icon>
                         <span>{{ item.title }}</span>
                         <!-- Show dropdown icon if the item has children -->
                         <v-icon v-if="item.children" :class="isDropdownOpen(i) ? 'mdi-chevron-up' : 'mdi-chevron-down'">mdi-chevron-down</v-icon>
@@ -240,7 +254,16 @@
                     <v-list v-if="item.children && isDropdownOpen(i)" @click.stop>
                       <v-list-item v-for="(child, j) in item.children" :key="j">
                         <v-list-item-title>
-                          <a :href="child.url" class="pl-4 hover:text-purple-800">{{ child.title }}</a>
+                          <a :href="child.url" class="pl-4 hover:text-purple-800 flex items-center">
+                            <v-icon
+                              v-if="child.icon"
+                              :icon="child.icon"
+                              class="mr-2 rounded-full p-1"
+                              :color="child.color || 'primary'"
+                              :style="{ backgroundColor: child.bgColor || '#fff' }"
+                            ></v-icon>
+                            {{ child.title }}
+                          </a>
                         </v-list-item-title>
                       </v-list-item>
                     </v-list>
@@ -283,26 +306,73 @@ onMounted(() => {
   window.addEventListener('resize', updateMainContentClass);
 });
 
-// Menu links with child items
+//Humberger Menu links with child items
 const links = ref([
-  { title: 'Home', url: '/' },
-  { title: 'Student', url: '/student' },
-  { title: 'Faculty', url: 'https://aims.arellanolaw.edu/aims/faculty/' },
-  { title: 'Alumni', url: '/alumni' },
-  { title: "Dean's Message", url: '/dean' },
-  { title: 'Academic Program', url: '/academic' },
-  { title: 'BAR Review', url: '/bar' },
+  { title: 'Home', url: '/', icon: 'mdi-home', color: 'blue', bgColor: '#e0f7fa' },
   {
-    title: 'AUSL Offices',
+    title: 'Student Resources',
     url: '#',
+    icon: 'mdi-school',
+    color: 'green',
+    bgColor: '#e8f5e9',
     children: [
-      { title: 'Accounting', url: '/office/accounting' },
-      { title: 'Admissions', url: '/office/admission' },
-      { title: "Dean's", url: '/office/deans' },
-      { title: 'Registrar', url: '/office/registrar' }
+      { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
+      { title: 'Lawphil.net', url: 'https://lawphil.net/', icon: 'mdi-book', color: 'brown', bgColor: '#efebe9' },
+      { title: 'Library', url: '#', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
+      {
+        title: 'Socials',
+        url: '#',
+        icon: 'mdi-account-group',
+        color: 'teal',
+        bgColor: '#e0f2f1',
+        children: [
+          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
+          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
+          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
+        ]
+      }
     ]
   },
-  { title: 'About AUSL', url: '/about' },
+  {
+    title: 'Academics',
+    url: '#',
+    icon: 'mdi-school-outline',
+    color: 'red',
+    bgColor: '#ffebee',
+    children: [
+      { title: 'Curriculumn', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+      { title: 'Departments', url: '#', icon: 'mdi-office-building', color: 'grey', bgColor: '#eceff1' },
+      { title: 'Academic Programs', url: '#', icon: 'mdi-clipboard', color: 'yellow', bgColor: '#fff9c4' },
+      { title: 'Registrar', url: '#', icon: 'mdi-file-document', color: 'blue', bgColor: '#e3f2fd' }
+    ]
+  },
+  {
+    title: 'Admissions',
+    url: '#',
+    icon: 'mdi-file-edit',
+    color: 'purple',
+    bgColor: '#f3e5f5',
+    children: [
+      { title: 'Admission Process', url: '/admissions/process', icon: 'mdi-progress-check', color: 'green', bgColor: '#e8f5e9' },
+      { title: 'Requirements', url: '#', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
+      { title: 'Application Forms', url: '#', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' }
+    ]
+  },
+  {
+    title: 'Events Calendar',
+    url: '#',
+    icon: 'mdi-calendar',
+    color: 'deep-orange',
+    bgColor: '#fbe9e7',
+    children: [
+      { title: 'Academic Calendar', url: '/events/academic', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
+      { title: 'Upcoming Events', url: '#', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
+      { title: 'Holidays', url: '#', icon: 'mdi-calendar-range', color: 'blue', bgColor: '#e3f2fd' },
+      { title: 'Important Dates', url: '#', icon: 'mdi-calendar-alert', color: 'yellow', bgColor: '#fff9c4' }
+    ]
+  },
+  { title: 'About AUSL', url: '/about', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6' },
+  { title: 'Contact Us', url: '#', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1' }
 ]);
 
 // Manage menu visibility
