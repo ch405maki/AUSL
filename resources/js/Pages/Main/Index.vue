@@ -11,7 +11,7 @@
           <Post :posts="posts" />
           <Announcement />
           <Gallery />
-          <Alumni class="my-4" :items="props.alumni" />
+          <!-- <Alumni class="my-4" :items="props.alumni" /> -->
           <GoogleFacebook />
       
   </MainLayout>

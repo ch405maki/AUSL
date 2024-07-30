@@ -372,7 +372,7 @@ const links = ref([
     ]
   },
   { title: 'About AUSL', url: '/about', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6' },
-  { title: 'Contact Us', url: '#', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1' }
+  { title: 'Contact Us', url: '/contact', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1' }
 ]);
 
 // Manage menu visibility
