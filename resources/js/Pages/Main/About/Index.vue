@@ -83,156 +83,23 @@
 
                     <v-tabs-window-item value="option-3">
                       <v-card flat>
-                        <v-card-text>
-                          <h2 class="text-2xl sm:text-2xl font-bold text-purple-900 mb-4 text-center">Faculty Roster</h2>
-                          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-semibold text-gray-700">
-                            <!-- First Column -->
-                            <div class="flex justify-center">
-                              <ul class="list-inside list-disc space-y-2 text-left">
-                                <li>Abella, Eduardo F.</li>
-                                <li>Agbayani, John A.</li>
-                                <li>Amen, Catherine S.</li>
-                                <li>Arcilla, Juanito</li>
-                                <li>Bacorro-Villena, Jean Marie A.</li>
-                                <li>Sacmar-Badiola, Ginalyn</li>
-                                <li>Balino, Kristy Jane M.</li>
-                                <li>Ballesteros, David L.</li>
-                                <li>Brondial, Henedino M.</li>
-                                <li>Buenviaje, Rickson M.</li>
-                                <li>Bundac, Lydia A.</li>
-                                <li>Cabangon, Sed</li>
-                                <li>Calderon, Maria Teresa F.</li>
-                                <li>Campanilla, Marlo B.</li>
-                                <li>Capule, Rodel V.</li>
-                                <li>Casasola, Eufrocina S.</li>
-                                <li>Castillo, Mark Erwin C.</li>
-                                <li>Cayco, Cindy I.</li>
-                                <li>Cayco, Victor Carlo Antonio V.</li>
-                                <li>Cayco-Magbanua, Patricia Gail V.</li>
-                                <li>Cerezo, Joseph C.</li>
-                                <li>Cervantes, Dindo R.</li>
-                                <li>Chico, Edward P.</li>
-                                <li>Cuerdo, Caridad G.</li>
-                                <li>Cruz, Carlo L.</li>
-                                <li>Dedace, Frederick G.</li>
-                                <li>Dela Peña, Gabriel P.</li>
-                                <li>Dela Rosa, Arnel A.</li>
-                              </ul>
-                            </div>
-
-                            <!-- Second Column -->
-                            <div class="flex justify-center">
-                              <ul class="list-inside list-disc space-y-2 text-left">
-                                <li>Demigilio, Roberto A.</li>
-                                <li>Dimayuga, Amado Paolo C.</li>
-                                <li>Doble, Francis R.</li>
-                                <li>Duka, Cecilio D.</li>
-                                <li>Eleazar, Victor Y.</li>
-                                <li>Espaldon, Al Conrad B.</li>
-                                <li>Escolin, Charles</li>
-                                <li>Espinas, Arnaldo M.</li>
-                                <li>Fabie, Carlisle Marie M.</li>
-                                <li>Ferrer, Evecar C.</li>
-                                <li>Gozon, Alejandro M.</li>
-                                <li>Guerrero, Michael Vernon M.</li>
-                                <li>Gutierrez, Daniel C.</li>
-                                <li>Higuit, Ever Rose Y.</li>
-                                <li>Jamon, Antonio</li>
-                                <li>Ladia, Ruben C.</li>
-                                <li>Laja-Otto, Leah Easter P.</li>
-                                <li>Jimeno-Atienza, Jennifer</li>
-                                <li>Lapid, Rodolfo F.</li>
-                                <li>Lazo, Erik C.</li>
-                                <li>Legaspi, Emilio Rodolfo III Y.</li>
-                                <li>Leyva, Danilo D.</li>
-                                <li>Lock, Roberto D.</li>
-                                <li>Lopez, Reynaldo G.</li>
-                                <li>Lopez, Tristan L.</li>
-                                <li>Macababbad, Lionell M.</li>
-                                <li>Macababbad, Noemi S.</li>
-                                <li>Magbanua, Ma. Jesusa Elanor S.</li>
-                              </ul>
-                            </div>
-
-                            <!-- Third Column -->
-                            <div class="flex justify-center">
-                              <ul class="list-inside list-disc space-y-2 text-left">
-                                <li>Mancol, Gefer R.</li>
-                                <li>Mendoza, Claudie M.</li>
-                                <li>Miranda, Ana C.</li>
-                                <li>Molina, Jose Teodorico V.</li>
-                                <li>Morales-Gonzalez, Rhea Joy</li>
-                                <li>Mortel, Gideon</li>
-                                <li>Munsayac, Reynold S.</li>
-                                <li>Navarro, Domingo M.</li>
-                                <li>Niedo, Roland A.</li>
-                                <li>Ng, Jedrick C.</li>
-                                <li>Valero-Nuñez, Angel Chona Grace</li>
-                                <li>Obra, Jesus A.</li>
-                                <li>Orceo, Reynante B.</li>
-                                <li>Pagalilauan, Edison James F.</li>
-                                <li>Pamaran, Dean Ace A.</li>
-                                <li>Panganiban, Porfirio Jr., DG.</li>
-                                <li>Patajo, Maureen Kay E.</li>
-                                <li>Parungo, Jose A.</li>
-                                <li>Pimentel, Gregorio G. Jr.</li>
-                                <li>Pimentel, Oscar B.</li>
-                                <li>Poquiz, Salvador A.</li>
-                                <li>Pulido, Roberto Rafael J.</li>
-                                <li>Pulido, Simonette S.</li>
-                                <li>Rabuya, Elmer T.</li>
-                                <li>Rafal-Roble, Cherry Liez O.</li>
-                                <li>Ramos III, Primo A.</li>
-                                <li>Ranada-Kibata, Joanne L.</li>
-                                <li>Reyes, Mary Ann L.</li>
-                              </ul>
-                            </div>
-
-                            <!-- Fourth Column -->
-                            <div class="flex justify-center">
-                              <ul class="list-inside list-disc space-y-2 text-left">
-                                <li>Ribo, Ricardo</li>
-                                <li>Rodriguez, Charito F.</li>
-                                <li>Salazar, Serafin S.</li>
-                                <li>San Pedro, Voltaire G.</li>
-                                <li>San Perdo, Byron G.</li>
-                                <li>Sandoval, Edwin R.</li>
-                                <li>Sandoval, Rex Reynaldo C.</li>
-                                <li>Santos, Agnes B.</li>
-                                <li>Santiago, Josephine R.</li>
-                                <li>Sebastian, Guillermo V.</li>
-                                <li>Separa, Frederick G.</li>
-                                <li>Soriano, Cesar Nicolai F. Jr.</li>
-                                <li>Sorongon, Raymund M.</li>
-                                <li>Subia, Glenn R.</li>
-                                <li>Tenorio, Cris P.</li>
-                                <li>Tiamson, Erwin L.</li>
-                                <li>Tolentino, Paolo Carlo C.</li>
-                                <li>Tugadi, Wayne</li>
-                                <li>Turingan, Marietta P.</li>
-                                <li>Uribe, Crisostomo A.</li>
-                                <li>Valderrama, Mario E.</li>
-                                <li>Valderrama, Nico B.</li>
-                                <li>Valones, Irene</li>
-                                <li>Vibandor, Joselito D.</li>
-                                <li>Villanueva-Castro, Zarah R.</li>
-                                <li>Villena, Vincent L.</li>
-                                <li>Villostas, Roderick M.</li>
-                                <li>Vista, Anthony Ludalvi</li>
-                                <li>Yee, Caridad</li>
-                                <li>Yulo, Judy Anne Y.</li>
-                              </ul>
-                            </div>
-                          </div>
+                        <v-card-text class="text-left my-8">
+                          <p class="text-2xl sm:text-2xl text-purple-900 font-bold mb-4">
+                            Offices Directoty
+                          </p>
+                          <p class="text-lg font-normal text-gray-600 mb-8 ">
+                            Offices Table Here ...
+                          <br>
+                          </p>
                         </v-card-text>
                       </v-card>
                     </v-tabs-window-item>
 
                       <v-tabs-window-item value="option-4">
                         <v-card flat>
-                          <v-card-text class="text-center mx-auto max-w-4xl">
+                          <v-card-text class="text-center my-8">
                             <!-- Add the hymn video button and lightbox -->
-                            <p class="text-2xl sm:text-2xl font-bold text-purple-900 mb-2 ">
+                            <p class="text-2xl sm:text-2xl text-purple-900 font-bold mb-4">
                               Alma Mater Hymn
                             </p>
                             <div class="mt-4 flex justify-center items-center">

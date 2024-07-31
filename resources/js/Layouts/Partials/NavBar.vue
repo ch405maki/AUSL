@@ -27,57 +27,26 @@
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between h-12 items-center">
-
           <div class="flex items-center">
             <div class="hidden lg:flex sm:items-center mt-1">
               <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-center min-w-24">
                 <span class="font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
               </button>
+
               <div class="group inline-block relative">
-                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-widest uppercase">Student Resources</span>
-                  <span>
-                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
+                <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
+                    About Us
                   </span>
                 </button>
-                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">AIMS Portal</a>
-                  </li>
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Lawphil.net</a>
-                  </li>
-                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
-                  </li>
-                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
-                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Socials</span>
-                      <span class="mr-auto">
-                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>  
-                      </span>
-                    </button>
-                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-max mt-2">
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office for Student Affairs Facebook Page</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="https://www.facebook.com/profile.php?id=100063942916347" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Center for Legal Education and Research Facebook Page</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+              </div>
+
+              <div class="group inline-block relative">
+                <button @click="$inertia.visit(route('contact'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
+                    Administration
+                  </span>
+                </button>
               </div>
 
               <div class="group inline-block relative">
@@ -92,6 +61,26 @@
                   </span>
                 </button>
                 <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Academic Programs</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a @click="$inertia.visit(route('academic.juris-doctor'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Juris Doctor</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a @click="$inertia.visit(route('academic.refresher'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Refresher</a>
+                      </li>
+                    </ul>
+                  </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
                     <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Curriculumn</a>
                   </li>
@@ -118,26 +107,6 @@
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
                         <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
-                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Academic Programs</span>
-                      <span class="mr-auto">
-                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>
-                      </span>
-                    </button>
-                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a @click="$inertia.visit(route('academic.juris-doctor'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Juris Doctor</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a @click="$inertia.visit(route('academic.refresher'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Refresher</a>
                       </li>
                     </ul>
                   </li>
@@ -196,11 +165,50 @@
               </div>
 
               <div class="group inline-block relative">
-                <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
-                    About Us
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-widest uppercase">Student Resources</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
                   </span>
                 </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">AIMS Portal</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Lawphil.net</a>
+                  </li>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
+                  </li>
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Socials</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>  
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-max mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office for Student Affairs Facebook Page</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="https://www.facebook.com/profile.php?id=100063942916347" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Center for Legal Education and Research Facebook Page</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
 
               <div class="group inline-block relative">

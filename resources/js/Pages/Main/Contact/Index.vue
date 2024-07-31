@@ -6,52 +6,96 @@
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
-                Contact Us
-              </h2>
               <!-- Step 1 -->
               <div v-show="step === 1">
-                    <div class="bg-white border-none rounded-lg p-2 mb-6 relative">
-                    <h2 class="text-xl sm:text-2xl text-left text-purple-900 font-bold mb-6 border-left">Contact Information</h2>
-                    <div class="text-slate-600 leading-relaxed">
-                        <p>Text here for details</p>
-                        <div class="overflow-x-auto">
-                            <v-table    
-                            height="300px"
-                            fixed-header
-                        >
-                            <thead>
-                            <tr>
-                                <th class="text-left">
-                                    Department/Office
-                                </th>
-                                <th class="text-left">
-                                    Local Numbers	
-                                </th>
-                                <th class="text-left">
-                                    email address	
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr
-                                v-for="item in desserts"
-                                :key="item.name"
-                            >
-                                <td>{{ item.office }}</td>
-                                <td>{{ item.local }}</td>
-                                <td>{{ item.email }}</td>
-                            </tr>
-                            </tbody>
-                        </v-table>
+                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+                  Contact Us
+                </h2>
+                  <div class="bg-white border-none rounded-lg  mb-6 relative">
+                    <div class="bg-white border-none rounded-lg mb-6 relative">
+                    <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
+                      <h2 class="text-xl sm:text-2xl text-left text-purple-900 font-bold mb-4 sm:mb-0">Contact Information</h2>
+                      <div class="relative sm:ml-auto">
+                        <label for="table-search" class="sr-only">Search</label>
+                        <div class="relative">
+                          <div class="absolute inset-y-0 left-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-900" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                          <input type="text" id="table-search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-purple-500 focus:border-purple-500" placeholder="Search for Contact Information">
                         </div>
+                      </div>
                     </div>
-                    </div>
-                </div>
+                  </div>
+                  <div class="text-slate-600 leading-relaxed">
+                      <div class="overflow-x-auto">
+                        <v-table    
+                          height="300px"
+                          fixed-header
+                        >
+                          <thead>
+                            <tr>
+                              <th class="text-gray-700 text-lg font-normal hover:text-slate-900">
+                                Department/Office
+                              </th>
+                              <th class="text-gray-700 text-lg text-center font-normal hover:text-slate-900">
+                                Local Numbers
+                              </th>
+                              <th class="text-gray-700 text-lg font-normal hover:text-slate-900" v-if="!isMobile">
+                                Email Address
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="item in contact" :key="item.name" class="hover:bg-purple-100 hover:bg-round-lg whitespace-nowrap">
+                              <td class="text-gray-700 text-lg font-normal whitespace-nowrap">
+                                {{ item.office }}
+                                <br v-if="isMobile">
+                                <span v-if="isMobile" class="flex items-center">
+                                  <v-icon color="purple-900" size="20px">mdi-email</v-icon>
+                                  {{ item.email }}
+                                </span>
+                              </td>
+                              <td class="text-gray-700 text-lg font-medium text-center whitespace-nowrap">
+                                {{ item.local }}
+                              </td>
+                              <td v-if="!isMobile" class="text-gray-700 text-lg font-normal whitespace-nowrap">
+                                <span class="flex items-center">
+                                  <v-icon>mdi-email</v-icon>
+                                  {{ item.email }}
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </v-table>
+                      </div>
+                  </div>
+                  </div>
+              </div>
   
               <!-- Step 2 -->
               <div v-show="step === 2">
+                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+                  School Location
+                </h2>
                 <div class="bg-white border-none rounded-lg p-2 mb-6 relative">
+                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-8">Address</h2>
+                  <div class="text-slate-600 leading-relaxed mb-8">
+                    <div class="flex items-center">
+                    <div class="shrink-0 flex items-center text-slate-700">
+                      <Link :href="route('main')" class="flex items-center">
+                        <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-2 transition-transform duration-300 transform hover:scale-105">
+                      </Link>
+                      <div>
+                        <div class="uppercase font-bold text-lg tracking-wide leading-tight">ARELLANO LAW FOUNDATION</div>
+                        <div class="text-slate-700 text-lg font-normal text-gray-600 hover:text-slate-900">
+                          Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
                   <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-8">Campus Map</h2>
                   <div class="text-slate-600 leading-relaxed mb-8">
                     <img src="/images/contact/campus.jpg" alt="Step 2 Image" class="mb-8 font-medium mx-auto rounded-lg" />
@@ -75,19 +119,50 @@
   
               <!-- Step 3 -->
               <div v-show="step === 3">
-                <div class="bg-white border-none rounded-lg p-4 mb-6 relative">
-                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-4">Social Media Page</h2>
+                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+                  Social Media Page
+                </h2>
+                <div class="bg-white border-none rounded-lg p-4 relative">
+                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-8 flex items-center">
+                    <v-icon class="text-blue-600 mr-2">mdi-facebook</v-icon>
+                    Facebook Page
+                  </h2>
                   <div class="text-slate-600 leading-relaxed">
-                    <p>Content Here</p>
+                    <div class="iframe-container">
+                      <iframe 
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAUSLchiefs&tabs=timeline%2Cevents&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                        style="border:none;overflow:hidden"
+                        scrolling="no"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      ></iframe>
+                    </div>
+                  </div>
+                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 my-8 flex items-center">
+                    <v-icon class="text-red-600 mr-2">mdi-youtube</v-icon>
+                    Youtube Channel
+                  </h2>
+                  <div class="text-slate-600 leading-relaxed">
+                    <div class="iframe-container">
+                      <iframe 
+                        src="https://www.youtube.com/embed/OqpaXDBVygM?si=b2GsHnarupUg7Pje"
+                        title="YouTube video player"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </div>  
             </section>
   
             <aside class="w-full md:w-1/4 sticky top-0">
             <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                 <div class="ml-4">
-                <h2 class="mb-2 text-lg leading-6 font-bold text-purple-900 capitalize">On this page</h2>
+                <h2 class="mb-2 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 </div>
                 <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">
@@ -136,6 +211,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
@@ -149,8 +225,11 @@ const setStep = (newStep) => {
 };
 
 
-const desserts = ref([
+const contact = ref([
   { office: 'Accounting Office', local: 13, email: 'accounting@arellanolaw.edu' },
+  { office: 'Admissions Office 1', local: 33, email: 'admissions@arellanolaw.edu' },
+  { office: 'Admissoins Office 2', local: 51, email: 'admissions@arellanolaw.edu' },
+  { office: 'Alumni Office', local: 32, email: 'alumni@arellanolaw.edu' },
 ]);
 
 
@@ -161,6 +240,20 @@ const links = ref([
   { text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
   { text: 'Guideline/Payment Procedure', url: '/office/accounting' }
 ]);
+
+const isMobile = reactive({ value: window.innerWidth <= 768 });
+
+const checkIfMobile = () => {
+  isMobile.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', checkIfMobile);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkIfMobile);
+});
 
 </script>
 
@@ -211,34 +304,51 @@ const links = ref([
 
 
     
-    .google-maps {
-    min-width: 100%; /* Ensure a minimum width */
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    position: relative;
-    overflow: hidden;
-    }
-    
-    
-    .google-maps iframe,
-    .fb-bind iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-    .row {
-        grid-template-columns: 1fr; /* Single column layout for mobile */
-    }
-    
-    .google-maps,
-    .fb-bind {
-        padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio for both */
-    }
-    }
+  .google-maps {
+  min-width: 100%; /* Ensure a minimum width */
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  overflow: hidden;
+  }
+  
+  
+  .google-maps iframe,
+  .fb-bind iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+  .row {
+      grid-template-columns: 1fr; /* Single column layout for mobile */
+  }
+  
+  .google-maps,
+  .fb-bind {
+      padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio for both */
+  }
+  }
+
+  .iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 </style>
