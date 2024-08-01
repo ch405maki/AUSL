@@ -11,6 +11,7 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\SettingsController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -188,6 +189,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/alumni/{id}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
     Route::post('/alumni/approve/{id}', [AlumniController::class, 'approve'])->name('alumni.approve');
     Route::post('/alumni/forApproval/{id}', [AlumniController::class, 'forApproval'])->name('alumni.forApproval');
+});
+
+//settings
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/banner', [SettingsController::class, 'bannerIndex'])->name('banner');
+    Route::post('/banners', [SettingsController::class, 'storeBanner'])->name('banners.create');
+    Route::post('/banners/update-state', [SettingsController::class, 'updateState'])->name('banners.updateState');
 });
 
 // End routes can be open with auth

@@ -32,7 +32,6 @@
               <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-center min-w-24">
                 <span class="font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
               </button>
-
               <div class="group inline-block relative">
                 <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
                   <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">

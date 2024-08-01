@@ -6,7 +6,7 @@
   <MainLayout>
       <Head title="Main Page" />
       
-          <Carousel :items="props.carousells" />
+          <Carousel :items="props.carousells" :banners="props.banners" />
           <Message />
           <Post :posts="posts" />
           <Announcement />
@@ -44,6 +44,10 @@
         required: true
       },
       alumni: { 
+        type: Array, 
+        required: true 
+      },
+      banners: { 
         type: Array, 
         required: true 
       },

@@ -23,9 +23,25 @@
           <span class="text-[12px] ml-2 text-gray-200 font-bold">{{ link.name }}</span>
         </NavLink>
       </div>
-
+      
 
       <div class="my-4 bg-gray-600 h-[1px]"></div>
+
+      <!-- Settings Dropdown -->
+      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-purple-600 text-white text-left" @click="toggleDropdown">
+        <i class="mdi mdi-cog text-white-600 p-2"></i>
+        <div class="flex justify-between w-full items-center">
+          <span class="text-[12px] ml-2 text-gray-200 font-bold">Settings</span>
+          <span :class="{'rotate-0': !isDropdownOpen, 'rotate-180': isDropdownOpen}" class="text-sm transform transition-transform duration-300">
+            <i class="mdi mdi-chevron-down"></i>
+          </span>
+        </div>
+      </div>
+
+      <div :class="{'hidden': !isDropdownOpen, 'block': isDropdownOpen}" class="text-[12px] ml-2 text-gray-200 font-bold ml-12">
+        <h1 class="cursor-pointer p-2 hover:bg-purple-600 rounded-md mt-1" @click="$inertia.visit(route('banner'))">Banner</h1>
+        <!-- Add more dropdown items as needed -->
+      </div>
 
       <!-- <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white text-left" @click="toggleDropdown">
         <i class="mdi mdi-chat text-white rounded-full bg-blue-600 p-2"></i>
@@ -68,6 +84,7 @@ const links = [
   { name: 'Gallery', route: 'gallery', icon: 'mdi mdi-folder-multiple-image' },
   { name: 'Alumni Testimonial', route: 'alumni', icon: 'mdi mdi-account-group' },
   { name: 'Manage Users', route: 'users', icon: 'mdi mdi-account-cog' }
+  // add settings dropdown menu = Banner
 ];
 </script>
 

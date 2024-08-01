@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Carousell;
 use App\Models\Alumni;
+use App\Models\Banner;
 
 class MainController extends Controller
 {
     public function index()
     {
+        $banners = Banner::where('state', true)->get();
         $carousells = Carousell::all();
         $posts = Post::all();
         // Only retrieve alumni with status true
@@ -21,6 +23,7 @@ class MainController extends Controller
             'posts' => $posts,
             'carousells' => $carousells,
             'alumni' => $alumni,
+            'banners' => $banners,
         ]);
     }
 
