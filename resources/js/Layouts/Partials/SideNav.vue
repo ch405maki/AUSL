@@ -82,7 +82,7 @@ const links = [
   { name: 'Posts', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Carousell', route: 'carousell', icon: 'mdi mdi-image' },
   { name: 'Gallery', route: 'gallery', icon: 'mdi mdi-folder-multiple-image' },
-  { name: 'Alumni Testimonial', route: 'alumni', icon: 'mdi mdi-account-group' },
+  { name: 'Testimonial', route: 'alumni', icon: 'mdi mdi-account-group' },
   { name: 'Manage Users', route: 'users', icon: 'mdi mdi-account-cog' }
   // add settings dropdown menu = Banner
 ];

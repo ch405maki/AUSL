@@ -41,11 +41,70 @@
               </div>
 
               <div class="group inline-block relative">
-                <button @click="$inertia.visit(route('contact'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
-                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
-                    Administration
+                <button class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                  <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide uppercase">Administration</span>
+                  <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
                   </span>
                 </button>
+                <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Academics</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
+                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
+                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Non Academics</span>
+                      <span class="mr-auto">
+                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office of the Executive</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
+                      </li>
+                      <li class="px-3 py-2 transition duration-150 ease-in-out">
+                        <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
 
               <div class="group inline-block relative">
@@ -73,41 +132,18 @@
                     </button>
                     <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a @click="$inertia.visit(route('academic.juris-doctor'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Juris Doctor</a>
+                        <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Juris Doctor</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a @click="$inertia.visit(route('academic.refresher'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Refresher</a>
+                        <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Refresher</a>
                       </li>
                     </ul>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Curriculumn</a>
+                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Bar Review</a>
                   </li>
-                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
-                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Departments</span>
-                      <span class="mr-auto">
-                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>
-                      </span>
-                    </button>
-                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
-                      </li>
-                    </ul>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">MCLE</a>
                   </li>
                 </ul>
               </div>
@@ -119,7 +155,7 @@
                     <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>;
                     </svg>
                   </span>
                 </button>
