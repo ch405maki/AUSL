@@ -78,7 +78,7 @@ const showAlert = () => {
     } else {
       console.log('Enrollment canceled');
     }
-    showCookiePopup.value = true; // Show the cookie popup after closing SweetAlert
+    showCookiePopup.value = true;
   });
 };
 

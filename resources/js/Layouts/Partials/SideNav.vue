@@ -39,7 +39,8 @@
       </div>
 
       <div :class="{'hidden': !isDropdownOpen, 'block': isDropdownOpen}" class="text-[12px] ml-2 text-gray-200 font-bold ml-12">
-        <h1 class="cursor-pointer p-2 hover:bg-purple-600 rounded-md mt-1" @click="$inertia.visit(route('banner'))">Banner</h1>
+        <h1 class="cursor-pointer p-2 hover:bg-purple-600 rounded-md mt-1" @click="$inertia.visit(route('banner'))">Main Banner</h1>
+        <h1 class="cursor-pointer p-2 hover:bg-purple-600 rounded-md mt-1" @click="$inertia.visit(route('onload'))">On Load Banner</h1>
         <!-- Add more dropdown items as needed -->
       </div>
 
@@ -79,6 +80,7 @@ const toggleDropdown = () => {
 
 const links = [
   { name: 'Dashboard', route: 'dashboard', icon: 'mdi mdi-view-dashboard' },
+  { name: 'Announcement', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Posts', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Carousell', route: 'carousell', icon: 'mdi mdi-image' },
   { name: 'Gallery', route: 'gallery', icon: 'mdi mdi-folder-multiple-image' },
