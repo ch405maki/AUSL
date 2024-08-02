@@ -4,6 +4,7 @@
     <nav ref="firstNav" class="hidden lg:block bg-purple-900 z-50 border-b-2 transition-all duration-300 fixed top-0 left-0 right-0">
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="flex justify-between h-20 items-center">
           <div class="flex items-center">
             <!-- Logo -->
@@ -68,13 +69,10 @@
                         <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
                         <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
+                        <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">List...</a>
                       </li>
                     </ul>
                   </li>
@@ -91,10 +89,10 @@
                     </button>
                     <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office of the Executive</a>
+                        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Office of the Executive</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
+                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
                         <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
@@ -140,10 +138,10 @@
                     </ul>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Bar Review</a>
+                    <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Bar Review</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">MCLE</a>
+                    <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">MCLE</a>
                   </li>
                 </ul>
               </div>
@@ -218,31 +216,12 @@
                     <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Lawphil.net</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Library</a>
+                    <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Library</a>
                   </li>
-                  <li class="rounded-md relative px-3 py-2 transition duration-150 ease-in-out">
-                    <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                      <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Socials</span>
-                      <span class="mr-auto">
-                        <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>  
-                      </span>
-                    </button>
-                    <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-max mt-2">
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Office for Student Affairs Facebook Page</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">BarOps Facebook Page</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="https://www.facebook.com/profile.php?id=100063942916347" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Center for Legal Education and Research Facebook Page</a>
-                      </li>
-                    </ul>
+                  <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
+                    <a @click="$inertia.visit(route('socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Socials</a>
                   </li>
+                  
                 </ul>
               </div>
 

@@ -13,6 +13,29 @@
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
       <GoogleFacebook />
+      <RelatedWeb />
+
+      <div v-if="showCookiePopup" class="fixed bottom-0 right-0 mb-4 mr-4 w-64">
+        <div class="bg-white rounded-lg shadow-lg p-4">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center">
+              <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" class="h-6 w-6 mr-2">
+              <span class="text-gray-700 font-bold text-sm">Cookie Policy</span>
+            </div>
+            <button @click="closeCookiePopup" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <p class="text-gray-600 text-sm">
+            We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
+          </p>
+          <button @click="closeCookiePopup" class="mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded">
+            Accept
+          </button>
+        </div>
+      </div>
     </MainLayout>
   </div>
 </template>
@@ -29,9 +52,11 @@ import Post from '@/Pages/Main/Post/Post.vue';
 import Announcement from '@/Pages/Main/Announcement/Index.vue';
 import Gallery from './Gallery/Index.vue';
 import GoogleFacebook from './Contact/GoogleFacebook.vue';
+import RelatedWeb from './Partials/RelatedWeb.vue';
 // import Alumni from '@/Pages/Main/Alumni/Index.vue';
 
 const loading = ref(true);
+const showCookiePopup = ref(false);
 
 const screenWidth = ref(window.innerWidth);
 
@@ -53,7 +78,12 @@ const showAlert = () => {
     } else {
       console.log('Enrollment canceled');
     }
+    showCookiePopup.value = true; // Show the cookie popup after closing SweetAlert
   });
+};
+
+const closeCookiePopup = () => {
+  showCookiePopup.value = false;
 };
 
 // Define props here
@@ -89,3 +119,7 @@ onMounted(() => {
   }, 2000); // Adjust the time as needed
 });
 </script>
+
+<style scoped>
+/* Add any additional styles if necessary */
+</style>

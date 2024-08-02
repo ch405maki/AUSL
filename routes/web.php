@@ -31,6 +31,11 @@ Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('galle
 Route::get('students', [StudentController::class, 'show'])->name('students');
 Route::get('faculty', [FacultyController::class, 'show'])->name('faculty');
 
+// Empty State
+Route::get('/emptyState', function () {
+    return Inertia::render('Main/Partials/EmptyEstate');
+})->name('emptyState');
+
 // About
 Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
@@ -40,6 +45,11 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return Inertia::render('Main/Contact/Index');
 })->name('contact');
+
+// contact
+Route::get('/socials', function () {
+    return Inertia::render('Main/Contact/Social');
+})->name('socials');
 
 // Academics
 Route::prefix('academic')->name('academic.')->group(function () {

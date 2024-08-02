@@ -14,10 +14,16 @@
                         <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-slate-700 hover:text-slate-900" >onlinesupport@arellanolaw.edu</a>
                     </div>
                 </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div class="grid grid-cols-2 justify-items-center gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-purple-900 uppercase">Quick Links</h2>
+                    <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Quick Links</h2>
                     <ul class="text-slate-700">
+                        <li class="mb-4">
+                            <a @click="$inertia.visit(route('about'))" class="hover:underline cursor-pointer">About AUSL</a>
+                        </li>
+                        <li class="mb-4">
+                            <a @click="$inertia.visit(route('admissions.process'))" class="hover:underline cursor-pointer">Admission</a>
+                        </li>
                         <li class="mb-4">
                             <a href="#" class="hover:underline">News Archives</a>
                         </li>
@@ -30,24 +36,60 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-purple-900 uppercase">Follow us</h2>
+                    <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Follow us</h2>
                     <ul class="text-slate-700">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline ">Facebook</a>
+                        <li class="mb-4 flex items-center">
+                        <a href="https://www.facebook.com/AUSLchiefs" class="hover:underline hover:text-blue-600 flex items-center">
+                            <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
+                            <span>AUSL Facebook Page</span>
+                        </a>
                         </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">YouTube</a>
+                        <li class="mb-4 flex items-center">
+                        <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="hover:underline hover:text-blue-600 flex items-center">
+                            <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
+                            <span>OSA Facebook Page</span>
+                        </a>
+                        </li>
+                        <li class="mb-4 flex items-center">
+                        <a href="https://www.facebook.com/avausl" class="hover:underline hover:text-blue-600 flex items-center">
+                            <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
+                            <span>AV Facebook Page</span>
+                        </a>
+                        </li>
+                        <li class="mb-4 flex items-center">
+                        <a href="https://www.facebook.com/AUSLSG" class="hover:underline hover:text-blue-600 flex items-center">
+                            <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
+                            <span>Arellano Law Student Government</span>
+                        </a>
+                        </li>
+                        <li class="mb-4 flex items-center">
+                        <a href="https://www.youtube.com/@AUSLofficial" class="hover:underline hover:text-red-600 flex items-center">
+                            <i class="mdi mdi-youtube text-red-600 mr-2"></i>
+                            <span>YouTube</span>
+                        </a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-purple-900 uppercase">Legal</h2>
+                    <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Legal</h2>
                     <ul class="text-slate-700">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                        </li>
+                    </ul>
+                    <h2 class="mt-6 mb-4 text-sm font-semibold text-purple-900 uppercase">Downloads</h2>
+                    <ul class="text-slate-700">
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">For Students</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="#" class="hover:underline">For Faculty</a>
+                        </li>
+                        <li>
+                            <a href="/login" class="hover:underline">Login</a>
                         </li>
                     </ul>
                 </div>
