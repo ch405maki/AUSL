@@ -47,11 +47,9 @@ import { ref, onMounted } from 'vue';
 
 const cards = ref([
   { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
-  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
   { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
-  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
-  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' },
-  { title: 'Header Here', link: 'https://via.placeholder.com/300x200' }
+  { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
+  { title: 'Classroom assignment and online class bulletin', link: 'https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4' },
 ]);
 
 const swipeContainer = ref(null);
