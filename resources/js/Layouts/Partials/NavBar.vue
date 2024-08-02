@@ -66,10 +66,10 @@
                     </button>
                     <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
+                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
+                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
                         <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">List...</a>
@@ -92,10 +92,7 @@
                         <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Office of the Executive</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Registrar</a>
-                      </li>
-                      <li class="px-3 py-2 transition duration-150 ease-in-out">
-                        <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Admissions</a>
+                        <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Accounting</a>
                       </li>
                       <li class="px-3 py-2 transition duration-150 ease-in-out">
                         <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold">Deans</a>
