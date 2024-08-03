@@ -136,15 +136,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import { defineProps } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import Footer from '@/Layouts/Partials/Footer.vue';
 import Swal from 'sweetalert2';
-import { Inertia } from '@inertiajs/inertia';
-import BannerModal from './BannerModal.vue';
 
 // Initialize form state and success message
-const form = ref({
+const form = useForm({
   title: '',
   link: '',
   state: true,
@@ -154,33 +153,35 @@ const props = defineProps({
   banners: { type: Array, required: true },
 });
 
-const isModalVisible = ref(false)
-const selectedBannerId = ref(null)
-const selectedBannerTitle = ref('')
-const selectedBannerState = ref(true)
+const isModalVisible = ref(false);
+const selectedBannerId = ref(null);
+const selectedBannerTitle = ref('');
+const selectedBannerState = ref(true);
 
 const openModal = (id, title, state) => {
-  selectedBannerId.value = id
-  selectedBannerTitle.value = title
-  selectedBannerState.value = state
-  isModalVisible.value = true
-}
-
+  selectedBannerId.value = id;
+  selectedBannerTitle.value = title;
+  selectedBannerState.value = state;
+  isModalVisible.value = true;
+};
 
 const successMessage = ref('');
 
 // Function to create a new banner
 const createBanner = async () => {
   try {
-    const response = await Inertia.post('/banners', form.value);
-    if (response.props.redirect) {
-      // Redirect to the given URL
-      window.location.href = response.props.redirect;
-    }
-    if (response.props.message) {
-      // Set success message
-      successMessage.value = response.props.message;
-    }
+    await form.post('/banners', {
+      onSuccess: (page) => {
+        if (page.props.redirect) {
+          // Redirect to the given URL
+          window.location.href = page.props.redirect;
+        }
+        if (page.props.message) {
+          // Set success message
+          successMessage.value = page.props.message;
+        }
+      }
+    });
   } catch (error) {
     console.error('Failed to create banner:', error);
   }
@@ -189,24 +190,45 @@ const createBanner = async () => {
 // Function to update the banner state
 const updateBannerState = async (data) => {
   try {
-    await Inertia.post('/banners/update-state', {
-      id: data.id,
-      state: data.state
-    })
-
-    // Update the banner state locally
-    const banner = banners.value.find(b => b.id === data.id)
-    if (banner) {
-      banner.state = data.state
-    }
-
-    isModalVisible.value = false
+    await form.put('/banners/update-state', {
+      data: {
+        id: data.id,
+        state: data.state
+      },
+      onSuccess: () => {
+        // Update the banner state locally
+        const banner = props.banners.find(b => b.id === data.id);
+        if (banner) {
+          banner.state = data.state;
+        }
+        isModalVisible.value = false;
+      }
+    });
   } catch (error) {
-    console.error('Error updating banner state:', error)
+    console.error('Error updating banner state:', error);
   }
-}
+};
+
+const deleteBanner = (id) => {
+    const alerta = Swal.mixin({
+        buttonsStyling: true,
+    });
+
+    alerta.fire({
+        title: 'Are you sure delete ' + id + ' ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: '<i class="fa-solid fa-check"></i> Yes, delete',
+        cancelButtonText: '<i class="fa-solid fa-ban"></i> Cancel',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.delete(route('banners.destroy', id));
+        }
+    });
+};
 
 </script>
+
 
 
 <style scoped>

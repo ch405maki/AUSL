@@ -206,9 +206,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/banner', [SettingsController::class, 'bannerIndex'])->name('banner');
     Route::post('/banners', [SettingsController::class, 'storeBanner'])->name('banners.create');
     Route::post('/banners/update-state', [SettingsController::class, 'updateState'])->name('banners.updateState');
+    Route::delete('/banners/{id}', [SettingsController::class, 'bannerDestroy'])->name('banners.destroy');
+
     Route::get('/onload', [SettingsController::class, 'onloadbannerIndex'])->name('onload');
     Route::post('/onload-banners', [SettingsController::class, 'store'])->name('onload-banners.store');
     Route::put('/onload-banners/{id}', [SettingsController::class, 'updateOnloadState'])->name('onload-banner.update');
+    Route::delete('/onload-banners/{id}', [SettingsController::class, 'OnloadDestroy'])->name('onload-banners.destroy');
+
 });
 
 // End routes can be open with auth

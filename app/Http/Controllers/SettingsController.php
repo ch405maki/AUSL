@@ -38,6 +38,13 @@ class SettingsController extends Controller
         return redirect()->back()->with('success', 'Banner state updated successfully.');
     }
 
+    public function bannerDestroy ($id){
+        $banner= Banner::findOrFail($id);
+        $banner->delete();
+
+        return redirect()->route('banner');
+    }
+
     // Onload Banner Section
 
     public function onloadbannerIndex (){
@@ -75,6 +82,13 @@ class SettingsController extends Controller
         $banner->save();
 
         // Return a response or redirect
+        return redirect()->route('onload');
+    }
+
+    public function OnloadDestroy ($id){
+        $banner= OnLoadBanner::findOrFail($id);
+        $banner->delete();
+
         return redirect()->route('onload');
     }
     
