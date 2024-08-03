@@ -208,6 +208,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/banners/update-state', [SettingsController::class, 'updateState'])->name('banners.updateState');
     Route::get('/onload', [SettingsController::class, 'onloadbannerIndex'])->name('onload');
     Route::post('/onload-banners', [SettingsController::class, 'store'])->name('onload-banners.store');
+    Route::put('/onload-banners/{id}', [SettingsController::class, 'updateOnloadState'])->name('onload-banner.update');
 });
 
 // End routes can be open with auth

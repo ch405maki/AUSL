@@ -8,12 +8,14 @@ use App\Models\Post;
 use App\Models\Carousell;
 use App\Models\Alumni;
 use App\Models\Banner;
+use App\Models\OnLoadBanner;
 
 class MainController extends Controller
 {
     public function index()
     {
         $banners = Banner::where('state', true)->get();
+        $onLoadBanners = OnLoadBanner::where('state', true)->get();
         $carousells = Carousell::all();
         $posts = Post::all();
         // Only retrieve alumni with status true
@@ -24,6 +26,7 @@ class MainController extends Controller
             'carousells' => $carousells,
             'alumni' => $alumni,
             'banners' => $banners,
+            'onLoadBanners' => $onLoadBanners,
         ]);
     }
 

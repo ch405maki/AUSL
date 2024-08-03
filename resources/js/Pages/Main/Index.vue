@@ -65,18 +65,21 @@ const updateScreenSize = () => {
 };
 
 const showAlert = () => {
+  // Assuming you want to show an alert for the first banner in the list
+  const banner = props.onLoadBanners[0]; // Adjust as needed to select the appropriate banner
+
   Swal.fire({
-    title: 'Enrollment Going On!',
-    text: 'Would you like to enroll now?',
-    icon: 'info',
+    title: banner.title || 'Default Title',
+    text: banner.text || 'Default Text',
+    icon: banner.icon || 'info',
     showCancelButton: true,
-    confirmButtonText: 'Enroll Now',
-    cancelButtonText: 'Cancel'
+    confirmButtonText: banner.confirmButtonText || 'Confirm',
+    cancelButtonText: banner.cancelButtonText || 'Cancel'
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = 'https://aims.arellanolaw.edu/aims/applicants/';
+      window.location.href = banner.url || '';
     } else {
-      console.log('Enrollment canceled');
+      console.log('Action canceled');
     }
     showCookiePopup.value = true;
   });
@@ -101,6 +104,10 @@ const props = defineProps({
     required: true 
   },
   banners: { 
+    type: Array, 
+    required: true 
+  },
+  onLoadBanners: { 
     type: Array, 
     required: true 
   },

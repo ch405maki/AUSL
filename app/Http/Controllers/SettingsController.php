@@ -42,7 +42,9 @@ class SettingsController extends Controller
 
     public function onloadbannerIndex (){
 
-        return Inertia::render('Settings/OnLoadBanner/Index');
+        $onLoadBanners = OnLoadBanner::all();
+
+        return Inertia::render('Settings/OnLoadBanner/Index', ['onLoadBanners' => $onLoadBanners]);
 
     }
 
@@ -61,6 +63,19 @@ class SettingsController extends Controller
         OnLoadBanner::create($validated);
 
         return redirect()->route('onload')->with('success', 'Banner created successfully.');
+    }
+
+    // Method to update the banner
+    public function updateOnloadState(Request $request, $id)
+    {
+        $banner = OnLoadBanner::findOrFail($id);
+
+        // Toggle the state or update other details
+        $banner->state = !$banner->state;
+        $banner->save();
+
+        // Return a response or redirect
+        return redirect()->route('onload');
     }
     
 }

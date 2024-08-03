@@ -9,6 +9,8 @@ class OnLoadBanner extends Model
 {
     use HasFactory;
 
+    protected $table = 'onload_banners'; 
+
     protected $fillable = [
         'title',
         'text',
