@@ -216,7 +216,7 @@
                     <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Library</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a @click="$inertia.visit(route('socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Soc. Med</a>
+                    <a @click="$inertia.visit(route('socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Social Media</a>
                   </li>
                   
                 </ul>

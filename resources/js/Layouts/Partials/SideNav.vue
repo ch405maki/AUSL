@@ -24,7 +24,6 @@
         </NavLink>
       </div>
       
-
       <div class="my-4 bg-gray-600 h-[1px]"></div>
 
       <!-- Settings Dropdown -->
@@ -86,7 +85,6 @@ const links = [
   { name: 'Gallery', route: 'gallery', icon: 'mdi mdi-folder-multiple-image' },
   { name: 'Testimonial', route: 'alumni', icon: 'mdi mdi-account-group' },
   { name: 'Manage Users', route: 'users', icon: 'mdi mdi-account-cog' }
-  // add settings dropdown menu = Banner
 ];
 </script>
 

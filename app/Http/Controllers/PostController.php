@@ -21,24 +21,27 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string',
-        'content' => 'required|string',
-        'image' => 'nullable|image|mimes:jpg,png,gif|max:10240', // 10MB
-    ]);
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'content' => 'nullable|string', // Adjusted to nullable
+            'image' => 'nullable|image|mimes:jpg,png,gif|max:10240', // 10MB
+            'category' => 'required|string',
+            'state' => 'nullable|string',
+            'link' => 'nullable|url',
+        ]);
 
-    $data = $request->all();
+        $data = $request->all();
 
-    if ($request->hasFile('image')) {
-        $path = $request->file('image')->store('public/images');
-        $data['image'] = Storage::url($path);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('public/images');
+            $data['image'] = Storage::url($path);
+        }
+
+        $post = Post::create($data);
+
+        return redirect('posts');
     }
-
-    $post = Post::create($data);
-
-    return redirect('posts');
-}
 
 
     public function destroy($id)

@@ -9,10 +9,10 @@
       <Carousel :items="props.carousells" :banners="props.banners" />
       <Message />
       <Post :posts="posts" />
-      <Announcement />
+      <Announcement :announcement="announcement" />
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
-      <GoogleFacebook />
+      <!-- <GoogleFacebook /> -->
       <RelatedWeb />
 
       <div v-if="showCookiePopup" class="fixed bottom-0 right-0 mb-4 mr-4 w-64">
@@ -92,6 +92,10 @@ const closeCookiePopup = () => {
 // Define props here
 const props = defineProps({
   posts: {
+    type: Array,
+    required: true
+  },
+  announcement: {
     type: Array,
     required: true
   },

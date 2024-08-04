@@ -17,8 +17,8 @@ class MainController extends Controller
         $banners = Banner::where('state', true)->get();
         $onLoadBanners = OnLoadBanner::where('state', true)->get();
         $carousells = Carousell::all();
-        $posts = Post::all();
-        // Only retrieve alumni with status true
+        $posts = Post::where('category', 'News')->get();
+        $announcement = Post::where('category', 'Announcement')->get();
         $alumni = Alumni::where('status', true)->get();
 
         return Inertia::render('Main/Index', [
@@ -27,6 +27,7 @@ class MainController extends Controller
             'alumni' => $alumni,
             'banners' => $banners,
             'onLoadBanners' => $onLoadBanners,
+            '$announcement' => $announcement,
         ]);
     }
 

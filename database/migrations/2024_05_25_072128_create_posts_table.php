@@ -12,9 +12,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->string('image');
-            $table->timestamps(); // This adds the created_at and updated_at columns
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('category');
+            $table->string('state')->nullable();
+            $table->string('link')->nullable();
+            $table->timestamps();
         });
     }
 
