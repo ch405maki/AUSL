@@ -28,14 +28,16 @@ class SettingsController extends Controller
         return redirect()->route('banner')->with('success', 'Banner created successfully!');
     }
 
-    public function updateState(Request $request)
+    public function updateState(Request $request, $id)
     {
-        $banner = Banner::find($request->id);
-        if ($banner) {
-            $banner->state = $request->state;
-            $banner->save();
-        }
-        return redirect()->back()->with('success', 'Banner state updated successfully.');
+        $banner = Banner::findOrFail($id);
+
+        // Toggle the state or update other details
+        $banner->state = !$banner->state;
+        $banner->save();
+
+        // Return a response or redirect
+        return redirect()->route('banner')->with('success', 'Banner created successfully!');
     }
 
     public function bannerDestroy ($id){

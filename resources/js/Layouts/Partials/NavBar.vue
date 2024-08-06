@@ -10,12 +10,16 @@
             <!-- Logo -->
             <div class="shrink-0 flex items-center text-white">
               <Link :href="route('main')" class="flex items-center">
-                <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-2 transition-transform duration-300 transform hover:scale-105">
+                <img src="/images/auLogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-4 transition-transform duration-300 transform hover:scale-105">
               </Link>
               <div>
                 <div class="text-invicta uppercase font-bold text-2xl tracking-wide leading-tight">ARELLANO UNIVERSITY</div>
-                <div class="text-invicta uppercase font-bold text-2xl tracking-wide leading-tight">SCHOOL OF LAW</div>
+                <hr class="border-t-2 border-white">
+                <div class="text-invicta uppercase font-bold text-2xl tracking-wide leading-tight text-center">SCHOOL OF LAW</div>
               </div>
+              <Link :href="route('main')" class="flex items-center">
+                <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-16 ml-4 transition-transform duration-300 transform hover:scale-105">
+              </Link>
             </div>
           </div>
           <SearchBar />
@@ -237,13 +241,20 @@
           <!-- Hamburger Menu for Smaller Screens -->
           <div class="flex ml-0 lg:hidden container ml-2 mr-2 justify-between items-center h-16">
             <div class="shrink-0 flex items-center text-white">
+              <!-- <Link :href="route('main')" class="flex">
+                <img src="/images/aulogo.png" alt="Image Logo" class="max-w-full h-full max-h-10 mr-2">
+              </Link> -->
               <Link :href="route('main')" class="flex">
                 <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 mr-2">
               </Link>
-              <div class="mt-2">
-                <div class="text-invicta uppercase font-bold tracking-wide mb-[-6px]">ARELLANO UNIVERSITY</div>
+              <div class="">
+                <div class="text-invicta uppercase font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
+                <hr class="border-t-1 border-white">
                 <div class="text-invicta uppercase font-bold tracking-wide">SCHOOL OF LAW</div>
               </div>
+              <!-- <Link :href="route('main')" class="flex">
+                <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 ml-2">
+              </Link> -->
             </div>
 
             <!-- Hamburger Menu Button -->
@@ -468,11 +479,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@import url('https://db.onlinewebfonts.com/c/14ab77252fbc4bdca1dbdf8051cb7e96?family=BF+Invicta+W00+Bold');
+@import url('https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond');
+
+.text-invicta {
+  font-family: 'Garamond', serif;
+}
+/* @import url('https://db.onlinewebfonts.com/c/14ab77252fbc4bdca1dbdf8051cb7e96?family=BF+Invicta+W00+Bold');
 
 .text-invicta {
   font-family: 'BF Invicta W00 Bold', sans-serif;
-}
+} */
 
 /* Add smooth transition for the navButtons */
 nav {

@@ -31,18 +31,6 @@
                             <a href="#" class="hover:underline">Campus Map</a>
                         </li>
                     </ul>
-                    <h2 class="mt-8 mb-4 text-sm font-semibold text-purple-900 uppercase">Archives</h2>
-                    <ul class="text-slate-700">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">2023 News</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">2022 News</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">2021 News</a>
-                        </li>
-                    </ul>
                 </div>
                 <div>
                     <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Follow us</h2>

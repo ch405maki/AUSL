@@ -200,7 +200,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/banner', [SettingsController::class, 'bannerIndex'])->name('banner');
     Route::post('/banners', [SettingsController::class, 'storeBanner'])->name('banners.create');
-    Route::post('/banners/update-state', [SettingsController::class, 'updateState'])->name('banners.updateState');
+    Route::put('/banners/update-state/{id}', [SettingsController::class, 'updateState'])->name('banners.updateState');
     Route::delete('/banners/{id}', [SettingsController::class, 'bannerDestroy'])->name('banners.destroy');
 
     Route::get('/onload', [SettingsController::class, 'onloadbannerIndex'])->name('onload');
