@@ -25,7 +25,7 @@ Route::get('/', function () {
 // Start routes can be open without auth
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
-Route::get('/announcement/show', [MainController::class, 'showAnnouncement'])->name('announcement.show');
+Route::get('/announcement/show/{id}', [MainController::class, 'showAnnouncement'])->name('announcement.show');
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');
 Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('gallery.browse');
 Route::get('students', [StudentController::class, 'show'])->name('students');

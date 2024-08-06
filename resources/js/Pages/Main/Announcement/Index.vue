@@ -23,17 +23,13 @@
             <div class="bg-white border-1 border border-gray-200 overflow-hidden mb-4 flex flex-col h-full">
               <iframe height="200" scrolling="no" :src="announcement.link + 'preview'" width="100%"></iframe>
               <div class="p-4 flex flex-col flex-grow">
-                <h3 @click="$inertia.visit(route('announcement.show', { id: announcement.id }))"
-                  class="text-lg leading-6 font-bold text-gray-900 hover:underline hover:text-purple-900 cursor-pointer">
-                  {{ announcement.title }}
-                </h3>
+                <a :href="`/announcement/show/${announcement.id}`" class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer">{{ announcement.title }}</a>
                 <p class="text-gray-600 mt-2 text-lg">{{ formattedDate(announcement.created_at) }}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div class="flex justify-center mt-8">
         <span v-for="(announcement, index) in announcements" :key="index" class="mx-1">
           <span :class="currentPage === index ? 'bg-gray-800' : 'bg-gray-400'" class="block w-3 h-3 rounded-full"></span>
@@ -93,6 +89,7 @@ const updateCurrentPage = () => {
 const formattedDate = (date) => {
   return new Date(date).toLocaleDateString();
 };
+
 
 onMounted(() => {
   swipeContainer.value.addEventListener('mousedown', handleMouseDown);

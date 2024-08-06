@@ -9,22 +9,22 @@
                 <!-- Main content section -->
                 <div class="w-full md:w-2/2 p-2">
                   <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
-                    Classroom assignment and online class bulletin
+                    {{post.title}}
                   </h1>
                   <hr class="mb-4 border-1 border-purple-900">
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
                     <ol class="list-reset flex">
                       <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">Date Here</span></li>
+                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">{{ formattedDate(post.created_at) }}</span></li>
                     </ol>
                   </nav>
                   <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
-                      <p>Description Here</p>
+                    <p v-html="post.content"></p>
                   </div>
                   <div class="relative mb-8 flex justify-center items-center bg-slate-100">
                     <div class="container">
-                        <iframe frameborder="0" height="800" scrolling="no" src="https://drive.google.com/file/d/1bSY25KUL7EiubSlXS1IMuLEz_XYIP4b4/preview" width="100%"></iframe>
+                        <iframe frameborder="0" height="800" scrolling="no" :src="post.link + 'preview'" width="100%"></iframe>
                     </div>
                   </div>
 
@@ -32,7 +32,7 @@
                   <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
                     <ol class="list-reset flex">
                       <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ Classroom assignment and online class bulletin</span></li>
+                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ {{post.title}}</span></li>
                     </ol>
                   </nav>
                   
@@ -41,8 +41,6 @@
                 <!-- End News and Announcement Section -->
                 </div>
                 <!-- End main content section -->
-                
-                
                 <!-- Links, Events & Seminars --> 
                 <div class="w-full md:w-1/3 p-2 flex justify-start">
                   <div class="text-left">
