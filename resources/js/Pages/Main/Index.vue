@@ -9,7 +9,7 @@
       <Carousel :items="props.carousells" :banners="props.banners" />
       <Message />
       <Post :posts="posts" />
-      <Announcement :announcement="announcement" />
+      <Announcement :announcements="announcements" />
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
       <!-- <GoogleFacebook /> -->
@@ -95,7 +95,7 @@ const props = defineProps({
     type: Array,
     required: true
   },
-  announcement: {
+  announcements: {
     type: Array,
     required: true
   },

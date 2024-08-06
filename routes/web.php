@@ -133,11 +133,6 @@ Route::get('/acadCalendar', function () {
     return Inertia::render('Main/AcadCalendar/Index');
 })->name('acadCalendar');
 
-Route::get('/alumni', function () {
-    return Inertia::render('Alumni/Index');
-})->name('alumni');
-
-
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
 
