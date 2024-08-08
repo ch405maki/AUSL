@@ -79,6 +79,7 @@ const toggleDropdown = () => {
 
 const links = [
   { name: 'Dashboard', route: 'dashboard', icon: 'mdi mdi-view-dashboard' },
+  { name: 'Preview', route: 'main', icon: 'mdi mdi-view-dashboard' },
   { name: 'Announcement', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Posts', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Carousell', route: 'carousell', icon: 'mdi mdi-image' },

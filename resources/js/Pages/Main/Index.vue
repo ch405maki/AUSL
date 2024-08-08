@@ -74,7 +74,7 @@ const showAlert = () => {
     icon: banner.icon || 'info',
     showCancelButton: true,
     confirmButtonText: banner.confirmButtonText || 'Confirm',
-    cancelButtonText: banner.cancelButtonText || 'Cancel'
+    cancelButtonText: banner.cancelButtonText || 'Cancel',
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href = banner.url || '';

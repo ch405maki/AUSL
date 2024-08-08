@@ -1,39 +1,21 @@
 <template>
-  <v-carousel
-    :height="carouselHeight"
-    show-arrows="hover"
-    cycle
-    hide-delimiter-background
-  >
-    <v-carousel-item
-      v-for="(item, i) in items"
-      :key="i"
-      class="relative"
-    >
-    <img 
-        :src="item.image" 
-        class="carousel-image w-[2833px] sm:h-[310px] md:h[340px] lg:h-[400px] xl:h[] h-[210px] object-fit" 
-        alt="Carousel Image"
-      />
-    </v-carousel-item>
-    <div class="absolute inset-0 flex items-center justify-end p-4">
-      <button>
-        <div v-for="(banner, index) in banners" :key="index">
-          <a
-            :href="banner.link"
-            class="enroll-link font-sans text-purple-900 hover:text-purple-950 pr-16 py-2 rounded relative hidden sm:block"
-          >
-            {{ banner.title }}
-            <span class="absolute inset-0 z-10" aria-hidden="true"></span>
-          </a>
-        </div>
-      </button>
+  <div ref="fotoramaContainer" 
+      class="fotorama" 
+      data-transition="crossfade"
+      data-fit="cover"
+      data-width="100%" 
+      data-ratio="1152/323" 
+      data-nav="false"  
+      data-autoplay="7000">
+    <div v-for="(item, i) in items" :key="i" class="carousel-item">
+      <img :src="item.image" class="carousel-image object-fit" alt="Carousel Image" />
     </div>
-  </v-carousel>
+    <div class="fotorama-indicators"></div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
 const props = defineProps({
   items: {
@@ -46,31 +28,67 @@ const props = defineProps({
   }
 });
 
-const carouselHeight = ref('400px');
+const fotoramaContainer = ref(null);
 
-const updateCarouselHeight = () => {
-  if (window.innerWidth <= 768) {
-    carouselHeight.value = '200px';
-  } else if (window.innerWidth <= 1024) {
-    carouselHeight.value = '300px';
-  } else {
-    carouselHeight.value = '400px';
-  }
+const initializeFotorama = () => {
+  const $fotorama = $(fotoramaContainer.value).fotorama();
+  const fotorama = $fotorama.data('fotorama');
+
+  // Log items and check for blank slides
+  console.log('Items:', props.items);
+
+  // Create indicators
+  const indicatorsContainer = $(fotoramaContainer.value).find('.fotorama-indicators');
+  props.items.forEach((_, index) => {
+    const indicator = $('<div class="indicator"></div>');
+    indicatorsContainer.append(indicator);
+  });
+
+  // Update indicator on slide change
+  fotorama.on('fotorama:showend', (e, fotorama) => {
+    indicatorsContainer.find('.indicator').removeClass('active');
+    indicatorsContainer.find('.indicator').eq(fotorama.activeIndex).addClass('active');
+  });
 };
 
 onMounted(() => {
-  updateCarouselHeight();
-  window.addEventListener('resize', updateCarouselHeight);
+  nextTick(() => {
+    initializeFotorama();
+  });
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateCarouselHeight);
+  if ($(fotoramaContainer.value).data('fotorama')) {
+    $(fotoramaContainer.value).data('fotorama').destroy();
+  }
 });
 </script>
 
 <style scoped>
-.v-carousel-item {
+.carousel-item {
   position: relative;
   overflow: hidden;
+}
+
+.fotorama-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.fotorama-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+.fotorama-indicators .indicator.active {
+  background-color: #000;
 }
 </style>
