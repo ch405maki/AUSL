@@ -182,8 +182,8 @@ const prevStep = () => {
 };
 
 const links = ref([
-  { text: 'Student ID Application', url: '/idApplication' },
-  { text: 'AUSL Academic Calendar', url: 'acadCalendar' },
+  { text: 'Student ID Application', url: '/admissions/id' },
+  { text: 'AUSL Academic Calendar', url: '/events/academic' },
   { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
   { text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
   { text: 'Guideline/Payment Procedure', url: '/office/accounting' }

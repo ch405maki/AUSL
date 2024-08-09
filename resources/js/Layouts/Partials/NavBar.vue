@@ -220,14 +220,14 @@
                     <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Library</a>
                   </li>
                   <li class="rounded-md px-3 py-2 transition duration-150 ease-in-out">
-                    <a @click="$inertia.visit(route('socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Social Media</a>
+                    <a @click="$inertia.visit(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-semibold cursor-pointer">Social Media</a>
                   </li>
                   
                 </ul>
               </div>
 
               <div class="group inline-block relative">
-                <button @click="$inertia.visit(route('contact'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
+                <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-3 py-2 text-white rounded-md flex items-center min-w-32">
                   <span class="pr-1 font-semibold flex-1 text-invicta tracking-wide hover:text-gray-300 uppercase">
                     Contact Us
                   </span>

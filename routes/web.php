@@ -42,14 +42,15 @@ Route::get('/about', function () {
 })->name('about');
 
 // contact
-Route::get('/contact', function () {
-    return Inertia::render('Main/Contact/Index');
-})->name('contact');
+Route::prefix('contact')->name('contact.')->group(function () {
+        Route::get('/', function () {
+            return Inertia::render('Main/Contact/Index');
+        })->name('index');
 
-// contact
-Route::get('/socials', function () {
-    return Inertia::render('Main/Contact/Social');
-})->name('socials');
+        Route::get('/socials', function () {
+            return Inertia::render('Main/Contact/Social');
+        })->name('socials');
+    });
 
 // Academics
 Route::prefix('academic')->name('academic.')->group(function () {
@@ -71,12 +72,19 @@ Route::prefix('admissions')->name('admissions.')->group(function () {
     Route::get('/process', function () {
         return Inertia::render('Main/Admission/EnrollmentGuide/Index');
     })->name('process');
+
     Route::get('/requirements', function () {
         return Inertia::render('Main/Admission/Requirements/Index');
     })->name('requirements');
+
     Route::get('/application-forms', function () {
         return Inertia::render('Main/Admission/ApplicationForm/Index');
     })->name('application-forms');
+
+    Route::get('/id', function () {
+        return Inertia::render('Main/Admission/Id/Index');
+    })->name('id');
+    
 });
 
 // Events Calendar
@@ -124,14 +132,6 @@ Route::prefix('office')->group(function () {
         return Inertia::render('Main/Office/Dean/Index');
     })->name('office.deans');
 });
-
-Route::get('/idApplication', function () {
-    return Inertia::render('Main/IdApplication/Index');
-})->name('idApplication');
-
-Route::get('/acadCalendar', function () {
-    return Inertia::render('Main/AcadCalendar/Index');
-})->name('acadCalendar');
 
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//

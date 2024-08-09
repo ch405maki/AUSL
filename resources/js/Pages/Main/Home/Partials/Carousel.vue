@@ -43,12 +43,6 @@ const initializeFotorama = () => {
     const indicator = $('<div class="indicator"></div>');
     indicatorsContainer.append(indicator);
   });
-
-  // Update indicator on slide change
-  fotorama.on('fotorama:showend', (e, fotorama) => {
-    indicatorsContainer.find('.indicator').removeClass('active');
-    indicatorsContainer.find('.indicator').eq(fotorama.activeIndex).addClass('active');
-  });
 };
 
 onMounted(() => {

@@ -21,7 +21,7 @@ class MainController extends Controller
         $announcements = Post::where('category', 'Announcement')->get();
         $alumni = Alumni::where('status', true)->get();
 
-        return Inertia::render('Main/Index', [
+        return Inertia::render('Main/Home/Index', [
             'posts' => $posts,
             'carousells' => $carousells,
             'alumni' => $alumni,
@@ -35,7 +35,7 @@ class MainController extends Controller
     {
         $post = Post::findOrFail($id);
         $allPost = Post::all();
-        return Inertia::render('Main/Post/Show', [
+        return Inertia::render('Main/Home/Post/Show', [
             'post' => $post,
             'allPost' => $allPost
         ]);
@@ -45,7 +45,7 @@ class MainController extends Controller
     {
         $post = Post::findOrFail($id);
         $allPost = Post::all();
-        return Inertia::render('Main/Announcement/Show', [
+        return Inertia::render('Main/Home/Announcement/Show', [
             'post' => $post,
             'allPost' => $allPost
         ]);
