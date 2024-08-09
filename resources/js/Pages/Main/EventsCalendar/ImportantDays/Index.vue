@@ -20,5 +20,4 @@
     import { Inertia } from '@inertiajs/inertia';
     import MainLayout from '@/Layouts/MainLayout.vue';
     import EmptyEstate from '@/Pages/Main/Partials/EmptyState.vue'
-
 </script>

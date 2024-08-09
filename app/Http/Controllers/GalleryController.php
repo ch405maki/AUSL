@@ -54,13 +54,13 @@ class GalleryController extends Controller
     public function browse()
     {
         $galleries = Gallery::all();
-        return Inertia::render('Main/Gallery/Gallery', ['galleries' => $galleries]);
+        return Inertia::render('Main/Home/Gallery/Gallery', ['galleries' => $galleries]);
     }
 
     public function browseShow($id)
     {
         $gallery = Gallery::findOrFail($id);
-        return Inertia::render('Main/Gallery/Show', ['gallery' => $gallery]);
+        return Inertia::render('Main/Home/Gallery/Show', ['gallery' => $gallery]);
     }
 
     public function update(Request $request, Gallery $gallery)
