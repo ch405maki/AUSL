@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import Footer from '@/Layouts/Partials/Footer.vue';
-import NavBar from '@/Layouts/Partials/NavBar.vue';
+import NavBar from '@/Layouts/Partials/NavBar/Index.vue';
 
 // Function to load Crisp chat script
 const loadCrispChat = () => {
