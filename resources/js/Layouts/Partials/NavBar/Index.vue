@@ -34,163 +34,27 @@
           <div class="flex justify-between h-12 items-center">
             <div class="flex items-center">
               <div class="hidden lg:flex sm:items-center mt-1">
-                <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-center min-w-24">
-                  <span class="font-normal flex-1 garamond tracking-wide hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
+                <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-left min-w-24">
+                  <span class="font-normal flex-1 garamond hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
                 </button>
                 
                 <div class="group inline-block relative">
-                  <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-wide hover:text-gray-300 uppercase">
+                  <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-left min-w-24">
+                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">
                       About Us
                     </span>
                   </button>
                 </div>
-  
-                <div class="group inline-block relative">
-                  <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-wide uppercase">Administration</span>
-                    <span>
-                      <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </span>
-                  </button>
-                  <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                    <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
-                      <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                        <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Academics</span>
-                        <span class="mr-auto">
-                          <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                          </svg>
-                        </span>
-                      </button>
-                      <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a href="/office/registrar" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Registrar</a>
-                        </li>
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a href="/office/admission" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Admissions</a>
-                        </li>
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">List...</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
-                      <button class="w-full text-left flex items-center outline-none focus:outline-none">
-                        <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Non Academics</span>
-                        <span class="mr-auto">
-                          <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                          </svg>
-                        </span>
-                      </button>
-                      <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Office of the Executive</a>
-                        </li>
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Accounting</a>
-                        </li>
-                        <li class="px-2 py-2 transition duration-150 ease-in-out">
-                          <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Deans</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-  
+                
+                <Administration />
                 <Academics />
-  
+                <Admission />
+                <Events />
+                <Student />
+                
                 <div class="group inline-block relative">
-                  <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-wide uppercase">Admissions</span>
-                    <span>
-                      <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>;
-                      </svg>
-                    </span>
-                  </button>
-                  <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('admissions.process'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Admission Process</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('admissions.requirements'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Requirements</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('admissions.application-forms'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Application Forms</a>
-                    </li>
-                  </ul>
-                </div>
-  
-                <div class="group inline-block relative">
-                  <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-wide uppercase">Events Calendar</span>
-                    <span>
-                      <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </span>
-                  </button>
-                  <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('events.academic'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Calendar</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('events.upcomming'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Upcoming Events</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('events.holidays'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Holidays</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('events.important'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Important Dates</a>
-                    </li>
-                  </ul>
-                </div>
-  
-                <div class="group inline-block relative">
-                  <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-widest uppercase">Student Resources</span>
-                    <span>
-                      <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </span>
-                  </button>
-                  <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">AIMS Portal</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
-                    </li>
-                    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                      <a @click="$inertia.visit(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media</a>
-                    </li>
-                    
-                  </ul>
-                </div>
-  
-                <div class="group inline-block relative">
-                  <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-                    <span class="pr-1 font-normal flex-1 garamond tracking-wide hover:text-gray-300 uppercase">
+                  <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">
                       Contact Us
                     </span>
                   </button>
@@ -281,6 +145,10 @@
   import { usePage } from '@inertiajs/vue3';
   import SearchBar from './Partials/SearchBar.vue';
   import Academics from './Partials/Buttons/Academic.vue' 
+  import Administration from './Partials/Buttons/Administration.vue'
+  import Admission from './Partials/Buttons/Admission.vue'
+  import Events from './Partials/Buttons/Events.vue'
+  import Student from './Partials/Buttons/Student.vue'
   
   const { props: { ziggy } } = usePage();
   const route = window.route;
@@ -523,6 +391,4 @@
       .group:hover .group-hover\:-rotate-180 { transform: rotate(180deg) }
       .scale-0 { transform: scale(0) }
       .min-w-32 { min-width: 8rem }
-  
-  
   </style>
