@@ -41,6 +41,13 @@ Route::get('/about', function () {
     return Inertia::render('Main/About/Index');
 })->name('about');
 
+// Administration
+Route::prefix('administration')->name('administration.')->group(function () {
+    Route::get('/alf', function () {
+        return Inertia::render('Main/Administration/Alf/Index');
+    })->name('alf');
+});
+
 // contact
 Route::prefix('contact')->name('contact.')->group(function () {
         Route::get('/', function () {

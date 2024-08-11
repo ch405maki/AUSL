@@ -15,11 +15,10 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 export default {
   setup() {
-    // Array of card objects with different images
     const cards = ref([
       { image: '/images/002.jpg' },
       { image: '/images/004.jpg' },
@@ -31,6 +30,7 @@ export default {
     const activeIndex = ref(0);
     const prevIndex = ref(cards.value.length - 1);
     const nextIndex = ref(1);
+    const autoPlayInterval = ref(null);
 
     const updateIndices = (index) => {
       activeIndex.value = index;
@@ -40,10 +40,32 @@ export default {
 
     const handleClick = (index) => {
       updateIndices(index);
+      resetAutoPlay(); // Reset auto-play timer on manual click
+    };
+
+    const startAutoPlay = () => {
+      autoPlayInterval.value = setInterval(() => {
+        const next = (activeIndex.value + 1) % cards.value.length;
+        updateIndices(next);
+      }, 3000); // Adjust the interval as needed (3000ms = 3 seconds)
+    };
+
+    const resetAutoPlay = () => {
+      if (autoPlayInterval.value) {
+        clearInterval(autoPlayInterval.value);
+      }
+      startAutoPlay();
     };
 
     onMounted(() => {
       updateIndices(Math.floor(cards.value.length / 2));
+      startAutoPlay(); // Start auto-play when component is mounted
+    });
+
+    onBeforeUnmount(() => {
+      if (autoPlayInterval.value) {
+        clearInterval(autoPlayInterval.value); // Clean up the interval on component unmount
+      }
     });
 
     return {
@@ -52,6 +74,7 @@ export default {
       prevIndex,
       nextIndex,
       handleClick,
+      startAutoPlay,
     };
   },
 };

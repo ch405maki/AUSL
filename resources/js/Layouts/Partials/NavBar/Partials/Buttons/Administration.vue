@@ -12,13 +12,13 @@
     </button>
     <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Arellano Law Foundation</a>
+        <a @click="$inertia.visit(route('administration.alf'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Arellano Law Foundation</a>
     </li>
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
         <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Board of Trustees</a>
     </li>
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">ALF Administration and Staff</a>
+        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Administration and Staff</a>
     </li>
     <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
         <button class="w-full text-left flex items-center outline-none focus:outline-none">

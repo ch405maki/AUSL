@@ -16,7 +16,7 @@ class MainController extends Controller
     {
         $banners = Banner::where('state', true)->get();
         $onLoadBanners = OnLoadBanner::where('state', true)->get();
-        $carousells = Carousell::all();
+        $carousells = Carousell::orderBy('created_at', 'desc')->get(); 
         $posts = Post::where('category', 'News')->get();
         $announcements = Post::where('category', 'Announcement')->get();
         $alumni = Alumni::where('status', true)->get();

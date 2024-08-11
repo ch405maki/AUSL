@@ -55,7 +55,7 @@
             <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bar Review</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">MCLE</a>
+            <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer hover:underline">MCLE</a>
         </li>
         </ul>
     </div>

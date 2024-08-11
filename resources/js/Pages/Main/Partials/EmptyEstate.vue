@@ -7,6 +7,8 @@
         text="The content you are looking for is not available yet."
         image="/images/ausllogo2.png"
         >
+        <!-- text-md font-normal text-gray-500 lg:text-lg -->
+        <!-- text-lg font-normal text-gray-500 lg:text-xl -->
         </v-empty-state>
     </MainLayout>
 </template>
