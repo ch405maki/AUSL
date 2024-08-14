@@ -3,7 +3,7 @@
     <div class="text-center text-white py-6">
       <div class="max-w-7xl mx-auto flex flex-col items-center px-5">
         <h1 class="font-bold text-2xl mb-4">What's in the News</h1>
-        <p class="font-medium text-lg mb-6">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
+        <p class="font-medium text-lg mb-10">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
         <div
           ref="scrollContainer"
           class="w-full overflow-x-auto scrollbar-hide"

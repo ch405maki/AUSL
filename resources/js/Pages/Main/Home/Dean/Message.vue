@@ -1,12 +1,14 @@
 <template>
     <section class="relative bg-purple-200 bg-blend-multiply">
       <div class="absolute inset-10 bg-center sm:bg-right bg-no-repeat bg-[url('/images/student/alflogo.png')] opacity-10 sm:opacity-30 bg-contain"></div>
-      <div class="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 sm:py-6 pb-4 reveal-text">
-        <h1 class="py-4 text-2xl font-extrabold tracking-tight leading-none text-slate-700 md:text-2xl lg:text-2xl">
+      <div class="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-6 sm:py-6 pb-4 reveal-text">
+        <h1 class="mb-4 font-extrabold tracking-tight leading-none text-slate-700 text-xl md:text-2xl lg:text-2xl">
           Welcome to Arellano Law Community
         </h1>
-        <p class="mb-8 text-left text-lg font-medium text-slate-800">
-          Arellano University School of Law (AUSL) is one of the premier law schools in the Philippines. Established in 1938, AUSL has a long-standing tradition of excellence in legal education. The school is named after Cayetano Arellano, the first Chief Justice of the Supreme Court of the Philippines. AUSL is known for its rigorous academic programs, distinguished faculty, and a strong commitment to producing competent and ethical lawyers. The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
+        <p class="mb-2 text-left font-medium text-md lg:text-lg text-slate-600">
+          Arellano University School of Law (AUSL) is one of the premier law schools in the Philippines. Established in 1938, AUSL has a long-standing tradition of excellence in legal education. The school is named after Cayetano Arellano, the first Chief Justice of the Supreme Court of the Philippines. AUSL is known for its rigorous academic programs, distinguished faculty, and a strong commitment to producing competent and ethical lawyers.
+          <br>
+          The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
         </p>
       </div>
     </section>
@@ -16,17 +18,17 @@
       <div class="flex flex-col md:flex-row justify-center bg-white rounded-lg p-1 reveal-text">
         <!-- Dean's information section -->
         <div class="w-full md:w-1/3 p-4 text-center order-1 md:order-1">
-          <img src="images/deans/deannavarro.jpg" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-full">
+          <img src="images/deans/deannavarro.jpg" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-xl"> 
           <b class="block text-lg text-slate-900">Atty. Domingo M. Navarro</b>
           <i class="block text-slate-600">Dean</i>
         </div>
         <!-- Main content section -->
         <div class="w-full md:w-2/3 p-4 order-2 md:order-2 text-slate-700">
-          <p class="text-justify mb-4 font-extrabold text-2xl md:text-2xl lg:text-2xl">Welcome to the Arellano University School of Law website!</p>
-          <p class="text-justify mb-4 font-medium text-lg">
+          <p class="text-justify mb-4 font-extrabold text-xl md:text-2xl lg:text-2xl">Welcome to the Arellano University School of Law website!</p>
+          <p class="mb-4 font-medium text-md lg:text-lg text-slate-600">
             The school administration has always striven to make you, our students, feel that you belong to a community, the Arellano Law Community, and this website is one way for you to know more about your law school. Here you'll find information on the academic programs and different offices of the AUSL, a gallery of school events, as well as helpful tabs that will lead you to Lawphil, one of the most searched online sources of legal information, the school's publications, and links to websites such as those of the senate and House of Representatives which may prove useful to students and legal researchers.
           </p>
-          <p class="text-justify font-medium text-lg" v-if="showMore">
+          <p class="font-medium text-md lg:text-lg text-slate-600" v-if="showMore">
             Beyond learning more about the law school and updating you with school events, the resources available here can only be as relevant as the way you make use of them. Coupled with traditional values of studying hard and judicious time management, these resources will help make your study of the law convenient and even let you save on resources.
           </p>
           <a href="#" @click.prevent="toggleShowMore" class="text-purple-900 hover:underline mb-4">

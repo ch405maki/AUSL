@@ -2,7 +2,7 @@
   <div class="text-center text-white bg-purple-100 py-6">
     <div class="max-w-7xl text-center text-white mx-auto py-4 px-4">
       <h1 class="font-bold text-gray-800 text-2xl mb-2">Announcements and Advisories</h1>
-      <p class="font-medium text-gray-800 text-lg mb-8">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
+      <p class="font-medium text-gray-800 text-lg mb-10">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
 
       <div
         ref="swipeContainer"
