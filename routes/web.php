@@ -46,6 +46,14 @@ Route::prefix('administration')->name('administration.')->group(function () {
     Route::get('/alf', function () {
         return Inertia::render('Main/Administration/Alf/Index');
     })->name('alf');
+
+    Route::get('/board_trustees', function(){
+        return Inertia::render('Main/Administration/Board/Index');
+    })->name('board_trustees');
+
+    Route::get('/admin_staff', function(){
+        return Inertia::render('Main/Administration/AdminStaff/Index');
+    })->name('admin_staff');
 });
 
 // contact
@@ -109,6 +117,13 @@ Route::prefix('events')->name('events.')->group(function () {
         return Inertia::render('Main/EventsCalendar/ImportantDays/Index');
     })->name('important');
     
+});
+
+// Students Resources
+Route::prefix('student')->name('student.')->group(function () {
+    Route::get('/oath', function () {
+        return Inertia::render('Main/Student/LawyerOath/Index');
+    })->name('oath');
 });
 
 

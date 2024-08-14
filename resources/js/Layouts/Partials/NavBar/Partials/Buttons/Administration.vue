@@ -15,10 +15,10 @@
         <a @click="$inertia.visit(route('administration.alf'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Arellano Law Foundation</a>
     </li>
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Board of Trustees</a>
+        <a @click="$inertia.visit(route('administration.board_trustees'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Board of Trustees</a>
     </li>
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Administration and Staff</a>
+        <a @click="$inertia.visit(route('administration.admin_staff'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Administration Officers</a>
     </li>
     <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
         <button class="w-full text-left flex items-center outline-none focus:outline-none">
@@ -53,113 +53,113 @@
 </div>
 </template>
 
-    <script setup>
-        import { ref, onMounted } from 'vue';
-        import { usePage } from '@inertiajs/vue3';
+<script setup>
+    import { ref, onMounted } from 'vue';
+    import { usePage } from '@inertiajs/vue3';
 
-        const { props: { ziggy } } = usePage();
-        const route = window.route;
+    const { props: { ziggy } } = usePage();
+    const route = window.route;
 
-        const mainContentClass = ref('');
+    const mainContentClass = ref('');
 
-        const updateMainContentClass = () => {
-        const width = window.innerWidth;
-        mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
-        };
+    const updateMainContentClass = () => {
+    const width = window.innerWidth;
+    mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
+    };
 
-        onMounted(() => {
-        updateMainContentClass();
-        window.addEventListener('resize', updateMainContentClass);
-        });
-    </script>
-    
-    <style scoped>
-    @import url('https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond');
+    onMounted(() => {
+    updateMainContentClass();
+    window.addEventListener('resize', updateMainContentClass);
+    });
+</script>
 
-    .garamond {
-    font-family: 'Garamond', serif;
-    }
+<style scoped>
+@import url('https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond');
 
-    .nav-btn {
-    font-size: 0.875rem;
-    color: white;
-    transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    box-shadow: none !important;
-    opacity: 1 !important;
-    padding: 0.5rem 0.75rem;
-    margin-right: 0.25rem;
-    }
+.garamond {
+font-family: 'Garamond', serif;
+}
 
-    .nav-btn:hover {
-    color: #e2e8f0;
-    box-shadow: none !important;
-    opacity: 1 !important;
-    }
+.nav-btn {
+font-size: 0.875rem;
+color: white;
+transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+box-shadow: none !important;
+opacity: 1 !important;
+padding: 0.5rem 0.75rem;
+margin-right: 0.25rem;
+}
 
-    .active-tab {
-    color: whitesmoke;
-    border-bottom: 2px solid whitesmoke;
-    border-radius: 0;
-    }
+.nav-btn:hover {
+color: #e2e8f0;
+box-shadow: none !important;
+opacity: 1 !important;
+}
 
-    .main-content {
-    transition: padding-top 0.2s ease-in-out;
-    padding-top: 8rem;
-    }
+.active-tab {
+color: whitesmoke;
+border-bottom: 2px solid whitesmoke;
+border-radius: 0;
+}
 
-    .main-content-mobile {
-    padding-top: 3rem;
-    }
+.main-content {
+transition: padding-top 0.2s ease-in-out;
+padding-top: 8rem;
+}
 
-    @media (max-width: 1024px) {
-    .nav-btn {
-        font-size: 0.75rem;
-        padding: 0.375rem 0.5rem;
-        margin-right: 0.125rem;
-    }
-    }
+.main-content-mobile {
+padding-top: 3rem;
+}
 
-    @media (max-width: 768px) {
-    .nav-btn {
-        font-size: 0.625rem;
-        padding: 0.25rem 0.375rem;
-        margin-right: 0.0625rem;
-    }
-    }
+@media (max-width: 1024px) {
+.nav-btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+    margin-right: 0.125rem;
+}
+}
 
-    .second-nav {
-    top: 0 !important;
-    }
+@media (max-width: 768px) {
+.nav-btn {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.375rem;
+    margin-right: 0.0625rem;
+}
+}
 
-    li>ul {
-    transform: translatex(100%) scale(0);
-    }
+.second-nav {
+top: 0 !important;
+}
 
-    li:hover>ul {
-    transform: translatex(101%) scale(1);
-    }
+li>ul {
+transform: translatex(100%) scale(0);
+}
 
-    li>button svg {
-    transform: rotate(-90deg);
-    }
+li:hover>ul {
+transform: translatex(101%) scale(1);
+}
 
-    li:hover>button svg {
-    transform: rotate(-270deg);
-    }
+li>button svg {
+transform: rotate(-90deg);
+}
 
-    .group:hover .group-hover\:scale-100 {
-    transform: scale(1);
-    }
+li:hover>button svg {
+transform: rotate(-270deg);
+}
 
-    .group:hover .group-hover\:-rotate-180 {
-    transform: rotate(180deg);
-    }
+.group:hover .group-hover\:scale-100 {
+transform: scale(1);
+}
 
-    .scale-0 {
-    transform: scale(0);
-    }
+.group:hover .group-hover\:-rotate-180 {
+transform: rotate(180deg);
+}
 
-    .min-w-32 {
-    min-width: 8rem;
-    }
-    </style>
+.scale-0 {
+transform: scale(0);
+}
+
+.min-w-32 {
+min-width: 8rem;
+}
+</style>

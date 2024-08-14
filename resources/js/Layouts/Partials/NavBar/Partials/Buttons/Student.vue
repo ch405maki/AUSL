@@ -12,6 +12,9 @@
         </button>
         <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+            <a href="/student/oath" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawyer's Oath</a>
+        </li>
+        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">AIMS Portal</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">

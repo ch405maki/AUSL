@@ -15,41 +15,16 @@
                   <!-- Social Media Links -->
                   <h2 class="mb-4 text-slate-700 text-lg font-medium text-gray-600 hover:text-slate-900">Follow us</h2>
                   <ul class="text-slate-700">
-                    <li class="mb-4 flex items-center">
-                      <a href="https://www.facebook.com/AUSLchiefs" class="hover:underline hover:text-blue-600 flex items-center">
-                        <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
-                        <span>AUSL Facebook Page</span>
-                      </a>
-                    </li>
-                    <li class="mb-4 flex items-center">
-                      <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" class="hover:underline hover:text-blue-600 flex items-center">
-                        <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
-                        <span>OSA Facebook Page</span>
-                      </a>
-                    </li>
-                    <li class="mb-4 flex items-center">
-                      <a href="https://www.facebook.com/avausl" class="hover:underline hover:text-blue-600 flex items-center">
-                        <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
-                        <span>Audio Visual Facebook Page</span>
-                      </a>
-                    </li>
-                    <li class="mb-4 flex items-center">
-                      <a href="https://www.facebook.com/AUSLSG" class="hover:underline hover:text-blue-600 flex items-center">
-                        <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
-                        <span>Arellano Law Student Government</span>
-                      </a>
-                    </li>
-                    <li class="mb-4 flex items-center">
-                      <a href="https://www.youtube.com/@AUSLofficial" class="hover:underline hover:text-red-600 flex items-center">
-                        <i class="mdi mdi-youtube text-red-600 mr-2"></i>
-                        <span>AUSL YouTube Channel</span>
+                    <li v-for="link in socialMediaLinks" :key="link.name" class="mb-4 flex items-center">
+                      <a :href="link.url" :class="link.hoverClass" class="hover:underline flex items-center">
+                        <i :class="link.iconClass + ' mr-2'"></i>
+                        <span>{{ link.name }}</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </div>
               
-  
               <!-- Step 2 -->
               <div v-show="step === 2">
                 <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
@@ -258,6 +233,111 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('resize', checkIfMobile);
 });
+
+const socialMediaLinks = [
+  {
+    name: "AUSL Facebook Page",
+    url: "https://www.facebook.com/AUSLchiefs",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "OSA Facebook Page",
+    url: "https://www.facebook.com/AUSLOfficeofStudentAffairs",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Audio Visual Facebook Page",
+    url: "https://www.facebook.com/avausl",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Student Government",
+    url: "https://www.facebook.com/AUSLSG",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Singers",
+    url: "https://www.facebook.com/arellanolawsingers",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Hotel Ops and Marshall",
+    url: "https://www.facebook.com/arellanolawHOM",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Forensic Guild",
+    url: "https://www.facebook.com/alfgpage",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Gazette",
+    url: "https://www.facebook.com/GazetteAUSL",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Commission On Election",
+    url: "https://www.facebook.com/arellanolawcomelec",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Chiefs Environmental Society",
+    url: "https://www.facebook.com/ausl.aces",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Tactical Society",
+    url: "https://www.facebook.com/profile.php?id=61562394412215",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Bar Operations",
+    url: "https://facebook.com/auslbaroperations",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Athletics Society",
+    url: "https://www.facebook.com/AUSLchiefs22",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Golf Club",
+    url: "https://www.facebook.com/profile.php?id=61559868311215",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law PEERS",
+    url: "https://www.facebook.com/AUSLPeers",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "Arellano Law Academic Society",
+    url: "https://www.facebook.com/alas.arellanolaw",
+    iconClass: "mdi mdi-facebook text-blue-600",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
+    name: "AUSL YouTube Channel",
+    url: "https://www.youtube.com/@AUSLofficial",
+    iconClass: "mdi mdi-youtube text-red-600",
+    hoverClass: "hover:text-red-600"
+  }
+];
 
 </script>
 
