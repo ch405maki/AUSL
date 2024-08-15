@@ -20,7 +20,10 @@
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
         <a @click="$inertia.visit(route('administration.admin_staff'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Administration Officers</a>
     </li>
-    <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
+    <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+        <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Departments</a>
+    </li>
+    <!-- <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
         <button class="w-full text-left flex items-center outline-none focus:outline-none">
         <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Departments</span>
         <span class="mr-auto">
@@ -41,14 +44,14 @@
         <li class="px-2 py-2 transition duration-150 ease-in-out">
             <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Offices 3</a>
         </li>
-        <!-- <li class="px-2 py-2 transition duration-150 ease-in-out">
+        <li class="px-2 py-2 transition duration-150 ease-in-out">
             <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Accounting</a>
         </li>
         <li class="px-2 py-2 transition duration-150 ease-in-out">
             <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Deans</a>
-        </li> -->
+        </li> 
         </ul>
-    </li>
+    </li>-->
     </ul>
 </div>
 </template>

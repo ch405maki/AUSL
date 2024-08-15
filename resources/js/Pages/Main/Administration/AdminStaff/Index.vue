@@ -2,28 +2,41 @@
     <MainLayout>
         <Head title="Administration Officers" />
           <main class="flex-grow">
-            <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+            <div class="max-w-7xl mx-auto px-4 py-2 lg:py-8">
               <div class="flex flex-col md:flex-row justify-between gap-8">
                 <!-- Main content section -->
                 <section class="w-full md:w-3/4 relative">
-                  <!-- Step 1 -->
-                  <div class="flex items-center">
-                    <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105">
-                    <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-3xl text-pretty text-start ml-2">
-                        Administration Officers
-                    </h2>
-                    <div class="text-slate-600 leading-relaxed mb-8 ml-2">
-                    </div>
-                    
+                <div class="flex items-center">
+                  <!-- Image Logo -->
+                  <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105 hidden sm:block">
+                  
+                  <!-- Title -->
+                  <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-3xl text-pretty text-start ml-2">
+                    Officers of the Administration
+                  </h2>
+                  <div class="text-slate-600 leading-relaxed mb-8 ml-2">
                   </div>
-                  <div class="flex items-center mt-8 ml-2">
-                        <div class="shrink-0 flex items-center text-slate-700">
-                        <div>
-                            <div class="uppercase font-bold text-lg tracking-wide leading-tight ml-20">Executive Director: <span class="capitalize italic ml-4">Atty. Jallorina, Mark Simon</span></div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
+                </div>
+                
+                <!-- Executive Director Info -->
+
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-6 mb-8">
+                <tbody>
+                  <tr
+                    v-for="(item, index) in roles"
+                    :key="index"
+                    :class="index % 2 === 0 ? 'bg-violet-50' : 'bg-white'"
+                  >
+                    <td class="px-6 py-2 text-lg font-normal text-gray-600">
+                      <span v-html="item.role"></span>
+                    </td>
+                    <td class="px-6 py-2 text-lg font-medium text-gray-600">
+                      {{ item.name }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </section>
     
                 <aside class="w-full md:w-1/4 sticky top-0">
                 <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
@@ -64,13 +77,36 @@
       console.log(`Current step set to: ${newStep}`); // Debugging log
     };
     
-    
-    
     const links = ref([
       { text: 'Board of Trustees', url: '#' },
       { text: 'Administration and Staff', url: '#' },
       { text: 'Departments', url: '#' }, 
     ]);
+
+    const roles = [
+    { role: 'Executive Director', name: 'Atty. Gabriel P. Dela Peña' },
+    { role: 'Dean', name: 'Domingo M. Navarro' },
+    { role: 'Assistant Dean, Director for Admission', name: 'Atty. Erik C. Lazo' },
+    { role: 'Registrar', name: 'Atty. Roland A. Niedo' },
+    { role: 'Assistant Registrar', name: 'Aileen P. Junio' },
+    { role: 'Director, Human Resources/Record', name: 'Baby Amy R. Montealegre' },
+    { role: 'Executive Assistant', name: 'Jocelyn L. Doctor' },
+    { role: 'Dean for Student Affairs', name: 'Lorina L. Pascasio' },
+    { role: 'Director, Institute for Special Studies', name: 'Atty. Michael Vernon C. Guerrero' },
+    { role: 'Adviser & Apprenticeship Program Facilitator <br> Legal Aid Office/Data Privacy Officer', name: 'Atty. Maureen Kay E. Patajo' },
+    { role: 'Comptroller', name: 'Atty. Agnes B. Santos' },
+    { role: 'Director, General Services', name: 'Pedro S. Cayco' },
+    { role: 'Director for Finance', name: 'Jasmin P. Horlina' },
+    { role: 'Director, Center for Legal Education and Research', name: 'Atty. Roderick M. Villostas' },
+    { role: 'Director, Information Technology Center', name: 'Cristina D. Revilla' },
+    { role: 'Director, Alumni Affairs', name: 'Atty. Arnaldo M. Espinas' },
+    { role: 'Director, Medical Services', name: 'Atty. Judy Anne Y. Yulo, MD.' },
+    { role: 'Director, Guidance Office', name: 'Arnulfo V. Lopez' },
+    { role: 'Chief Librarian', name: 'Edna L. Pareño' },
+    { role: 'Director, The Lawphil Project', name: 'Philipp S. Bautista' },
+    { role: 'Department Head, Audio Visual', name: 'Erickson R. Ocampo' },
+    { role: 'Purchasing Officer', name: 'Eduardo C. Villavicencio' }
+  ];
     
     const isMobile = reactive({ value: window.innerWidth <= 768 });
     

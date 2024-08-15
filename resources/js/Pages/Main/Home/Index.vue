@@ -12,7 +12,7 @@
       <Announcement :announcements="announcements" />
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
-      <!-- <GoogleFacebook /> -->
+      <GoogleFacebook />
       <RelatedWeb />
 
       <div v-if="showCookiePopup" class="fixed bottom-0 right-0 mb-4 mr-4 w-64">
@@ -51,7 +51,7 @@ import LoadingAnimation from '@/Pages/Main/Home/Partials/LoadingAnimation.vue';
 import Post from '@/Pages/Main/Home/Post/Index.vue';
 import Announcement from '@/Pages/Main/Home/Announcement/Index.vue';
 import Gallery from '@/Pages/Main/Home/Gallery/Index.vue';
-import GoogleFacebook from '@/Pages/Main/Contact/Prtials/GoogleFacebook.vue';
+import GoogleFacebook from '@/Pages/Main/Contact/Partials/GoogleFacebook.vue';
 import RelatedWeb from '@/Pages/Main/Home/Partials/RelatedWeb.vue';
 // import Alumni from '@/Pages/Main/Alumni/Index.vue';
 
