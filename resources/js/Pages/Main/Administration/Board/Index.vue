@@ -6,7 +6,6 @@
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
-              <!-- Step 1 -->
               <div>
                 <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-2">
                   Board of Trustees

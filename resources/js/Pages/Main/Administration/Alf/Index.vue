@@ -36,16 +36,8 @@
                 <div class="ml-4">
                 <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
                 <hr class="mb-4 border-1 border-purple-800">
+                    <h3 class="text-lg font-normal text-gray-800 mb-8">Arellano law Foundation Inc.</h3>
                 </div>
-                <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">
-                <!-- Step 1 -->
-                <li class="mb-10 ms-6 cursor-pointer transition-colors duration-300 hover:text-slate-900" :class="step === 1 && 'text-slate-900'" @click="setStep(1)">
-                    <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-white', step === 1 ? 'bg-green-200 text-green-500' : 'bg-gray-100 text-gray-500']">
-                    <v-icon>mdi-city</v-icon>
-                    </span>
-                    <h3 class="text-lg font-normal text-gray-600 hover:text-slate-900">Arellano law Foundation Inc.</h3>
-                </li>
-                </ol>
                 <div class="ml-4">
                 <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
