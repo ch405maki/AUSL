@@ -8,31 +8,30 @@
                 <section class="w-full md:w-3/4 relative">
                 <div class="flex items-center">
                   <!-- Image Logo -->
-                  <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105 hidden sm:block">
+                  <!-- <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105 hidden sm:block"> -->
                   
                   <!-- Title -->
                   <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-3xl text-pretty text-start ml-2">
                     Officers of the Administration
                   </h2>
-                  <div class="text-slate-600 leading-relaxed mb-8 ml-2">
-                  </div>
                 </div>
                 
                 <!-- Executive Director Info -->
 
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-6 mb-8">
+                <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4 ml-2 mb-8">
                 <tbody>
                   <tr
                     v-for="(item, index) in roles"
                     :key="index"
-                    :class="index % 2 === 0 ? 'bg-violet-50' : 'bg-white'"
+                    :class="index % 2 === 0 ? 'bg-purple-200' : 'bg-white' "
                   >
-                    <td class="px-6 py-2 text-lg font-normal text-gray-600">
-                      <span v-html="item.role"></span>
-                    </td>
                     <td class="px-6 py-2 text-lg font-medium text-gray-600">
                       {{ item.name }}
                     </td>
+                    <td class="px-6 py-2 text-lg font-normal text-gray-600 text-purple-900 italic">
+                      <span v-html="item.role"></span>
+                    </td>
+                    
                   </tr>
                 </tbody>
               </table>
@@ -105,7 +104,7 @@
     { role: 'Chief Librarian', name: 'Edna L. Pareño' },
     { role: 'Director, The Lawphil Project', name: 'Philipp S. Bautista' },
     { role: 'Department Head, Audio Visual', name: 'Erickson R. Ocampo' },
-    { role: 'Purchasing Officer', name: 'Eduardo C. Villavicencio' }
+    { role: 'Purchasing Officer', name: 'Eduardo C. Villavicencio' },
   ];
     
     const isMobile = reactive({ value: window.innerWidth <= 768 });

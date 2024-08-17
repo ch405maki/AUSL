@@ -1,72 +1,137 @@
 <template>
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
-    </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/600x360">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+  <MainLayout>
+    <Head title="Departments" />
+    <main class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+        <div class="flex flex-col md:flex-row justify-between gap-8">
+          <!-- Main content section -->
+          <section class="w-full md:w-4/5 relative">
+            <!-- Step 1 -->
+            <div v-show="step === 1">
+              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-2">
+                AUSL Departments
+              </h2>
+                <div class="bg-white border-none rounded-lg  mb-6 relative">
+                  <div class="bg-white border-none rounded-lg mb-6 relative">
+                  <div class="flex flex-row sm:flex-row items-center justify-between mb-6">
+                  <blockquote class="text-xl italic font-semibold text-gray-900 dark:text-white">
+                      <svg class="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                          <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
+                      </svg>
+
+                  </blockquote>
+                  </div>
+                </div>
+                </div>
+            </div>
+          </section>
+
+          <aside class="w-full md:w-1/5 sticky top-0">
+          <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
+              <div class="ml-4">
+              <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
+              <hr class="mb-4 border-1 border-purple-800">
+                  <h3 class="text-lg font-normal text-gray-800 mb-8">Arellano law Foundation Inc.</h3>
+              </div>
+              <div class="ml-4">
+              <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
+              <hr class="mb-4 border-1 border-purple-800">
+              <ul class="list-inside list-disc">
+                  <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
+                  <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
+                  </li>
+              </ul>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/601x361">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The Catalyzer</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/603x363">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The 400 Blows</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/602x362">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Neptune</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/605x365">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Holden Caulfield</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
-        <div class="flex relative">
-          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://dummyimage.com/606x366">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Alper Kamu</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-          </div>
-        </div>
+          </aside>
+
       </div>
     </div>
-  </div>
-</section>
+  </main>
+</MainLayout>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import { reactive, onMounted, onBeforeUnmount } from 'vue';
+import { Head } from '@inertiajs/vue3';
+import MainLayout from '@/Layouts/MainLayout.vue';
+
+// Create a ref for the current step
+const step = ref(1); // Initially set to Step 1
+
+// Function to set the current step
+const setStep = (newStep) => {
+step.value = newStep;
+console.log(`Current step set to: ${newStep}`); // Debugging log
+};
+
+
+
+const links = ref([
+{ text: 'Arellano Law Foundation Inc.', url: '#' },
+{ text: 'Board of Trustees', url: '#' },
+{ text: 'Administration and Staff', url: '#' },
+{ text: 'Departments', url: '#' }, 
+]);
+
+const isMobile = reactive({ value: window.innerWidth <= 768 });
+
+const checkIfMobile = () => {
+isMobile.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+window.addEventListener('resize', checkIfMobile);
+});
+
+onBeforeUnmount(() => {
+window.removeEventListener('resize', checkIfMobile);
+});
+</script>
+
+<style scoped>
+.container {
+max-width: 1200px;
+}
+
+.sticky {
+position: sticky;
+top: 0;
+}
+
+.overflow-y-auto {
+overflow-y: auto;
+}
+
+.h-screen {
+height: 100vh;
+}
+
+.fixed {
+position: fixed;
+}
+
+.bottom-4 {
+bottom: 1rem;
+}
+
+.right-4 {
+right: 1rem;
+}
+
+.flex {
+display: flex;
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+--tw-space-x-reverse: 0;
+margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.v-btn {
+margin-top: 16px;
+margin-right: 8px;
+}
+</style>

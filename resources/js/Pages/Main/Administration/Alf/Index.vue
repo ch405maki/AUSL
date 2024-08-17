@@ -8,7 +8,7 @@
             <section class="w-full md:w-3/4 relative">
               <!-- Step 1 -->
               <div v-show="step === 1">
-                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-2">
                   Arellano law Foundation Inc.
                 </h2>
                   <div class="bg-white border-none rounded-lg  mb-6 relative">
