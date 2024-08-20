@@ -21,7 +21,7 @@
         <a @click="$inertia.visit(route('administration.admin_staff'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Administration Officers</a>
     </li>
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-        <a @click="$inertia.visit(route('administration.departments'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Departments</a>
+        <a href="/administration/departments" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Departments</a>
     </li>
     <!-- <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
         <button class="w-full text-left flex items-center outline-none focus:outline-none">

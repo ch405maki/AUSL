@@ -7,7 +7,7 @@
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <div class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start p-2 border-l-4 border-purple-900">
+                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-2xl text-pretty text-start p-2">
                   Curriculum
                 </h1>
                 <div class="p-5 mb-8 text-center bg-white">

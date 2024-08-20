@@ -7,8 +7,8 @@
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
               <!-- Step 1 -->
-              <div v-show="step === 1">
-                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-2">
+              <div v-show="step === 1" class="ml-2">
+                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
                   Arellano law Foundation Inc.
                 </h2>
                   <div class="bg-white border-none rounded-lg  mb-6 relative">
@@ -71,13 +71,12 @@ const setStep = (newStep) => {
   console.log(`Current step set to: ${newStep}`); // Debugging log
 };
 
-
-
 const links = ref([
-  { text: 'Board of Trustees', url: '#' },
-  { text: 'Administration and Staff', url: '#' },
-  { text: 'Departments', url: '#' }, 
-]);
+      { text: 'Arellano Law Foundation', url: '/administration/alf' },
+      { text: 'Board of Trustees', url: '/administration/board_trustees' },
+      { text: 'Addministration Officers', url: '/administration/admin_staff' },
+      { text: 'Departments', url: '/administration/departments' }, 
+    ]);
 
 const isMobile = reactive({ value: window.innerWidth <= 768 });
 

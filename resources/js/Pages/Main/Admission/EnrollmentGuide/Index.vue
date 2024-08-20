@@ -6,7 +6,7 @@
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-4 border-l-4 border-purple-900">
+              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-2">
                 Online Enrollment Process
               </h2>
               <!-- Step 1 -->

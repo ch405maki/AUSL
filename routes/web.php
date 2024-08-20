@@ -58,6 +58,10 @@ Route::prefix('administration')->name('administration.')->group(function () {
     Route::get('/departments', function(){
         return Inertia::render('Main/Administration/Departments/Index');
     })->name('departments');
+
+    Route::get('/departments/itc', function(){
+        return Inertia::render('Main/Administration/Departments/Offices/Itc/Index');
+    })->name('departments.itc');
 });
 
 // contact

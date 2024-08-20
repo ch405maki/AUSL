@@ -7,19 +7,15 @@
                 <!-- Main content section -->
                 <section class="w-full md:w-3/4 relative">
                 <div>
-                    <div class="flex items-center">
-                    <!-- Image Logo -->
-                    <!-- <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105 hidden sm:block"> -->
-                    
-                    <!-- Title -->
-                    <h2 class="text-purple-900 font-bold my-8 text-2xl sm:text-2xl text-pretty text-start ml-2">
-                        Board of Trustees
-                    </h2>
+                    <div class="flex items-center  ml-2">
+                        <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+                            Board of Trustees
+                        </h2>
                     </div>
                     <div class="text-slate-600 leading-relaxed mb-8">
-                        <div v-for="(member, index) in boardMembers" :key="index" class="flex flex-col sm:flex-row items-center">
+                        <div v-for="(member, index) in boardMembers" :key="index" class="flex flex-col sm:flex-row items-center mb-8">
                         <!-- Image -->
-                        <div class="flex-shrink-0 sm:mb-0 sm:mr-2 sm:mb-4">
+                        <div class="flex-shrink-0 sm:mb-0 sm:mr-6 mb-2">
                             <Link class="flex items-center">
                             <img :src="member.image" :alt="member.alt"
                                 class="max-w-full h-full max-h-28 transition-transform duration-300 transform hover:scale-105">
@@ -28,7 +24,7 @@
                         <!-- Text -->
                         <div>
                             <div class="uppercase font-bold text-xl tracking-wide leading-tight">{{ member.name }}</div>
-                            <div class="font-normal text-gray-600 italic text-slate-700 text-lg hover:text-slate-900 custom-text-align">
+                            <div class="font-normal text-gray-600 italic text-slate-700 text-lg hover:text-slate-900 custom-text-align hover:text-blue-900 cursor-pointer">
                                 {{ member.position }}
                             </div>
                         </div>
@@ -66,9 +62,6 @@
     import { reactive, onMounted, onBeforeUnmount } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
-
-    // Create a ref for the current step
-    const step = ref(1); // Initially set to Step 1
 
     // Dynamic data for board members
     const boardMembers = ref([
@@ -178,9 +171,10 @@
     );
 
     const links = ref([
-    { text: 'Board of Trustees', url: '#' },
-    { text: 'Administration and Staff', url: '#' },
-    { text: 'Departments', url: '#' }, 
+      { text: 'Arellano Law Foundation', url: '/administration/alf' },
+      { text: 'Board of Trustees', url: '/administration/board_trustees' },
+      { text: 'Addministration Officers', url: '/administration/admin_staff' },
+      { text: 'Departments', url: '/administration/departments' }, 
     ]);
 
     const isMobile = reactive({ value: window.innerWidth <= 768 });
@@ -196,7 +190,6 @@
     onBeforeUnmount(() => {
     window.removeEventListener('resize', checkIfMobile);
     });
-
     </script>
 
     <style scoped>
@@ -244,15 +237,14 @@
     margin-right: 8px;
     }
 
-    /* Custom media query to ensure text alignment for different screen sizes */
-@media (max-width: 639px) { /* Mobile screens */
-  .custom-text-align {
-    text-align: center;
-  }
-}
-@media (min-width: 640px) { /* Screens larger than 'sm' */
-  .custom-text-align {
-    text-align: left;
-  }
-}
+    @media (max-width: 639px) { /* Mobile screens */
+        .custom-text-align {
+            text-align: center;
+        }
+    }
+    @media (min-width: 640px) { /* Screens larger than 'sm' */
+    .custom-text-align {
+        text-align: left;
+    }
+    }
     </style>

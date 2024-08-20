@@ -7,13 +7,13 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <section class="w-full md:w-2/2 p-2">
+                <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-4">
+                  Academic Calendar
+                </h1>
                 <!-- Step 1 -->
                 <div v-show="step === 1">
-                  <div class="bg-white border-none mb-6 relative p-5">
-                    <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start p-2 border-l-4 border-purple-900">
-                      Academic Calendar
-                    </h1>
-                    <div class="p-5 mb-8 text-center bg-white">
+                  <div class="mb-8 relative px-2">
+                    <div class="mb-8 text-center">
                       <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
                       <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Regular Program</p>
                       <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Amended Academic Year 2024-2025</p>
@@ -239,11 +239,8 @@
     
                 <!-- Step 2 -->
                 <div v-show="step === 2">
-                  <div class="bg-white border-none mb-6 relative p-6">
-                    <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start p-2 border-l-4 border-purple-900">
-                      Academic Calendar
-                    </h1>
-                    <div class="p-5 mb-8 text-center bg-white">
+                  <div class="mb-8 relative px-2">
+                    <div class="mb-8 text-center">
                       <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
                       <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Regular Program</p>
                       <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Amended Academic Year 2023-2024</p>
@@ -469,11 +466,8 @@
                 
                 <!-- Step 3 -->
                 <div v-show="step === 3">
-                  <div class="bg-white border-none mb-6 relative p-6">
-                    <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start p-2 border-l-4 border-purple-900">
-                      Academic Calendar
-                    </h1>
-                    <div class="p-5 mb-8 text-center bg-white">
+                  <div class="mb-8 relative px-2">
+                    <div class="mb-8 text-center">
                       <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
                       <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Holidays</p>
                       <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Amended Academic Year 2023-2024</p>
@@ -566,9 +560,9 @@
             </div>
   
             <!-- asside -->
-            <aside class="w-full md:w-1/3 sticky top-0 p-6 sm:mt-12">
+            <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12">
               <div class="ml-2">
-                <h2 class="text-purple-900 text-lg font-medium mb-4">On this page</h2>
+                <h2 class="mb-2 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
                 <hr class="mb-4 border-1 border-purple-800">
               </div>
               <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">

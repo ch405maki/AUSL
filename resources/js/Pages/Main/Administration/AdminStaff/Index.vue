@@ -2,33 +2,29 @@
     <MainLayout>
         <Head title="Administration Officers" />
           <main class="flex-grow">
-            <div class="max-w-7xl mx-auto px-4 py-2 lg:py-8">
+            <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
               <div class="flex flex-col md:flex-row justify-between gap-8">
                 <!-- Main content section -->
                 <section class="w-full md:w-3/4 relative">
-                <div class="flex items-center">
-                  <!-- Image Logo -->
-                  <!-- <img src="/images/alflogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-6 transition-transform duration-300 transform hover:scale-105 hidden sm:block"> -->
-                  
-                  <!-- Title -->
-                  <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-3xl text-pretty text-start ml-2">
+                <div class="flex items-center ml-2">
+                  <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
                     Officers of the Administration
                   </h2>
                 </div>
                 
                 <!-- Executive Director Info -->
 
-                <table class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4 ml-2 mb-8">
+                <table class="w-full text-sm sm:text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400 ml-2 mb-8">
                 <tbody>
                   <tr
                     v-for="(item, index) in roles"
                     :key="index"
-                    :class="index % 2 === 0 ? 'bg-purple-200' : 'bg-white' "
+                    class="border-b"
                   >
-                    <td class="px-6 py-2 text-lg font-medium text-gray-600">
+                    <td class="py-2 font-medium text-gray-600">
                       {{ item.name }}
                     </td>
-                    <td class="px-6 py-2 text-lg font-normal text-gray-600 text-purple-900 italic">
+                    <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
                       <span v-html="item.role"></span>
                     </td>
                     
@@ -38,18 +34,18 @@
               </section>
     
                 <aside class="w-full md:w-1/4 sticky top-0">
-                <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
+                <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12 text-sm sm:text-lg">
                     <div class="ml-4">
-                        <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
+                        <h2 class="mb-4 leading-6 font-medium text-purple-900 capitalize">On this page</h2>
                         <hr class="mb-4 border-1 border-purple-800">
-                        <h3 class="text-lg font-normal text-gray-800 mb-8">Administration Officers</h3>
+                        <h3 class="font-normal text-gray-800 mb-8">Administration Officers</h3>
                     </div>
                     <div class="ml-4">
-                        <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                        <h2 class="text-purple-900 font-medium mb-4">Related Links</h2>
                         <hr class="mb-4 border-1 border-purple-800">
                         <ul class="list-inside list-disc">
                             <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                            <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
+                            <a :href="item.url" class="font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
                             </li>
                         </ul>
                     </div>
@@ -77,9 +73,10 @@
     };
     
     const links = ref([
-      { text: 'Board of Trustees', url: '#' },
-      { text: 'Administration and Staff', url: '#' },
-      { text: 'Departments', url: '#' }, 
+      { text: 'Arellano Law Foundation', url: '/administration/alf' },
+      { text: 'Board of Trustees', url: '/administration/board_trustees' },
+      { text: 'Addministration Officers', url: '/administration/admin_staff' },
+      { text: 'Departments', url: '/administration/departments' }, 
     ]);
 
     const roles = [
