@@ -14,7 +14,7 @@
                   <div class="bg-white border-none rounded-lg  mb-6 relative">
                     <div class="bg-white border-none rounded-lg mb-6 relative">
                     <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
-                      <h2 class="text-xl sm:text-2xl text-left text-gray-700 font-bold mb-4 sm:mb-0">Contact Information</h2>
+                      <h2 class="text-lg sm:text-xl text-left text-gray-700 font-bold mb-4 sm:mb-0">Contact Information</h2>
                       <div class="relative sm:ml-auto">
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative">
@@ -79,7 +79,7 @@
                   School Location
                 </h2>
                 <div class="bg-white border-none rounded-lg mb-6 relative">
-                  <h2 class="text-xl sm:text-2xl font-bold text-gray-700 mb-8">Address</h2>
+                  <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Address</h2>
                   <div class="text-slate-600 leading-relaxed mb-8">
                     <div class="flex items-center">
                     <div class="shrink-0 flex items-center text-slate-700">
@@ -95,11 +95,11 @@
                     </div>
                   </div>
                   </div>
-                  <h2 class="text-xl sm:text-2xl font-bold text-gray-700 mb-8">Campus Map</h2>
+                  <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Campus Map</h2>
                   <div class="text-slate-600 leading-relaxed mb-8">
                     <img src="/images/contact/campus.jpg" alt="Step 2 Image" class="mb-8 font-medium mx-auto rounded-lg" />
                   </div>
-                  <h2 class="text-xl sm:text-2xl font-bold text-gray-700 mb-8">Google Map</h2>
+                  <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Google Map</h2>
                   <div class="text-slate-600 leading-relaxed mb-4">
                     <!-- start google|facebook area -->
                     <div class="row px-2 py-2 mb-6">
@@ -123,15 +123,38 @@
                 </h2>
                 <div class="bg-white border-none rounded-lg relative">
                   <!-- Social Media Links -->
-                  <h2 class="text-slate-700 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">Follow us</h2>
-                  <ul class="text-slate-700 px-4">
-                    <li v-for="link in socialMediaLinks" :key="link.name" class="mb-4 flex items-center">
-                      <a :href="link.url" :class="link.hoverClass" class="hover:underline flex items-center">
-                        <i :class="link.iconClass + ' mr-2'"></i>
-                        <span>{{ link.name }}</span>
-                      </a>
-                    </li>
-                  </ul>
+                  <h2 class="text-slate-700 font-bold my-8 text-lg sm:text-xl text-pretty text-start">Follow us</h2>
+                  <ul class="text-slate-700">
+                  <li
+                    v-for="link in socialMediaLinks"
+                    :key="link.name"
+                    class="mb-4 flex items-center"
+                  >
+                    <a
+                      :href="link.url"
+                      :class="link.hoverClass"
+                      class="
+                          text-slate-700
+                          text-lg font-normal
+                          text-gray-600 
+                          hover:text-slate-900 
+                          hover:underline cursor-pointer 
+                          flex items-center 
+                          transition-transform 
+                          duration-300 
+                          ease-in-out 
+                          transform 
+                          hover:scale-110"
+                        >
+                      <img
+                        :src="link.logo"
+                        alt=""
+                        class="w-10 h-10 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-110"
+                      />
+                      <span>{{ link.name }}</span>
+                    </a>
+                  </li>
+                </ul>
                 </div>
               </div>
             </section>
@@ -179,7 +202,6 @@
                 </div>
             </div>
             </aside>
-
         </div>
       </div>
     </main>
@@ -235,103 +257,103 @@ const socialMediaLinks = [
   {
     name: "AUSL Facebook Page",
     url: "https://www.facebook.com/AUSLchiefs",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/AUSL.png",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "OSA Facebook Page",
     url: "https://www.facebook.com/AUSLOfficeofStudentAffairs",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/OSA.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Audio Visual Facebook Page",
     url: "https://www.facebook.com/avausl",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/AUSL.png",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Student Government",
     url: "https://www.facebook.com/AUSLSG",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALSG.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Singers",
     url: "https://www.facebook.com/arellanolawsingers",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Hotel Ops and Marshall",
     url: "https://www.facebook.com/arellanolawHOM",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/HOM.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Forensic Guild",
     url: "https://www.facebook.com/alfgpage",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/AFG.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Gazette",
     url: "https://www.facebook.com/GazetteAUSL",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/GAZETTE.png",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Commission On Election",
     url: "https://www.facebook.com/arellanolawcomelec",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALC.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Chiefs Environmental Society",
     url: "https://www.facebook.com/ausl.aces",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ACES.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Tactical Society",
     url: "https://www.facebook.com/profile.php?id=61562394412215",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALTS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Bar Operations",
     url: "https://facebook.com/auslbaroperations",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/BAROPS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Athletics Society",
     url: "https://www.facebook.com/AUSLchiefs22",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/AUSLCHIEFS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Golf Club",
     url: "https://www.facebook.com/profile.php?id=61559868311215",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALGC.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law PEERS",
     url: "https://www.facebook.com/AUSLPeers",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/PEERS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "Arellano Law Academic Society",
     url: "https://www.facebook.com/alas.arellanolaw",
-    iconClass: "mdi mdi-facebook text-blue-600",
+    logo: "/images/contact/social/ALAS.jpg",
     hoverClass: "hover:text-blue-600"
   },
   {
     name: "AUSL YouTube Channel",
     url: "https://www.youtube.com/@AUSLofficial",
-    iconClass: "mdi mdi-youtube text-red-600",
+    logo: "/images/contact/social/youtube.png",
     hoverClass: "hover:text-red-600"
   }
 ];

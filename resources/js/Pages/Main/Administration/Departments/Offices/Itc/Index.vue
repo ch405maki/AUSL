@@ -1,6 +1,6 @@
 <template>
     <MainLayout>
-        <Head title="Administration Officers" />
+        <Head title="Information Technology Center" />
           <main class="flex-grow">
             <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
               <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -72,12 +72,12 @@
     
                 <aside class="w-full md:w-1/4 sticky top-0">
                 <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12 text-sm sm:text-lg">
-                    <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-xs px-8 pb-8 pt-40 max-w-sm mx-auto mb-8">
-                        <img src="https://via.placeholder.com/300x300.png?text=IT+Center" alt="Office Image" class="absolute inset-0 h-full w-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-                        <h3 class="z-10 mt-3 text-3xl font-bold text-white">I.T.C</h3>
-                        <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Office Image</div>
-                    </article>
+                  <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-xs px-8 pb-8 pt-28 h-[70%]  max-w-md mx-auto mb-8">
+                      <img src="/images/faculty/itc/itc1.jpg" alt="Office Image" class="absolute inset-0 h-[100%] w-full object-cover">
+                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                      <h3 class="z-10 mt-3 text-2xl font-bold text-white">I.T.C</h3>
+                      <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">Office Image</div>
+                  </article>
                     <div class="mb-8">
                         <h2 class="text-purple-900 font-medium mb-4">Location</h2>
                         <hr class="mb-4 border-1 border-purple-800">
