@@ -2,47 +2,35 @@
   <div class="text-center text-white bg-purple-100 py-6">
     <div class="max-w-7xl text-center text-white mx-auto py-4 px-4">
       <h1 class="font-bold text-gray-800 text-2xl mb-2">Announcements and Advisories</h1>
-      <p class="font-medium text-gray-800 text-lg mb-10">Read about the latest AUSL Initiatives, Achievements, and Developments</p>
+      <p class="font-medium text-gray-800 text-lg mb-10">
+        Read about the latest AUSL Initiatives, Achievements, and Developments
+      </p>
 
-      <div
-        ref="swipeContainer"
-        @mousedown="handleMouseDown"
-        @mouseleave="handleMouseLeave"
-        @mouseup="handleMouseUp"
-        @mousemove="handleMouseMove"
-        @scroll="updateCurrentPage"
-        class="overflow-x-scroll scrollbar-hide mb-4 relative px-0.5"
-        style="overflow-y: hidden;"
-      >
-        <div class="flex snap-x snap-mandatory gap-6">
-          <div
-            v-for="(announcement, index) in announcements"
-            :key="announcement.id"
-            class="flex-none w-72 snap-center"
-          >
-            <div class="bg-white border-1 border border-gray-200 overflow-hidden mb-4 flex flex-col h-full">
-              <iframe height="200" scrolling="no" :src="announcement.link + 'preview'" width="100%"></iframe>
-              <div class="p-4 flex flex-col flex-grow">
-                <a :href="`/announcement/show/${announcement.id}`" class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer">{{ announcement.title }}</a>
-                <p class="text-gray-600 mt-2 text-lg">{{ formattedDate(announcement.created_at) }}</p>
-              </div>
+      <div class="owl-carousel owl-theme">
+        <div
+          v-for="(announcement, index) in announcements"
+          :key="announcement.id"
+          class="item w-100 sm:w-72"
+        >
+          <div class="bg-white border border-gray-200 overflow-hidden mb-4 flex flex-col h-full">
+            <!-- Set a fixed height for the iframe -->
+            <iframe height="200" scrolling="no" :src="announcement.link + 'preview'" width="100%"></iframe>
+            <div class="p-4 flex flex-col flex-grow justify-between">
+              <a
+                :href="`/announcement/show/${announcement.id}`"
+                class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer"
+              >{{ announcement.title }}</a>
+              <p class="text-gray-600 mt-2 text-lg">{{ formattedDate(announcement.created_at) }}</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex justify-center mt-8">
-        <span v-for="(announcement, index) in announcements" :key="index" class="mx-1">
-          <span :class="currentPage === index ? 'bg-gray-800' : 'bg-gray-400'" class="block w-3 h-3 rounded-full"></span>
-        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { defineProps } from 'vue';
-import { usePage } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 
 const props = defineProps({
   announcements: {
@@ -51,62 +39,69 @@ const props = defineProps({
   }
 });
 
-const { $inertia } = usePage().props;
-
-const swipeContainer = ref(null);
-const isDown = ref(false);
-const startX = ref(0);
-const scrollLeft = ref(0);
-const currentPage = ref(0);
-
-const handleMouseDown = (e) => {
-  isDown.value = true;
-  startX.value = e.pageX - swipeContainer.value.offsetLeft;
-  scrollLeft.value = swipeContainer.value.scrollLeft;
-};
-
-const handleMouseLeave = () => {
-  isDown.value = false;
-};
-
-const handleMouseUp = () => {
-  isDown.value = false;
-};
-
-const handleMouseMove = (e) => {
-  if (!isDown.value) return;
-  e.preventDefault();
-  const x = e.pageX - swipeContainer.value.offsetLeft;
-  const walk = (x - startX.value) * 1;
-  swipeContainer.value.scrollLeft = scrollLeft.value - walk;
-};
-
-const updateCurrentPage = () => {
-  const cardWidth = swipeContainer.value.scrollWidth / props.announcements.length;
-  currentPage.value = Math.round(swipeContainer.value.scrollLeft / cardWidth);
-};
-
 const formattedDate = (date) => {
   return new Date(date).toLocaleDateString();
 };
 
-
 onMounted(() => {
-  swipeContainer.value.addEventListener('mousedown', handleMouseDown);
-  swipeContainer.value.addEventListener('mouseleave', handleMouseLeave);
-  swipeContainer.value.addEventListener('mouseup', handleMouseUp);
-  swipeContainer.value.addEventListener('mousemove', handleMouseMove);
-  swipeContainer.value.addEventListener('scroll', updateCurrentPage);
+  if (typeof $ !== 'undefined') {
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 8000,
+      responsive: {
+        0: { 
+          items: 1,
+          center: true, // Centering the single item on mobile
+        },
+        600: { items: 2 },
+        1000: { items: 4 }
+      }
+    });
+  } else {
+    console.error('jQuery is not loaded');
+  }
 });
 </script>
 
 <style scoped>
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.owl-carousel .item {
+  display: flex;
+  justify-content: center;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.owl-nav .owl-prev, .owl-nav .owl-next {
+  background: white;
+  color: black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.owl-nav .owl-prev {
+  left: 10px;
+}
+
+.owl-nav .owl-next {
+  right: 10px;
+}
+
+.owl-nav-wrapper {
+  z-index: 10;
+}
+
+/* Optional: Ensure the items are centered on mobile */
+@media (max-width: 600px) {
+  .owl-carousel .owl-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

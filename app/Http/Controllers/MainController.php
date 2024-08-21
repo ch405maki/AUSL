@@ -34,7 +34,7 @@ class MainController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        $allPost = Post::all();
+        $allPost = Post::where('category', 'News')->get();
         return Inertia::render('Main/Home/Post/Show', [
             'post' => $post,
             'allPost' => $allPost

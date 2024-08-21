@@ -11,7 +11,7 @@
                 <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
                   {{ post.title }}
                 </h1>
-                <hr class="mb-8 border-1 border-purple-900">
+
                 <nav class="bg-grey-light w-full rounded-md" aria-label="breadcrumb">
                   <ol class="list-reset flex mb-8">
                     <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>

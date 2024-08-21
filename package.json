@@ -24,6 +24,7 @@
         "@mdi/font": "^7.4.47",
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
+        "jquery": "^3.7.1",
         "sweetalert2": "^11.6.13",
         "vite-plugin-vuetify": "^2.0.3",
         "vue-easy-lightbox": "^1.19.0",
