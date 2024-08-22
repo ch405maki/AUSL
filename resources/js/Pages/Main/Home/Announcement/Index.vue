@@ -12,9 +12,13 @@
           :key="announcement.id"
           class="item w-100 sm:w-72"
         >
-          <div class="bg-white border border-gray-200 overflow-hidden mb-4 flex flex-col h-full">
+          <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
             <!-- Set a fixed height for the iframe -->
-            <iframe height="200" scrolling="no" :src="announcement.link + 'preview'" width="100%"></iframe>
+            <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
+              <iframe height="200" scrolling="no" :src="announcement.link + 'preview'" width="100%"></iframe>
+              <!-- Overlay for hover effect -->
+              <div class="overlay"></div>
+            </a>
             <div class="p-4 flex flex-col flex-grow justify-between">
               <a
                 :href="`/announcement/show/${announcement.id}`"
@@ -45,10 +49,10 @@ const formattedDate = (date) => {
 
 onMounted(() => {
   if (typeof $ !== 'undefined') {
-    $('.announcement-carousel').owlCarousel({
+    const owlCarousel = $('.announcement-carousel').owlCarousel({
       loop: true,
       margin: 10,
-      nav: true,
+      nav: false,
       autoplay: true,
       autoplayTimeout: 8000,
       responsive: {
@@ -59,6 +63,16 @@ onMounted(() => {
         600: { items: 2 },
         1000: { items: 4 }
       }
+    });
+
+    // Pause autoplay on mouseover
+    $('.announcement-carousel').on('mouseover', function() {
+      owlCarousel.trigger('stop.owl.autoplay');
+    });
+
+    // Resume autoplay on mouseleave
+    $('.announcement-carousel').on('mouseleave', function() {
+      owlCarousel.trigger('play.owl.autoplay', [8000]);
     });
   } else {
     console.error('jQuery is not loaded');
@@ -94,6 +108,25 @@ onMounted(() => {
 
 .owl-nav-wrapper {
   z-index: 10;
+}
+
+.card {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(128, 0, 128, 0.6); /* Purple with 60% opacity */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 0.7; /* 70% visible on hover */
 }
 
 /* Optional: Ensure the items are centered on mobile */

@@ -9,16 +9,22 @@
 
         <div class="post-carousel owl-carousel owl-theme">
           <div v-for="post in posts" :key="post.id" class="item">
-            <div class="bg-white rounded-xs shadow-md overflow-hidden flex-none max-w-full min-h-[350px] flex flex-col justify-between">
-              <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
-              
-              <!-- Fixed height for content area -->
+            <div class="rounded-xs overflow-hidden flex-none max-w-full min-h-[350px] flex flex-col justify-between relative card">
+              <!-- Image wrapper with overlay -->
+              <a :href="`/show/${post.id}`" class="block relative group">
+                <div class="image-wrapper">
+                  <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
+                  <!-- Overlay that appears on hover -->
+                  <div class="overlay"></div>
+                </div>
+              </a>
+              <!-- Content area -->
               <div class="p-4 flex-grow flex flex-col justify-between min-h-[100px]">
                 <a
                   :href="`/show/${post.id}`"
-                  class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer line-clamp-2"
-                  >{{ post.title }}</a>
-                <p class="text-slate-600">{{ formattedDate(post.created_at) }}</p>
+                  class="font-bold text-lg text-white hover:text-purple-900 hover:underline cursor-pointer line-clamp-2"
+                >{{ post.title }}</a>
+                <p class="text-gray-100">{{ formattedDate(post.created_at) }}</p>
               </div>
             </div>
           </div>
@@ -45,17 +51,27 @@ const formattedDate = (date) => {
 
 onMounted(() => {
   if (typeof $ !== 'undefined') {
-    $('.post-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 6000,
-    responsive: {
-      0: { items: 1 },
-      600: { items: 2 },
-      1000: { items: 3 },
-    }
-  });
+    const owlCarousel = $('.post-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      responsive: {
+        0: { items: 1 },
+        600: { items: 2 },
+        1000: { items: 3 },
+      }
+    });
+
+    // Pause autoplay on mouseover
+    $('.post-carousel').on('mouseover', function() {
+      owlCarousel.trigger('stop.owl.autoplay');
+    });
+
+    // Resume autoplay on mouseleave
+    $('.post-carousel').on('mouseleave', function() {
+      owlCarousel.trigger('play.owl.autoplay', [6000]);
+    });
   } else {
     console.error('jQuery is not loaded');
   }
@@ -95,5 +111,29 @@ onMounted(() => {
   -webkit-line-clamp: 2; /* Show only two lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.card {
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(128, 0, 128, 0.6); /* Purple with 60% opacity */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 0.7; /* 70% visible on hover */
 }
 </style>
