@@ -8,11 +8,11 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <div class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
+                <h1 class="text-purple-900 font-bold mb-6 mt-8 text-xl sm:text-3xl text-pretty text-start">
                   {{ post.title }}
                 </h1>
                 <!-- Breadcrumb -->
-                <nav class="bg-grey-light w-full rounded-md mb-8" aria-label="breadcrumb">
+                <nav class="bg-grey-light w-full rounded-md mb-6" aria-label="breadcrumb">
                   <ol class="list-reset flex">
                     <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
                     <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">{{ formattedDate(post.created_at) }}</span></li>
@@ -42,7 +42,7 @@
               <div class="w-full md:w-1/3 p-2 flex justify-start">
                 <div class="text-left">
                   <div class="mb-2 mt-10">
-                    <button @click="shareToFacebook" class="bg-blue-600 text-white py-2 px-4 rounded flex items-center mb-6">
+                    <button @click="shareToFacebook" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center mb-4">
                       <svg width="800px" height="800px" viewBox="0 0 16 16" class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="#1877F2" d="M15 8a7 7 0 00-7-7 7 7 0 00-1.094 13.915v-4.892H5.13V8h1.777V6.458c0-1.754 1.045-2.724 2.644-2.724.766 0 1.567.137 1.567.137v1.723h-.883c-.87 0-1.14.54-1.14 1.093V8h1.941l-.31 2.023H9.094v4.892A7.001 7.001 0 0015 8z"/><path fill="#ffffff" d="M10.725 10.023L11.035 8H9.094V6.687c0-.553.27-1.093 1.14-1.093h.883V3.87s-.801-.137-1.567-.137c-1.6 0-2.644.97-2.644 2.724V8H5.13v2.023h1.777v4.892a7.037 7.037 0 002.188 0v-4.892h1.63z"/></svg>
                       Share on Facebook
                     </button>

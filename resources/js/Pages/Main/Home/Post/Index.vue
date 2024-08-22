@@ -7,7 +7,7 @@
           Read about the latest AUSL Initiatives, Achievements, and Developments
         </p>
 
-        <div class="owl-carousel owl-theme">
+        <div class="post-carousel owl-carousel owl-theme">
           <div v-for="post in posts" :key="post.id" class="item">
             <div class="bg-white rounded-xs shadow-md overflow-hidden flex-none max-w-full min-h-[350px] flex flex-col justify-between">
               <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
@@ -45,17 +45,17 @@ const formattedDate = (date) => {
 
 onMounted(() => {
   if (typeof $ !== 'undefined') {
-    $('.owl-carousel').owlCarousel({
-      loop: true,
-      margin: 10,
-      autoplay: true,
-      autoplayTimeout: 6000,
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 3 },
-      }
-    });
+    $('.post-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 6000,
+    responsive: {
+      0: { items: 1 },
+      600: { items: 2 },
+      1000: { items: 3 },
+    }
+  });
   } else {
     console.error('jQuery is not loaded');
   }

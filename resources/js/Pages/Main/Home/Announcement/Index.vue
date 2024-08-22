@@ -6,7 +6,7 @@
         Read about the latest AUSL Initiatives, Achievements, and Developments
       </p>
 
-      <div class="owl-carousel owl-theme">
+      <div class="announcement-carousel owl-carousel owl-theme">
         <div
           v-for="(announcement, index) in announcements"
           :key="announcement.id"
@@ -45,7 +45,7 @@ const formattedDate = (date) => {
 
 onMounted(() => {
   if (typeof $ !== 'undefined') {
-    $('.owl-carousel').owlCarousel({
+    $('.announcement-carousel').owlCarousel({
       loop: true,
       margin: 10,
       nav: true,
