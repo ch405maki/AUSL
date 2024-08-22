@@ -54,7 +54,7 @@ onMounted(() => {
       margin: 10,
       nav: false,
       autoplay: true,
-      autoplayTimeout: 8000,
+      autoplayTimeout: 5000,
       responsive: {
         0: { 
           items: 1,
@@ -72,7 +72,7 @@ onMounted(() => {
 
     // Resume autoplay on mouseleave
     $('.announcement-carousel').on('mouseleave', function() {
-      owlCarousel.trigger('play.owl.autoplay', [8000]);
+      owlCarousel.trigger('play.owl.autoplay', [5000]);
     });
   } else {
     console.error('jQuery is not loaded');

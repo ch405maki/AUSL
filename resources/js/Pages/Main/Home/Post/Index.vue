@@ -55,7 +55,7 @@ onMounted(() => {
       loop: true,
       margin: 10,
       autoplay: true,
-      autoplayTimeout: 6000,
+      autoplayTimeout: 4000,
       responsive: {
         0: { items: 1 },
         600: { items: 2 },
@@ -70,7 +70,7 @@ onMounted(() => {
 
     // Resume autoplay on mouseleave
     $('.post-carousel').on('mouseleave', function() {
-      owlCarousel.trigger('play.owl.autoplay', [6000]);
+      owlCarousel.trigger('play.owl.autoplay', [4000]);
     });
   } else {
     console.error('jQuery is not loaded');
