@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
             $table->text('content')->nullable();
             $table->string('image')->nullable();
             $table->string('category');
-            $table->string('state')->nullable();
+            $table->string('state')->default('Active');
             $table->string('link')->nullable();
             $table->timestamps();
         });

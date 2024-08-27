@@ -11,7 +11,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('category', 'News')->get();
+        $posts = Post::where('category', 'News')
+            ->where('state', 'Active')
+            ->get();
         return Inertia::render('Post/Index', ['posts' => $posts]);
     }
 
@@ -43,6 +45,13 @@ class PostController extends Controller
         return redirect('posts');
     }
 
+    public function archive(Request $request, Post $post)
+    {
+        $post->state = 'Archived';
+        $post->save();
+
+        return redirect()->back()->with('success', 'Post archived successfully.');
+    }
 
     public function destroy($id)
     {

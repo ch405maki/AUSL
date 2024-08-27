@@ -2,11 +2,13 @@
       <Head title="Create" />
         <AuthenticatedLayout>
             <template #action >
+              <div class="flex justify-end p-3">
               <a href="/posts">
                 <v-btn color="primary" class="w-full md:w-auto px-4">
                     Back
                 </v-btn>
                 </a>
+              </div>
             </template>  
 
             <main>

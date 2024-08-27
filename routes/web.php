@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ArchiveController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -192,6 +193,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::patch('/posts/{post}/archive', [PostController::class, 'archive'])->name('posts.updateState');
 });
 
 // Carousel route
@@ -224,6 +227,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/alumni/{id}', [AlumniController::class, 'destroy'])->name('alumni.destroy');
     Route::post('/alumni/approve/{id}', [AlumniController::class, 'approve'])->name('alumni.approve');
     Route::post('/alumni/forApproval/{id}', [AlumniController::class, 'forApproval'])->name('alumni.forApproval');
+});
+
+// archive route
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
+    Route::patch('/archive/{post}/repost', [ArchiveController::class, 'repost'])->name('archive.updateState');
 });
 
 //settings

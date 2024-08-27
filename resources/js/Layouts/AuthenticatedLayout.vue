@@ -120,9 +120,9 @@
         <action class="bg-white py-8" v-if="$slots.action">
           <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm rounded-lg">
-              <div class="flex justify-end p-3">
+              
                 <slot name="action" />
-              </div>
+
             </div>
           </div>
         </action>

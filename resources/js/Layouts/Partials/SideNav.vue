@@ -81,6 +81,7 @@ const links = [
   { name: 'Dashboard', route: 'dashboard', icon: 'mdi mdi-view-dashboard' },
   { name: 'Preview', route: 'main', icon: 'mdi mdi-view-dashboard' },
   { name: 'Announcement', route: 'posts', icon: 'mdi mdi-post' },
+  { name: 'Archives', route: 'archive', icon: 'mdi mdi-post' },
   { name: 'Posts', route: 'posts', icon: 'mdi mdi-post' },
   { name: 'Carousell', route: 'carousell', icon: 'mdi mdi-image' },
   { name: 'Gallery', route: 'gallery', icon: 'mdi mdi-folder-multiple-image' },
