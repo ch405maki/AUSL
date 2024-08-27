@@ -12,12 +12,12 @@ class GalleryController extends Controller
     public function index()
     {
         $galleries = Gallery::all();
-        return Inertia::render('Main/Home/Gallery/Index', ['galleries' => $galleries]);
+        return Inertia::render('Gallery/Index', ['galleries' => $galleries]);
     }
 
     public function create()
     {
-        return Inertia::render('Main/Home/Gallery/Create');
+        return Inertia::render('Gallery/Create');
     }
 
     public function store(Request $request)

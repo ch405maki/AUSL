@@ -14,42 +14,6 @@
                     <slot name="header" />
                   </div>
                 </header>
-                <!-- Logo -->
-                <!-- <div class="shrink-0 flex items-center">
-                  <Link :href="route('dashboard')">
-                    <ApplicationLogo
-                      class="block h-10 w-auto fill-current text-gray-800"
-                    />
-                  </Link>
-                </div> -->
-  
-                <!-- Navigation Links -->
-                <!-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                  <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                    Dashboard
-                  </NavLink>
-                  <NavLink :href="route('main')" :active="route().current('Preview')">
-                    Preview
-                  </NavLink>
-                  <NavLink :href="route('posts')" :active="route().current('posts')">
-                    Post
-                  </NavLink>
-                  <NavLink :href="route('carousell')" :active="route().current('carousell')">
-                    Carousell
-                  </NavLink>
-                  <NavLink :href="route('gallery')" :active="route().current('gallery')">
-                    Gallery
-                  </NavLink>
-                  <NavLink :href="route('chat')" :active="route().current('chat')">
-                    Chat Us
-                  </NavLink>
-                  <NavLink :href="route('alumni')" :active="route().current('alumni')">
-                    Alumni Testimonial
-                  </NavLink>
-                  <NavLink :href="route('users')" :active="route().current('users')">
-                    Manage Users
-                  </NavLink>
-                </div> -->
               </div>
   
               <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -152,10 +116,17 @@
             </div>
           </div>
         </nav>
-  
-        <!-- Page Heading -->
-        
-  
+
+        <action class="bg-white py-8" v-if="$slots.action">
+          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+              <div class="flex justify-end p-3">
+                <slot name="action" />
+              </div>
+            </div>
+          </div>
+        </action>
+
         <!-- Page Content -->
         <main>
           <slot />
