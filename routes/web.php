@@ -202,6 +202,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/carousell', [CarousellController::class, 'index'])->name('carousell');
     Route::post('/carousell/store', [CarousellController::class, 'store'])->name('carousell.store');
     Route::delete('/carousell/{id}', [CarousellController::class, 'destroy'])->name('carousell.destroy');
+    Route::patch('/carousell/update-order', [CarousellController::class, 'updateOrder'])->name('carousell.updateOrder');
 });
 
 // Gallery route

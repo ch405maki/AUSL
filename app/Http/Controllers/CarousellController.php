@@ -11,9 +11,10 @@ class CarousellController extends Controller
 {
     public function index()
     {
-        $carousells = Carousell::all();
+        $carousells = Carousell::orderBy('order', 'asc')->get();
         return Inertia::render('Carousell/Index', ['carousells' => $carousells]);
     }
+
 
     public function store(Request $request)
     {
@@ -34,6 +35,22 @@ class CarousellController extends Controller
         return redirect()->route('carousell');
     }
 
+    public function updateOrder(Request $request)
+    {
+        $validated = $request->validate([
+            'carousells.*.id' => 'required|exists:carousells,id',
+            'carousells.*.order' => 'required|integer|min:1',
+        ]);
+
+        foreach ($validated['carousells'] as $carousell) {
+            $item = Carousell::find($carousell['id']);
+            $item->order = $carousell['order'];
+            $item->save();
+        }
+
+        return redirect()->back()->with('success', 'Order updated successfully.');
+    }
+
     public function destroy($id)
     {
         $carousell = Carousell::findOrFail($id);
@@ -41,4 +58,5 @@ class CarousellController extends Controller
 
         return redirect()->route('carousell');
     }
+
 }

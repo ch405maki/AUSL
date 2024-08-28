@@ -9,5 +9,5 @@ class Carousell extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['image'];
+    protected $fillable = ['image', 'order', 'state'];
 }
