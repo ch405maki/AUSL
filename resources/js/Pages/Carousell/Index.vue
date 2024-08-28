@@ -4,24 +4,35 @@
       <template #header>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Carousell</h2>
       </template>
+
+      <template #action>
+        <div class="flex justify-end flex-grow p-3">
+            <a href="#">
+                <v-btn @click="showModal = true" color="primary" class="w-full md:w-auto px-4">
+                    Upload Image
+                    <v-icon right>mdi-plus</v-icon>
+                </v-btn>
+            </a>
+        </div>
+      </template>
   
-      <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 lg:pt-10">
+      <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
         <main class="flex-grow">
           <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row w-full justify-center">
+            <div class="flex flex-col md:flex-row w-full justify-center mb-6">
               <!-- Main content section -->
-              <div class="w-full md:w-2/3 p-1">
-                <v-table fixed-header>
+              <div class="w-full mx-4">
+                <v-table fixed-header class="shadow-sm rounded-lg">
                   <thead>
                     <tr>
-                      <th class="text-left w-1/12">Number</th>
-                      <th class="text-left">Preview</th>
+                      <th class="text-center w-1/12">Order</th>
+                      <th class="text-left">Image Preview</th>
                       <th class="text-left w-1/12">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="(post, index) in carousells" :key="post.id">
-                      <td>{{ index + 1 }}</td>
+                      <td class="text-center">{{ index + 1 }}</td>
                       <td><img :src="post.image" alt="Image Logo" class="carousell-image my-4"></td>
                       <td>
                         <button @click="deletePost(post.id)" class="my-4 p-2 rounded-full  group transition-all duration-500  flex item-center">
@@ -36,17 +47,42 @@
                 </v-table>
               </div>
               <!-- End main content section -->
-  
-              <!-- Links, Events & Seminars -->
-              <div class="w-full md:w-1/3 p-2 flex justify-start">
+              
+              <!-- Modal for Adding Carousell -->
+              <v-dialog v-model="showModal" max-width="800px">
+              <v-card>
+                <v-card-title class="flex justify-between items-center">
+                  <div class="flex justify-end p-2">
+                    <span class="headline">Add Carousell Image</span>
+                      <button  @click="showModal = false" type="button"
+                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
+                          </svg>
+                      </button>
+                  </div>
+                </v-card-title>
+
+                <v-card-text>
                 <form @submit.prevent="submitForm" class="w-full">
                   <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                     <!-- Image Upload Section -->
                     <div class="col-span-full">
-                      <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Carousell Photo</label>
+                      <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">
+                        Preview
+                      </label>
                       <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div v-if="previewImage" class="mb-4">
+                        <div v-if="previewImage" class="mb-4 relative">
                           <img :src="previewImage" alt="Selected Image Preview" class="w-full rounded-lg shadow-sm" />
+                          <!-- Remove Button -->
+                          <button type="button" @click="removeImage" 
+                            class="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 hover:bg-red-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                          </button>
                         </div>
                         <div v-else class="text-center">
                           <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -78,38 +114,35 @@
                     </div>
                   </div>
                 </form>
-              </div>
-              <!-- End Links, Events & Seminars -->
+              </v-card-text>
+              </v-card>
+            </v-dialog>
             </div>
           </div>
         </main>
-        <!-- Footer -->
-        <Footer />
-        <!-- Footer -->
       </div>
     </AuthenticatedLayout>
   </template>
   
   <script setup>
   import { ref } from 'vue';
-  import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   import { Head, Link, useForm } from '@inertiajs/vue3';
-  import Footer from '@/Layouts/Partials/Footer.vue';
   import Swal from 'sweetalert2';
   import PrimaryButton from '@/Components/PrimaryButton.vue';
   import { Inertia } from '@inertiajs/inertia';
-  
+
   const props = defineProps({
     carousells: { type: Array, required: true },
   });
-  
+
   const form = useForm({
     image: null,
   });
-  
+
+  const showModal = ref(false);
   const previewImage = ref(null);
-  
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -123,12 +156,17 @@
     }
     form.image = file;
   };
-  
+
+  const removeImage = () => {
+    previewImage.value = null;
+    form.image = null;
+  };
+
   const deletePost = (id) => {
     const alerta = Swal.mixin({
       buttonsStyling: true,
     });
-  
+
     alerta.fire({
       title: 'Are you sure delete?',
       icon: 'question',
@@ -141,13 +179,13 @@
       }
     });
   };
-  
+
   const submitForm = () => {
     const formData = new FormData();
     if (form.image) {
       formData.append('image', form.image);
     }
-  
+
     form.post(route('carousell.store'), {
       data: formData,
       onSuccess: () => {
@@ -160,12 +198,8 @@
       },
     });
   };
-  
-  const editor = ClassicEditor;
-  const editorConfig = {
-    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
-  };
-  </script>
+</script>
+
   
   <style scoped>
   .carousell-image {

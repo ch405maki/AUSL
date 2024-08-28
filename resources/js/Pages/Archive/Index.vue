@@ -59,12 +59,12 @@
                                         <td class="text-center">
                                             <div class="flex justify-center items-center gap-1">
                                                 <!-- update btn -->
-                                                <button @click="() => showPost(post.id)" class="p-2 rounded-full group transition-all duration-500 flex item-center">
+                                                <button @click="() => showPost(post.id)" class="p-2 rounded-full group transition-all duration-500 flex item-center" title="Pre-View">
                                                     <svg class="cursor-pointer" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path class="fill-indigo-500" d="M12 4.5C7.30558 4.5 3.15878 7.29124 1.5 12C3.15878 16.7088 7.30558 19.5 12 19.5C16.6944 19.5 20.8412 16.7088 22.5 12C20.8412 7.29124 16.6944 4.5 12 4.5ZM12 17.25C9.37665 17.25 7.25 15.1234 7.25 12.5C7.25 9.87665 9.37665 7.75 12 7.75C14.6234 7.75 16.75 9.87665 16.75 12.5C16.75 15.1234 14.6234 17.25 12 17.25ZM12 9.25C10.4812 9.25 9.25 10.4812 9.25 12C9.25 13.5188 10.4812 14.75 12 14.75C13.5188 14.75 14.75 13.5188 14.75 12C14.75 10.4812 13.5188 9.25 12 9.25Z" fill="#818CF8"></path>
                                                     </svg>
                                                 </button>
-                                                <button @click="openChangeStateModal(post.title, post.id)" class="p-2 rounded-full group transition-all duration-500 flex items-center">
+                                                <button @click="openChangeStateModal(post.title, post.id)" class="p-2 rounded-full group transition-all duration-500 flex items-center" title="Re-Post">
                                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path class="stroke-green-500" d="M3 17V19C3 19.5523 3.44772 20 4 20H20C20.5523 20 21 19.5523 21 19V17H3ZM17 9L12 4L7 9H10V14H14V9H17Z" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>

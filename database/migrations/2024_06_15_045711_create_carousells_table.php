@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('carousells', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('state')->default('active');
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }
