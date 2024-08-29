@@ -20,7 +20,7 @@ class OfficeController extends Controller
         // Validation rules
         $request->validate( [
             'office_name' => 'required|string|max:255',
-            'office_function' => 'required|string|max:255',
+            'office_function' => 'required|string',
             'office_location' => 'required|string|max:255',
             'office_email' => 'required|email|max:255',
             'office_contact' => 'required|string|max:20',
@@ -28,6 +28,7 @@ class OfficeController extends Controller
         ]);
 
         $data = $request->all();
+        
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/offices');
@@ -36,7 +37,7 @@ class OfficeController extends Controller
 
         $office = Office::create($data);
 
-        return Inertia::render('Office/Index');    
+        return redirect()->back()->with('success', 'Saved successfully.');    
     }
 
     public function destroy($id)
@@ -44,6 +45,6 @@ class OfficeController extends Controller
         $office = Office::findOrFail($id);
         $office->delete();
 
-        return redirect()->back()->with('success', 'Post archived successfully.');
+        return redirect()->back()->with('success', 'Deleted successfully.');
     }
 }

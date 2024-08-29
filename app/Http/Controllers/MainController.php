@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Carousell;
 use App\Models\Alumni;
 use App\Models\Banner;
+use App\Models\Office;
 use App\Models\OnLoadBanner;
 
 class MainController extends Controller
@@ -52,4 +53,28 @@ class MainController extends Controller
             'allPost' => $allPost
         ]);
     }
+
+    public function departmentList()
+    {
+        $offices = Office::select('id', 'office_name', 'office_function', 'image')
+                            ->orderBy('office_name', 'asc')
+                            ->get();
+                            
+        return Inertia::render('Main/Administration/Departments/Index', [
+            'offices' => $offices]);
+    }
+
+    public function departmentShow($id)
+{
+    $offices = Office::findOrFail($id);
+    $officesList = Office::select('id', 'office_name')
+                        ->orderBy('office_name', 'asc')
+                        ->get();
+
+    return Inertia::render('Main/Administration/Departments/Show', [
+        'offices' => $offices,
+        'officesList' => $officesList
+    ]);
+}
+
 }

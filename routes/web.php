@@ -56,9 +56,9 @@ Route::prefix('administration')->name('administration.')->group(function () {
         return Inertia::render('Main/Administration/AdminStaff/Index');
     })->name('admin_staff');
 
-    Route::get('/departments', function(){
-        return Inertia::render('Main/Administration/Departments/Index');
-    })->name('departments');
+    Route::get('/departments', [MainController::class, 'departmentList'])->name('departments');
+    Route::get('/departments/show/{id}', [MainController::class, 'departmentShow'])->name('departments.show');
+
 
     Route::get('/departments/itc', function(){
         return Inertia::render('Main/Administration/Departments/Offices/Itc/Index');

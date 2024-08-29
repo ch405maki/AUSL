@@ -26,8 +26,8 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'content' => 'nullable|string', // Adjusted to nullable
-            'image' => 'nullable|image|mimes:jpg,png,gif|max:10240', // 10MB
+            'content' => 'nullable|string', 
+            'image' => 'nullable|image|mimes:jpg,png,gif|max:10240',
             'category' => 'required|string',
             'state' => 'nullable|string',
             'link' => 'nullable|url',

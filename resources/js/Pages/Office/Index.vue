@@ -84,12 +84,6 @@
                                                 <input type="text" id="office_name" v-model="form.office_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
                                             </div>
                                             
-                                            <!-- Office Function -->
-                                            <div class="sm:col-span-6">
-                                                <label for="office_function" class="block text-sm font-medium text-gray-700">Office Function</label>
-                                                <input type="text" id="office_function" v-model="form.office_function" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-                                            </div>
-
                                             <!-- Office Location -->
                                             <div class="sm:col-span-6">
                                                 <label for="office_location" class="block text-sm font-medium text-gray-700">Office Location</label>
@@ -107,6 +101,12 @@
                                                 <label for="office_contact" class="block text-sm font-medium text-gray-700">Office Contact</label>
                                                 <input type="text" id="office_contact" v-model="form.office_contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
                                             </div>
+
+                                            <!-- Office Function -->
+                                            <div class="sm:col-span-12">
+                                                <label for="office_function" class="block text-sm font-medium text-gray-700">Office Function</label>
+                                                <ckeditor :editor="editor" v-model="form.office_function" :config="editorConfig"></ckeditor>
+                                            </div> 
 
                                             <!-- Image Upload -->
                                             <div class="col-span-full mt-4">
@@ -154,6 +154,7 @@ import { ref } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2';
 
 const props = defineProps({
@@ -188,11 +189,22 @@ const handleFileChange = (event) => {
 };
 
 const submitForm = () => {
-    form.office(route('offices.store'), {
+    const formData = new FormData();
+    formData.append('office_name', form.office_name);
+    formData.append('office_function', form.office_function);
+    formData.append('office_location', form.office_location);
+    formData.append('office_email', form.office_email);
+    formData.append('office_contact', form.office_contact);
+    if (form.image) {
+        formData.append('image', form.image);
+    }
+
+    form.post(route('offices.store'), {
+        data: formData,
         onSuccess: () => {
             showModal.value = false;
-            form.reset(); // reset form after success
-            previewImage.value = null; // clear image preview after success
+            form.reset();
+            previewImage.value = null;
         },
         onError: (errors) => {
             console.error(errors);
@@ -212,6 +224,11 @@ const deleteOffice = (id, title) => {
       form.delete(route('office.destroy', id));
     }
   });
+};
+
+const editor = ClassicEditor;
+const editorConfig = {
+  toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
 };
 </script>
 

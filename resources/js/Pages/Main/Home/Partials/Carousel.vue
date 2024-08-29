@@ -1,4 +1,6 @@
 <template>
+  <div class="carousel-wrapper">
+    <!-- <MainBanner :banners="props.banners" /> -->
   <div ref="fotoramaContainer" 
       class="fotorama" 
       data-transition="crossfade"
@@ -12,10 +14,12 @@
     </div>
     <div class="fotorama-indicators"></div>
   </div>
+</div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import MainBanner from './MainBanner.vue';
 
 const props = defineProps({
   items: {
@@ -59,6 +63,10 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+  .carousel-wrapper {
+    position: relative;
+  }
+
 .carousel-item {
   position: relative;
   overflow: hidden;
