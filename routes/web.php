@@ -10,9 +10,9 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\OfficeController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -234,6 +234,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
     Route::patch('/archive/{post}/repost', [ArchiveController::class, 'repost'])->name('archive.updateState');
+});
+
+//offices
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/offices', [OfficeController::class, 'index'])->name('offices');
+    Route::post('/offices', [OfficeController::class, 'store'])->name('offices.store');
+    Route::delete('/offices/{id}', [OfficeController::class, 'destroy'])->name('office.destroy');
 });
 
 //settings

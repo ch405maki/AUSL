@@ -6,21 +6,21 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Post</h2>
     </template>
 
-    <template #action>
+    <template #action >
       <div class="flex items-center p-3">
-          <!-- Search Input -->
-          <div class="relative mr-4">
-              <input 
-                  v-model="searchQuery" 
-                  type="text" 
-                  placeholder="Search Title Here..." 
-                  class="search-input"
-              />
-              <svg class="search-icon" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="#9CA3AF"/>
-              </svg>
-          </div>
-          
+            <!-- Search Input -->
+            <div class="relative mr-4">
+                <input 
+                    v-model="searchQuery" 
+                    type="text" 
+                    placeholder="Search Title Here..." 
+                    class="search-input"
+                />
+                <svg class="search-icon" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="#9CA3AF"/>
+                </svg>
+            </div>
+        
           <!-- Year Filter Dropdown -->
           <div class="relative mr-4 w-32">
               <select v-model="selectedYear" class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
@@ -37,8 +37,8 @@
                   </v-btn>
               </a>
           </div>
-      </div>
-  </template>
+          </div>
+    </template>  
     
     <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
       <main class="flex-grow">

@@ -1,24 +1,46 @@
 <template>
-    <div class="relative min-h-screen bg-gray-100">
-      <SideNav />
-  
-      <!-- Main Content -->
-      <div class="flex-1 lg:pl-[210px]">
-        <nav class="bg-white border-b border-gray-100">
-          <!-- Primary Navigation Menu -->
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-              <div class="flex">
-                <header class="bg-white" v-if="$slots.header">
-                  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                  </div>
-                </header>
+  <div class="min-h-full bg-gray-100">
+    <header class="bg-white shadow-sm lg:static lg:overflow-y-visible" x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'fixed inset-0 z-40 overflow-y-auto': open }" x-data="Components.popover({ open: false, focus: false })" x-init="init()" @keydown.escape="onEscape" @close-popover-group.window="onClosePopoverGroup">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
+          <div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
+            <div class="flex flex-shrink-0 items-center">
+              <div class="p-2.5 mt-1 flex items-center">
+              <Link :href="route('main')" class="flex items-center">
+                <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-8 mr-2 transition-transform duration-300 transform hover:scale-105">
+              </Link>
+              <div>
+                <div class="text-invicta uppercase font-bold text-[11px] tracking-wide leading-tight">ARELLANO UNIVERSITY</div>
+                <div class="text-invicta uppercase font-bold text-[11px] tracking-wide leading-tight">SCHOOL OF LAW</div>
               </div>
-  
-              <div class="hidden sm:flex sm:items-center sm:ml-6">
+            </div>
+            </div>
+          </div>
+          <div class="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6 ">
+            <div class="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
+            </div>
+          </div>
+          <div class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
+            <a href="#" class="text-sm font-medium text-gray-900 hover:underline"></a>
+            <a href="#" class="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6" x-description="Heroicon name: outline/bell" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
+              </svg>
+            </a>
+
+            <!-- Profile dropdown -->
+            <div x-data="Components.menu({ open: false })" x-init="init()" @keydown.escape.stop="open = false; focusButton()" @click.away="onClickAway($event)" class="relative ml-5 flex-shrink-0">
+              <div>
+                <button type="button" class="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2" id="user-menu-button" x-ref="button" @click="onButtonClick()" @keyup.space.prevent="onButtonEnter()" @keydown.enter.prevent="onButtonEnter()" aria-expanded="false" aria-haspopup="true" x-bind:aria-expanded="open.toString()" @keydown.arrow-up.prevent="onArrowUp()" @keydown.arrow-down.prevent="onArrowDown()">
+                  <span class="sr-only">Open user menu</span>
+                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="relative">
                   <Dropdown align="right" width="48">
                     <template #trigger>
                       <span class="inline-flex rounded-md">
@@ -53,102 +75,172 @@
                   </Dropdown>
                 </div>
               </div>
-  
-              <!-- Hamburger -->
-              <div class="-mr-2 flex items-center sm:hidden">
-                <button
-                  @click="showingNavigationDropdown = !showingNavigationDropdown"
-                  class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-                >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                    <path
-                      :class="{
-                        'hidden': showingNavigationDropdown,
-                        'inline-flex': !showingNavigationDropdown,
-                      }"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                    <path
-                      :class="{
-                        'hidden': !showingNavigationDropdown,
-                        'inline-flex': showingNavigationDropdown,
-                      }"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
           </div>
-  
-          <!-- Responsive Navigation Menu -->
-          <div
-            :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }"
-            class="sm:hidden"
-          >
-            <div class="pt-2 pb-3 space-y-1">
-              <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                Dashboard
-              </ResponsiveNavLink>
-            </div>
-  
-            <!-- Responsive Settings Options -->
-            <div class="pt-4 pb-1 border-t border-gray-200">
-              <div class="px-4">
-                <div class="font-medium text-base text-gray-800">
-                  {{ $page.props.auth.user.name }}
-                </div>
-                <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
-              </div>
-  
-              <div class="mt-3 space-y-1">
-                <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
-                <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                  Log Out
-                </ResponsiveNavLink>
-              </div>
-            </div>
-          </div>
-        </nav>
+        </div>
+      </div>
 
-        <action class="bg-white py-8" v-if="$slots.action">
-          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+      <nav x-description="Mobile menu, show/hide based on menu state." class="lg:hidden" aria-label="Global" x-ref="panel" x-show="open" @click.away="open = false">
+        <div class="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
+          
+            <a href="#" aria-current="page" class="bg-gray-100 text-gray-900 block rounded-md py-2 px-3 text-base font-medium" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;hover:bg-gray-50&quot;">Home</a>
+          
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium" x-state-description="undefined: &quot;bg-gray-100 text-gray-900&quot;, undefined: &quot;hover:bg-gray-50&quot;">Popular</a>
+          
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium" x-state-description="undefined: &quot;bg-gray-100 text-gray-900&quot;, undefined: &quot;hover:bg-gray-50&quot;">Communities</a>
+          
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium" x-state-description="undefined: &quot;bg-gray-100 text-gray-900&quot;, undefined: &quot;hover:bg-gray-50&quot;">Trending</a>
+          
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <div class="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
+            <div class="flex-shrink-0">
+              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+            </div>
+            <div class="ml-3">
+              <div class="text-base font-medium text-gray-800">Chelsea Hagon</div>
+              <div class="text-sm font-medium text-gray-500">chelsea.hagon@example.com</div>
+            </div>
+            <button type="button" class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6" x-description="Heroicon name: outline/bell" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="mx-auto mt-3 max-w-3xl space-y-1 px-2 sm:px-4">
+            
+              <a href="#" class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Your Profile</a>
+            
+              <a href="#" class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Settings</a>
+            
+              <a href="#" class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Sign out</a>
+            
+          </div>
+        </div>
+
+        <div class="mx-auto mt-6 max-w-3xl px-4 sm:px-6">
+          <a href="#" class="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-rose-700">New Post</a>
+
+          <div class="mt-6 flex justify-center">
+            <a href="#" class="text-base font-medium text-gray-900 hover:underline">Go Premium</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="py-6">
+      <div class="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
+        <div class="hidden lg:col-span-3 lg:block xl:col-span-2">
+          <nav aria-label="Sidebar" class="sticky top-4 divide-y divide-gray-300">
+            <div class="space-y-1 pb-8">
               
-                <slot name="action" />
+                <a :href="route('dashboard')" class="bg-gray-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md" aria-current="page" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-200 text-gray-900&quot;, Default: &quot;text-gray-700 hover:bg-gray-50&quot;">
+                  <svg class="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" x-description="Heroicon name: outline/home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                  </svg>
+                  <span class="truncate">Home</span>
+                </a>
+              
+                <a :href="route('main')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
+                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.25C7.167 3.25 3.25 7.167 3.25 12S7.167 20.75 12 20.75 20.75 16.833 20.75 12 16.833 3.25 12 3.25zM12 18.75c-3.723 0-6.75-3.027-6.75-6.75S8.277 5.25 12 5.25s6.75 3.027 6.75 6.75-3.027 6.75-6.75 6.75z"></path>
+                  </svg>
+                  <span class="truncate">Web Preview</span>
+                </a>
+              
+                <ul class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                  <li>
+                      <details class="group">
+                          <!-- Dropdown Trigger -->
+                          <summary class="flex items-center justify-between font-medium marker:content-none hover:cursor-pointer">
+                              <span class="flex">
+                                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
+                                  </svg>
+                                  <span class="truncate">Posting</span>
+                              </span>
+                              <!-- Dropdown Indicator -->
+                              <svg class="w-5 h-5 text-gray-500 transition-transform transform group-open:rotate-90 ml-9" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                              </svg>
+                          </summary>
 
+                          <!-- Dropdown Content -->
+                          <article class="px-4 pb-4">
+                              <ul class="flex flex-col gap-3 pl-4 mt-2">
+                                  <li><a :href="route('posts')" class="hover:text-purple-800">News</a></li>
+                                  <li><a href="" class="hover:text-purple-800">Announcement</a></li>
+                                  <li><a href="" class="hover:text-purple-800">Events</a></li>
+                                  <hr>
+                                  <li><a :href="route('archive')" class="hover:text-purple-800 ">Archives</a></li>
+                              </ul>
+                          </article>
+                      </details>
+                  </li>
+                </ul>
+              
+                <a :href="route('gallery')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
+                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5zM5.25 6a.75.75 0 100 1.5h.75a.75.75 0 100-1.5h-.75zM9 6a.75.75 0 100 1.5h9.75a.75.75 0 100-1.5H9zM12 9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM3.75 18l4.5-5.25 3 3.75h9.75"></path>
+                  </svg>
+                  <span class="truncate">Gallery</span>
+                </a>
             </div>
-          </div>
-        </action>
 
-        <!-- Page Content -->
-        <main>
+            <div class="pt-5 mb-5">
+              <p class="px-3 text-sm font-medium text-gray-500" id="setup-page">Setup Page</p>
+              <div v-for="link in links" :key="link.name" class="mt-3 space-y-2" aria-labelledby="setup-page">
+                  <a :href="route(link.route)" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="truncate">{{ link.name }}</span>
+                  </a>
+              </div>
+            </div>
+
+            <div class="pt-5">
+              <p class="px-3 text-sm font-medium text-gray-500" id="setup-page">Settings</p>
+              <div v-for="setting in settings" :key="setting.name" class="mt-3 space-y-2" aria-labelledby="setup-page">
+                  <a :href="route(setting.route)" class="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="truncate">{{ setting.name }}</span>
+                  </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <main class="lg:col-span-10 xl:col-span-10">
+          <action class="bg-white py-8" v-if="$slots.action">
+            <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
+              <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+                  <slot name="action" />
+              </div>
+            </div>
+          </action>
+          <!-- main Slot -->
           <slot />
+          <!-- main Slot -->
         </main>
       </div>
     </div>
+  </div>
   </template>
   
   <script setup>
   import { ref } from 'vue';
   import { Link } from '@inertiajs/vue3';
-  import ApplicationLogo from '@/Components/ApplicationLogo.vue';
   import Dropdown from '@/Components/Dropdown.vue';
   import DropdownLink from '@/Components/DropdownLink.vue';
-  import NavLink from '@/Components/NavLink.vue';
-  import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-  import SideNav from '@/Layouts/Partials/SideNav.vue';
-  
-  const showingNavigationDropdown = ref(false);
+
+  const links = [
+    { name: 'Carousell', route: 'carousell'},
+    { name: 'Offices', route: 'offices'},
+    { name: 'Main Banner', route: 'banner'},
+    { name: 'On Load Banner', route: 'onload'}
+  ];
+
+  const settings = [
+    { name: 'Archives', route: 'archive'},
+    { name: 'Manage Users', route: 'users'},
+    { name: 'Testimonial', route: 'alumni'}
+  ];
   </script>
-  
-  <style scoped>
-  /* Add any scoped styles for AuthenticatedLayout.vue here */
-  </style>
   

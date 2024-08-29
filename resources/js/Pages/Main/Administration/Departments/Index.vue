@@ -1,148 +1,150 @@
 <template>
   <MainLayout>
-      <Head title="Administration Officers" />
-        <main class="flex-grow">
-          <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
-            <div class="flex flex-col md:flex-row justify-between gap-8">
-              <!-- Main content section -->
-              <section class="w-full md:w-3/4 relative">
-                <div class="flex items-center ml-2">
-                  <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                    Directory of Offices
-                  </h2>
-                </div>
-                <div class="ml-2 mb-8">
-                  <p class="text-gray-600 text-base sm:text-lg">
-                    Below is a comprehensive list of the key offices within our administration. Each office plays a crucial role in ensuring the smooth operation of our institution, offering essential services and support to both staff and students. For specific inquiries or assistance, please refer to the respective office listed.
-                  </p>
-                </div>
+    <Head title="Departments" />
+    <main class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 ">
+        <section class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto">
+          <div class="flex flex-col  w-full mb-20 sm:text-center">
+            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments Page</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
+          </div>
+          <div class="flex flex-wrap -m-4 mb-8">
+            <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(card, index) in cards" :key="index">
+            <v-card class="mx-auto pb-4" min-width="344">
+              <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
+              <v-img height="200px" src="/images/administration/departments/test.jpg" cover></v-img>
 
-              <!-- Executive Director Info -->
+              <v-card-title 
+                  @click="$inertia.visit(route('administration.departments.itc'))" 
+                  class="cursor-pointer"
+              >
+                  {{ card.title }}
+              </v-card-title>
+              <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
 
-              <table class="w-full text-sm sm:text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400 ml-2 mb-8">
-              <tbody>
-                <tr
-                  v-for="(office, index) in offices"
-                  :key="index"
-                  class="border-b"
-                >
-                  <td class="py-2 font-medium text-purple-900">
-                    <a :href="office.url" class="font-normal hover:underline hover:text-purple-800">{{ office.text }}</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </section>
-  
-              <aside class="w-full md:w-1/4 sticky top-0">
-              <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12 text-sm sm:text-lg">
-                  <div class="ml-4">
-                      <h2 class="mb-4 leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                      <hr class="mb-4 border-1 border-purple-800">
-                      <h3 class="font-normal text-gray-800 mb-8">Departments</h3>
-                  </div>
-                  <div class="ml-4">
-                      <h2 class="text-purple-900 font-medium mb-4">Related Links</h2>
-                      <hr class="mb-4 border-1 border-purple-800">
-                      <ul class="list-inside list-disc">
-                          <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                          <a :href="item.url" class="font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-              </aside>
+              <!-- <v-card-actions>
+                <v-btn color="purple-lighten-2" text>Function</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn :icon="show[index] ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show[index] = !show[index]"></v-btn>
+              </v-card-actions> -->
+
+              <v-expand-transition>
+                <div v-show="show[index]">
+                  <v-divider></v-divider>
+                  <v-card-text>{{ card.text }}</v-card-text>
+                </div>
+              </v-expand-transition>
+            </v-card>
+          </div>
           </div>
         </div>
-      </main>
-  </MainLayout>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import { reactive, onMounted, onBeforeUnmount } from 'vue';
-  import { Head } from '@inertiajs/vue3';
-  import MainLayout from '@/Layouts/MainLayout.vue';
-  
-  // Create a ref for the current step
-  const step = ref(1); // Initially set to Step 1
-  
-  // Function to set the current step
-  const setStep = (newStep) => {
-    step.value = newStep;
-    console.log(`Current step set to: ${newStep}`); // Debugging log
-  };
-  
-  const links = ref([
-    { text: 'Arellano Law Foundation', url: '/administration/alf' },
-    { text: 'Board of Trustees', url: '/administration/board_trustees' },
-    { text: 'Addministration Officers', url: '/administration/admin_staff' },
-    { text: 'Departments', url: '/administration/departments' }, 
-  ]);
+      </section>
+    </div>
+  </main>
+</MainLayout>
+</template>
 
-  const offices = [
-  { text: 'Information Technology Center', url: '/administration/departments/itc' },
-  { text: 'Other Name Of Offices', url: '#' },
+<script setup>
+import { ref } from 'vue';
+import { reactive, onMounted, onBeforeUnmount } from 'vue';
+import { Head } from '@inertiajs/vue3';
+import MainLayout from '@/Layouts/MainLayout.vue';
+// Function to set the current step
+const setStep = (newStep) => {
+step.value = newStep;
+console.log(`Current step set to: ${newStep}`); // Debugging log
+};
+const links = ref([
+{ text: 'Arellano Law Foundation', url: '#' },
+{ text: 'Board of Trustees', url: '#' },
+{ text: 'Administration and Staff', url: '#' },
+]);
+const isMobile = reactive({ value: window.innerWidth <= 768 });
+const checkIfMobile = () => {
+isMobile.value = window.innerWidth <= 768;
+};
+const departments = [
+  {
+    title: "Accounting Department",
+    subtitle: "Managing Finances",
+    text: "The Accounting department is responsible for managing the financial records of the institution, ensuring transparency and accuracy.",
+    image: "/images/administration/departments/test.jpg"
+  },
+  {
+    title: "Registrar's Office",
+    subtitle: "Handling Academic Records",
+    text: "The Registrar's Office manages student records, enrollment, and transcripts. It is the central hub for academic information.",
+    image: "https://cdn.vuetifyjs.com/images/cards/road.jpg"
+  },
+  {
+    title: "Records Department",
+    subtitle: "Keeping Important Data",
+    text: "The Records department ensures the safekeeping and organization of all important institutional documents.",
+    image: "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+  },
+  {
+    title: "Bursar's Office",
+    subtitle: "Handling Payments",
+    text: "The Bursar's Office is responsible for student billing, payment processing, and financial aid disbursement.",
+    image: "https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+  },
+  {
+    title: "ITC Department",
+    subtitle: "Supporting Technology",
+    text: "The ITC (Information Technology and Communication) department handles all tech-related infrastructure, ensuring smooth operations.",
+    image: "https://cdn.vuetifyjs.com/images/cards/plane.jpg"
+  },
+  {
+    title: "Admissions Office",
+    subtitle: "Welcoming New Students",
+    text: "The Admissions Office manages the process of accepting new students, from applications to enrollment.",
+    image: "https://cdn.vuetifyjs.com/images/cards/house.jpg"
+  }
 ];
-  
-  const isMobile = reactive({ value: window.innerWidth <= 768 });
-  
-  const checkIfMobile = () => {
-    isMobile.value = window.innerWidth <= 768;
-  };
-  
-  onMounted(() => {
-    window.addEventListener('resize', checkIfMobile);
-  });
-  
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', checkIfMobile);
-  });
-  
-  </script>
-  
-  <style scoped>
-  .container {
-    max-width: 1200px;
-  }
-  
-  .sticky {
-    position: sticky;
-    top: 0;
-  }
-  
-  .overflow-y-auto {
-    overflow-y: auto;
-  }
-  
-  .h-screen {
-    height: 100vh;
-  }
-  
-  .fixed {
-    position: fixed;
-  }
-  
-  .bottom-4 {
-    bottom: 1rem;
-  }
-  
-  .right-4 {
-    right: 1rem;
-  }
-  
-  .flex {
-    display: flex;
-  }
-  
-  .space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-  
-  .v-btn {
-    margin-top: 16px;
-    margin-right: 8px;
-  }
-  </style>
+const show = ref(Array(departments.length).fill(false));
+const cards = ref(departments);
+onMounted(() => {
+window.addEventListener('resize', checkIfMobile);
+});
+onBeforeUnmount(() => {
+window.removeEventListener('resize', checkIfMobile);
+});
+</script>
+
+<style scoped>
+.container {
+max-width: 1200px;
+}
+.sticky {
+position: sticky;
+top: 0;
+}
+.overflow-y-auto {
+overflow-y: auto;
+}
+.h-screen {
+height: 100vh;
+}
+.fixed {
+position: fixed;
+}
+.bottom-4 {
+bottom: 1rem;
+}
+.right-4 {
+right: 1rem;
+}
+.flex {
+display: flex;
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+--tw-space-x-reverse: 0;
+margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.v-btn {
+margin-top: 16px;
+margin-right: 8px;
+}
+</style>
