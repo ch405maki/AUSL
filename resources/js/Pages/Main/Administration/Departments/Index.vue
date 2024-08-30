@@ -15,14 +15,10 @@
             <v-card class="mx-auto pb-4" min-width="344">
               <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
               <v-img height="200px" :src="office.image" cover></v-img>
-
-              <v-card-title 
-                  @click="navigateToDepartment(office.id)"
-                  class="cursor-pointer"
-              >
+              <v-card-title>
                   {{ office.office_name}}
               </v-card-title>
-              <v-card-subtitle>{{ office.office_name}}</v-card-subtitle>
+              <v-card-subtitle>{{ office.office_location}}</v-card-subtitle>
             </v-card>
           </div>
           </div>

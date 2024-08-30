@@ -56,7 +56,7 @@ class MainController extends Controller
 
     public function departmentList()
     {
-        $offices = Office::select('id', 'office_name', 'office_function', 'image')
+        $offices = Office::select('id', 'office_name', 'office_function', 'image', 'office_location')
                             ->orderBy('office_name', 'asc')
                             ->get();
                             

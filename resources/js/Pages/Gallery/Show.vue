@@ -5,14 +5,19 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Gallery Details</h2>
         </template>
 
-        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 lg:pt-10">
+        <template #action>
+            <div class="flex justify-start p-3">
+                <h3 class="text-2xl font-bold text-purple-800">{{ gallery.year }}</h3>
+                <h3 class="text-2xl font-bold ml-2 text-gray-800"><span class="text-gray-500"> / </span>{{ gallery.title }}</h3>
+            </div>
+        </template>
+
+        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
             <main class="flex-grow">
                 <div class="max-w-7xl mx-auto">
                     <div class="flex flex-col w-full mx-4 justify-center">
                         <!-- Gallery Details Section -->
                         <div class="w-full p-1">
-                            <h3 class="text-2xl font-bold text-purple-800">{{ gallery.year }}</h3>
-                            <h3 class="text-2xl font-bold mb-4">{{ gallery.title }}</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                 <div v-for="(image, index) in gallery.images" :key="index" class="mb-4">
                                     <img :src="image" alt="Gallery Image" class="w-full rounded-lg shadow-sm" @click="showLightbox(index)" />
@@ -23,9 +28,6 @@
                     </div>
                 </div>
             </main>
-            <!-- Footer -->
-            <Footer />
-            <!-- Footer -->
         </div>
     </AuthenticatedLayout>
 

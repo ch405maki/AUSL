@@ -5,16 +5,15 @@
       <template #header>
           <h2 class="font-semibold text-xl text-gray-800 leading-tight">Banner</h2>
       </template>
-      <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 lg:pt-10">
+      <div class="flex flex-col min-h-screen">
           <main class="flex-grow">
               <div class="max-w-7xl mx-auto">
                   <div class="flex flex-col md:flex-row w-full justify-center">
                       <!-- Main content section -->
                       <div class="w-full md:w-2/3 p-1">
-                          <v-table fixed-header height="500px">
+                          <v-table class="shadow-sm rounded-lg" >
                               <thead>
                                   <tr>
-                                      <th class="text-left">Number</th>
                                       <th class="text-left">Title</th>
                                       <th class="text-left">Link</th>
                                       <th class="text-left">Status</th>
@@ -23,7 +22,6 @@
                               </thead>
                               <tbody>
                                   <tr v-for="(banner, index) in banners" :key="banner.id">
-                                      <td>{{ index + 1 }}</td>
                                       <td>{{ banner.title }}</td>
                                       <td>{{ banner.link }}</td>
                                       <td class="px-6 py-4">
@@ -68,9 +66,10 @@
                       <!-- End main content section -->
                       <v-dialog v-model="isChangeStateModalOpen" max-width="500px">
                         <v-card>
-                          <v-card-title class="headline">Change State</v-card-title>
+                          <v-card-title class="headline ml-2">Change State</v-card-title>
                           <v-card-text>
-                            <p>Are you sure you want to change the state of "{{ selectedBanner.title }}"?</p>
+                            <p>Are you sure you want to change the state of <br>
+                              <h1 class="font-semibold mb-4">"{{ selectedBanner.title }}"?</h1></p>
                             <v-radio-group v-model="newState">
                               <v-radio label="Active" :value="1"></v-radio>
                               <v-radio label="Disabled" :value="0"></v-radio>
@@ -78,8 +77,15 @@
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" text @click="closeChangeStateModal">Cancel</v-btn>
-                            <v-btn color="blue darken-1" text @click="changeState">Confirm</v-btn>
+                            <div class="flex justify-center">
+                              <button 
+                              @click="changeState"
+                              class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mt-8"
+                              aria-label="Create a new banner" 
+                            >
+                              Create Banner
+                            </button>
+                            </div>
                           </v-card-actions>
                         </v-card>
                       </v-dialog>
@@ -94,7 +100,7 @@
                       />
 
                       <!-- User Creation Form -->
-                      <div class="w-full md:w-1/3 p-2 flex justify-start">
+                      <div class="w-full md:w-1/3 p-3 flex justify-start bg-white rounded-lg mt-1">
                         <form @submit.prevent="createBanner" class="w-full">
                         <div>
                           <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -106,7 +112,7 @@
                             required
                           />
                         </div>
-                        <div>
+                        <div class="mt-4">
                           <label for="link" class="block text-sm font-medium text-gray-700">Link</label>
                           <input
                             id="link"
@@ -116,7 +122,7 @@
                             required
                           />
                         </div>
-                        <div>
+                        <div class="mt-4">
                           <label for="state" class="block text-sm font-medium text-gray-700">State</label>
                           <select
                             id="state"
@@ -128,12 +134,15 @@
                             <option :value="false">Hidden</option>
                           </select>
                         </div>
-                        <button
-                          type="submit"
-                          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mt-8"
-                        >
-                          Create Banner
-                        </button>
+                        <div class="flex justify-center">
+                          <button 
+                            type="submit" 
+                            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mt-8"
+                            aria-label="Create a new banner" 
+                          >
+                            Create Banner
+                          </button>
+                        </div>
                         <div v-if="successMessage" class="mt-4 p-4 bg-green-100 text-green-800 rounded">
                           {{ successMessage }}
                         </div>
@@ -143,9 +152,6 @@
                   </div>
               </div>
           </main>
-          <!-- Footer -->
-          <Footer />
-          <!-- Footer -->
       </div>
   </AuthenticatedLayout>
 </template>
