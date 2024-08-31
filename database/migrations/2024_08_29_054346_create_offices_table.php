@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
             $table->string('office_name');
-            $table->text('office_function');
             $table->string('office_location');
-            $table->string('office_email');
-            $table->string('office_contact');
+            $table->string('category');
             $table->string('image');
             $table->timestamps();
         });

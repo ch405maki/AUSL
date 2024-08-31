@@ -124,7 +124,7 @@ const form = useForm({
   content: '',
   image: null,
   category: '',
-  state: null,
+  state: 'Active',
   link: null,
 });
 

@@ -15,7 +15,7 @@
                 <nav class="bg-grey-light w-full rounded-md mb-6" aria-label="breadcrumb">
                   <ol class="list-reset flex">
                     <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
-                    <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">{{ formattedDate(post.created_at) }}</span></li>
+                    <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span></li>
                   </ol>
                 </nav>
                 <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">

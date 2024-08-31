@@ -78,35 +78,32 @@
                                 <v-card-text>
                                     <form @submit.prevent="submitForm" class="w-full">
                                         <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
-                                            <!-- Office Name -->
+
                                             <div class="sm:col-span-6">
-                                                <label for="office_name" class="block text-sm font-medium text-gray-700">Office Name</label>
+                                                <label for="office_email" class="block text-sm font-medium text-gray-700">Category</label>
+                                                <InputLabel for="category" value="Category" />
+                                                <select
+                                                    v-model="form.category"
+                                                    class="mt-1 block w-full border border-gray-300 rounded-lg"
+                                                    id="category"
+                                                    required
+                                                >
+                                                    <option value="Department">Department</option>
+                                                    <option value="Facilities">Facilities</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Office Name -->
+                                            <div class="sm:col-span-8">
+                                                <label for="office_name" class="block text-sm font-medium text-gray-700">Name</label>
                                                 <input type="text" id="office_name" v-model="form.office_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
                                             </div>
                                             
                                             <!-- Office Location -->
-                                            <div class="sm:col-span-6">
-                                                <label for="office_location" class="block text-sm font-medium text-gray-700">Office Location</label>
-                                                <input type="text" id="office_location" v-model="form.office_location" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-                                            </div>
-
-                                            <!-- Office Email -->
-                                            <div class="sm:col-span-6">
-                                                <label for="office_email" class="block text-sm font-medium text-gray-700">Office Email</label>
-                                                <input type="email" id="office_email" v-model="form.office_email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-                                            </div>
-
-                                            <!-- Office Contact -->
-                                            <div class="sm:col-span-6">
-                                                <label for="office_contact" class="block text-sm font-medium text-gray-700">Office Contact</label>
-                                                <input type="text" id="office_contact" v-model="form.office_contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-                                            </div>
-
-                                            <!-- Office Function -->
                                             <div class="sm:col-span-12">
-                                                <label for="office_function" class="block text-sm font-medium text-gray-700">Office Function</label>
-                                                <ckeditor :editor="editor" v-model="form.office_function" :config="editorConfig"></ckeditor>
-                                            </div> 
+                                                <label for="office_function" class="block text-sm font-medium text-gray-700 mb-1">Office Location</label>
+                                                <ckeditor :editor="editor" v-model="form.office_location" :config="editorConfig"></ckeditor>
+                                            </div>
 
                                             <!-- Image Upload -->
                                             <div class="col-span-full mt-4">
@@ -167,10 +164,8 @@ const previewImage = ref(null);
 // Form handling
 const form = useForm({
     office_name: '',
-    office_function: '',
     office_location: '',
-    office_email: '',
-    office_contact: '',
+    category: '',
     image: null,
 });
 
@@ -191,10 +186,8 @@ const handleFileChange = (event) => {
 const submitForm = () => {
     const formData = new FormData();
     formData.append('office_name', form.office_name);
-    formData.append('office_function', form.office_function);
     formData.append('office_location', form.office_location);
-    formData.append('office_email', form.office_email);
-    formData.append('office_contact', form.office_contact);
+    formData.append('category', form.category);
     if (form.image) {
         formData.append('image', form.image);
     }

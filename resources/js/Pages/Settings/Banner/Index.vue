@@ -11,13 +11,13 @@
                   <div class="flex flex-col md:flex-row w-full justify-center">
                       <!-- Main content section -->
                       <div class="w-full md:w-2/3 p-1">
-                          <v-table class="shadow-sm rounded-lg" >
+                          <v-table class="shadow-sm rounded-lg">
                               <thead>
                                   <tr>
                                       <th class="text-left">Title</th>
                                       <th class="text-left">Link</th>
                                       <th class="text-left">Status</th>
-                                      <th class="text-left">Action</th>
+                                      <th class="text-center">Action</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -28,14 +28,14 @@
                                         <div class="flex items-center">
                                           <!-- Conditionally show the "Active" state -->
                                           <template v-if="banner.state">
-                                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                            <span>State Active</span>
+                                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2" title="Active"></div>
+                                            <span></span>
                                           </template>
 
                                           <!-- Conditionally show the "Disabled" state -->
                                           <template v-else>
-                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
-                                            <span>State Disabled</span>
+                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2" title="Disabled"></div>
+                                            <span></span>
                                           </template>
                                         </div>
                                       </td>
@@ -65,30 +65,28 @@
                       </div>
                       <!-- End main content section -->
                       <v-dialog v-model="isChangeStateModalOpen" max-width="500px">
-                        <v-card>
-                          <v-card-title class="headline ml-2">Change State</v-card-title>
-                          <v-card-text>
-                            <p>Are you sure you want to change the state of <br>
-                              <h1 class="font-semibold mb-4">"{{ selectedBanner.title }}"?</h1></p>
-                            <v-radio-group v-model="newState">
-                              <v-radio label="Active" :value="1"></v-radio>
-                              <v-radio label="Disabled" :value="0"></v-radio>
-                            </v-radio-group>
-                          </v-card-text>
-                          <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <div class="flex justify-center">
-                              <button 
-                              @click="changeState"
-                              class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mt-8"
-                              aria-label="Create a new banner" 
-                            >
-                              Create Banner
-                            </button>
-                            </div>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
+  <v-card>
+    <v-card-title class="headline ml-2">Change State</v-card-title>
+    <v-card-text>
+      <p>Are you sure you want to change the state of <br>
+        <h1 class="font-semibold mb-4">"{{ selectedBanner.title }}"?</h1></p>
+      <v-radio-group v-model="newState">
+        <v-radio label="Active" :value="1"></v-radio>
+        <v-radio label="Disabled" :value="0"></v-radio>
+      </v-radio-group>
+    </v-card-text>
+    <v-card-actions class="justify-center">
+      <button 
+        @click="changeState"
+        class="px-4 py-2 mb-3 bg-blue-600 text-white rounded hover:bg-blue-700"
+        aria-label="Create a new banner"
+      >
+        Change State
+      </button>
+    </v-card-actions>
+  </v-card>
+</v-dialog>
+
                       <!-- Modal Component -->
                       <BannerModal
                         :isVisible="isModalVisible"
@@ -102,6 +100,9 @@
                       <!-- User Creation Form -->
                       <div class="w-full md:w-1/3 p-3 flex justify-start bg-white rounded-lg mt-1">
                         <form @submit.prevent="createBanner" class="w-full">
+                          <div class="text-left mb-4">
+                            <h2 class="text-xl font-bold">Text Banner</h2>
+                          </div>
                         <div>
                           <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                           <input

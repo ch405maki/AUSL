@@ -18,10 +18,8 @@ class Office extends Model
      */
     protected $fillable = [
         'office_name',
-        'office_function',
         'office_location',
-        'office_email',
-        'office_contact',
+        'category',
         'image',
     ];
 }

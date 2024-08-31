@@ -24,7 +24,7 @@
                 :href="`/announcement/show/${announcement.id}`"
                 class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer"
               >{{ announcement.title }}</a>
-              <p class="text-gray-600 mt-2 text-lg">{{ formattedDate(announcement.created_at) }}</p>
+              <p class="text-gray-600 mt-2 text-lg">{{ new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CarousellController;
 use App\Http\Controllers\GalleryController;
@@ -193,8 +194,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-
     Route::patch('/posts/{post}/archive', [PostController::class, 'archive'])->name('posts.updateState');
+});
+
+// Announcement route
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
 });
 
 // Carousel route
@@ -232,7 +237,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // archive route
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/archive', [ArchiveController::class, 'index'])->name('archive');
+    Route::get('/archive', [ArchiveController::class, 'newsIndex'])->name('archive');
     Route::patch('/archive/{post}/repost', [ArchiveController::class, 'repost'])->name('archive.updateState');
 });
 

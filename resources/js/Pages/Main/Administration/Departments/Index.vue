@@ -10,15 +10,16 @@
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
           </div>
 
-          <div class="flex flex-wrap -m-4 mb-8">
-            <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(office, index) in offices" :key="office.id">
+          <div class="flex flex-wrap -m-4 mb-8" >
+            <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(office, index) in offices" :key="office.id" >
             <v-card class="mx-auto pb-4" min-width="344">
               <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
               <v-img height="200px" :src="office.image" cover></v-img>
               <v-card-title>
                   {{ office.office_name}}
               </v-card-title>
-              <v-card-subtitle>{{ office.office_location}}</v-card-subtitle>
+              <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
+              <p v-html="office.office_location" class="pl-4 text-gray-600"></p>
             </v-card>
           </div>
           </div>

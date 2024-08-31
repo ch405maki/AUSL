@@ -24,7 +24,7 @@
                   :href="`/show/${post.id}`"
                   class="font-bold text-lg text-white hover:text-purple-900 hover:underline cursor-pointer line-clamp-2"
                 >{{ post.title }}</a>
-                <p class="text-gray-100">{{ formattedDate(post.created_at) }}</p>
+                <p class="text-gray-100">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 class ArchiveController extends Controller
 {
-    public function index()
+    public function newsIndex()
     {
         $posts = Post::where('category', 'News')
             ->where('state', 'Archived')

@@ -121,7 +121,7 @@
                           <article class="px-4 pb-4">
                               <ul class="flex flex-col gap-3 pl-4 mt-4">
                                   <li><a :href="route('posts')" class="hover:text-purple-800">News</a></li>
-                                  <li><a href="" class="hover:text-purple-800">Announcement</a></li>
+                                  <li><a :href="route('announcement')" class="hover:text-purple-800">Announcement</a></li>
                                   <li><a href="" class="hover:text-purple-800">Events</a></li>
                                   <hr>
                                   <li><a :href="route('archive')" class="hover:text-purple-800 ">Archives</a></li>

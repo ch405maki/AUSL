@@ -20,10 +20,8 @@ class OfficeController extends Controller
         // Validation rules
         $request->validate( [
             'office_name' => 'required|string|max:255',
-            'office_function' => 'required|string',
             'office_location' => 'required|string|max:255',
-            'office_email' => 'required|email|max:255',
-            'office_contact' => 'required|string|max:20',
+            'category' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240', // 10MB Max
         ]);
 
