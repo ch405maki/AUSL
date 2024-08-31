@@ -8,7 +8,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <div class="w-full md:w-2/2 p-2">
                 <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-2xl text-pretty text-start p-2">
-                  Curriculum
+                  Curiculum
                 </h1>
                 <div class="p-5 mb-8 text-center bg-white">
                   <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>

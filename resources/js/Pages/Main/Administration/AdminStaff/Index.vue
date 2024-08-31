@@ -75,7 +75,7 @@
     const links = ref([
       { text: 'Arellano Law Foundation', url: '/administration/alf' },
       { text: 'Board of Trustees', url: '/administration/board_trustees' },
-      { text: 'Addministration Officers', url: '/administration/admin_staff' },
+      { text: 'Administration Officers', url: '/administration/admin_staff' },
       { text: 'Departments', url: '/administration/departments' }, 
     ]);
 

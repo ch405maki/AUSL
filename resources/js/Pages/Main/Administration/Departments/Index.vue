@@ -6,22 +6,41 @@
         <section class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto">
           <div class="flex flex-col  w-full mb-20 sm:text-center">
-            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments Page</h1>
+            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments and Facilities Page</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
           </div>
 
-          <div class="flex flex-wrap -m-4 mb-8" >
-            <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(office, index) in offices" :key="office.id" >
-            <v-card class="mx-auto pb-4" min-width="344">
-              <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
-              <v-img height="200px" :src="office.image" cover></v-img>
-              <v-card-title>
-                  {{ office.office_name}}
-              </v-card-title>
-              <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
-              <p v-html="office.office_location" class="pl-4 text-gray-600"></p>
-            </v-card>
+          <div>
+            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Department List</h1>
+            <div class="flex flex-wrap -m-4 mb-8">
+              <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(office, index) in offices" :key="office.id" >
+              <v-card class="mx-auto pb-4" min-width="344">
+                <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
+                <v-img height="200px" :src="office.image" cover></v-img>
+                <v-card-title>
+                    {{ office.office_name}}
+                </v-card-title>
+                <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
+                <p v-html="office.office_location" class="pl-4 text-gray-600"></p>
+              </v-card>
+              </div>
+            </div>
           </div>
+          <div>
+            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Facilities List</h1>
+            <div class="flex flex-wrap -m-4 mb-8">
+              <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(facility, index) in facilities" :key="facility.id" >
+              <v-card class="mx-auto pb-4" min-width="344">
+                <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
+                <v-img height="200px" :src="facility.image" cover></v-img>
+                <v-card-title>
+                    {{ facility.office_name}}
+                </v-card-title>
+                <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
+                <p v-html="facility.office_location" class="pl-4 text-gray-600"></p>
+              </v-card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -39,6 +58,7 @@ import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
   offices: { type: Array, required: true },
+  facilities: { type: Array, required: true },
 });
 
 

@@ -57,11 +57,17 @@ class MainController extends Controller
     public function departmentList()
     {
         $offices = Office::select('id', 'office_name', 'image', 'office_location')
+                            ->where('category', 'Department')
                             ->orderBy('office_name', 'asc')
                             ->get();
-                            
+
+        $facilities = Office::select('id', 'office_name', 'image', 'office_location')
+                            ->where('category', 'Facilities')
+                            ->orderBy('office_name', 'asc')
+                            ->get();
+
         return Inertia::render('Main/Administration/Departments/Index', [
-            'offices' => $offices]);
+            'offices' => $offices, 'facilities' => $facilities]);
     }
 
     public function departmentShow($id)

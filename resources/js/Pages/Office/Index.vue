@@ -25,6 +25,7 @@
                     <v-table fixed-header class="shadow-sm rounded-lg">
                         <thead>
                         <tr>
+                            <th>Category</th>
                             <th class="text-left">Offices List</th>
                             <th class="text-left">Office Image</th>
                             <th class="text-center">Action</th>
@@ -32,6 +33,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(office, index) in offices" :key="office.id">
+                                <td>{{ office.category }}</td>
                                 <td>{{ office.office_name }}</td>
                                 <td><img :src="office.image" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm"></td>
                                 <td class="text-center">
