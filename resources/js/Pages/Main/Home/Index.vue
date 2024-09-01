@@ -12,7 +12,7 @@
       <Announcement :announcements="announcements" />
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
-      <!-- <GoogleFacebook /> -->
+      <GoogleFacebook />
       <RelatedWeb />
 
       <div v-if="showCookiePopup" class="fixed bottom-0 right-0 mb-4 mr-4 w-64">
