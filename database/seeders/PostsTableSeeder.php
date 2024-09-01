@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
                 'content' => 'Arellano University School of Law (AUSL) is one of the premier law schools in the Philippines. Established in 1938, AUSL has a long-standing tradition of excellence in legal education. The school is named after Cayetano Arellano, the first Chief Justice of the Supreme Court of the Philippines. AUSL is known for its rigorous academic programs, distinguished faculty, and a strong commitment to producing competent and ethical lawyers. The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.',
                 'image' => 'https://via.placeholder.com/150',
                 'category' => 'News',
-                'state' => null,
+                'state' => 'Active',
                 'link' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
