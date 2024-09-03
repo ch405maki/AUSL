@@ -14,7 +14,11 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\AcademicController;
 use Inertia\Inertia;
+
+// Models
+use App\Models\Academic;
 
 Route::get('/', function () {
     // Fetch the posts data from your database
@@ -84,8 +88,13 @@ Route::prefix('academic')->name('academic.')->group(function () {
     })->name('curiculumn');
 
     Route::get('/juris-doctor', function () {
-        return Inertia::render('Main/AcademicProgram/JurisDoctor/Index');
+        return Inertia::render('Main/AcademicProgram/JurisDoctor/Curiculum/Index');
     })->name('juris-doctor');
+
+    Route::get('/guidelines', function () {
+        $guidelines = Academic::all();
+        return Inertia::render('Main/AcademicProgram/Guidelines/Index', ['guidelines' => $guidelines]);
+    })->name('guidelines');
 
     Route::get('/refresher', function () {
         return Inertia::render('Main/AcademicProgram/Refresher/Index');
@@ -246,6 +255,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/offices', [OfficeController::class, 'index'])->name('offices');
     Route::post('/offices', [OfficeController::class, 'store'])->name('offices.store');
     Route::delete('/offices/{id}', [OfficeController::class, 'destroy'])->name('office.destroy');
+});
+
+//Academics
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/academic_guidelines', [AcademicController::class, 'guide_index'])->name('academic_guidelines');
+    Route::post('/academic_guidelines', [AcademicController::class, 'guide_store'])->name('academic_guidelines.store');
+    Route::delete('/academic_guidelines/{id}', [AcademicController::class, 'guide_destroy'])->name('academic_guidelines.destroy');
 });
 
 //settings

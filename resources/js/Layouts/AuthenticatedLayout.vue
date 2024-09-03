@@ -185,6 +185,7 @@
   const links = [
     { name: 'Carousell', route: 'carousell'},
     { name: 'Offices', route: 'offices'},
+    { name: 'Academic Guidelines', route:'academic_guidelines'},
     { name: 'Main Banner', route: 'banner'},
     { name: 'On Load Banner', route: 'onload'}
   ];

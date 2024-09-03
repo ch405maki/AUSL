@@ -8,7 +8,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <div class="w-full md:w-2/2 p-2">
                 <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-2xl text-pretty text-start p-2">
-                  Curiculum
+                  Juris Doctor Curiculum
                 </h1>
                 <div class="p-5 mb-8 text-center bg-white">
                   <h1 class="mt-1 text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
@@ -27,7 +27,7 @@
                         <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 border border-gray-600">
                           Subject
                         </th>
-                        <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600">
+                        <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600 w-24 ">
                           Units
                         </th>
                       </tr>
@@ -70,7 +70,7 @@
               <div class="w-full md:w-1/3 p-2 flex justify-start">
                 <div class="text-left">
                   <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                    <h1 class="text-purple-900 text-lg font-medium mb-4">See Also</h1>
+                    <h1 class="text-purple-900 text-lg font-medium mb-4">Related Links</h1>
                     <hr class="mb-4 border-1 border-purple-900">
                     <ul class="list-inside list-disc">
                       <li v-for="(item, index) in links" :key="index" class="mb-2">
@@ -94,11 +94,11 @@ import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 
 const links = ref([
-{ text: 'Latest Announcement', url: 'https://aims.arellanolaw.edu/aims/students/' },
-{ text: 'Upcoming Events', url: '#event2' },
-{ text: 'Related Article', url: '#event3' },
-{ text: 'Related Article', url: '#event4' },
-{ text: 'Related Article', url: '#event5' }
+{ text: 'JD/Curiculum', url: '#event2' },
+{ text: 'Refresher/Curiculum', url: '#event2' },
+{ text: 'Academic Guidelines', url: 'https://aims.arellanolaw.edu/aims/students/' },
+{ text: 'Bar Review', url: '#event3' },
+{ text: 'MCLE', url: '#event4' },
 ]);
 
 
@@ -304,12 +304,12 @@ const subjects = ref([
       { 
         name: 'Election Laws', 
         units: 1,
-        description: 'Prerequisite: Constitutional Law I <br><br> The course covers the laws regulating the conduct of elections, and the law on preproclamation contests and election protests, and as well as related jurisprudence.<br><br>Prerequisite: Constitutional Law I'
+        description: 'Prerequisite: Constitutional Law I <br><br> The course covers the laws regulating the conduct of elections, and the law on preproclamation contests and election protests, and as well as related jurisprudence.'
       },
       { 
         name: 'Medical Jurisprudence', 
         units: 1,
-        description: 'Prerequisite course: Evidence <br><br> The course provides an overview of the principles relating to medico-legal cases, including the procedure of presenting and examining a medical expert witness.<br><br>Prerequisite course: Evidence'
+        description: 'Prerequisite course: Evidence <br><br> The course provides an overview of the principles relating to medico-legal cases, including the procedure of presenting and examining a medical expert witness.'
       },
       { 
         name: 'Gender Sensitivity and Laws on Women and Children\'s Rights', 
@@ -359,22 +359,22 @@ const subjects = ref([
       { 
         name: 'Political and International Law Review and Integration', 
         units: 5,
-        description: 'Prerequisites: Constitutional Law I and II, Administrative Law and Law on Public Officers, Election Laws, Laws on Local Government, and Public International Law <br><br> A review course intended for bar examinees focusing on constitutional law, including political law, administrative law, electoral laws and related subjects. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisites: Constitutional Law I and II, Administrative Law and Law on Public Officers, Election Laws, Laws on Local Government, and Public International Law'
+        description: 'Prerequisites: Constitutional Law I and II, Administrative Law and Law on Public Officers, Election Laws, Laws on Local Government, and Public International Law <br><br> A review course intended for bar examinees focusing on constitutional law, including political law, administrative law, electoral laws and related subjects. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Civil Law Review and Integration', 
         units: 6,
-        description: 'Prerequisites: Persons and Family Law, Obligations and Contracts, Property and Land Law, Basic Succession Law, Torts and Damages, and Private International Law <br><br> A review course intended for bar examinees focusing on civil law, including persons and family law, obligations and contracts, basic succession, laws on property and titles, private international law, torts and related subjects. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisites: Persons and Family Law, Obligations and Contracts, Property and Land Law, Basic Succession Law, Torts and Damages, and Private International Law'
+        description: 'Prerequisites: Persons and Family Law, Obligations and Contracts, Property and Land Law, Basic Succession Law, Torts and Damages, and Private International Law <br><br> A review course intended for bar examinees focusing on civil law, including persons and family law, obligations and contracts, basic succession, laws on property and titles, private international law, torts and related subjects. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Criminal Law Review and Integration', 
         units: 3,
-        description: 'Prerequisites: Criminal Law I and II <br><br> A review course intended for bar examinees focusing on criminal laws, important and common special penal laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisites: Criminal Law I and II'
+        description: 'Prerequisites: Criminal Law I and II <br><br> A review course intended for bar examinees focusing on criminal laws, important and common special penal laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Labor Law Review and Integration', 
         units: 3,
-        description: 'Prerequisite: Labor Law and Social Legislation <br><br> A review course intended for bar examinees focusing on labor laws, social legislation and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisite: Labor Law and Social Legislation'
+        description: 'Prerequisite: Labor Law and Social Legislation <br><br> A review course intended for bar examinees focusing on labor laws, social legislation and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       }
     ],
     totalUnits: 17,
@@ -385,22 +385,22 @@ const subjects = ref([
       { 
         name: 'Legal & Judicial Ethics & Practical Exercises Review and Integration', 
         units: 2,
-        description: 'Prerequisites: Legal Forms, and Basic Legal and Judicial Ethics <br><br> A review course intended for bar examinees focusing on problem areas and advanced topics in legal and judicial ethics, as well as related jurisprudence. The course also centers on problem solving through application of the legal canons. It also provides survey and review of key legal forms and memoranda. More importantly, the course provides integration of key principles, and discussion of updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisites: Legal Forms, and Basic Legal and Judicial Ethics'
+        description: 'Prerequisites: Legal Forms, and Basic Legal and Judicial Ethics <br><br> A review course intended for bar examinees focusing on problem areas and advanced topics in legal and judicial ethics, as well as related jurisprudence. The course also centers on problem solving through application of the legal canons. It also provides survey and review of key legal forms and memoranda. More importantly, the course provides integration of key principles, and discussion of updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Remedial Law Review and Integration', 
         units: 6,
-        description: 'Prerequisite: Criminal Procedure, Civil Procedure I and II, Evidence, and Special Rules and Proceedings <br><br> A review course intended for bar examinees focusing on remedial laws, particularly those found under the Rules of Court, and related statutes, other sources of procedural law, as well as relevant jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisite: Criminal Procedure, Civil Procedure I and II, Evidence, and Special Rules and Proceedings'
+        description: 'Prerequisite: Criminal Procedure, Civil Procedure I and II, Evidence, and Special Rules and Proceedings <br><br> A review course intended for bar examinees focusing on remedial laws, particularly those found under the Rules of Court, and related statutes, other sources of procedural law, as well as relevant jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Commercial Law Review and Integration', 
         units: 5,
-        description: 'Prerequisites: Agency, Trust and Partnership Law, Corporation and Basic Securities Law, and, Commercial Laws I and II <br><br> A review course intended for bar examinees focusing on commercial laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisites: Agency, Trust and Partnership Law, Corporation and Basic Securities Law, and, Commercial Laws I and II'
+        description: 'Prerequisites: Agency, Trust and Partnership Law, Corporation and Basic Securities Law, and, Commercial Laws I and II <br><br> A review course intended for bar examinees focusing on commercial laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
       },
       { 
         name: 'Taxation Law Review and Integration', 
         units: 3,
-        description: 'Prerequisite: Basic Taxation Law <br><br> A review course intended for bar examinees focusing on taxation laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisite: Basic Taxation Law'
+        description: 'A review course intended for bar examinees focusing on taxation laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.<br><br>Prerequisite: Basic Taxation Law'
       }
     ],
     totalUnits: 16,

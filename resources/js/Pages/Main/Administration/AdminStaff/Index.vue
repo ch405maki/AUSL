@@ -92,7 +92,7 @@
     { role: 'Adviser & Apprenticeship Program Facilitator <br> Legal Aid Office/Data Privacy Officer', name: 'Atty. Maureen Kay E. Patajo' },
     { role: 'Comptroller', name: 'Atty. Agnes B. Santos' },
     { role: 'Director, General Services', name: 'Pedro S. Cayco' },
-    { role: 'Director for Finance', name: 'Jasmin P. Horlina' },
+    { role: 'Director for Accounting', name: 'Jasmin P. Horlina' },
     { role: 'Director, Center for Legal Education and Research', name: 'Atty. Roderick M. Villostas' },
     { role: 'Director, Information Technology Center', name: 'Cristina D. Revilla' },
     { role: 'Director, Alumni Affairs', name: 'Atty. Arnaldo M. Espinas' },

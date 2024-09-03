@@ -8,70 +8,84 @@
             <section class="w-full md:w-3/4 relative ml-2">
               <!-- Step 1 -->
               <div v-show="step === 1">
-                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                  Contact Us
-                </h2>
-                  <div class="bg-white border-none rounded-lg  mb-6 relative">
-                    <div class="bg-white border-none rounded-lg mb-6 relative">
-                    <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
-                      <h2 class="text-lg sm:text-xl text-left text-gray-700 font-bold mb-4 sm:mb-0">Contact Information</h2>
-                      <div class="relative sm:ml-auto">
-                        <label for="table-search" class="sr-only">Search</label>
-                        <div class="relative">
-                          <div class="absolute inset-y-0 left-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-900" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                            </svg>
-                          </div>
-                          <input type="text" id="table-search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-purple-500 focus:border-purple-500" placeholder="Search for Contact Information">
+              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+                Contact Us
+              </h2>
+              <div class="bg-white border-none rounded-lg  mb-6 relative">
+                <div class="bg-white border-none rounded-lg mb-6 relative">
+                  <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
+                    <h2 class="text-lg sm:text-xl text-left text-gray-700 font-bold mb-4 sm:mb-0">Contact Information</h2>
+                    <div class="relative sm:ml-auto">
+                      <label for="table-search" class="sr-only">Search</label>
+                      <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center ps-3 pointer-events-none">
+                          <svg class="w-5 h-5 text-gray-900" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                          </svg>
                         </div>
+                        <input
+                          type="text"
+                          id="table-search"
+                          class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-purple-500 focus:border-purple-500"
+                          placeholder="Search for Contact Information"
+                          v-model="searchQuery"
+                        />
                       </div>
                     </div>
                   </div>
-                  <div class="text-slate-600 leading-relaxed">
-                      <div class="overflow-x-auto">
-                        <v-table    
-                          height="500px"
-                          fixed-header
-                        >
-                          <thead>
-                            <tr>
-                              <th class="text-gray-700 text-lg font-normal hover:text-slate-900">
-                                Department/Office
-                              </th>
-                              <th class="text-gray-700 text-lg text-center font-normal hover:text-slate-900">
-                                Local Numbers
-                              </th>
-                              <th class="text-gray-700 text-lg font-normal hover:text-slate-900" v-if="!isMobile">
-                                Email Address
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr v-for="item in contact" :key="item.name" class="hover:bg-purple-100 hover:bg-round-lg whitespace-nowrap">
-                              <td class="text-gray-700 text-lg font-normal whitespace-nowrap py-2">
-                                {{ item.office }}
-                                <br v-if="isMobile">
-                                <span v-if="isMobile" class="flex items-center">
-                                  {{ item.email }}
-                                </span>
-                              </td>
-                              <td class="text-gray-700 text-lg font-medium text-center whitespace-nowrap">
-                                {{ item.local }}
-                              </td>
-                              <td v-if="!isMobile" class="text-gray-700 text-lg font-normal whitespace-nowrap">
-                                <span class="flex items-center">
-                                  <v-icon>mdi-email</v-icon>
-                                  {{ item.email }}
-                                </span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </v-table>
-                      </div>
-                  </div>
-                  </div>
+                </div>
+                <div>
+                  <table class="w-full text-sm sm:text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400 mb-8">
+                    <tbody>
+                      <tr class="border-t">
+                        <td class="py-2 text-gray-600">
+                          Telephone Numbers
+                        </td>
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
+                          8404-3089 <br> 8404-3090 <br> 8404-3091
+                        </td>
+                      </tr>
+                      <tr  class="border-b border-t">
+                        <td class="py-2 text-gray-600">
+                          Fax Number
+                        </td>
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
+                          8521-4691
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="w-full text-sm sm:text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400 mb-8">
+                    <thead>
+                      <tr>
+                        <th class="py-2 font-medium text-gray-600">Department/Office</th>
+                        <th class="py-2 font-medium text-gray-600">Local Numbers</th>
+                        <th class="py-2 font-medium text-gray-600">Mobile Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        v-for="(item, index) in filteredContacts"
+                        :key="index"
+                        class="border-t"
+                      >
+                        <td class="py-2 font-medium text-gray-600">
+                          {{ item.office }}
+                          <br />
+                          <p class="italic font-normal hover:underline" v-html="item.email"></p>
+                        </td>
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
+                          <span v-html="item.local"></span>
+                        </td>
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
+                          <span v-html="item.mobile"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
+            </div>
   
               <!-- Step 2 -->
               <div v-show="step === 2">
@@ -209,7 +223,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
@@ -225,12 +239,46 @@ const setStep = (newStep) => {
 
 
 const contact = ref([
-  { office: 'Accounting Office', local: 13, email: 'accounting@arellanolaw.edu' },
-  { office: 'Admissions Office 1', local: 33, email: 'admissions@arellanolaw.edu' },
-  { office: 'Admissoins Office 2', local: 51, email: 'admissions@arellanolaw.edu' },
-  { office: 'Alumni Office', local: 32, email: 'alumni@arellanolaw.edu' },
+  { office: 'Accounting Office', local: '13', email: 'accounting@arellanolaw.edu', mobile: '0991 978-6813 <br> 0991-781-2781 <br> 0919-095-9425'},
+  { office: 'Admissions Office', local: ['33', ' 51'], email: 'admissions@arellanolaw.edu' },
+  { office: 'Alumni Office', local: '32', email: 'alumni@arellanolaw.edu' },
+  { office: 'Audio Visual Office', local: '22', email: 'audiovisual@arellanolaw.edu' },
+  { office: 'Bursar’s Office', local: ['35', ' 39'], email: '' },
+  { office: 'CLEAR Office', local: '29', email: 'clear@arellanolaw.edu' },
+  { office: 'Clinic', local: ['24', ' 27'], email: '' },
+  { office: 'Office of the Assistant Dean', local: '14', email: 'collegesecretary@arellanolaw.edu' },
+  { office: 'Data Privacy Officer', local: '19', email: 'dpo@arellanolaw.edu' },
+  { office: 'Dean’s Office', local: '12', email: 'dean@arellanolaw.edu' },
+  { office: 'Donada Gate', local: '20', email: '' },
+  { office: 'Guidance Office', local: '26', email: 'guidance@arellanolaw.edu' },
+  { office: 'HR/Records Section', local: '31', email: 'records@arellanolaw.edu' },
+  { office: 'Information Technology Center', local: '36', email: 'itc@arellanolaw.edu <br> onlinesupport@arellanolaw.edu' },
+  { office: 'ISS', local: '17', email: '' },
+  { office: 'Library', local: '18', email: '' },
+  { office: 'Operator', local: ['10', ' 37', ' 48'], email: '' },
+  { office: 'Office of the Legal Aid', local: '23', email: 'ola@arellanolaw.edu' },
+  { office: 'Office of the General Services', local: '21', email: '' },
+  { office: 'Office of Student Affairs', local: '44', email: 'osa@arellanolaw.edu', fbpage: 'Office of Student Affairs' },
+  { office: 'Purchasing Dept.', local: '30', email: '' },
+  { office: 'Phoenix Dept.', local: '50', email: '' },
+  { office: 'Registrar\'s Office', local: '16', email: 'registrar@arellanolaw.edu' },
+  { office: 'Taft Gate', local: '28', email: '' },
 ]);
 
+const searchQuery = ref('');
+
+const filteredContacts = computed(() => {
+  if (!searchQuery.value) {
+    return contact.value;
+  }
+  const query = searchQuery.value.toLowerCase();
+  return contact.value.filter(item =>
+    (item.office && item.office.toLowerCase().includes(query)) ||
+    (item.local && item.local.toString().toLowerCase().includes(query)) ||
+    (item.email && item.email.toLowerCase().includes(query)) ||
+    (item.mobile && item.mobile.toLowerCase().includes(query))
+  );
+});
 
 const links = ref([
   { text: 'Student ID Application', url: '/idApplication' },

@@ -24,13 +24,13 @@
             </button>
             <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
             <li class="px-2 py-2 transition duration-150 ease-in-out">
-                <a @click="$inertia.visit(route('academic.curiculumn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Curiculumn</a>
+                <a :href="route('academic.juris-doctor')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Curiculumn</a>
             </li>
             <li class="px-2 py-2 transition duration-150 ease-in-out">
                 <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Course Descriptions</a>
             </li>
             <li class="px-2 py-2 transition duration-150 ease-in-out">
-                <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Guidelines</a>
+                <a :href="route('academic.guidelines')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Guidelines</a>
             </li>
             </ul>
         </li>
