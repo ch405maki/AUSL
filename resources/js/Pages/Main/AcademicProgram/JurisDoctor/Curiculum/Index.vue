@@ -1,6 +1,6 @@
 <template>
     <MainLayout>
-      <Head title="Show Post" />
+      <Head title="Juris Doctor Curiculum" />
       <div class="flex flex-col min-h-screen bg-green-100">
         <main class="flex-grow">
           <div class="bg-white">
@@ -67,19 +67,22 @@
                     </table>
                   </div>
                 </div>
-                <div class="w-full md:w-1/3 p-2 flex justify-start">
-                  <div class="text-left">
-                    <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                      <h1 class="text-purple-900 text-lg font-medium mb-4">Related Links</h1>
-                      <hr class="mb-4 border-1 border-purple-900">
+                <aside class="w-full md:w-1/3 sticky top-0">
+                  <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
+                      <div class="ml-4">
+                      <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
+                      <hr class="mb-4 border-1 border-purple-800">
+                          <h3 class="text-lg font-normal text-gray-800 mb-8">Juris Doctor Curiculum</h3>
+                      </div>
+                      <div class="ml-4">
+                      <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                      <hr class="mb-4 border-1 border-purple-800">
                       <ul class="list-inside list-disc">
-                        <li v-for="(item, index) in links" :key="index" class="mb-2">
-                          <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a>
-                        </li>
+                          <RelatedLinks />
                       </ul>
-                    </div>
+                      </div>
                   </div>
-                </div>
+                  </aside>
               </div>
             </div>
           </div>
@@ -92,15 +95,7 @@
   import { ref } from 'vue';
   import { Head } from '@inertiajs/vue3';
   import MainLayout from '@/Layouts/MainLayout.vue';
-  
-  const links = ref([
-  { text: 'JD/Curiculum', url: '#event2' },
-  { text: 'Refresher/Curiculum', url: '#event2' },
-  { text: 'Academic Guidelines', url: 'https://aims.arellanolaw.edu/aims/students/' },
-  { text: 'Bar Review', url: '#event3' },
-  { text: 'MCLE', url: '#event4' },
-  ]);
-  
+  import RelatedLinks from '../../Components/RelatedLinks.vue';
   
   const subjects = ref([
   {

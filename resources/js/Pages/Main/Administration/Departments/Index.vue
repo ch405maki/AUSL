@@ -6,7 +6,7 @@
         <section class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto">
           <div class="flex flex-col  w-full mb-20 sm:text-center">
-            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments and Facilities Page</h1>
+            <h1 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments and Facilities Page</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
           </div>
 
