@@ -12,7 +12,7 @@
                 </h1>
                 <div v-show="step === 1">
                   <div class="mb-8 relative px-2">
-                    <div class="mb-8 px-2">
+                    <div class="mb-8 px-2 text-center">
                     <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
                     <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Amended Academic Year <span class="font-bold underline">2023-2024</span></p>
                     </div>

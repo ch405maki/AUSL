@@ -1,35 +1,35 @@
 <template>
-  <div class="bg-purple-900 py-6">
+  <div class="bg-official-purple-800 py-6">
     <div class="text-center text-white py-6">
       <div class="max-w-7xl mx-auto flex flex-col items-center px-5 relative">
-        <h1 class="font-bold text-2xl mb-4">What's in the News</h1>
-        <p class="font-medium text-lg mb-10">
+        <h1 class="font-medium text-xl md:text-2xl lg:text-2xl mb-4">What's in the News</h1>
+        <p class="font-normal mb-10 text-lg lg:text-xl mb-10 text-white">
           Read about the latest AUSL Initiatives, Achievements, and Developments
         </p>
-
         <div class="post-carousel owl-carousel owl-theme">
           <div v-for="post in posts" :key="post.id" class="item">
             <div class="rounded-xs overflow-hidden flex-none max-w-full min-h-[350px] flex flex-col justify-between relative card">
-              <!-- Image wrapper with overlay -->
-              <a :href="`/show/${post.id}`" class="block relative group">
-                <div class="image-wrapper">
-                  <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
-                  <!-- Overlay that appears on hover -->
-                  <div class="overlay"></div>
-                </div>
-              </a>
-              <!-- Content area -->
-              <div class="p-4 flex-grow flex flex-col justify-between min-h-[100px]">
-                <a
-                  :href="`/show/${post.id}`"
-                  class="font-bold text-lg text-white hover:text-purple-900 hover:underline cursor-pointer line-clamp-2"
-                >{{ post.title }}</a>
-                <p class="text-gray-100">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+            <!-- Image wrapper with overlay -->
+            <a :href="`/show/${post.id}`" class="block relative group">
+              <div class="image-wrapper">
+                <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
+                <!-- Overlay that appears on hover -->
+                <div class="overlay"></div>
               </div>
+            </a>
+            <!-- Content area -->
+            <div class="p-4 flex-grow flex flex-col justify-between min-h-[100px]">
+              <!-- Title with flex-grow to push the date down -->
+              <a
+                :href="`/show/${post.id}`"
+                class="font-semibold text-lg text-white text-left hover:text-purple-900 hover:underline cursor-pointer line-clamp-2 flex-grow"
+              >{{ post.title }}</a>
+              <!-- Date that stays at the bottom -->
+              <p class="text-gray-100 text-left mt-auto">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
             </div>
           </div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>

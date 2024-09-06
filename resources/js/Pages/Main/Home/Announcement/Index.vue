@@ -1,8 +1,8 @@
 <template>
-  <div class="text-center text-white bg-purple-100 py-6">
-    <div class="max-w-7xl text-center text-white mx-auto py-4 px-4">
-      <h1 class="font-bold text-gray-800 text-2xl mb-2">Announcements and Advisories</h1>
-      <p class="font-medium text-gray-800 text-lg mb-10">
+  <div class="text-center py-6">
+    <div class="max-w-7xl text-center mx-auto py-4 px-4">
+      <h1 class="mb-4 font-bold tracking-tight leading-none text-xl md:text-2xl lg:text-2xl text-slate-700">Announcements and Advisories</h1>
+      <p class="font-normal text-gray-800 text-lg lg:text-xl mb-10">
         Read about the latest AUSL Initiatives, Achievements, and Developments
       </p>
 
@@ -22,9 +22,9 @@
             <div class="p-4 flex flex-col flex-grow justify-between">
               <a
                 :href="`/announcement/show/${announcement.id}`"
-                class="font-bold text-lg text-gray-800 hover:text-purple-900 cursor-pointer"
+                class="font-bold text-lg text-left text-gray-800 hover:text-purple-900 cursor-pointer"
               >{{ announcement.title }}</a>
-              <p class="text-gray-600 mt-2 text-lg">{{ new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+              <p class="text-gray-600 mt-2 text-left text-lg">{{ new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
             </div>
           </div>
         </div>

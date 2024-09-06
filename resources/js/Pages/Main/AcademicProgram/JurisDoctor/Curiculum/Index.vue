@@ -10,7 +10,7 @@
                   <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-2xl text-pretty text-start p-2">
                     Juris Doctor Curiculum
                   </h1>
-                  <div class="p-5 mb-8 text-center bg-white">
+                  <div class="p-5 mb-8 text-center">
                     <h1 class="mt-1 text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
                     <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Juris Doctor (143 Units)</p>
                     <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">(School Year 2022-2023)</p>

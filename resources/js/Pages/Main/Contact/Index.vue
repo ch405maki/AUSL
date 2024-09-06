@@ -69,7 +69,7 @@
                         :key="index"
                         class="border-t"
                       >
-                        <td class="py-2 font-medium text-gray-600">
+                        <td class="py-2 font-normal text-gray-600">
                           {{ item.office }}
                           <br />
                           <p class="italic font-normal hover:underline" v-html="item.email"></p>

@@ -6,7 +6,7 @@
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
-              <section class="w-full md:w-2/2 p-2">
+              <section class="w-full md:w-2/2 text-center p-2">
                 <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-4">
                   Regular Program
                 </h1>

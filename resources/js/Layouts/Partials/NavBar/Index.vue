@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- First Navigation Bar -->
-      <nav ref="firstNav" style="background-color:#66339A;" class="hidden lg:block z-50 border-b-2 transition-all duration-300 fixed top-0 left-0 right-0">
+      <nav ref="firstNav" class="bg-official-purple-800 hidden lg:block z-50 border-b-2 transition-all duration-300 fixed top-0 left-0 right-0">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -28,7 +28,7 @@
       </nav>
   
       <!-- Second Navigation Bar -->
-      <nav ref="navButtons" style="background-color:#66339A;" class="left-0 right-0 z-40 transition-all duration-300 fixed top-20 second-nav">
+      <nav ref="navButtons" class="bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-20 second-nav">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto">
           <div class="flex justify-between h-12 items-center">

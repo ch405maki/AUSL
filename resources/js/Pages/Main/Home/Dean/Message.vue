@@ -1,10 +1,8 @@
 <template>
-<section class="relative bg-[url('/images/background.jpg')] bg-cover py-12 sm:py-20  mt-[2px]">
+<section class="relative bg-[url('/images/background.jpg')] bg-cover py-12 sm:py-20  mt-[1px]">
   <!-- Background image with opacity and positioning -->
   <div>
     <div class="container relative max-w-7xl mx-auto px-4">
-      <div class="absolutesm:bg-right   bg-no-repeat bg-contain"></div>
-
       <div class="mx-auto px-6 sm:px-6 lg:px-8 py-6 sm:py-6 pb-4 reveal-text mb-13">
         <h1 class="mb-4 font-bold tracking-tight leading-none text-white text-xl md:text-2xl lg:text-2xl">
           Welcome to Arellano Law Community
@@ -25,7 +23,7 @@
       <!-- Dean's information section -->
       <div class="w-full md:w-1/3 p-4 text-center order-1 md:order-1">
         <img src="images/deans/deannavarro.jpg" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-full"> 
-        <b class="block text-lg text-slate-900">Atty. Domingo M. Navarro</b>
+        <b class="block text-lg text-slate-700">Atty. Domingo M. Navarro</b>
         <i class="block text-slate-600">Dean</i>
       </div>
       <!-- Main content section -->
