@@ -9,37 +9,36 @@
             <h1 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">Welcome to AUSL Departments and Facilities Page</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
           </div>
-
           <div>
             <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Department List</h1>
-            <div class="flex flex-wrap -m-4 mb-8">
-              <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(office, index) in offices" :key="office.id" >
-              <v-card class="mx-auto pb-4" min-width="344">
-                <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
-                <v-img height="200px" :src="office.image" cover></v-img>
-                <v-card-title>
-                    {{ office.office_name}}
-                </v-card-title>
-                <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
-                <p v-html="office.office_location" class="pl-4 text-gray-600"></p>
-              </v-card>
-              </div>
+            <div class="flex flex-wrap mt-4 -m-4 mb-8">
+                <div class="w-full md:w-1/3 p-4" v-for="(office, index) in offices" :key="office.id">
+                <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 rounded-lg overflow-hidden">
+                    <img class="w-full h-59 object-cover" :src="office.image" alt="Office Image">
+                    <div class="p-4">
+                    <h5 class="font-medium text-lg">
+                        <h1 class="text-gray-800 hover:text-purple-900">{{ office.office_name}}</h1>
+                    </h5>
+                    <p class="mt-2 text-gray-500" v-html="office.office_location"></p>
+                    </div>
+                </div>
+                </div>
             </div>
           </div>
           <div>
             <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Facilities List</h1>
-            <div class="flex flex-wrap -m-4 mb-8">
-              <div class="lg:w-1/3 sm:w-1/2 p-4" v-for="(facility, index) in facilities" :key="facility.id" >
-              <v-card class="mx-auto pb-4" min-width="344">
-                <!-- <v-img height="200px" :src="card.image" cover></v-img> -->
-                <v-img height="200px" :src="facility.image" cover></v-img>
-                <v-card-title>
-                    {{ facility.office_name}}
-                </v-card-title>
-                <!-- <v-card-subtitle >{{ office.office_location}}</v-card-subtitle> -->
-                <p v-html="facility.office_location" class="pl-4 text-gray-600"></p>
-              </v-card>
-              </div>
+            <div class="flex flex-wrap mt-4 -m-4 mb-8">
+                <div class="w-full md:w-1/3 p-4" v-for="(facility, index) in facilities" :key="facility.id">
+                <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 rounded-lg overflow-hidden">
+                    <img class="w-full h-59 object-cover" :src="facility.image" alt="facility Image">
+                    <div class="p-4">
+                    <h5 class="font-medium text-lg">
+                        <h1 href="#" class="text-gray-800 hover:text-purple-900">{{ facility.office_name}}</h1>
+                    </h5>
+                    <p class="mt-2 text-gray-500" v-html="facility.office_location"></p>
+                    </div>
+                </div>
+                </div>
             </div>
           </div>
         </div>
@@ -60,7 +59,6 @@ const props = defineProps({
   offices: { type: Array, required: true },
   facilities: { type: Array, required: true },
 });
-
 
 const navigateToDepartment = (id) => {
   Inertia.visit(route('administration.departments.show', { id }));

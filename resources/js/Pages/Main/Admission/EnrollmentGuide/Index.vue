@@ -107,7 +107,7 @@
             <aside class="w-full md:w-1/4 sticky top-0">
               <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                 <div class="ml-4">
-                    <h2 class="mb-2 text-lg leading-6 font-bold text-purple-900 capitalize">On this page</h2>
+                    <h2 class="text-purple-900 text-lg font-medium mb-4">On this page</h2>
                     <hr class="mb-4 border-1 border-purple-800">
                 </div>
                 <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">
