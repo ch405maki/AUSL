@@ -7,14 +7,14 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <section class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-4">
+                <h1 class="text-purple-900 font-bold mt-8 text-xl sm:text-2xl text-pretty p-2 text-center">
                     Holidays
                 </h1>
                 <div v-show="step === 1">
                   <div class="mb-8 relative px-2">
-                    <div class="mb-8 px-2 text-center">
-                    <h1 class="mt-1 text-xl sm:text-2xl lg:text-3xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
-                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Amended Academic Year <span class="font-bold underline">2023-2024</span></p>
+                    <div class="mb-8 text-center">
+                    <h1 class=" text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900 mt-2">Amended Academic Year: <span class="font-bold underline">2023-2024</span></p>
                     </div>
                       <div class="text-gray-700 pl-2 sm:pl-4">
                         <table class="w-full text-left border-collapse">
@@ -114,7 +114,7 @@
                   class="mb-6 ms-6 cursor-pointer transition-colors duration-300" 
                   :class="step === 1 && 'text-slate-900'" 
                   @click="setStep(1)">
-                  <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900', step === 3 ? 'bg-green-200 text-green-500 dark:bg-green-900 dark:text-green-400' : 'bg-gray-100 text-gray-500 dark:bg-slate-600 dark:text-gray-400']">
+                  <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-official-purple-100', step === 1 ? 'bg-official-purple-200 text-official-purple-500' : 'bg-gray-100 text-gray-500 dark:bg-slate-600 dark:text-gray-400']">
                     <v-icon>mdi-calendar</v-icon>
                   </span>
                   <h3 class="font-medium leading-tight">Holidays</h3>

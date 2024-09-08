@@ -7,17 +7,17 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <div class="w-full md:w-2/2 p-2">
-                  <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-2xl text-pretty text-start p-2">
+                  <h1 class="text-official-purple-800 font-bold mt-8 text-xl sm:text-2xl text-pretty p-2 text-center">
                     Juris Doctor Curiculum
                   </h1>
-                  <div class="p-5 mb-8 text-center">
-                    <h1 class="mt-1 text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
-                    <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">Juris Doctor (143 Units)</p>
-                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900">(School Year 2022-2023)</p>
+                  <div class="mb-8 text-center">
+                    <h1 class="mt-1 text-xl sm:text-2xl font-bold text-official-purple-800">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
+                    <p class="mt-1 text-lg sm:text-xl lg:text-2xl font-semibold text-official-purple-800">Juris Doctor (143 Units)</p>
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-official-purple-800">(School Year 2022-2023)</p>
                   </div>
-                  <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center p-2 rounded-lg mt-8 mb-8">
+                  <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
                     <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
-                      <thead class="bg-purple-100">
+                      <thead class="bg-official-purple-100">
                         <tr>
                           <th colspan="2" class="px-4 py-3 text-left text-lg font-medium text-gray-800">
                             {{ semester.name }}
