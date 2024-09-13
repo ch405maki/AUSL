@@ -99,6 +99,10 @@ Route::prefix('academic')->name('academic.')->group(function () {
     Route::get('/refresher', function () {
         return Inertia::render('Main/AcademicProgram/Refresher/Index');
     })->name('refresher');
+
+    Route::get('/barreview', function () {
+        return Inertia::render('Main/AcademicProgram/Bar/Index');
+    })->name('barreview');
 });
 
 // admissions

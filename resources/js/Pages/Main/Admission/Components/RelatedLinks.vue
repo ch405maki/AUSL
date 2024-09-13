@@ -8,11 +8,11 @@
     import { ref } from 'vue';
 
     const links = ref([
-    { text: 'Addmission Process', url: '#' },
-    { text: 'Requirements', url: '#' },
-    { text: 'Application Forms', url: '#' },
-    { text: 'ID Application', url: '#' },
-    { text: 'Guideline/Payment Procedure', url: '#' },
+    { text: 'Addmission Process', url: '/admissions/process' },
+    { text: 'Requirements', url: '/admissions/requirements' },
+    { text: 'Application Forms', url: '/admissions/application-forms' },
+    { text: 'ID Application', url: '/admissions/id' },
+    { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform'}
     ]);
 
 </script>

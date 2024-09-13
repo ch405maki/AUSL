@@ -140,9 +140,7 @@
                     <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                     <hr class="mb-4 border-1 border-purple-800">
                     <ul class="list-inside list-disc">
-                      <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                        <a :href="item.url" class="text-slate-700 text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                      </li>
+                      <RelatedLinks />
                     </ul>
                 </div>
               </div>
@@ -157,6 +155,7 @@
 import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
+import RelatedLinks from '../Components/RelatedLinks.vue';
 
 // Create a ref for the current step
 const step = ref(1); // Initially set to Step 1
@@ -180,14 +179,6 @@ const prevStep = () => {
     step.value--;
   }
 };
-
-const links = ref([
-  { text: 'Student ID Application', url: '/admissions/id' },
-  { text: 'AUSL Academic Calendar', url: '/events/academic' },
-  { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
-  { text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
-  { text: 'Guideline/Payment Procedure', url: '/office/accounting' }
-]);
 
 </script>
 

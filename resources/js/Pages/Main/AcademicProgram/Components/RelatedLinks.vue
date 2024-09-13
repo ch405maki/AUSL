@@ -11,7 +11,7 @@
     { text: 'JD/Curiculum', url: 'juris-doctor' },
     { text: 'Refresher/Curiculum', url: 'juris-doctor' },
     { text: 'Academic Guidelines', url: 'guidelines' },
-    { text: 'Bar Review', url: '#' },
+    { text: 'Bar Review', url: 'barreview' },
     { text: 'MCLE', url: 'https://clear.arellanolaw.org/' },
     ]);
 
