@@ -46,7 +46,7 @@ import { Head } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import Carousel from '@/Pages/Main/Home/Partials/Carousel.vue';
-import Message from '@/Pages/Main/Home/Dean/Message.vue';
+import Message from '@/Pages/Main/Home/Dean/Index.vue';
 import LoadingAnimation from '@/Pages/Main/Home/Partials/LoadingAnimation.vue';
 import Post from '@/Pages/Main/Home/Post/Index.vue';
 import Announcement from '@/Pages/Main/Home/Announcement/Index.vue';

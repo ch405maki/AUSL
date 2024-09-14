@@ -3,8 +3,8 @@
     <!-- start google|facebook area -->
     <div class="mt-6">
         <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-8">
-        <h1 class="text-purple-900 font-bold mb-3 font-bold mt-2 text-xl sm:text-3xl text-center">Stay connected with AUSL</h1>
-        <p class="text-lg text-slate-700 text-center tracking-wide">
+        <h1 class="mb-4 font-semibold text-xl md:text-2xl lg:text-2xl text-official-purple-800 leading-tight tracking-wide">Stay connected with AUSL</h1>
+        <p class="text-lg text-gray-800 text-center tracking-wide">
             Discover the latest updates, events, and announcements from Arellano University School of Law. Stay informed and engaged with our community through our Facebook page or visit us onsite.
         </p>
         </div>

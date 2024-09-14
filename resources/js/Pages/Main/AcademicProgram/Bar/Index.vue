@@ -18,7 +18,7 @@
                   <table class="w-full text-sm text-left text-gray-500  border border-green-900">
                       <tbody>
                         <tr class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="hover:bg-purple-100 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click for subject description">
+                          <th scope="row" class="hover:bg-official-purple-50 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
                             <details class="group">
                               <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-secondary-900 group-open:text-official-purple-900 hover:underline">
                                 How to Register and Enroll in Course on clear.arellanolaw.org <br> Without an account (Register an Account)
@@ -65,7 +65,7 @@
                           </th>
                         </tr>
                         <tr class="border-b odd:bg-white even:bg-gray-50">
-                        <th scope="row" class="hover:bg-purple-100 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click for subject description">
+                        <th scope="row" class="hover:bg-official-purple-50 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
                           <details class="group">
                           <summary
                             class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
@@ -90,7 +90,7 @@
                         </th>
                         </tr>
                         <tr class="border-b odd:bg-white even:bg-gray-50">
-                        <th scope="row" class="hover:bg-purple-100 px-4 py-4 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click for subject description">
+                        <th scope="row" class="hover:bg-official-purple-50 px-4 py-4 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
                           <details class="group">
                             <summary class="flex hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
                               AUSL Privacy Policy
@@ -103,9 +103,10 @@
                                 </svg>
                               </div>
                             </summary>
+
                             <div class="pb-6 mt-4 space-y-4 text-gray-800 text-base font-normal leading-relaxed">
                               <p class="text-center font-bold text-lg">PRIVACY POLICY</p>
-                              <hr class="border-t-2 border-purple-800">
+                              <hr class="border-t-2 border-official-purple-800">
                               <p class="text-center font-bold text-lg">ARELLANO LAW FOUNDATION PRIVACY POLICY FOR<br>BAR REVIEW PROGRAM and PROJECT PHOENIX</p>
                               <p>Please read these provisions on Arellano Law Foundation's Privacy Policy for the Online Bar Review Program and Project Phoenix.</p>
                               <p>To process your application and provide quality education, the Arellano Law Foundation needs to process personal and sensitive information. Arellano Law Foundation (ALF) is committed to protecting privacy. This policy explains the general terms and purpose of processing personal and sensitive personal information ALF collects from enrollees like you, the measures we take to protect your data, and the rights you may exercise in relation to the aforementioned acts.</p>

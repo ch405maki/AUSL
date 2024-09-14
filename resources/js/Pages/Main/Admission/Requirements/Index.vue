@@ -15,8 +15,8 @@
               <div class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
                   <table class="w-full text-sm text-left text-gray-500  border border-green-900">
                       <tbody>
-                          <tr v-for="index of 4" class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click for subject description">
+                          <tr class="border-b odd:bg-white even:bg-gray-50">
+                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
                             <details class="group">
                             <summary
                               class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
@@ -40,6 +40,136 @@
                             </div>
                           </details>
 
+                          </th>
+                          </tr>
+                          <tr class="border-b odd:bg-white even:bg-gray-50">
+                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
+                            <details class="group">
+                            <summary
+                              class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
+                              Academic Requirements
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                </svg>
+                              </div>
+                            </summary>
+                            <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                              <p>
+                                Please provide original and photocopy of all required documents.                                <br><br>
+                                <ul class="list-disc list-inside pl-4 space-y-2">
+                                <li>Holder of Bachelor's degree in the arts or sciences.</li>
+                                <li>Must have earned the following undergraduate units:</li>
+                                <li>Rizal - 3 units</li>
+                              </ul>
+                              </p>
+                            </div>
+                          </details>
+                          </th>
+                          </tr>
+                          <tr class="border-b odd:bg-white even:bg-gray-50">
+                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
+                            <details class="group">
+                            <summary
+                              class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
+                              Freshmen Requirements Checklist
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                </svg>
+                              </div>
+                            </summary>
+                            <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                              <p>
+                                <ul class="list-disc list-inside pl-4 space-y-2 text-gray-800">
+                                  <li>Completed online application form (www.arellanolaw.edu)</li>
+                                  <li>Transfer Credentials/Honorable Dismissal</li>
+                                  <li>Official Transcript of Records (Pre-Law Course) with remarks:
+                                    <i class="underline">"Copy for Arellano University School of Law"</i>
+                                  </li>
+                                  <li>Certificate of Good Moral Character (From the school where you graduated)</li>
+                                  <li>PSA Birth Certificate</li>
+                                  <li>Birth Certificate, Local Civil Registry (LCR copy)</li>
+                                  <li>PSA Marriage Certificate if applicable</li>
+                                  <li>Two (2) pcs. 2x2 colored photo with white background and printed name</li>
+                                  <li>Examination Fee of Php 1,000.00</li>
+                                </ul>
+                              </p>
+                            </div>
+                          </details>
+                          </th>
+                          </tr>
+                          <tr class="border-b odd:bg-white even:bg-gray-50">
+                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
+                            <details class="group">
+                            <summary
+                              class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
+                              Transferee Requirements Checklist
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                </svg>
+                              </div>
+                            </summary>
+                            <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                              <p>
+                                <ul class="list-disc list-inside pl-4 space-y-2 text-gray-800">
+                                  <li>Copy of Grades</li>
+                                  <li>Transfer Credentials/Honorable Dismissal</li>
+                                  <li>PSA Birth Certificate</li>
+                                  <li>Birth Certificate, Local Civil Registry (LCR copy)</li>
+                                  <li>PSA Marriage Certificate if applicable</li>
+                                  <li>Two (2) Certificate of Good Moral Character (GMC) from their previous law school duly signed by:
+                                    <ul class="list-disc list-inside pl-6 space-y-1">
+                                      <li><i class="underline">Dean of the law school</i></li>
+                                      <li><i class="underline">Former professor at the law school</i></li>
+                                    </ul>
+                                  </li>
+                                  <li>Official Transcript of Records from previous law school with remarks: 
+                                    <i class="underline">"Copy for Arellano University School of Law"</i>
+                                  </li>
+                                  <li>Certificate of Eligibility for Admission into the Law Course (Certified True Copy)</li>
+                                  <li>Official Transcript of Records (Pre-Law Course) - Certified True Copy</li>
+                                  <li>Two (2) pcs. 2x2 colored photo with white background and printed name</li>
+                                  <li>Examination Fee of Php 1,000.00</li>
+                                </ul>
+                              </p>
+                            </div>
+                          </details>
+                          </th>
+                          </tr>
+                          <tr class="border-b odd:bg-white even:bg-gray-50">
+                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
+                            <details class="group">
+                            <summary
+                              class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
+                              Enrollment Period
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                </svg>
+                              </div>
+                            </summary>
+                            <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                              <p>
+                                The regular enrollment period is scheduled two to three weeks before the start of classes. Late registration is normally allowed during the first fourteen (14) calendar days from the official start of regular classes, unless otherwise announced. Should a student drop within the first week of classes, 10% of the tuition and miscellaneous fees are retained and when a student drops within the 2nd week of classes , then there is a retention of 20% of applicable fees. When a student drops after the 14 days, then the student must pay the entire tuition and miscellaneous fees as required. A student shall not be allowed to enroll in any subject after fourteen (14) days from the official start of regular classes, unless authorized by the Dean based on the student's scholastic record. A fine shall be imposed for late registration.
+                                <br><br>
+                                Promissory notes are issued to students who have delinquent accounts to enable them to enroll on a temporary basis. Students who fail to take to comply with the conditions of the note shall not be included in the official class list until payment has been made. Should the student still fail to settle his/her delinquent accounts by the midterm examinations, may be dropped from the roll.
+                              </p>
+                            </div>
+                          </details>
                           </th>
                           </tr>
                       </tbody>

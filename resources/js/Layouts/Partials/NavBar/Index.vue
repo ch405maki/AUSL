@@ -171,15 +171,69 @@
   const links = ref([
     { title: 'Home', url: '/', icon: 'mdi-home', color: 'blue', bgColor: '#e0f7fa' },
     {
+      title: 'Administration',
+      url: '#',
+      icon: 'mdi-school',
+      color: 'green',
+      bgColor: '#e8f5e9',
+      children: [
+        { title: 'AUSL Foundation', url: '/administration/alf', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
+        { title: 'Board of Trustees', url: '/administration/board_trustees', icon: 'mdi-book', color: 'brown', bgColor: '#efebe9' },
+        { title: 'Administration Officers', url: '/administration/admin_staff', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
+        { title: 'Departments', url: '/administration/departments', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
+      ]
+    },
+    {
+      title: 'Academic Programs',
+      url: '#',
+      icon: 'mdi-school-outline',
+      color: 'red',
+      bgColor: '#ffebee',
+      children: [
+        { title: 'Juris Doctor', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+        { title: 'Refresher', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+        { title: 'Bar Review', url: '/academic/barreview', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+        { title: 'MCLE', url: 'https://clear.arellanolaw.org/', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+      ]
+    },
+    {
+      title: 'Admissions',
+      url: '#',
+      icon: 'mdi-file-edit',
+      color: 'purple',
+      bgColor: '#f3e5f5',
+      children: [
+        { title: 'Admission Process', url: '/admissions/process', icon: 'mdi-progress-check', color: 'green', bgColor: '#e8f5e9' },
+        { title: 'Requirements', url: '/admissions/requirements', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
+        { title: 'Application Forms', url: '/admissions/application-forms', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
+        { title: 'ID Application', url: '/admissions/id', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
+      ]
+    },
+    {
+      title: 'Events Calendar',
+      url: '#',
+      icon: 'mdi-calendar',
+      color: 'deep-orange',
+      bgColor: '#fbe9e7',
+      children: [
+        { title: 'Academic Calendar', url: '/events/academic', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
+        { title: 'Upcoming Events', url: '/events/upcomming', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
+        { title: 'Holidays', url: '/events/holidays', icon: 'mdi-calendar-range', color: 'blue', bgColor: '#e3f2fd' },
+        { title: 'Important Dates', url: '/emptyState', icon: 'mdi-calendar-alert', color: 'yellow', bgColor: '#fff9c4' }
+      ]
+    },
+    {
       title: 'Student Resources',
       url: '#',
       icon: 'mdi-school',
       color: 'green',
       bgColor: '#e8f5e9',
       children: [
+        { title: 'Lawyers Oath', url: '/student/oath', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
         { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
         { title: 'Lawphil.net', url: 'https://lawphil.net/', icon: 'mdi-book', color: 'brown', bgColor: '#efebe9' },
         { title: 'Library', url: '#', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
+        { title: 'Social Media', url: '/contact/socials', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
         {
           title: 'Socials',
           url: '#',
@@ -192,44 +246,6 @@
             { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
           ]
         }
-      ]
-    },
-    {
-      title: 'Academics',
-      url: '#',
-      icon: 'mdi-school-outline',
-      color: 'red',
-      bgColor: '#ffebee',
-      children: [
-        { title: 'Curriculumn', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
-        { title: 'Departments', url: '#', icon: 'mdi-office-building', color: 'grey', bgColor: '#eceff1' },
-        { title: 'Academic Programs', url: '#', icon: 'mdi-clipboard', color: 'yellow', bgColor: '#fff9c4' },
-        { title: 'Registrar', url: '#', icon: 'mdi-file-document', color: 'blue', bgColor: '#e3f2fd' }
-      ]
-    },
-    {
-      title: 'Admissions',
-      url: '#',
-      icon: 'mdi-file-edit',
-      color: 'purple',
-      bgColor: '#f3e5f5',
-      children: [
-        { title: 'Admission Process', url: '/admissions/process', icon: 'mdi-progress-check', color: 'green', bgColor: '#e8f5e9' },
-        { title: 'Requirements', url: '#', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
-        { title: 'Application Forms', url: '#', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' }
-      ]
-    },
-    {
-      title: 'Events Calendar',
-      url: '#',
-      icon: 'mdi-calendar',
-      color: 'deep-orange',
-      bgColor: '#fbe9e7',
-      children: [
-        { title: 'Academic Calendar', url: '/events/academic', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
-        { title: 'Upcoming Events', url: '#', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
-        { title: 'Holidays', url: '#', icon: 'mdi-calendar-range', color: 'blue', bgColor: '#e3f2fd' },
-        { title: 'Important Dates', url: '#', icon: 'mdi-calendar-alert', color: 'yellow', bgColor: '#fff9c4' }
       ]
     },
     { title: 'About AUSL', url: '/about', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6' },

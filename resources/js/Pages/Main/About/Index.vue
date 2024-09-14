@@ -199,11 +199,11 @@ console.log(`Current step set to: ${newStep}`); // Debugging log
 };
 
 const links = ref([
-{ text: 'Student ID Application', url: '/idApplication' },
-{ text: 'AUSL Academic Calendar', url: 'acadCalendar' },
-{ text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
-{ text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
-{ text: 'Guideline/Payment Procedure', url: '/office/accounting' }
+{ text: 'Student ID Application', url: '#' },
+{ text: 'AUSL Academic Calendar', url: '#' },
+{ text: 'Medical Information Form', url: '#' }, 
+{ text: 'Downloadable Registrar Forms', url: '#' }, 
+{ text: 'Guideline/Payment Procedure', url: '#' }
 ]);
 
 const isMobile = reactive({ value: window.innerWidth <= 768 });
