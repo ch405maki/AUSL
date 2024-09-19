@@ -3,7 +3,7 @@
     <div class="flex flex-wrap justify-center items-start space-x-8 my-16">
         <div class="flex flex-col items-center w-14 sm:w-16 md:w-20" v-for="(link, index) in relatedLinks" :key="index">
             <a :href="link.link" class="text-center">
-                <img class="w-full transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 transform hover:scale-105" :src="link.image" alt="Logo">
+                <img class="w-full transition-all duration-300 rounded-lg cursor-pointer hover:grayscale-0 transform hover:scale-105" :src="link.image" alt="Logo">
                 <span class="mt-2 block w-full text-center text-slate-700 text-sm">{{link.text}}</span>
             </a>
         </div>

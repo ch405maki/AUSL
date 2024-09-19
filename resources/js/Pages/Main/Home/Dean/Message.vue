@@ -32,9 +32,9 @@
         <i class="block text-slate-600">Dean</i>
       </div>
       <!-- Main content section -->
-      <div class="w-full md:w-2/3 p-4 order-2 md:order-2 text-slate-700">
-        <p class="text-left mb-4 font-bold text-lg md:text-xl lg:text-2xl ">Welcome to the Arellano University School of Law website!</p>
-        <p class="mb-4 font-normal text-md lg:text-lg text-slate-600">
+      <div class="w-full md:w-2/3 p-4 order-2 md:order-2 text-slate-800">
+        <p class="text-left mb-4 font-bold text-lg md:text-xl lg:text-2xl">Welcome to the Arellano University School of Law website!</p>
+        <p class="mb-4 font-normal text-md lg:text-lg text-slate-700">
           The school administration has always striven to make you, our students, feel that you belong to a community, the Arellano Law Community, and this website is one way for you to know more about your law school. Here you'll find information on the academic programs and different offices of the AUSL, a gallery of school events, as well as helpful tabs that will lead you to Lawphil, one of the most searched online sources of legal information, the school's publications, and links to websites such as those of the senate and House of Representatives which may prove useful to students and legal researchers.
         </p>
         <p class="font-normal text-md lg:text-lg text-slate-600" v-if="showMore">
