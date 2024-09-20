@@ -254,12 +254,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/archive/{post}/repost', [ArchiveController::class, 'repost'])->name('archive.updateState');
 });
 
-//offices
+// offices
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/offices', [OfficeController::class, 'index'])->name('offices');
     Route::post('/offices', [OfficeController::class, 'store'])->name('offices.store');
+    Route::put('/offices/{id}', [OfficeController::class, 'update'])->name('offices.update');
     Route::delete('/offices/{id}', [OfficeController::class, 'destroy'])->name('office.destroy');
 });
+
 
 //Academics
 Route::middleware(['auth', 'verified'])->group(function () {

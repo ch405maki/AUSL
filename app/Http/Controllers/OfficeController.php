@@ -38,6 +38,33 @@ class OfficeController extends Controller
         return redirect()->back()->with('success', 'Saved successfully.');    
     }
 
+    public function update(Request $request, $id)
+    {
+        $office = Office::findOrFail($id);
+
+        $request->validate([
+            'office_name' => 'required|string|max:255',
+            'office_location' => 'required|string',
+            'category' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $office->office_name = $request->input('office_name');
+        $office->office_location = $request->input('office_location');
+        $office->category = $request->input('category');
+
+        if ($request->hasFile('image')) {
+            // Handle image upload
+            $image = $request->file('image');
+            $imagePath = $image->store('images/offices', 'public');
+            $office->image = $imagePath;
+        }
+
+        $office->save();
+
+        return redirect()->route('offices')->with('success', 'Office updated successfully.');
+    }
+
     public function destroy($id)
     {
         $office = Office::findOrFail($id);
