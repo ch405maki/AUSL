@@ -147,6 +147,9 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::get('/oath', function () {
         return Inertia::render('Main/Student/LawyerOath/Index');
     })->name('oath');
+    Route::get('/library', function () {
+        return Inertia::render('Main/Student/Library/Index');
+    })->name('library');
 });
 
 

@@ -18,12 +18,16 @@ class OfficeController extends Controller
     public function store(Request $request)
     {
         // Validation rules
+        // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         $request->validate( [
             'office_name' => 'required|string|max:255',
             'office_location' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240', // 10MB Max
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:7168', // 7MB max size
+        ], [
+            'image.max' => 'The uploaded image must not exceed 7 MB.', // Custom error message for 7MB limit
         ]);
+            
 
         $data = $request->all();
         
@@ -46,7 +50,7 @@ class OfficeController extends Controller
             'office_name' => 'required|string|max:255',
             'office_location' => 'required|string',
             'category' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
         $office->office_name = $request->input('office_name');

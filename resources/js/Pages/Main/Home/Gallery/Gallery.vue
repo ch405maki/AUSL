@@ -15,27 +15,27 @@
                             </div>
 
                             <div>
-                            <!-- <div v-for="(gallery, index) in galleries" :key="gallery.id">
-                                <div class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start">
-                                    {{ gallery.year }}
-                                </div>
-                                <div @click="viewImages(gallery.id)" class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start cursor-pointer hover-effect">
-                                    {{ gallery.title }}
-                                </div>
-                                <div class="hidden md:table-cell">
-                                    <img v-if="gallery.images.length" :src="gallery.images[0]" alt="Gallery Image" class="carousell-image image-right my-2">
-                                </div>
-                            </div> -->
-                                
-                                <!-- Masonry grid -->
+                            <!-- Masonry grid -->
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div v-for="(gallery, index) in galleries" :key="gallery.id" class="grid gap-4">
-                                    <!-- Display only the first image -->
-                                    <div v-if="gallery.images.length" class="overflow-hidden rounded-lg">
-                                        <img class="w-full h-59 object-cover transform transition duration-300 ease-in-out hover:scale-110 h-auto max-w-full rounded-lg cursor-pointer" @click="viewImages(gallery.id)" :src="gallery.images[0]" alt="Gallery Image">
-                                    </div>
+                            <div v-for="(gallery, index) in galleries" :key="gallery.id" class="grid gap-4 relative">
+                            <!-- Display only the first image -->
+                            <div v-if="gallery.images.length" class="overflow-hidden rounded-lg relative group">  <!-- Added group class -->
+                                <img
+                                    class="w-full h-full object-cover transform transition duration-300 ease-in-out group-hover:scale-110 max-w-full rounded-lg cursor-pointer" 
+                                    @click="viewImages(gallery.id)"
+                                    :src="gallery.images[0]"
+                                    alt="Gallery Image"
+                                />
+                                <!-- Gradient text overlay on the image -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent bg-opacity-50 text-white text-sm flex items-end p-4">
+                                    <h1 class="w-full p-6 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300" @click="viewImages(gallery.id)">
+                                        {{ gallery.title }} <br>{{ gallery.year }}
+                                    </h1>
                                 </div>
                             </div>
+                            </div>
+                            </div>
+
                             </div>
                         </div>
                         <!-- End main content section -->

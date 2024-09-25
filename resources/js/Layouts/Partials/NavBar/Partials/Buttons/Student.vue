@@ -21,7 +21,7 @@
             <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
+            <a @click="$inertia.visit(route('student.library'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a @click="$inertia.visit(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media</a>
