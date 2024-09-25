@@ -1,9 +1,9 @@
 <template>
-  <Head title="Post" />
+  <Head title="Announcement" />
 
   <AuthenticatedLayout>
     <template #header>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Post</h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Announcement</h2>
     </template>
 
     <template #action >
@@ -30,9 +30,9 @@
           </div>
 
           <div class="flex justify-end flex-grow">
-              <a href="posts/create">
+              <a href="announcement/create">
                   <v-btn color="primary" class="w-full md:w-auto px-4">
-                      Add Post
+                      Add Announcement
                       <v-icon right>mdi-plus</v-icon>
                   </v-btn>
               </a>

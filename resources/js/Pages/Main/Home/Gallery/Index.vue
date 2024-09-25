@@ -10,9 +10,9 @@
         <h1 class="text-official-purple-800 mb-4 font-bold mt-2 text-xl sm:text-3xl text-center">Photo Gallery</h1>
         <p class="text-xl font-medium text-slate-800 text-center tracking-wide">A collection of captured moments from recent </p>
         <p class="text-xl font-medium text-slate-800 text-center mb-6 tracking-wide">AUSL School Events.</p>
-        <v-btn color="#66339a" dark @click="$inertia.visit(route('gallery.browse'))">
+        <v-btn color="#66339a" dark :href="route('gallery.browse')">
           <v-icon left>mdi-rocket</v-icon>
-          Explore More
+            See Our Photo Gallery
         </v-btn>
       </div>
 
@@ -31,6 +31,10 @@ import CardCarousel from './CardCarousel.vue';
 
 const navigateToGallery = () => {
   Inertia.visit(route('gallery.browse'));
+};
+
+const openGallery = () => {
+  Inertia.visit(route('gallery.browse'))
 };
 </script>
 

@@ -7,28 +7,36 @@
                     <div class="flex flex-col md:flex-row w-full justify-center">
                         <!-- Main content section -->
                         <div class="w-full p-1">
-                            <v-table fixed-header height="500px">
-                                <thead>
-                                    <tr>
-                                        <th class="text-left text-gray-700 w-1/12 text-xl"><h1>Year</h1></th>
-                                        <th class="text-left text-gray-700 font-extrabold mb-3 text-xl">Event</th>
-                                        <th class="text-right text-gray-700 font-extrabold mb-3 hidden md:table-cell text-xl">Sample Image</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(gallery, index) in galleries" :key="gallery.id">
-                                        <td class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start">
-                                            {{ gallery.year }}
-                                        </td>
-                                        <td @click="viewImages(gallery.id)" class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start cursor-pointer hover-effect">
-                                            {{ gallery.title }}
-                                        </td>
-                                        <td class="hidden md:table-cell">
-                                            <img v-if="gallery.images.length" :src="gallery.images[0]" alt="Gallery Image" class="carousell-image image-right my-2">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </v-table>
+                            <div class="flex flex-col w-full mb-20 mt-10 text-center">
+                                <h1 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">Our Gallery</h1>
+                                <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">
+                                    Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.
+                                </p>
+                            </div>
+
+                            <div>
+                            <!-- <div v-for="(gallery, index) in galleries" :key="gallery.id">
+                                <div class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start">
+                                    {{ gallery.year }}
+                                </div>
+                                <div @click="viewImages(gallery.id)" class="text-purple-900 font-extrabold mb-3 font-bold mt-2 uppercase text-mb sm:text-xl text-pretty text-start cursor-pointer hover-effect">
+                                    {{ gallery.title }}
+                                </div>
+                                <div class="hidden md:table-cell">
+                                    <img v-if="gallery.images.length" :src="gallery.images[0]" alt="Gallery Image" class="carousell-image image-right my-2">
+                                </div>
+                            </div> -->
+                                
+                                <!-- Masonry grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div v-for="(gallery, index) in galleries" :key="gallery.id" class="grid gap-4">
+                                    <!-- Display only the first image -->
+                                    <div v-if="gallery.images.length" class="overflow-hidden rounded-lg">
+                                        <img class="w-full h-59 object-cover transform transition duration-300 ease-in-out hover:scale-110 h-auto max-w-full rounded-lg cursor-pointer" @click="viewImages(gallery.id)" :src="gallery.images[0]" alt="Gallery Image">
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                         <!-- End main content section -->
                     </div>

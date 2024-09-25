@@ -21,7 +21,9 @@ class MainController extends Controller
         $posts = Post::where('category', 'News')
             ->where('state', 'Active')
             ->get();
-        $announcements = Post::where('category', 'Announcement')->get();
+        $announcements = Post::where('category', 'Announcement')
+            ->orderBy('created_at', 'desc') // Sort by the latest
+            ->get();
         $alumni = Alumni::where('status', true)->get();
 
         return Inertia::render('Main/Home/Index', [
@@ -47,7 +49,7 @@ class MainController extends Controller
     public function showAnnouncement($id)
     {
         $post = Post::findOrFail($id);
-        $allPost = Post::all();
+        $allPost = Post::where('category', 'Announcement')->get();
         return Inertia::render('Main/Home/Announcement/Show', [
             'post' => $post,
             'allPost' => $allPost

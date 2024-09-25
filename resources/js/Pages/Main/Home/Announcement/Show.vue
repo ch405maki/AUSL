@@ -21,21 +21,46 @@
                 <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
                   <p v-html="post.content"></p>
                 </div>
-                <div class="relative mb-8 flex justify-center items-center bg-slate-100">
+                <div v-if="post.link" class="relative mb-8 flex justify-center items-center bg-slate-100">
                   <div class="container">
                     <iframe frameborder="0" height="800" scrolling="no" :src="post.link + 'preview'" width="100%"></iframe>
                   </div>
                 </div>
+
+                <div v-if="post.image" class="relative mb-8 flex justify-center items-center bg-slate-100">
+                  <img :src="post.image" alt="Image" class="object-center">
+                </div>
                 <!-- Breadcrumb -->
-                <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb">
+                <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb" width="100%">
                   <ol class="list-reset flex">
                     <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
                     <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ {{post.title}}</span></li>
                   </ol>
                 </nav>
                 <!-- News and Announcement Section -->
-                Content Here...
-                <!-- End News and Announcement Section -->
+                <div class="w-full">
+                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
+                  Latest Announcement
+                </h1>
+                <hr class="mb-4 border-1 border-purple-800">
+                <div v-for="post in allPost" :key="post.id" id="announcement">
+                  <div class="text-left flex items-justify mb-4">
+                    <div class="text-justify ml-2">
+                      <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
+                        <a :href="`/show/${post.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ post.title }}</a>
+                      </h3>
+                      <p class="text-slate-600 ">{{ formattedDate(post.created_at) }}</p>
+                      <p >
+                        <div class="text-slate-700 text-lg font-normal text-gray-600"></div>
+                        <a :href="`/announcement/show/${post.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="mb-4 border-1 border-purple-200">
+                </div>
+                <!-- End Breadcrumb -->
+              </div>
+              <!-- End News and Announcement Section -->  
               </div>
               <!-- End main content section -->
               <!-- Links, Events & Seminars --> 
@@ -82,8 +107,8 @@
   ]);
 
   const formattedDate = (date) => {
-    return new Date(date).toLocaleDateString();
-  };
+  return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
 
   const shareToFacebook = () => {
     const url = encodeURIComponent(window.location.href);

@@ -80,7 +80,7 @@
               </h2>
               <div class="bg-white border-none rounded-lg relative">
                 <div class="mt-4 flex justify-center items-center">
-                  <video controls autoplay class="max-w-full h-auto">
+                  <video controls class="max-w-full h-auto">
                     <source src="/videos/auslHymn.mp4" type="video/mp4">
                   </video>
                 </div>

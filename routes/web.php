@@ -213,6 +213,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Announcement route
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
+    Route::get('/announcement/create', [AnnouncementController::class, 'createAnnouncement'])->name('announcement.create');
 });
 
 // Carousel route

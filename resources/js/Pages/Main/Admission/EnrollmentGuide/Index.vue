@@ -2,13 +2,20 @@
     <MainLayout>
       <Head title="Enrollment Guide" />
       <main class="flex-grow">
+        <div class="relative">
+          <!-- Background Image -->
+          <img src="/images/test2.png" alt="Background Image" class="w-full h-auto object-cover">
+          <!-- Centered Text -->
+          <div class="absolute inset-0 flex items-center justify-center">
+              <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center">
+                  Online Enrollment Process
+              </h1>
+          </div>
+        </div>
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start p-2">
-                Online Enrollment Process
-              </h2>
               <!-- Step 1 -->
               <div v-show="step === 1">
                 <div class="bg-white border-none rounded-lg mb-6 pl-2 relative">

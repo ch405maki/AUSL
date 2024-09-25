@@ -15,4 +15,8 @@ class AnnouncementController extends Controller
             ->get();
         return Inertia::render('Announcement/Index', ['posts' => $posts]);
     }
+
+    public function createAnnouncement(){
+        return Inertia::render('Announcement/Create');
+    }
 }

@@ -27,7 +27,7 @@
       <div class="flex flex-col md:flex-row justify-center bg-white rounded-lg p-1 reveal-text">
         <!-- Dean's information section -->
         <div class="w-full md:w-1/3 p-4 text-center order-1 md:order-1">
-          <img src="images/deans/deannavarro.png" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-full shadow-lg">
+          <img src="images/deans/deannavarro.png" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-full">
           <b class="block text-lg text-slate-800">Atty. Domingo M. Navarro</b>
           <i class="block text-slate-700">Dean</i>
         </div>

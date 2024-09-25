@@ -10,27 +10,30 @@
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</p>
           </div>
           <div>
-            <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Department List</h1>
-            <div class="flex flex-wrap mt-4 -m-4 mb-8">
-                <div class="w-full md:w-1/3 p-4" v-for="(office, index) in offices" :key="office.id">
-                <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 rounded-lg overflow-hidden">
-                    <img class="w-full h-59 object-cover" :src="office.image" alt="Office Image">
-                    <div class="p-4">
-                    <h5 class="font-medium text-lg">
-                        <h1 class="text-gray-800 hover:text-purple-900">{{ office.office_name}}</h1>
-                    </h5>
-                    <p class="mt-2 text-gray-500" v-html="office.office_location"></p>
-                    </div>
-                </div>
-                </div>
-            </div>
+          <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Department List</h1>
+          <div class="flex flex-wrap mt-4 -m-4 mb-8">
+              <div class="w-full md:w-1/3 p-4" v-for="(office, index) in offices" :key="office.id">
+                  <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 rounded-lg overflow-hidden">
+                      <div class="overflow-hidden">
+                          <img class="w-full h-59 object-cover transform transition duration-300 ease-in-out hover:scale-110" :src="office.image" alt="Office Image">
+                      </div>
+                      <div class="p-4">
+                          <h5 class="font-medium text-lg">
+                              <h1 class="text-gray-800 hover:text-purple-900">{{ office.office_name }}</h1>
+                          </h5>
+                          <p class="mt-2 text-gray-500" v-html="office.office_location"></p>
+                      </div>
+                  </div>
+              </div>
           </div>
+          </div>
+
           <div>
             <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Facilities List</h1>
             <div class="flex flex-wrap mt-4 -m-4 mb-8">
                 <div class="w-full md:w-1/3 p-4" v-for="(facility, index) in facilities" :key="facility.id">
                 <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 rounded-lg overflow-hidden">
-                    <img class="w-full h-59 object-cover" :src="facility.image" alt="facility Image">
+                    <img class="w-full h-59 object-cover transform transition duration-300 ease-in-out hover:scale-110" :src="facility.image" alt="facility Image">
                     <div class="p-4">
                     <h5 class="font-medium text-lg">
                         <h1 href="#" class="text-gray-800 hover:text-purple-900">{{ facility.office_name}}</h1>
