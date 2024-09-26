@@ -2,17 +2,8 @@
     <MainLayout>
       <Head title="Enrollment Guide" />
       <main class="flex-grow">
-        <div class="relative">
-          <!-- Background Image -->
-          <img src="/images/test2.png" alt="Background Image" class="w-full h-auto object-cover">
-          <!-- Centered Text -->
-          <div class="absolute inset-0 flex items-center justify-center">
-              <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center">
-                  Online Enrollment Process
-              </h1>
-          </div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+          <Header>Online Enrollment Process</Header>
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
@@ -163,6 +154,7 @@ import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import RelatedLinks from '../Components/RelatedLinks.vue';
+import Header from '@/Pages/Main/Components/Header.vue'
 
 // Create a ref for the current step
 const step = ref(1); // Initially set to Step 1

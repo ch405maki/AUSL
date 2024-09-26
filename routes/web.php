@@ -152,7 +152,6 @@ Route::prefix('student')->name('student.')->group(function () {
     })->name('library');
 });
 
-
 Route::get('/dean', function () {
     return Inertia::render('Main/Dean/Index');
 })->name('dean');

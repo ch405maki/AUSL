@@ -6,9 +6,8 @@
                 <div class="max-w-7xl mx-auto">
                     <div class="flex flex-col w-full mx-4 justify-center">
                         <!-- Gallery Details Section -->
-                        <div class="w-full p-1">
-                            <h3 class="text-2xl font-bold text-purple-800">Year: {{ gallery.year }}</h3>
-                            <h3 class="text-2xl font-bold mb-4">{{ gallery.title }}</h3>
+                        <div class="w-full py-8 px-2">
+                            <h3 class="text-2xl mb-8 font-bold text-purple-800">Year: {{ gallery.year }} / <span class="text-slate-800">{{ gallery.title }}</span></h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">  
                                 <div v-for="(image, index) in gallery.images" :key="index" class="mb-4">
                                     <img :src="image" alt="Gallery Image" class="w-full rounded-lg shadow-sm" @click="showLightbox(index)" />
