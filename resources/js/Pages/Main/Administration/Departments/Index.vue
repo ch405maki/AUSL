@@ -19,25 +19,27 @@
               <div class="flex flex-wrap mt-4 -m-4 mb-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div v-for="(office, index) in offices" :key="office.id" class="grid gap-4 relative">
-                    <div class="overflow-hidden rounded-lg relative group">
-                      <img
-                        class="w-full h-full object-cover transform transition duration-300 ease-in-out group-hover:scale-110 max-w-full rounded-lg cursor-pointer"
-                        :src="office.image"
+                  <div class="overflow-hidden rounded-lg relative group">
+                    <img
+                      class="w-full h-full object-cover transform transition duration-300 ease-in-out group-hover:scale-110 max-w-full rounded-lg cursor-pointer"
+                      v-if="office.image.length" 
+                      :src="office.image[0]"
+                      @click="showLightbox(index)"
+                      alt="Gallery Image"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent bg-opacity-50 text-white text-sm flex items-end p-4">
+                      <h1
                         @click="showLightbox(index)"
-                        alt="Gallery Image"
-                      />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent bg-opacity-50 text-white text-sm flex items-end p-4">
-                        <h1
-                          @click="showLightbox(index)"
-                          class="w-full p-2 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300"
-                        >
-                          {{ office.office_name }}
-                          <br/>
-                          <span v-html="office.office_location"></span>
-                        </h1>
-                      </div>
+                        class="w-full p-2 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                      >
+                        {{ office.office_name }} {{ index }}
+                        <br/>
+                        <span v-html="office.office_location"></span>
+                      </h1>
                     </div>
                   </div>
+                </div>
+
                 </div>
               </div>
             </div>
@@ -51,7 +53,8 @@
                     <div class="overflow-hidden rounded-lg relative group">
                       <img
                         class="w-full h-full object-cover transform transition duration-300 ease-in-out group-hover:scale-110 max-w-full rounded-lg cursor-pointer"
-                        :src="facility.image"
+                        v-if="facility.image.length" 
+                        :src="facility.image[0]"
                         @click="showLightboxFacility(index)"
                         alt="Gallery Image"
                       />
@@ -60,7 +63,7 @@
                           @click="showLightboxFacility(index)"
                           class="w-full p-2 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300"
                         >
-                          {{ facility.office_name }}
+                          {{ facility.office_name }} {{ index }}
                           <br/>
                           <span v-html="facility.office_location"></span>
                         </h1>
@@ -77,16 +80,16 @@
       <!-- Lightbox for Offices -->
       <vue-easy-lightbox
         :visible="visible"
-        :imgs="offices.map(office => office.image)"
-        :index="index"
+        :imgs="offices[index].image || []"
+        :index="0"
         @hide="handleHide"
       />
 
       <!-- Lightbox for Facilities -->
       <vue-easy-lightbox
         :visible="visibleFacility"
-        :imgs="facilities.map(facility => facility.image)"
-        :index="facilityIndex"
+        :imgs="facilities[facilityIndex]?.image || []"  
+        :index="0"
         @hide="handleHideFacility"
       />
     </main>
@@ -94,11 +97,11 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import { Head } from '@inertiajs/vue3';
-  import MainLayout from '@/Layouts/MainLayout.vue';
-  import { Inertia } from '@inertiajs/inertia';
-  import VueEasyLightbox from 'vue-easy-lightbox';
+import { ref } from 'vue';
+import { Head } from '@inertiajs/vue3';
+import MainLayout from '@/Layouts/MainLayout.vue';
+import { Inertia } from '@inertiajs/inertia';
+import VueEasyLightbox from 'vue-easy-lightbox';
 
 // Props for departments and facilities
 const props = defineProps({
@@ -115,20 +118,20 @@ const visibleFacility = ref(false);
 const facilityIndex = ref(0);
 
 // Show lightbox for offices
-const showLightbox = (i) => {
-  index.value = i;
-  visible.value = true;
+const showLightbox = (officeIndex) => {
+  index.value = officeIndex; 
+  visible.value = true; 
 };
 
-// Hide lightbox for offices
 const handleHide = () => {
   visible.value = false;
 };
 
 // Show lightbox for facilities
-const showLightboxFacility = (i) => {
-  facilityIndex.value = i;
-  visibleFacility.value = true;
+const showLightboxFacility = (index) => {
+  facilityIndex.value = index; // Set the facility index
+  console.log('Selected Facility Index:', facilityIndex.value); // Debugging line
+  visibleFacility.value = true; // Show the lightbox
 };
 
 // Hide lightbox for facilities
@@ -138,15 +141,15 @@ const handleHideFacility = () => {
 </script>
 
 <style scoped>
-  .container {
-    max-width: 1200px;
-  }
+.container {
+  max-width: 1200px;
+}
 
-  .overflow-y-auto {
-    overflow-y: auto;
-  }
+.overflow-y-auto {
+  overflow-y: auto;
+}
 
-  .flex {
-    display: flex;
-  }
+.flex {
+  display: flex;
+}
 </style>

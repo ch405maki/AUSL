@@ -17,12 +17,9 @@
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a @click="$inertia.visit(route('admissions.requirements'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Requirements</a>
         </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+        <!-- <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a @click="$inertia.visit(route('admissions.application-forms'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Application Forms</a>
-        </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('admissions.id'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Id Application</a>
-        </li>
+        </li> -->
         </ul>
     </div>
 </template>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('office_name');
             $table->string('office_location');
             $table->string('category');
-            $table->string('image');
+            $table->text('image');
             $table->timestamps();
         });
     }

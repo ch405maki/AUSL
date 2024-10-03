@@ -22,4 +22,20 @@ class Office extends Model
         'category',
         'image',
     ];
+
+    protected $casts = [
+        'image' => 'array', 
+    ];
+
+    // Override the setImagesAttribute to handle JSON encoding
+    public function setImagesAttribute($value)
+    {
+        $this->attributes['image'] = json_encode($value);
+    }
+
+    // Override the getImagesAttribute to handle JSON decoding
+    public function getImagesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
 }

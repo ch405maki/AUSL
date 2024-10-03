@@ -35,7 +35,13 @@
                             <tr v-for="(office, index) in offices" :key="office.id">
                                 <td>{{ office.category }}</td>
                                 <td>{{ office.office_name }}</td>
-                                <td><img :src="office.image" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm"></td>
+                                <td>
+                                    <img 
+                                    v-if="office.image.length" 
+                                    :src="office.image[0]"
+                                    alt="Image Logo" 
+                                    class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
+                                </td>
                                 <td class="text-center">
                                 <div class="flex justify-center items-center gap-1">
                                     <button @click="openEditModal(office)" class="p-2  rounded-full  group transition-all duration-500  flex item-center" title="Re-Order Items">
@@ -112,37 +118,39 @@
 
                                     <!-- Image Upload -->
                                     <div class="col-span-full mt-4">
-                                        <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Office Picture</label>
+                                        <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Office Pictures</label>
                                         <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                                            <div v-if="previewImage" class="mb-4 relative">
-                                            <img :src="previewImage" alt="Selected Image Preview" class="w-full rounded-lg shadow-sm" />
-                                            <!-- Remove Button -->
-                                            <button type="button" @click="removeImage" 
-                                                class="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 hover:bg-red-700">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                                </svg>
-                                            </button>
+                                            <div v-if="previewImage.length" class="grid grid-cols-3 gap-4">
+                                                <div v-for="(image, index) in previewImage" :key="index" class="relative">
+                                                    <img :src="image" alt="Selected Image Preview" class="w-full rounded-lg shadow-sm" />
+                                                    <!-- Remove Button -->
+                                                    <button type="button" @click="removeImage(index)" 
+                                                        class="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 hover:bg-red-700">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </div>
                                             <div v-else class="text-center">
-                                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                                <path
-                                                fill-rule="evenodd"
-                                                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                                clip-rule="evenodd"
-                                                />
-                                            </svg>
-                                            <div class="mt-2 flex text-sm leading-6 text-gray-600">
-                                                <label
-                                                for="image-upload"
-                                                class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                                                >
-                                                <span>Upload an image</span>
-                                                <input id="image-upload" name="image-upload" type="file" class="sr-only" @change="handleFileChange" />
-                                                </label>
-                                                <p class="pl-1">or drag and drop</p>
-                                            </div>
-                                            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 5MB</p>
+                                                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                    fill-rule="evenodd"
+                                                    d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                                                    clip-rule="evenodd"
+                                                    />
+                                                </svg>
+                                                <div class="mt-2 flex text-sm leading-6 text-gray-600">
+                                                    <label
+                                                    for="image-upload"
+                                                    class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                                                    >
+                                                    <span>Upload images</span>
+                                                    <input id="image-upload" name="image-upload" type="file" class="sr-only" @change="handleFileChange" multiple/>
+                                                    </label>
+                                                    <p class="pl-1">or drag and drop</p>
+                                                </div>
+                                                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 5MB</p>
                                             </div>
                                         </div>
                                         <!-- Error for Image -->
@@ -222,68 +230,78 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2';
 
+
+
 const props = defineProps({
   offices: { type: Array, required: true },
 });
-
+onMounted(() => {
+  console.log(props.offices);  // Use props.offices instead of this.offices
+});
 const showModal = ref(false);
-const previewImage = ref(null);
+const previewImage = ref([]);
 
 // Form handling
 const form = useForm({
     office_name: '',
     office_location: '',
     category: '',
-    image: null,
+    image: [],
 });
 
-const removeImage = () => {
-    previewImage.value = null;
-    form.image = null;
-  };
-
+// Handle multiple image selection and preview
 const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
+    const files = event.target.files;
+    previewImage.value = []; // Reset the preview
+    form.image = []; // Reset the form image array
+
+    Array.from(files).forEach(file => {
         const reader = new FileReader();
         reader.onload = (e) => {
-            previewImage.value = e.target.result;
+            previewImage.value.push(e.target.result);
         };
         reader.readAsDataURL(file);
-    } else {
-        previewImage.value = null;
-    }
-    form.image = file;
+        form.image.push(file);
+    });
 };
 
+// Remove a specific image
+const removeImage = (index) => {
+    previewImage.value.splice(index, 1);
+    form.image.splice(index, 1);
+};
+
+// Form submission
 const submitForm = () => {
     const formData = new FormData();
     formData.append('office_name', form.office_name);
     formData.append('office_location', form.office_location);
     formData.append('category', form.category);
-    if (form.image) {
-        formData.append('image', form.image);
-    }
+
+    form.image.forEach((image, index) => {
+        formData.append(`images[${index}]`, image);
+    });
 
     form.post(route('offices.store'), {
         data: formData,
         onSuccess: () => {
             showModal.value = false;
             form.reset();
-            previewImage.value = null;
+            previewImage.value = [];
         },
         onError: (errors) => {
             console.error(errors);
         },
     });
 };
+// end of upload
 
 const showEditModal = ref(false);
 const editPreviewImage = ref(null);
@@ -291,7 +309,7 @@ const editForm = useForm({
   office_name: '',
   office_location: '',
   category: '',
-  image: null,
+  image: [],
 });
 
 const handleEditFileChange = (event) => {

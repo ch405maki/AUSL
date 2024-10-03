@@ -12,7 +12,7 @@ class Gallery extends Model
     protected $fillable = ['title', 'year', 'images'];
 
     protected $casts = [
-        'images' => 'array', // Cast the text field to an array
+        'images' => 'array', 
     ];
 
     // Override the setImagesAttribute to handle JSON encoding

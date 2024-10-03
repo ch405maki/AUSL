@@ -34,6 +34,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(gallery, index) in galleries" :key="gallery.id">
+                    {{ gallery.images }}
                     <td>{{ gallery.year }}</td>
                     <td>{{ gallery.title }}</td>
                     <td>
@@ -79,31 +80,6 @@ import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({ galleries: { type: Array, required: true } });
 
-const form = useForm({ title: '', year: '', images: [] });
-const previewImages = ref([]);
-const errors = ref({});
-
-const handleFileChange = (event) => {
-  const files = event.target.files;
-  previewImages.value = [];
-  form.images = [];
-
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      previewImages.value.push(e.target.result);
-    };
-    reader.readAsDataURL(file);
-    form.images.push(file);
-  }
-};
-
-const removeImage = (index) => {
-  previewImages.value.splice(index, 1);
-  form.images.splice(index, 1);
-};
-
 const viewGallery = (id) => {
   Inertia.get(route('gallery.show', id));
 };
@@ -119,30 +95,6 @@ const deletePost = (id) => {
     if (result.isConfirmed) {
       form.delete(route('gallery.destroy', id));
     }
-  });
-};
-
-const submitForm = () => {
-  const formData = new FormData();
-  formData.append('title', form.title);
-  formData.append('year', form.year);
-  form.images.forEach((image) => {
-    formData.append('images[]', image);
-  });
-
-  form.post(route('gallery.store'), {
-    data: formData,
-    onSuccess: () => {
-      form.reset();
-      previewImages.value = [];
-      errors.value = {};
-    },
-    onError: (error) => {
-      errors.value = error;
-    },
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
   });
 };
 </script>

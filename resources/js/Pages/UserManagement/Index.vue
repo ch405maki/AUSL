@@ -219,28 +219,11 @@ const showUser = (id) => {
     Inertia.visit(`/users/${id}`);
 };
 
-const deleteUser = (id, name) => {
-    const alerta = Swal.mixin({
-        buttonsStyling: true,
-    });
-
-    alerta.fire({
-        title: 'Are you sure delete ' + name + ' ?',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: '<i class="fa-solid fa-check"></i> Yes, delete',
-        cancelButtonText: '<i class="fa-solid fa-ban"></i> Cancel',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            form.delete(route('users.destroy', id));
-        }
-    });
-};
+7
 
 const submitForm = () => {
     form.post(route('users.store'), {
         onSuccess: () => {
-            // Clear the form after a successful submission
             form.reset();
         },
     });

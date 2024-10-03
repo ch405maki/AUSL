@@ -15,13 +15,10 @@
             <a @click="$inertia.visit(route('events.academic'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Calendar</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('events.upcomming'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Upcoming Events</a>
+            <a @click="$inertia.visit(route('events.upcomming'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Events</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a @click="$inertia.visit(route('events.holidays'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Holidays</a>
-        </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Important Dates</a>
         </li>
         </ul>
     </div>
