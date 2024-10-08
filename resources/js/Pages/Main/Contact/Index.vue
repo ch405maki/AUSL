@@ -41,16 +41,22 @@
                         <td class="py-2 text-gray-600">
                           Telephone Numbers
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
-                          8404-3089 <br> 8404-3090 <br> 8404-3091
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                          <i class="mdi mdi-phone mr-1"></i> <!-- MDI Telephone Icon -->
+                          <span>
+                            8404-3089 <br> 8404-3090 <br> 8404-3091
+                          </span>
                         </td>
                       </tr>
-                      <tr  class="border-b border-t">
+                      <tr class="border-b border-t">
                         <td class="py-2 text-gray-600">
                           Fax Number
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
-                          8521-4691
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                          <i class="mdi mdi-printer mr-1"></i> <!-- MDI Fax Icon -->
+                          <span>
+                            8521-4691
+                          </span>
                         </td>
                       </tr>
                     </tbody>
@@ -72,13 +78,19 @@
                         <td class="py-2 font-normal text-gray-600">
                           {{ item.office }}
                           <br />
-                          <p class="italic font-normal hover:underline" v-html="item.email"></p>
+                          <p class="italic font-normal hover:underline flex items-center">
+                            <span v-if="item.email">
+                              <i class="mdi mdi-email mr-1"></i> <!-- MDI Email Icon -->
+                            </span>
+                            <span v-html="item.email"></span>
+                          </p>
                         </td>
                         <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
                           <span v-html="item.local"></span>
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
-                          <span v-html="item.mobile"></span>
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                          <i class="mdi mdi-phone mr-1" v-if="item.mobile"></i> <!-- MDI Telephone Icon -->
+                          <span v-if="item.mobile" v-html="item.mobile"></span>
                         </td>
                       </tr>
                     </tbody>
