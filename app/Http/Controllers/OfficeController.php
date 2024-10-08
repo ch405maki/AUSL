@@ -21,9 +21,9 @@ class OfficeController extends Controller
         'office_name' => 'required|string|max:255',
         'office_location' => 'required|string|max:255',
         'category' => 'required|string|max:255',
-        'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:7168', // 7MB max size per image
+        'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240', // 7MB max size per image
     ], [
-        'image.*.max' => 'Each uploaded image must not exceed 7 MB.', // Custom error message for 7MB limit
+        'image.*.max' => 'Each uploaded image must not exceed 10 MB.', // Custom error message for 7MB limit
     ]);
 
     // Initialize an empty array for storing image URLs
