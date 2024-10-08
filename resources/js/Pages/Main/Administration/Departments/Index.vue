@@ -32,7 +32,7 @@
                         @click="showLightbox(index)"
                         class="w-full p-2 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300"
                       >
-                        {{ office.office_name }} {{ index }}
+                        {{ office.office_name }}
                         <br/>
                         <span v-html="office.office_location"></span>
                       </h1>
@@ -63,7 +63,7 @@
                           @click="showLightboxFacility(index)"
                           class="w-full p-2 cursor-pointer hover:underline opacity-100 group-hover:opacity-100 transition-opacity duration-300"
                         >
-                          {{ facility.office_name }} {{ index }}
+                          {{ facility.office_name }}
                           <br/>
                           <span v-html="facility.office_location"></span>
                         </h1>
