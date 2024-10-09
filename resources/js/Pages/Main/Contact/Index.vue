@@ -197,7 +197,7 @@
                     <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-white', step === 1 ? 'bg-green-200 text-green-500' : 'bg-gray-100 text-gray-500']">
                     <v-icon>mdi-email</v-icon>
                     </span>
-                    <h3 class="font-medium leading-tight">Contact Form</h3>
+                    <h3 class="font-medium leading-tight">Contacts</h3>
                     <p class="text-sm">Send us a message</p>
                 </li>
                 <!-- Step 2 -->

@@ -11,7 +11,7 @@
               <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
                 The evolution of Arellano University and its School of Law
               </h2>
-              <div class="flex flex-col space-y-6">
+              <div class="flex flex-col space-y-6 text-justify">
                 <p class="text-lg font-normal text-gray-600 mb-4">
                   The history of Arellano University began in 1938 through the efforts of Florentino Cayco Sr. when its School of Law was first established and formed. It aimed to provide quality legal education to aspiring Filipino lawyers. It was named after the first Filipino Chief Justice of the Supreme Court, Cayetano S. Arellano. The original school was located in historic Intramuros where classes were held until the 1945 Battle of Manila.
                   <br><br>
