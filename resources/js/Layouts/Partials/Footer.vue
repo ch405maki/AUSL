@@ -19,7 +19,7 @@
                     <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Quick Links</h2>
                     <ul class="text-slate-700">
                         <li class="mb-4">
-                            <a :href="route('about')" class="hover:underline cursor-pointer">About AUSL</a>
+                            <a :href="route('history')" class="hover:underline cursor-pointer">About AUSL</a>
                         </li>
                         <li class="mb-4">
                             <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
@@ -50,7 +50,7 @@
                     <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Legal</h2>
                     <ul class="text-slate-700">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                            <a :href="route('privacy_policy')" class="hover:underline">Privacy Policy</a>
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Terms &amp; Conditions</a>

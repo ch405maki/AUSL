@@ -305,11 +305,11 @@ const submitForm = () => {
 
 const showEditModal = ref(false);
 const editPreviewImage = ref(null);
+
 const editForm = useForm({
   office_name: '',
   office_location: '',
   category: '',
-  image: [],
 });
 
 const handleEditFileChange = (event) => {

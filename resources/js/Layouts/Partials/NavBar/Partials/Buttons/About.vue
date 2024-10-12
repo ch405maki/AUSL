@@ -1,7 +1,7 @@
 <template>
     <div class="group inline-block relative">
         <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
-        <span class="pr-1 font-normal flex-1 garamond uppercase">Student Resources</span>
+        <span class="pr-1 font-normal flex-1 garamond uppercase">About Us</span>
         <span>
             <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12,21 +12,14 @@
         </button>
         <ul class="bg-white border rounded-md shadow-lg transform scale-0 group-hover:scale-100 absolute transition duration-300 ease-in-out origin-top min-w-52 mt-2">
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="/student/oath" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawyer's Oath</a>
+            <a :href="(route('history'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">History</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">AIMS Portal</a>
+            <a :href="(route('mission_vission'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Mission and Vision</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
+            <a :href="(route('hymn'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Alma Mater Hymn</a>
         </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('student.library'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
-        </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media</a>
-        </li>
-        
         </ul>
     </div>
 </template>
@@ -138,6 +131,6 @@
     }
 
     .min-w-32 {
-    min-width: 8rem;    
+    min-width: 8rem;
     }
     </style>

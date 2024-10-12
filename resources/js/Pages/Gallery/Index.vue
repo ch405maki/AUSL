@@ -34,7 +34,6 @@
                 </thead>
                 <tbody>
                   <tr v-for="(gallery, index) in galleries" :key="gallery.id">
-                    {{ gallery.images }}
                     <td>{{ gallery.year }}</td>
                     <td>{{ gallery.title }}</td>
                     <td>
@@ -85,15 +84,17 @@ const viewGallery = (id) => {
 };
 
 const deletePost = (id) => {
+  console.log('This is the ID: ', id);
+
   Swal.fire({
-    title: 'Are you sure delete?',
+    title: 'Are you sure you want to delete?',
     icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Yes, delete',
     cancelButtonText: 'Cancel',
   }).then((result) => {
     if (result.isConfirmed) {
-      form.delete(route('gallery.destroy', id));
+      Inertia.delete(route('gallery.destroy', id));
     }
   });
 };

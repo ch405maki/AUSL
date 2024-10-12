@@ -48,9 +48,16 @@
             <!-- Step 2 -->
             <div v-show="step === 2">
               <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                Vision and Mission
+                Mission and Vision  
               </h2>
               <div class="bg-white border-none rounded-lg mb-6 relative">
+                <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Mission</h2>
+                <p class="text-lg font-normal text-gray-600 mb-8 ">
+                  We are an institution dedicated to educate and produce in a sublime manner individuals as adept counsels of law.
+                <br>
+                <br>
+                  We will advocate respect for the rule of law, human rights and dignity, defend the oppressed, protect our ecology, strive to be equal with others, serve God, our country and fellowmen.
+                </p>
                 <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Vision</h2>
                 <p class="text-lg font-normal text-gray-600 mb-8">
                   We shall be the leading exponent of the Learner-Centered Method of teaching that integrates Ethics and Values in order to produce competent legal practitioners.
@@ -61,15 +68,6 @@
                 <br>
                   We shall utilize modern strategies and innovate policies in our goal to promote social justice, equality and the rule of law.
                 </p>
-
-                <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Mission</h2>
-                <p class="text-lg font-normal text-gray-600 mb-8 ">
-                  We are an institution dedicated to educate and produce in a sublime manner individuals as adept counsels of law.
-                <br>
-                <br>
-                  We will advocate respect for the rule of law, human rights and dignity, defend the oppressed, protect our ecology, strive to be equal with others, serve God, our country and fellowmen.
-                </p>
-                <!-- item here -->
               </div>
             </div>
 
@@ -145,7 +143,7 @@
                   <!-- Icon for Vision and Mission -->
                   <v-icon>mdi-compass-outline</v-icon>
                 </span>
-                <h3 class="font-medium leading-tight">Vision and Mission</h3>
+                <h3 class="font-medium leading-tight">Mission and Vision</h3>
                 <p class="text-sm">Guiding principles and purpose</p>
               </li>
 

@@ -43,9 +43,17 @@ Route::get('/emptyState', function () {
 })->name('emptyState');
 
 // About
-Route::get('/about', function () {
-    return Inertia::render('Main/About/Index');
-})->name('about');
+Route::get('/history', function () {
+    return Inertia::render('Main/About/History/Index');
+})->name('history');
+
+Route::get('/mission_vission', function () {
+    return Inertia::render('Main/About/MissionVision/Index');
+})->name('mission_vission');
+
+Route::get('/hymn', function () {
+    return Inertia::render('Main/About/Hymn/Index');
+})->name('hymn');
 
 // Administration
 Route::prefix('administration')->name('administration.')->group(function () {
@@ -86,6 +94,10 @@ Route::prefix('academic')->name('academic.')->group(function () {
     Route::get('/curiculumn', function () {
         return Inertia::render('Main/AcademicProgram/Curiculumn/Index');
     })->name('curiculumn');
+
+    Route::get('/course_description', function () {
+        return Inertia::render('Main/AcademicProgram/Description/Index');
+    })->name('course_description');
 
     Route::get('/juris-doctor', function () {
         return Inertia::render('Main/AcademicProgram/JurisDoctor/Curiculum/Index');
@@ -180,6 +192,10 @@ Route::prefix('office')->group(function () {
     })->name('office.deans');
 });
 
+Route::get('/privacy_policy', function () {
+    return Inertia::render('Main/Footer/Privacy/Index');
+})->name('privacy_policy');
+
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
 
@@ -232,7 +248,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
-    Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 });
 
 // Chat route

@@ -57,10 +57,10 @@
     
     
     const links = ref([
-      { text: 'AIMS Portal', url: '#' },
-      { text: 'LawPhil.net', url: '#' },
-      { text: 'Library', url: '#' }, 
-      { text: 'Social Media', url: '#' }, 
+      { text: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/' },
+      { text: 'LawPhil.net', url: 'https://lawphil.net/' },
+      { text: 'Library', url: '/student/library' }, 
+      { text: 'Social Media', url: '/contact/socials' }, 
     ]);
     
     const isMobile = reactive({ value: window.innerWidth <= 768 });

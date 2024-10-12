@@ -37,20 +37,14 @@
                 <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-left min-w-24">
                   <span class="font-normal flex-1 garamond hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
                 </button>
-                
-                <div class="group inline-block relative">
-                  <button @click="$inertia.visit(route('about'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-left min-w-24">
-                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">
-                      About Us
-                    </span>
-                  </button>
-                </div>
-                
+
+                <About />
                 <Administration />
                 <Academics />
                 <Admission />
                 <Events />
                 <Student />
+                <DeansCorner />
                 
                 <div class="group inline-block relative">
                   <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
@@ -149,6 +143,8 @@
   import Admission from './Partials/Buttons/Admission.vue'
   import Events from './Partials/Buttons/Events.vue'
   import Student from './Partials/Buttons/Student.vue'
+  import DeansCorner from './Partials/Buttons/DeansCorner.vue'
+  import About from './Partials/Buttons/About.vue'
   
   const { props: { ziggy } } = usePage();
   const route = window.route;
@@ -248,8 +244,8 @@
         }
       ]
     },
-    { title: 'About AUSL', url: '/about', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6' },
-    { title: 'Contact Us', url: '/contact', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1' }
+    { title: 'About AUSL', url: '/history', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6'},
+    { title: 'Contact Us', url: '/contact', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1'}
   ]);
   
   // Manage menu visibility
