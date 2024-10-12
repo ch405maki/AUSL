@@ -9,7 +9,7 @@
             <div class="flex items-center">
               <!-- Logo -->
               <div class="shrink-0 flex items-center text-white">
-                <Link :href="route('main')" class="flex items-center">
+                <Link :href="route('login')" class="flex items-center">
                   <img src="/images/auLogo.png" alt="Image Logo" class="max-w-full h-full max-h-16 mr-4 transition-transform duration-300 transform hover:scale-105">
                 </Link>
                 <div>
@@ -17,7 +17,7 @@
                   <hr class="border-t-2 border-white">
                   <div class="garamond uppercase font-bold text-2xl tracking-wide leading-tight text-center">SCHOOL OF LAW</div>
                 </div>
-                <Link :href="route('main')" class="flex items-center">
+                <Link :href="route('login')" class="flex items-center">
                   <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-16 ml-4 transition-transform duration-300 transform hover:scale-105">
                 </Link>
               </div>

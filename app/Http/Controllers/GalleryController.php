@@ -45,6 +45,47 @@ class GalleryController extends Controller
         return redirect()->route('gallery');
     }
 
+    public function edit($id)
+    {
+        $gallery = Gallery::findOrFail($id);
+        return inertia('Gallery/Edit', ['gallery' => $gallery]);
+    }
+
+    public function update(Request $request, $id)
+{
+    // Validate the incoming data
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'year' => 'required|string|max:50',
+        'newImages.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    // Retrieve the existing gallery record
+    $gallery = Gallery::findOrFail($id);
+
+    // Get the existing images from the gallery
+    $images = $gallery->images;
+
+    // If there are new images, process and add them to the gallery
+    if ($request->hasfile('newImages')) {
+        foreach ($request->file('newImages') as $image) {
+            $path = $image->store('public/gallery');
+            $images[] = Storage::url($path);
+        }
+    }
+
+    // Update the gallery record with the new data
+    $gallery->update([
+        'title' => $request->title,
+        'year' => $request->year,
+        'images' => $images, // Existing and new images combined
+    ]);
+
+    return redirect()->route('gallery')->with('success', 'Gallery updated successfully');
+}
+
+
+
     public function show($id)
     {
         $gallery = Gallery::findOrFail($id);
@@ -63,35 +104,11 @@ class GalleryController extends Controller
         return Inertia::render('Main/Home/Gallery/Show', ['gallery' => $gallery]);
     }
 
-    public function update(Request $request, Gallery $gallery)
+    public function destroy($id)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        $gallery = Gallery::findOrFail($id);
+        $gallery->delete();
 
-        $images = $gallery->images;
-        if ($request->hasfile('images')) {
-            foreach ($request->file('images') as $image) {
-                $name = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('images'), $name);
-                $images[] = $name;
-            }
-        }
-
-        $gallery->update([
-            'title' => $request->title,
-            'images' => $images, // This will be automatically encoded to JSON
-        ]);
-
-        return redirect()->route('galleries.index');
+        return redirect()->route('gallery');
     }
-
-        public function destroy($id)
-        {
-            $gallery = Gallery::findOrFail($id);
-            $gallery->delete();
-
-            return redirect()->route('gallery');
-        }
 }

@@ -246,6 +246,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/galleries', [GalleryController::class, 'index'])->name('gallery');
     Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
+    Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::put('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
     Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
