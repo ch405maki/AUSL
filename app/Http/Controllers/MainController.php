@@ -49,10 +49,10 @@ class MainController extends Controller
     public function showAnnouncement($id)
     {
         $post = Post::findOrFail($id);
-        $allPost = Post::where('category', 'Announcement')->get();
+        $announcements = Post::where('category', 'Announcement')->get();
         return Inertia::render('Main/Home/Announcement/Show', [
             'post' => $post,
-            'allPost' => $allPost
+            'announcements' => $announcements
         ]);
     }
 

@@ -37,30 +37,7 @@
                     <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ {{post.title}}</span></li>
                   </ol>
                 </nav>
-                <!-- News and Announcement Section -->
-                <div class="w-full">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
-                  Latest Announcement
-                </h1>
-                <hr class="mb-4 border-1 border-purple-800">
-                <div v-for="post in allPost" :key="post.id" id="announcement">
-                  <div class="text-left flex items-justify mb-4">
-                    <div class="text-justify ml-2">
-                      <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
-                        <a :href="`/show/${post.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ post.title }}</a>
-                      </h3>
-                      <p class="text-slate-600 ">{{ formattedDate(post.created_at) }}</p>
-                      <p >
-                        <div class="text-slate-700 text-lg font-normal text-gray-600"></div>
-                        <a :href="`/announcement/show/${post.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
-                      </p>
-                    </div>
-                  </div>
-                  <hr class="mb-4 border-1 border-purple-200">
-                </div>
-                <!-- End Breadcrumb -->
-              </div>
-              <!-- End News and Announcement Section -->  
+                
               </div>
               <!-- End main content section -->
               <!-- Links, Events & Seminars --> 
@@ -83,6 +60,37 @@
               </div>
               <!-- End Links, Events & Seminars -->
             </div>
+
+            <!-- News and Announcement Section -->
+            <div class="w-7xl px-2">
+            <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
+              Latest Announcement
+            </h1>
+            <hr class="mb-4 border-1 border-purple-800">
+            <div class="announcement-carousel owl-carousel owl-theme">
+              <div
+                v-for="(announcement, index) in announcements || []"
+                :key="announcement?.id || index"
+                class="item w-100 sm:w-72"
+              >
+                <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
+                  <a :href="announcement ? `/announcement/show/${announcement.id}` : '#'" class="block relative group">
+                    <img :src="announcement?.image" alt="Card image" class="w-full h-64 object-cover">
+                    <div class="overlay"></div>
+                  </a>
+                  <div class="p-4 flex flex-col flex-grow justify-between">
+                    <a
+                      :href="announcement ? `/announcement/show/${announcement.id}` : '#'"
+                      class="font-bold text-lg text-left text-gray-800 hover:text-purple-900 cursor-pointer"
+                    >{{ announcement?.title || 'No Title Available' }}</a>
+                    <p class="text-gray-600 mt-2 text-left text-lg">{{ announcement ? new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '' }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Breadcrumb -->
+          </div>
+          <!-- End News and Announcement Section -->  
           </div>
         </div>
       </main>
@@ -95,8 +103,18 @@
   import { defineProps } from 'vue';
   import { ref } from 'vue';
   import MainLayout from '@/Layouts/MainLayout.vue';
+  import { onMounted } from 'vue';
 
-  const { post, allPost } = defineProps(['post', 'allPost']);
+  const props = defineProps({
+    post: {
+      type: Array,
+      required: true
+    },
+    announcements: {
+      type: Array,
+      required: true
+    }
+  });
 
   const links = ref([
     { text: 'Latest Announcement', url: '#' },
@@ -109,6 +127,39 @@
   const formattedDate = (date) => {
   return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
+
+onMounted(() => {
+    if (typeof $ !== 'undefined') {
+      const owlCarousel = $('.announcement-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        responsive: {
+          0: { 
+            items: 1,
+            center: true, // Centering the single item on mobile
+          },
+          600: { items: 2 },
+          800: { items: 3 },
+          1000: { items: 4 }
+        }
+      });
+  
+      // Pause autoplay on mouseover
+      $('.announcement-carousel').on('mouseover', function() {
+        owlCarousel.trigger('stop.owl.autoplay');
+      });
+  
+      // Resume autoplay on mouseleave
+      $('.announcement-carousel').on('mouseleave', function() {
+        owlCarousel.trigger('play.owl.autoplay', [5000]);
+      });
+    } else {
+      console.error('jQuery is not loaded');
+    }
+  });
 
   const shareToFacebook = () => {
     const url = encodeURIComponent(window.location.href);
