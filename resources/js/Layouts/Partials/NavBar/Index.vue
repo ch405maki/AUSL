@@ -66,7 +66,7 @@
           <!-- Logo Section -->
           <div class="flex items-center text-white flex-shrink-0">
             <Link :href="route('main')" class="flex">
-              <img src="/images/aulogo.png" alt="Arellano University Logo" class="max-h-10 mr-2">
+              <img src="/images/auLogo.png" alt="Arellano University Logo" class="max-h-10 mr-2">
             </Link>
             <div class="text-center">
               <div class="garamond uppercase font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
