@@ -1,8 +1,8 @@
 <template>
   <div class="bg-official-purple-800 py-6">
-    <div class="text-center text-white py-6">
-      <div class="max-w-7xl mx-auto flex flex-col items-center sm:items-start px-5 relative">
-        <h1 class="text-left mb-4 font-bold text-lg md:text-xl lg:text-2xl">What's in the News</h1>
+    <div class="text-white py-6">
+      <div class="max-w-7xl mx-auto flex flex-col items-start px-5 relative">
+        <h1 class="text-left text-left mb-2 font-bold text-2xl md:text-xl lg:text-2xl">What's in the News</h1>
         <p class="font-normal text-md md:text-lg lg:text-xl mb-8">
           Read about the latest AUSL Initiatives, Achievements, and Developments
         </p>

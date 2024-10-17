@@ -5,22 +5,22 @@
       <div class="absolute inset-0 bg-gradient-to-r from-official-purple-500/40 via-purple-400/40 to-purple-300/40 backdrop-blur-md opacity-50"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 py-8">
-      <!-- Left Column -->
-      <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-8">
-        <h1 class="text-official-purple-800 mb-4 font-bold mt-2 text-xl sm:text-3xl text-center">Photo Gallery</h1>
-        <p class="text-xl font-medium text-slate-800 text-center tracking-wide">A collection of captured moments from recent </p>
-        <p class="text-xl font-medium text-slate-800 text-center mb-6 tracking-wide">AUSL School Events.</p>
-        <v-btn color="#66339a" dark :href="route('gallery.browse')">
-          <v-icon left>mdi-rocket</v-icon>
-            See Our Photo Gallery
-        </v-btn>
-      </div>
-
-      <!-- Right Column -->
-      <div class="basis-full md:basis-1/2 overflow-hidden pt-2">
-        <CardCarousel />
-      </div>
+    <!-- Left Column -->
+    <div class="basis-full md:basis-1/2 flex flex-col justify-center items-center px-4 py-8">
+      <h1 class="text-official-purple-800 mb-4 font-bold mt-2 text-2xl sm:text-3xl text-center">Photo Gallery</h1>
+      <p class="text-xl font-medium text-slate-800 text-center tracking-wide">A collection of captured moments from recent </p>
+      <p class="text-xl font-medium text-slate-800 text-center mb-6 tracking-wide">AUSL School Events.</p>
+      <a :href="route('gallery.browse')" class="cursor-pointer text-purple-900 font-medium mt-4 mb-4 border-[1px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+        See Our Photo Gallery
+      </a>
     </div>
+
+    <!-- Right Column -->
+    <div class="basis-full md:basis-1/2 overflow-hidden pt-2 hidden md:block">
+      <CardCarousel />
+    </div>
+  </div>
+
   </div>
 </template>
 

@@ -28,104 +28,103 @@
       </nav>
   
       <!-- Second Navigation Bar -->
-      <nav ref="navButtons" class="bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-20 second-nav">
+      <nav ref="navButtons" class="hidden lg:block bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-20 second-nav">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto">
           <div class="flex justify-between h-12 items-center">
             <div class="flex items-center">
-              <div class="hidden lg:flex sm:items-center mt-1">
+              <div class="lg:flex sm:items-center mt-1">
                 <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-left min-w-24">
-                  <span class="font-normal flex-1 garamond hover:text-gray-300 uppercase"><a :href="route('main')">Home</a></span>
+                  <span class="font-normal flex-1 garamond hover:text-gray-300 uppercase">
+                    <a :href="route('main')">Home</a>
+                  </span>
                 </button>
-
                 <About />
                 <Administration />
+                <DeansCorner />
                 <Academics />
                 <Admission />
                 <Events />
                 <Student />
-                <DeansCorner />
                 
                 <div class="group inline-block relative">
                   <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">
-                      Contact Us
-                    </span>
+                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">Contact Us</span>
                   </button>
                 </div>
               </div>
             </div>
-  
-            <!-- end of second nav -->
-  
-            <!-- Hamburger Menu for Smaller Screens -->
-            <div class="flex ml-0 lg:hidden container ml-2 mr-2 justify-between items-center h-16">
-              <div class="shrink-0 flex items-center text-white">
-                <!-- <Link :href="route('main')" class="flex">
-                  <img src="/images/aulogo.png" alt="Image Logo" class="max-w-full h-full max-h-10 mr-2">
-                </Link> -->
-                <Link :href="route('main')" class="flex">
-                  <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 mr-2">
-                </Link>
-                <div class="">
-                  <div class="garamond uppercase font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
-                  <hr class="border-t-1 border-white">
-                  <div class="garamond uppercase font-bold tracking-wide">SCHOOL OF LAW</div>
-                </div>
-                <!-- <Link :href="route('main')" class="flex">
-                  <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-10 ml-2">
-                </Link> -->
-              </div>
-
-              <!-- Hamburger Menu Button -->
-              <div class="flex items-center">
-                <v-menu v-model:show="menuVisible" transition="slide-x-transition" close-on-content-click="false" close-on-click="false" @click:outside="menuVisible = false">
-                  <template v-slot:activator="{ props }">
-                    <v-icon v-bind="props" icon="mdi-menu" color="white" class="text-white"></v-icon>
-                  </template>
-                  <v-list @click.stop minWidth="250px">
-                    <!-- Loop through links to create menu items -->
-                    <v-list-item v-for="(item, i) in links" :key="i">
-                      <v-list-item-title @click="toggleDropdown(i)">
-                        <a :href="item.url" class="hover:text-purple-900 flex w-full items-left">
-                          <v-icon
-                            v-if="item.icon"
-                            :icon="item.icon"
-                            class="mr-2 rounded-full p-1"
-                            :color="item.color || 'primary'"
-                            :style="{ backgroundColor: item.bgColor || '#fff' }"
-                          ></v-icon>
-                          <span>{{ item.title }}</span>
-                          <!-- Show dropdown icon if the item has children -->
-                          <v-icon v-if="item.children" :class="isDropdownOpen(i) ? 'mdi-chevron-up' : 'mdi-chevron-down'">mdi-chevron-down</v-icon>
-                        </a>
-                      </v-list-item-title>
-                      <!-- Dropdown for children items -->
-                      <v-list v-if="item.children && isDropdownOpen(i)" @click.stop>
-                        <v-list-item v-for="(child, j) in item.children" :key="j">
-                          <v-list-item-title>
-                            <a :href="child.url" class="pl-4 hover:text-purple-800 flex items-center">
-                              <v-icon
-                                v-if="child.icon"
-                                :icon="child.icon"
-                                class="mr-2 rounded-full p-1"
-                                :color="child.color || 'primary'"
-                                :style="{ backgroundColor: child.bgColor || '#fff' }"
-                              ></v-icon>
-                              {{ child.title }}
-                            </a>
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </div>
-            </div>
-            <!-- End Hamburger -->
           </div>
         </div>
       </nav>
+      <!-- End of Second Nav -->
+
+      <!-- Second Navigation Bar for Smaller Screens -->
+      <nav ref="navButtons" class="lg:hidden bg-official-purple-800 fixed fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <!-- Navigation Container -->
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 h-12">
+          <!-- Logo Section -->
+          <div class="flex items-center text-white flex-shrink-0">
+            <Link :href="route('main')" class="flex">
+              <img src="/images/aulogo.png" alt="Arellano University Logo" class="max-h-10 mr-2">
+            </Link>
+            <div class="text-center">
+              <div class="garamond uppercase font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
+              <hr class="border-t-1 border-white">
+              <div class="garamond uppercase font-bold tracking-wide">SCHOOL OF LAW</div>
+            </div>
+            <Link :href="route('main')" class="flex ml-2">
+              <img src="/images/ausllogo2.png" alt="School of Law Logo" class="max-h-10">
+            </Link>
+          </div>
+
+          <!-- Hamburger Menu Button -->
+          <div class="flex items-center">
+            <v-menu v-model:show="menuVisible" transition="slide-x-transition" close-on-content-click="false" close-on-click="false" @click:outside="menuVisible = false">
+              <template v-slot:activator="{ props }">
+                <v-icon v-bind="props" icon="mdi-menu" color="white" class="text-white"></v-icon>
+              </template>
+              <v-list @click.stop minWidth="250px">
+                <!-- Loop through links to create menu items -->
+                <v-list-item v-for="(item, i) in links" :key="i">
+                  <v-list-item-title @click="toggleDropdown(i)">
+                    <a :href="item.url" class="hover:text-purple-900 flex w-full items-left">
+                      <v-icon
+                        v-if="item.icon"
+                        :icon="item.icon"
+                        class="mr-2 rounded-full p-1"
+                        :color="item.color || 'primary'"
+                        :style="{ backgroundColor: item.bgColor || '#fff' }"
+                      ></v-icon>
+                      <span>{{ item.title }}</span>
+                      <!-- Show dropdown icon if the item has children -->
+                      <v-icon v-if="item.children" :class="isDropdownOpen(i) ? 'mdi-chevron-up' : 'mdi-chevron-down'">mdi-chevron-down</v-icon>
+                    </a>
+                  </v-list-item-title>
+                  <!-- Dropdown for children items -->
+                  <v-list v-if="item.children && isDropdownOpen(i)" @click.stop>
+                    <v-list-item v-for="(child, j) in item.children" :key="j">
+                      <v-list-item-title>
+                        <a :href="child.url" class="pl-4 hover:text-purple-800 flex items-center">
+                          <v-icon
+                            v-if="child.icon"
+                            :icon="child.icon"
+                            class="mr-2 rounded-full p-1"
+                            :color="child.color || 'primary'"
+                            :style="{ backgroundColor: child.bgColor || '#fff' }"
+                          ></v-icon>
+                          {{ child.title }}
+                        </a>
+                      </v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+        </div>
+      </nav>
+      <!-- End of Second Navigation Bar -->
       <div ref="mainContent" :class="mainContentClass">
       <slot />
     </div>

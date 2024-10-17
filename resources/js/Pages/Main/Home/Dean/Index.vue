@@ -1,33 +1,33 @@
 <template>
-  <section class="relative bg-[url('/images/background.jpg')] bg-cover py-12 sm:py-20  mt-[1px]">
-    <!-- Background image with opacity and positioning -->
-    <div>
-      <div class="container relative max-w-7xl mx-auto px-6">
-        <div class="mx-auto sm:py-6 pb-4 reveal-text mb-13">
-        <h1 class="mb-4 font-bold tracking-tight leading-none text-white text-lg md:text-xl lg:text-2xl">
-          Welcome to Arellano Law Community
-        </h1>
-        <p class="mb-2 text-left font-normal text-md lg:text-lg text-white">
-          Arellano University School of Law (AUSL) is one of the premier law schools in the Philippines. Established in 1938, AUSL has a long-standing tradition of excellence in legal education. The school is named after Cayetano Arellano, the first Chief Justice of the Supreme Court of the Philippines. AUSL is known for its rigorous academic programs, distinguished faculty, and a strong commitment to producing competent and ethical lawyers.
-          <span v-if="isExpanded || isLargeScreen">
-            <br>
-            The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
-          </span>
-        </p>
-        <button v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-official-purple-100 hover:text-official-purple-300 font-normal mt-2">
-          {{ isExpanded ? 'Read Less' : 'Read More' }}
-        </button>
-      </div>
-      </div>
+  <section class="relative bg-cover bg-center py-12 sm:py-20 mt-[1px]" style="background-image: url('/images/test2.png');">
+  <div class="container relative max-w-7xl mx-auto px-6">
+    <div class="mx-auto sm:py-6 pb-4 mb-13">
+      <h1 class="mb-4 font-bold tracking-tight leading-none text-white text-lg md:text-xl lg:text-2xl">
+        Welcome to Arellano Law Community
+      </h1>
+      <p class="mb-4 text-left font-normal text-md lg:text-lg text-white">
+        Arellano University School of Law (AUSL) is one of the premier law schools in the Philippines. Established in 1938, AUSL has a long-standing tradition of excellence in legal education. The school is named after Cayetano Arellano, the first Chief Justice of the Supreme Court of the Philippines. AUSL is known for its rigorous academic programs, distinguished faculty, and a strong commitment to producing competent and ethical lawyers.
+        <span v-if="isExpanded || isLargeScreen">
+          <br>
+          The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
+        </span>
+      </p>
+      <a v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-white font-normal mt-2 font-normal mt-6 mb-4 border-[1px] border-white hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+        {{ isExpanded ? 'Read Less' : 'Read More' }}
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
   
     <div class="container mx-auto py-4 sm:py-8">
       <!-- First Section -->
       <div class="flex flex-col md:flex-row justify-center bg-white rounded-lg p-1 reveal-text">
         <!-- Dean's information section -->
         <div class="w-full md:w-1/3 p-4 text-center order-1 md:order-1">
-          <img src="images/deans/deannavarro.png" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4 rounded-full">
+          <img src="images/deans/deannavarro.png" alt="Dean Navarro" class="w-32 sm:w-40 md:w-48 h-auto mx-auto mb-4 rounded-full">
           <b class="block text-lg text-slate-800">Atty. Domingo M. Navarro</b>
           <i class="block text-slate-700">Dean</i>
         </div>
