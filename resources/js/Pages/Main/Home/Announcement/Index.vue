@@ -21,7 +21,7 @@
               <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
                 <!-- Set a fixed height for the iframe -->
                 <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
-                  <img :src="announcement.image" alt="Announcement Image" class="w-full h-64 object-cover">
+                  <img :src="announcement.image" alt="Announcement Image" class="w-full h-100 object-cover">
                   <!-- Overlay for hover effect -->
                   <div class="overlay"></div>
                 </a>
