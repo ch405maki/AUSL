@@ -2,34 +2,30 @@
     <MainLayout>
         <Head title="Board of Trustees" />
         <main class="flex-grow">
+            <Header>Board of Trustees</Header>
             <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
             <div class="flex flex-col md:flex-row justify-between gap-8">
                 <!-- Main content section -->
                 <section class="w-full md:w-3/4 relative">
                 <div>
-                    <div class="flex items-center  ml-2">
-                        <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                            Board of Trustees
-                        </h2>
+                <div class="text-slate-600 leading-relaxed mb-8">
+                    <div v-for="(member, index) in boardMembers" :key="index" class="flex flex-col sm:flex-row items-center mb-8">
+                    <!-- Image -->
+                    <div class="flex-shrink-0 sm:mb-0 sm:mr-6 mb-2">
+                        <Link class="flex items-center">
+                        <img :src="member.image" :alt="member.alt"
+                            class="max-w-full h-full max-h-28 transition-transform duration-300 transform hover:scale-105">
+                        </Link>
                     </div>
-                    <div class="text-slate-600 leading-relaxed mb-8">
-                        <div v-for="(member, index) in boardMembers" :key="index" class="flex flex-col sm:flex-row items-center mb-8">
-                        <!-- Image -->
-                        <div class="flex-shrink-0 sm:mb-0 sm:mr-6 mb-2">
-                            <Link class="flex items-center">
-                            <img :src="member.image" :alt="member.alt"
-                                class="max-w-full h-full max-h-28 transition-transform duration-300 transform hover:scale-105">
-                            </Link>
-                        </div>
-                        <!-- Text -->
-                        <div>
-                            <div class="uppercase font-bold text-xl tracking-wide leading-tight">{{ member.name }}</div>
-                            <div class="font-normal text-gray-600 italic text-slate-700 text-lg hover:text-slate-900 custom-text-align hover:text-blue-900 cursor-pointer">
-                                {{ member.position }}
-                            </div>
-                        </div>
+                    <!-- Text -->
+                    <div>
+                        <div class="uppercase font-bold text-xl tracking-wide leading-tight">{{ member.name }}</div>
+                        <div class="font-normal text-gray-600 italic text-slate-700 text-lg hover:text-slate-900 custom-text-align hover:text-blue-900 cursor-pointer">
+                            {{ member.position }}
                         </div>
                     </div>
+                    </div>
+                </div>
                 </div>
                 </section>
 
@@ -62,7 +58,7 @@
     import { reactive, onMounted, onBeforeUnmount } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
-
+    import Header from '@/Pages/Main/Components/Header.vue'
     // Dynamic data for board members
     const boardMembers = ref([
     {

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative bg-cover bg-center py-12 sm:py-20 mt-[1px]" style="background-image: url('/images/test2.png');">
+  <section class="relative bg-cover bg-center py-12 sm:py-20 mt-[1px]" style="background-image: url('/images/deans/deansbg.png');">
   <div class="container relative max-w-7xl mx-auto px-6">
     <div class="mx-auto sm:py-6 pb-4 mb-13">
       <h1 class="mb-4 font-bold tracking-tight leading-none text-white text-lg md:text-xl lg:text-2xl">
@@ -12,7 +12,7 @@
           The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
         </span>
       </p>
-      <a v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-purple-900 font-normal mt-8 border-2 border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+      <a v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-white font-normal mt-8 border-2 border-white hover:cursor-pointer  hover:bg-official-purple-800  rounded-xl px-4 py-2 transition-colors duration-300">
         {{ isExpanded ? 'Read Less' : 'Read More' }}
       </a>
     </div>

@@ -2,8 +2,8 @@
     <MainLayout>
       <Head title="Enrollment Guide" />
       <main class="flex-grow">
+        <Header>Online Enrollment Process</Header>
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
-          <Header>Online Enrollment Process</Header>
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">

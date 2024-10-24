@@ -2,15 +2,13 @@
     <MainLayout>
       <Head title="Arellano Law Foundation Inc." />
       <main class="flex-grow">
+        <Header>Arellano law Foundation Inc.</Header>
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
             <section class="w-full md:w-3/4 relative">
               <!-- Step 1 -->
               <div v-show="step === 1" class="ml-2">
-                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                  Arellano law Foundation Inc.
-                </h2>
                   <div class="bg-white border-none rounded-lg  mb-6 relative">
                     <div class="bg-white border-none rounded-lg mb-6 relative">
                     <div class="flex flex-row sm:flex-row items-center justify-between mb-6">
@@ -60,6 +58,7 @@ import { ref } from 'vue';
 import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
+import Header from '@/Pages/Main/Components/Header.vue'
 
 // Create a ref for the current step
 const step = ref(1); // Initially set to Step 1

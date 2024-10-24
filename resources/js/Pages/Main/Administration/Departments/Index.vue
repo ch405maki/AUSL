@@ -2,18 +2,10 @@
   <MainLayout>
     <Head title="Departments" />
     <main class="flex-grow">
+      <Header>AUSL Departments and Facilities</Header>
       <div class="max-w-7xl mx-auto px-4 ">
         <section class="text-gray-600 body-font">
-          <div class="container px-5 py-8 mx-auto">
-            <div class="flex flex-col w-full mb-20 sm:text-center">
-              <h1 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">
-                Welcome to AUSL Departments and Facilities Page
-              </h1>
-              <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">
-                Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.
-              </p>
-            </div>
-
+          <div class="container px-5 mx-auto">
             <div>
               <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Departments</h1>
               <div class="flex flex-wrap mt-4 -m-4 mb-8">
@@ -39,7 +31,6 @@
                     </div>
                   </div>
                 </div>
-
                 </div>
               </div>
             </div>
@@ -102,6 +93,7 @@ import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import { Inertia } from '@inertiajs/inertia';
 import VueEasyLightbox from 'vue-easy-lightbox';
+import Header from '@/Pages/Main/Components/Header.vue'
 
 // Props for departments and facilities
 const props = defineProps({

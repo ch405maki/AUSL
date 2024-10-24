@@ -2,18 +2,11 @@
     <MainLayout>
         <Head title="Administration Officers" />
           <main class="flex-grow">
+            <Header>Officers of the Administration</Header>
             <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
               <div class="flex flex-col md:flex-row justify-between gap-8">
                 <!-- Main content section -->
                 <section class="w-full md:w-3/4 relative">
-                <div class="flex items-center ml-2">
-                  <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                    Officers of the Administration
-                  </h2>
-                </div>
-                
-                <!-- Executive Director Info -->
-
                 <table class="w-full text-sm sm:text-lg text-left rtl:text-right text-gray-500 dark:text-gray-400 ml-2 mb-8">
                 <tbody>
                   <tr
@@ -27,7 +20,6 @@
                     <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
                       <span v-html="item.role"></span>
                     </td>
-                    
                   </tr>
                 </tbody>
               </table>
@@ -62,6 +54,7 @@
     import { reactive, onMounted, onBeforeUnmount } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
+    import Header from '@/Pages/Main/Components/Header.vue';
     
     // Create a ref for the current step
     const step = ref(1); // Initially set to Step 1

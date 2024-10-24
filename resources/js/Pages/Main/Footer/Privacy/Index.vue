@@ -78,22 +78,10 @@
             </div>
             </section>
 
-            <aside class="w-full md:w-1/4 sticky top-0">
+            <aside class="w-full md:w-1/2 sticky top-0">
             <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                <div class="ml-4">
-                <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                <hr class="mb-4 border-1 border-purple-800">
-                    <h3 class="text-lg font-normal text-gray-800 mb-8">Privacy Policy</h3>
-                </div>
-                <div class="ml-4">
-                <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                <hr class="mb-4 border-1 border-purple-800">
-                <ul class="list-inside list-disc">
-                    <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                    </li>
-                </ul>
-                </div>
+              <img src="/images/privacyPolicy/registration.jpg" alt="Background Image" class="w-full h-auto object-cover ">
+              <img src="/images/privacyPolicy/corseal.jpg" alt="Background Image" class="w-full h-auto object-cover ">
             </div>
             </aside>
         </div>
