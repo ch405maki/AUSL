@@ -1,143 +1,92 @@
 <template>
-    <MainLayout>
-      <Head title="Arellano Law Foundation Inc." />
-      <main class="flex-grow">
-        <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
-          <div class="flex flex-col md:flex-row justify-between gap-8">
-            <!-- Main content section -->
-            <section class="w-full md:w-3/4 relative">
-              <!-- Step 1 -->
-              <div class="ml-2">
-                <div class="mb-8">
-                    <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                        Mission and Vision  
-                    </h2>
-                    <div class="bg-white border-none rounded-lg mb-6 relative">
-                        <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Mission</h2>
-                        <p class="text-lg font-normal text-gray-600 mb-8 ">
-                        We are an institution dedicated to educate and produce in a sublime manner individuals as adept counsels of law.
-                        <br>
-                        <br>
-                        We will advocate respect for the rule of law, human rights and dignity, defend the oppressed, protect our ecology, strive to be equal with others, serve God, our country and fellowmen.
-                        </p>
-                        <h2 class="text-lg sm:text-xl font-bold text-gray-700 mb-8">Vision</h2>
-                        <p class="text-lg font-normal text-gray-600 mb-8">
-                        We shall be the leading exponent of the Learner-Centered Method of teaching that integrates Ethics and Values in order to produce competent legal practitioners.
-                        <br>
-                        <br>
-                        We shall advance the use of state-of-the-art technologies and methodologies to train our students to become effective partners in nation building and as future leaders of the country.
-                        <br>
-                        <br>
-                        We shall utilize modern strategies and innovate policies in our goal to promote social justice, equality and the rule of law.
-                        </p>
-                    </div>
-                </div>
+  <div class="flex flex-col md:flex-row justify-between gap-8 pt bg-cover bg-center h-100 p-10"
+    style="background-image: url('/images/about/mvbg.jpg');">
+    <!-- Main content section -->
+    <section class="w-full relative">
+      <!-- Slider Content -->
+      <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
+        <!-- Transition wrapper -->
+        <transition name="fade-slide" mode="out-in">
+          <div key="step" class="w-full">
+            <!-- Step 1: Mission -->
+            <div v-if="step === 1">
+              <div class="border-none rounded-lg mb-6 relative text-center p-8">
+                <h2 class="text-white font-bold text-xl sm:text-3xl text-pretty mb-8">Mission</h2>
+                <p class="text-lg font-normal text-white mb-8">
+                  We are an institution dedicated to educate and produce in a sublime manner individuals as adept counsels of law.
+                  <br /><br />
+                  We will advocate respect for the rule of law, human rights and dignity, defend the oppressed, protect our ecology, strive to be equal with others, serve God, our country and fellowmen.
+                </p>
+              </div>
             </div>
-            </section>
 
-            <aside class="w-full md:w-1/4 sticky top-0">
-            <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                <div class="ml-4">
-                <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                <hr class="mb-4 border-1 border-purple-800">
-                    <h3 class="text-lg font-normal text-gray-800 mb-8">Mission and Vision</h3>
-                </div>
-                <div class="ml-4">
-                <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                <hr class="mb-4 border-1 border-purple-800">
-                <ul class="list-inside list-disc">
-                    <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                    </li>
-                </ul>
-                </div>
+            <!-- Step 2: Vision -->
+            <div v-if="step === 2">
+              <div class="border-none rounded-lg mb-6 relative text-center">
+                <h2 class="text-white font-bold text-xl sm:text-4xl text-pretty mb-8">Vision</h2>
+                <p class="text-lg font-normal text-white mb-8">
+                  We shall be the leading exponent of the Learner-Centered Method of teaching that integrates Ethics and Values in order to produce competent legal practitioners.
+                  <br /><br />
+                  We shall advance the use of state-of-the-art technologies and methodologies to train our students to become effective partners in nation building and as future leaders of the country.
+                  <br /><br />
+                  We shall utilize modern strategies and innovate policies in our goal to promote social justice, equality, and the rule of law.
+                </p>
+              </div>
             </div>
-            </aside>
+          </div>
+        </transition>
+
+        <!-- Navigation buttons with SVG arrows -->
+        <div class="absolute top-1/2 left-4 transform -translate-y-1/2">
+          <button @click="prevStep" class="p-0">
+            <!-- Left Arrow SVG (Bold & White) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-white hover:text-gray-400 transition-all duration-300">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        </div>
+        <div class="absolute top-1/2 right-4 transform -translate-y-1/2">
+          <button @click="nextStep" class="p-0">
+            <!-- Right Arrow SVG (Bold & White) -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 text-white hover:text-gray-400 transition-all duration-300">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
-    </main>
-  </MainLayout>
+    </section>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { reactive, onMounted, onBeforeUnmount } from 'vue';
-import { Head } from '@inertiajs/vue3';
-import MainLayout from '@/Layouts/MainLayout.vue';
 
 // Create a ref for the current step
-const step = ref(1); // Initially set to Step 1
+const step = ref(1);
 
-// Function to set the current step
-const setStep = (newStep) => {
-  step.value = newStep;
-  console.log(`Current step set to: ${newStep}`); // Debugging log
+// Functions to navigate between steps in a loop
+const prevStep = () => {
+  step.value = step.value === 1 ? 2 : step.value - 1;
 };
 
-const links = ref([
-      { text: 'History', url: '#' },
-      { text: 'Mission and Vision', url: '#' },
-      { text: 'Alma Mater Hymn', url: '#' },
-      { text: 'Arellano Law Foundation', url: '/administration/alf' },
-    ]);
-
-const isMobile = reactive({ value: window.innerWidth <= 768 });
-
-const checkIfMobile = () => {
-  isMobile.value = window.innerWidth <= 768;
+const nextStep = () => {
+  step.value = step.value === 2 ? 1 : step.value + 1;
 };
-
-onMounted(() => {
-  window.addEventListener('resize', checkIfMobile);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', checkIfMobile);
-});
 </script>
 
 <style scoped>
-.container {
-  max-width: 1200px;
+/* Fade and Slide Transition */
+.fade-slide-enter-active, .fade-slide-leave-active {
+  transition: all 0.6s ease-in-out;
 }
 
-.sticky {
-  position: sticky;
-  top: 0;
+.fade-slide-enter-from, .fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.bottom-4 {
-  bottom: 1rem;
-}
-
-.right-4 {
-  right: 1rem;
-}
-
-.flex {
-  display: flex;
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.v-btn {
-  margin-top: 16px;
-  margin-right: 8px;
+.fade-slide-enter-to, .fade-slide-leave-from {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>

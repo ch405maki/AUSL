@@ -20,11 +20,21 @@
             >
               <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
                 <!-- Set a fixed height for the iframe -->
+                <div class="overflow-hidden rounded-lg relative group">
                 <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
-                  <img :src="announcement.image" alt="Announcement Image" class="w-full h-100 object-cover">
+                  <img src="/images/announcement/announcement_bg.jpg" alt="Announcement Image" class="w-full h-100 object-cover">
                   <!-- Overlay for hover effect -->
                   <div class="overlay"></div>
                 </a>
+                <a :href="`/announcement/show/${announcement.id}`" class="bg-white absolute inset-0 text-white text-sm flex items-end p-4">
+                    <h1
+                      class="w-full py-36 sm:py-20 text-3xl sm:text-xl font-bold cursor-pointer opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      {{ announcement.category }}
+                    </h1>
+                  </a>
+                </div>
+
                 <div class="p-4 flex flex-col flex-grow justify-between">
                   <a
                     :href="`/announcement/show/${announcement.id}`"

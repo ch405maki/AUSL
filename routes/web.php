@@ -47,13 +47,10 @@ Route::get('/history', function () {
     return Inertia::render('Main/About/History/Index');
 })->name('history');
 
-Route::get('/mission_vission', function () {
-    return Inertia::render('Main/About/MissionVision/Index');
-})->name('mission_vission');
-
-Route::get('/hymn', function () {
-    return Inertia::render('Main/About/Hymn/Index');
-})->name('hymn');
+//Deans Corner
+Route::get('/deans_message', function () {
+    return Inertia::render('Main/DeansCorner/Message/Index');
+})->name('deans_message');
 
 // Administration
 Route::prefix('administration')->name('administration.')->group(function () {
