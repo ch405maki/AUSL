@@ -12,7 +12,7 @@
           The school offers a comprehensive curriculum that covers various areas of law, including constitutional law, civil law, criminal law, and international law. AUSL also provides students with practical training through its legal clinics and internship programs, ensuring that graduates are well-prepared for the challenges of legal practice.
         </span>
       </p>
-      <a v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-white font-normal mt-2 font-normal mt-6 mb-4 border-[1px] border-white hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+      <a v-if="!isLargeScreen" @click="isExpanded = !isExpanded" class="text-purple-900 font-normal mt-8 border-2 border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
         {{ isExpanded ? 'Read Less' : 'Read More' }}
       </a>
     </div>
