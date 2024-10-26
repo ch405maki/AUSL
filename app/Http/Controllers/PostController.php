@@ -31,6 +31,7 @@ class PostController extends Controller
             'category' => 'required|string',
             'state' => 'nullable|string',
             'link' => 'nullable|url',
+            'created_at' => 'required|date',
         ]);
 
         $data = $request->all();

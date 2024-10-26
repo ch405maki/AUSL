@@ -50,14 +50,14 @@
                 <thead>
                   <tr>
                     <th class="text-left">Title</th>
-                    <th class="text-left">Link</th>
+                    <th class="text-left">Date</th>
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(post, index) in filteredPosts" :key="post.id">
                     <td>{{ post.title }}</td>
-                    <td>{{ post.link }}</td>
+                    <td>{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
                     <td>
                       <div class="flex justify-center">
                         <!-- update btn -->
@@ -162,7 +162,7 @@ const deletePost = (id, title) => {
     cancelButtonText: 'No, cancel!',
   }).then((result) => {
     if (result.isConfirmed) {
-      form.delete(route('posts.destroy', id));
+      form.delete(route('announcement.destroy', id));
     }
   });
 };

@@ -233,12 +233,12 @@
     margin-right: 8px;
     }
 
-    @media (max-width: 639px) { /* Mobile screens */
+    @media (max-width: 639px) {
         .custom-text-align {
             text-align: center;
         }
     }
-    @media (min-width: 640px) { /* Screens larger than 'sm' */
+    @media (min-width: 640px) {
     .custom-text-align {
         text-align: left;
     }

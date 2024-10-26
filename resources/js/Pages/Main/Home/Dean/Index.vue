@@ -19,9 +19,6 @@
   </div>
 </section>
 
-
-
-  
     <div class="container mx-auto py-4 sm:py-8">
       <!-- First Section -->
       <div class="flex flex-col md:flex-row justify-center bg-white rounded-lg p-1 reveal-text">
@@ -33,16 +30,18 @@
         </div>
         <!-- Main content section -->
         <div class="w-full md:w-2/3 p-4 order-2 md:order-2 text-slate-700">
-          <p class="text-left mb-4 font-bold text-lg md:text-xl lg:text-2xl ">Welcome to the Arellano University School of Law website!</p>
+          <div class="mb-8">
+          <p class="text-left mb-4 font-bold text-lg md:text-xl lg:text-2xl">Welcome to the Arellano University School of Law website!</p>
           <p class="mb-4 font-normal text-md lg:text-lg text-slate-800">
             The school administration has always striven to make you, our students, feel that you belong to a community, the Arellano Law Community, and this website is one way for you to know more about your law school. Here you'll find information on the academic programs and different offices of the AUSL, a gallery of school events, as well as helpful tabs that will lead you to Lawphil, one of the most searched online sources of legal information, the school's publications, and links to websites such as those of the senate and House of Representatives which may prove useful to students and legal researchers.
           </p>
           <p class="font-normal text-md lg:text-lg text-slate-800" v-if="showMore">
             Beyond learning more about the law school and updating you with school events, the resources available here can only be as relevant as the way you make use of them. Coupled with traditional values of studying hard and judicious time management, these resources will help make your study of the law convenient and even let you save on resources.
           </p>
-          <button @click.prevent="toggleShowMore" class="text-purple-900 font-normal mt-4 mb-4 border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+          </div>
+          <a @click.prevent="toggleShowMore" class="text-purple-900 font-normal mt-8 mb-4 border-[1px] border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
             {{ showMore ? 'Read Less' : 'Read More' }}
-          </button>
+          </a>
         </div>
       </div>
     </div>

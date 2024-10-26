@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-slate-100">
+    <footer class="bg-official-purple-100">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
@@ -24,14 +24,14 @@
                     <!-- Increase image size and make responsive -->
                     <a :href="route('privacy_policy')" class="flex-shrink-0">
                         <img 
-                            src="/images/privacyPolicy/registration.jpg" 
+                            src="/images/privacy/registration.jpg" 
                             alt="Registration" 
                             class="h-32 w-full md:h-40 lg:h-48 object-cover" 
                         />
                     </a>
                     <a :href="route('privacy_policy')" class="flex-shrink-0">
                         <img 
-                            src="/images/privacyPolicy/corseal.jpg" 
+                            src="/images/privacy/corseal.png" 
                             alt="CorSeal" 
                             class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-cover" 
                         />
@@ -79,9 +79,6 @@
                         <ul class="text-slate-700">
                             <li class="mb-4">
                                 <a :href="route('privacy_policy')" class="hover:underline">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:underline">Terms & Conditions</a>
                             </li>
                         </ul>
                     </div>

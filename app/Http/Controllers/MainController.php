@@ -21,9 +21,9 @@ class MainController extends Controller
         $posts = Post::where('category', 'News')
             ->where('state', 'Active')
             ->get();
-        $announcements = Post::where('category', 'Announcement')
+        $announcements = Post::whereIn('category', ['Announcement', 'Deans'])
             ->where('state', 'Active')
-            ->orderBy('created_at', 'desc') // Sort by the latest
+            ->orderBy('created_at', 'desc')
             ->get();
         $alumni = Alumni::where('status', true)->get();
 

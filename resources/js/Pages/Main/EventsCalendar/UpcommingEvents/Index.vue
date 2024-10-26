@@ -14,7 +14,7 @@
                 </div>
                 <!-- Cards -->
                 <div class="flex flex-wrap mt-4">
-                <div class="w-full md:w-1/3 p-4" v-for="index of 4">
+                <div class="w-full md:w-1/4 p-4" v-for="index of 4">
                     <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 overflow-hidden transform hover:scale-105 hover:-translate-y-1">
                     <a href="https://www.facebook.com/photo?fbid=986141886642309&set=a.530679615521874" title="Learn More" target="_blank" rel="noopener noreferrer">
                         <img class="w-full h-full object-cover" src="/images/event.jpg" alt="Event 1">

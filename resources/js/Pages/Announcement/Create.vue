@@ -17,7 +17,34 @@
                   <form @submit.prevent="submitForm" class="bg-white py-6 mb-8 shadow-sm rounded-lg">
                       <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                         <!-- category Input -->
-                        
+                        <div class="col-span-12 grid grid-cols-2 gap-6"> <!-- Add grid layout and gap -->
+                        <!-- Category Input -->
+                        <div>
+                          <InputLabel for="category" value="Category" />
+                          <select
+                            v-model="form.category"
+                            class="mt-1 block w-full border border-gray-300 rounded-lg"
+                            id="category"
+                            required
+                          >
+                            <option value="Announcement">Announcement</option>
+                            <option value="Deans">Deans Corner</option>
+                          </select>
+                        </div>
+
+                        <!-- Created At Input -->
+                        <div>
+                          <InputLabel for="created_at" value="Date" />
+                          <TextInput
+                            id="created_at"
+                            v-model="form.created_at"
+                            required
+                            type="date"
+                            class="mt-1 block w-full border border-gray-300 rounded-lg"
+                          />
+                        </div>
+                      </div>
+
                         <!-- Title Input -->
                         <div class="sm:col-span-12">
                           <InputLabel for="title" value="Title" />
@@ -110,9 +137,10 @@ const form = useForm({
   title: '',
   content: '',
   image: null,
-  category: 'Announcement',
+  category: '',
   state: 'Active',
   link: null,
+  created_at: '',
 });
 
 
@@ -132,8 +160,6 @@ const handleFileChange = (event) => {
   form.image = file;
 };
 
-
-
 const submitForm = () => {
   const formData = new FormData();
   formData.append('title', form.title);
@@ -141,11 +167,11 @@ const submitForm = () => {
   if (form.image) {
     formData.append('image', form.image);
   }
+  formData.append('created_at', form.created_at);
 
-  form.post(route('posts.store'), {
+  form.post(route('announcement.store'), {
     data: formData,
     onSuccess: () => {
-      // Clear the form after a successful submission
       form.reset();
       previewImage.value = null;
     },

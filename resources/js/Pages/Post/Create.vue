@@ -18,16 +18,14 @@
                       <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
                         <!-- category Input -->
                         <div class="sm:col-span-6">
-                          <InputLabel for="category" value="Category" />
-                          <select
-                            v-model="form.category"
-                            class="mt-1 block w-full border border-gray-300 rounded-lg"
-                            id="category"
+                          <InputLabel for="created_at" value="Date" />
+                          <TextInput
+                            id="created_at"
+                            v-model="form.created_at"
                             required
-                          >
-                            <option value="News">News</option>
-                            <option value="Announcement">Announcement</option>
-                          </select>
+                            type="date"
+                            class="mt-1 block w-full border border-gray-300 rounded-lg"
+                          />
                         </div>
 
                         <!-- Title Input -->
@@ -123,9 +121,10 @@ const form = useForm({
   title: '',
   content: '',
   image: null,
-  category: '',
+  category: 'News',
   state: 'Active',
   link: null,
+  created_at: '',
 });
 
 
@@ -154,6 +153,7 @@ const submitForm = () => {
   if (form.image) {
     formData.append('image', form.image);
   }
+  formData.append('created_at', form.created_at);
 
   form.post(route('posts.store'), {
     data: formData,
