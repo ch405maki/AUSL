@@ -1,6 +1,7 @@
 <template>
     <MainLayout>
-        <Head title="Enrollment Guide" />
+        <Head title="Lawyer's Oath" />
+        <Header>Lawyer's Oath</Header>
           <main class="flex-grow">
             <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
               <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -8,9 +9,6 @@
                 <section class="w-full md:w-3/4 relative">
                   <!-- Step 1 -->
                   <div>
-                    <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start ml-2">
-                      Lawyer's Oath
-                    </h2>
                     <img src="/images/student/lawyersOath.jpg" class="carousel-image object-fit ml-2" alt="Carousel Image" />
                   </div>
                 </section>
@@ -44,6 +42,7 @@
     import { reactive, onMounted, onBeforeUnmount } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
+    import Header from '../../Components/Header.vue';
     
     // Create a ref for the current step
     const step = ref(1); // Initially set to Step 1

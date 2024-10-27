@@ -1,6 +1,7 @@
 <template>
   <MainLayout>
     <Head title="Academic Guidelines" />
+    <Header>Academic Guidelines</Header>
     <main class="flex-grow">
       <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
         <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -8,36 +9,15 @@
           <section class="w-full md:w-3/4 relative">
             <!-- Step 1 -->
             <div class="ml-2">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                  Academic Guidelines
+              <h2 class="text-official-purple-600 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">
+                  Guidelines
               </h2>
-              <div class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
-                  <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
-                      <tbody>
-                          <tr v-for="(guideline, index) in guidelines" :key="index" class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-gray-100" title="Click for subject description">
-                              <details class="group">
-                              <summary
-                                  class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500 ">
-                                  {{guideline.title}}
-                                  <div>
-                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                          stroke="currentColor" class="block h-5 w-5 group-open:hidden">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                      </svg>
-                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                          stroke="currentColor" class="hidden h-5 w-5 group-open:block">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-                                      </svg>
-                                  </div>
-                              </summary>
-                              <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-600 hover:text-slate-900"><p v-html="guideline.content"></p></div>
-                          </details>
-                          </th>
-                          </tr>
-                      </tbody>
-                      </table>
-                  </div>
+              <div v-for="(guideline, index) in guidelines" :key="index">
+                <div class="mb-8">
+                    <h1 class="text-purple-900 font-bold mb-4 text-xl sm:text-2xl text-pretty">{{guideline.title}}</h1>
+                    <p class="" v-html="guideline.content"></p>
+                </div>
+                </div>
               </div>
           </section>
 
@@ -69,6 +49,7 @@ import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import RelatedLinks from '../Components/RelatedLinks.vue';
+import Header from '../../Components/Header.vue';
 
 const props = defineProps({
 guidelines: { type: Array, required: true },

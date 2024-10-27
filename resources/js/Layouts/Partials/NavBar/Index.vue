@@ -46,12 +46,7 @@
                 <Admission />
                 <Events />
                 <Student />
-                
-                <div class="group inline-block relative">
-                  <button @click="$inertia.visit(route('contact.index'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">Contact Us</span>
-                  </button>
-                </div>
+                <Contact />
               </div>
             </div>
           </div>
@@ -144,6 +139,7 @@
   import Student from './Partials/Buttons/Student.vue'
   import DeansCorner from './Partials/Buttons/DeansCorner.vue'
   import About from './Partials/Buttons/About.vue'
+  import Contact from './Partials/Buttons/Contact.vue'
   
   const { props: { ziggy } } = usePage();
   const route = window.route;

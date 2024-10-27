@@ -15,7 +15,7 @@
             <a :href="(route('deans_message'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Dean's Message</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Dean's Announcement</a>
+            <a :href="(route('deans corner'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Dean's Announcement</a>
         </li>
         </ul>
     </div>

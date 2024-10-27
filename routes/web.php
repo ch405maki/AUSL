@@ -15,6 +15,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\AcademicController;
+use App\Http\Controllers\DeansController;
 use Inertia\Inertia;
 
 // Models
@@ -51,6 +52,9 @@ Route::get('/history', function () {
 Route::get('/deans_message', function () {
     return Inertia::render('Main/DeansCorner/Message/Index');
 })->name('deans_message');
+
+Route::get('/deans corner', [DeansController::class, 'index'])->name('deans corner');
+
 
 // Administration
 Route::prefix('administration')->name('administration.')->group(function () {
@@ -231,6 +235,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/announcement/create', [AnnouncementController::class, 'createAnnouncement'])->name('announcement.create');
     Route::post('/announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
     Route::delete('/announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
+});
+
+// Deans route
+Route::middleware(['auth', 'verified'])->group(function () {
+    
 });
 
 // Carousel route

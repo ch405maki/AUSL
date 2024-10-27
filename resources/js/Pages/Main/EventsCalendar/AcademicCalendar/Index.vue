@@ -1,22 +1,28 @@
 <template>
     <MainLayout>
       <Head title="Academic Calendar" />
+      <div class="relative mb-4">
+      <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+          ARELLANO UNIVERSITY SCHOOL OF LAW
+          <br>
+          Amended Academic Year <br><span class="underline">2024-2025</span>
+        </h1>
+      </div>
+    </div>
       <main class="flex-grow">
-        <div class="max-w-7xl mx-auto ">
+        <div class="max-w-7xl mx-auto">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
-              <section class="w-full md:w-2/2 text-center p-2">
-                <h1 class="text-purple-900 font-bold mt-8 text-xl sm:text-2xl text-pretty p-2 text-center">
+              <section class="w-full mx-6">
+                <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">
                   Regular Program
                 </h1>
                 <!-- Step 1 -->
-                <div v-show="step === 1">
+                <div>
                   <div class="mb-8 relative px-2">
-                    <div class="mb-8">
-                      <h1 class="text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
-                      <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900 mt-1">Amended Academic Year: <span class="font-bold underline">2024-2025</span></p>
-                    </div>
                     <div class="text-gray-700 pl-2 sm:pl-4">
                       <table class="w-full text-left mt-4">
                         <thead>
@@ -220,18 +226,6 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div class="mt-6 text-center">
-                        <v-alert
-                          v-model="alert"
-                          border="start"
-                          color="deep-purple-accent-4"
-                          variant="tonal"
-                        >
-                          <a href="pdfs/acadcal24-25.pdf" class="flex items-center justify-center text-purple-900 hover:text-purple-700">
-                            <v-icon class="mr-2">mdi-download</v-icon>See the original copy of the document.
-                          </a>
-                        </v-alert>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -240,22 +234,12 @@
   
             <!-- asside -->
             <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12 mb-6 ml-4">
-              <div class="ml-2">
-                <h2 class="text-purple-900 text-md sm:text-lg font-medium mb-4">On this page</h2>
-                <hr class="mb-4 border-1 border-purple-800">
-              </div>
-              <ol class="relative ml-8 text-gray-500 border-s border-gray-200">
-                <li 
-                  class="mb-6 ms-6 cursor-pointer transition-colors duration-300" 
-                  :class="step === 1 && 'text-slate-900'" 
-                  @click="setStep(1)">
-                  <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-official-purple-100', step === 1 ? 'bg-official-purple-200 text-official-purple-500' : 'bg-gray-100 text-gray-500']">
-                    <v-icon>mdi-calendar</v-icon>
-                  </span>
-                  <h3 class="font-medium text-slate-900 leading-tight">Academic Year</h3>
-                  <p class="text-sm">2024-2025</p>
-                </li>
-              </ol>
+                <div class="ml-2">
+                  <h2 class="text-purple-900 text-lg font-medium mb-2">On this page</h2>
+                  <hr class="mb-2 border-1 border-purple-800">
+                  <h1 class="text-lg font-normal text-gray-800 mb-8">Academic Calendar</h1>
+                </div>
+              
               <div class="ml-2">
                 <h2 class="text-purple-900 text-md sm:text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
@@ -277,6 +261,7 @@
     import { ref } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';  
+    import Header from '../../Components/Header.vue';
   
     // Create a ref for the current step
     const step = ref(1); // Initially set to Step 1

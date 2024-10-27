@@ -2,12 +2,12 @@
     <MainLayout>
       <Head title="Curriculum" />
       <div class="flex flex-col min-h-screen">
+        <Header>Course Description</Header>
         <main class="flex-grow">
           <div class="bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <div class="w-full md:w-2/2 p-2">
-                <Header>Course Description</Header>
                 <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
                   <table class="w-full text-sm text-left text-gray-500">
                     <thead class="">
@@ -25,7 +25,7 @@
                                 class="flex cursor-pointer list-none items-center  text-lg font-medium text-secondary-900 text-official-purple-800">
                                 {{subject.name}} <span class="italic"> &nbsp; / {{ subject.units }} units</span> 
                             </summary>
-                            <div class="pb-4 pl-2 mt-2 text-secondary-500"><p v-html="subject.description"></p></div>
+                            <div class="pb-4 mt-2 text-secondary-500"><p v-html="subject.description"></p></div>
                         </div>
                         </th>
                       </tr>
@@ -39,8 +39,8 @@
                       <h1 class="text-purple-900 text-lg font-medium mb-4">Related Links</h1>
                       <hr class="mb-4 border-1 border-purple-900">
                       <ul class="list-inside list-disc">
-                        <li v-for="(item, index) in links" :key="index" class="mb-2">
-                          <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a>
+                        <li v-for="(item, index) in links" :key="index" class="mb-2 text-official-purple-800 ">
+                          <a :href="item.url" class="text-lg font-normal text-official-purple-800 hover:underline">{{ item.text }}</a>
                         </li>
                       </ul>
                     </div>
@@ -61,11 +61,11 @@
   import Header from '../../Components/Header.vue';
   
   const links = ref([
-  { text: 'JD/Curiculum', url: '#event2' },
-  { text: 'Refresher/Curiculum', url: '#event2' },
-  { text: 'Academic Guidelines', url: 'https://aims.arellanolaw.edu/aims/students/' },
-  { text: 'Bar Review', url: '#event3' },
-  { text: 'MCLE', url: '#event4' },
+  { text: 'JD/Curiculum', url: '' },
+  { text: 'Refresher/Curiculum', url: '' },
+  { text: 'Academic Guidelines', url: '' },
+  { text: 'Bar Review', url: '' },
+  { text: 'MCLE', url: '' },
   ]);
   
   

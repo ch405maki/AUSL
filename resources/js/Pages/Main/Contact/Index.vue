@@ -1,6 +1,7 @@
 <template>
     <MainLayout>
-      <Head title="Enrollment Guide" />
+      <Head title="Contacts" />
+      <Header>Contact Us</Header>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -8,13 +9,10 @@
             <section class="w-full md:w-3/4 relative ml-2">
               <!-- Step 1 -->
               <div v-show="step === 1">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                Contact Us
-              </h2>
-              <div class="bg-white border-none rounded-lg  mb-6 relative">
+              <div class="bg-white border-none rounded-lg mt-2 mb-6 relative">
                 <div class="bg-white border-none rounded-lg mb-6 relative">
                   <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
-                    <h2 class="text-lg sm:text-xl text-left text-gray-700 font-bold mb-4 sm:mb-0">Contact Information</h2>
+                    <h2 class="text-xl sm:text-2xl text-left text-official-purple-800 font-bold mb-4 sm:mb-0">Contact Information</h2>
                     <div class="relative sm:ml-auto">
                       <label for="table-search" class="sr-only">Search</label>
                       <div class="relative">
@@ -80,7 +78,7 @@
                           <br />
                           <p class="italic font-normal hover:underline flex items-center">
                             <span v-if="item.email">
-                              <i class="mdi mdi-email mr-1"></i> <!-- MDI Email Icon -->
+                              <i class="mdi mdi-email mr-1"></i>
                             </span>
                             <span v-html="item.email"></span>
                           </p>
@@ -89,7 +87,7 @@
                           <span v-html="item.local"></span>
                         </td>
                         <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
-                          <i class="mdi mdi-phone mr-1" v-if="item.mobile"></i> <!-- MDI Telephone Icon -->
+                          <i class="mdi mdi-phone mr-1" v-if="item.mobile"></i>
                           <span v-if="item.mobile" v-html="item.mobile"></span>
                         </td>
                       </tr>
@@ -221,8 +219,8 @@
                 <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 <ul class="list-inside list-disc">
-                    <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-slate-700 text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
+                    <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold text-official-purple-800">
+                    <a :href="item.url" class="text-official-purple-800 text-lg font-normal text-gray-600 hover:underline">{{ item.text }}</a> 
                     </li>
                 </ul>
                 </div>
@@ -239,6 +237,7 @@ import { ref, computed } from 'vue';
 import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
+import Header from '../Components/Header.vue';
 
 // Create a ref for the current step
 const step = ref(1); // Initially set to Step 1
@@ -293,11 +292,8 @@ const filteredContacts = computed(() => {
 });
 
 const links = ref([
-  { text: 'Student ID Application', url: '' },
-  { text: 'AUSL Academic Calendar', url: '' },
-  { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
-  { text: 'Downloadable Registrar Forms', url: '' }, 
-  { text: 'Guideline/Payment Procedure', url: '' }
+  { text: 'School Location', url: '' },
+  { text: 'Social Media Links', url: '' },
 ]);
 
 const isMobile = reactive({ value: window.innerWidth <= 768 });

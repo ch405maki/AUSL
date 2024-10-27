@@ -1,6 +1,7 @@
 <template>
     <MainLayout>
       <Head title="Bar Review Program" />
+      <Header>Bar Review Program</Header>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -8,93 +9,70 @@
             <section class="w-full md:w-3/4 relative">
               <!-- Step 1 -->
               <div class="ml-2">
-                <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                    Bar Review Program
+                <h2 class="text-official-purple-600 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">
+                    Program
                 </h2>
-                  <div class="mb-6 relative">
-                    <div class="flex flex-row sm:flex-row items-center justify-between mb-6">
+                  <div class="mb-8 relative">
+                    <div class="flex flex-row sm:flex-row items-center justify-between mb-8">
                         <img src="/images/academic/barreview.jpg" class="carousel-image object-fit" alt="Carousel Image" />
                   </div>
-                  <table class="w-full text-sm text-left text-gray-500  border border-green-900">
-                      <tbody>
-                        <tr class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="hover:bg-official-purple-50 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
-                            <details class="group">
-                              <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-secondary-900 group-open:text-official-purple-900 hover:underline">
-                                How to Register and Enroll in Course on clear.arellanolaw.org <br> Without an account (Register an Account)
-                                <div>
-                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                  </svg>
-                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-                                  </svg>
-                                </div>
-                              </summary>
-                              <div class="pb-4 mt-2">
-                                <div class="content">
-                                  <blockquote>
-                                    <ol class="list-decimal text-lg font-normal text-gray-700  pl-6 space-y-2">
-                                      <li>Go to <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
-                                      <li>Click "Register"</li>
-                                      <li>Fill in all the details, then click submit.</li>
-                                      <li>You will receive an email confirming your registration.</li>
-                                      <li>Click "Click Here", You will be directed to the <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
-                                      <li>Click "Log In" then enter your username and password.</li>
-                                      <li>Click "Orders"</li>  
-                                      <li>Click "browser products"</li>
-                                      <li>
-                                        Click
-                                        <div class="flex flex-row sm:flex-row items-center justify-between my-6">
-                                          <a href="https://clear.arellanolaw.org/product/pre-bar-review-2024/" title="Click Here">
-                                            <img src="/images/academic/prebar.png" class="carousel-image object-fit transform transition-transform duration-300 hover:scale-105" alt="Carousel Image" />
-                                          </a>
-                                        </div>
-                                      </li>
-                                      <li>Click "add to Cart"</li>
-                                      <li>Choose coupon code then click "Apply coupon".<br>(Note: Apply the coupon code, if any, you received in your email address)</li>
-                                      <li>Review your order then click "Proceed to checkout"</li>
-                                      <li>Fill in all the Billing details. Below the Billing details, at the bottom part of the page, you can see the mode and instructions for payment.<br>(Note: Please make sure to take a screenshot of the instructions for bank transfer, for your reference).</li>
-                                      <li>Click "place order"</li>
-                                      <li>Wait for the verification of your payment from the accounting department. Once verified, you are now officially enrolled.</li>
-                                    </ol>
-                                  </blockquote>
-                                </div>
+                  <div>
+                    <div class="mb-8">
+                      <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">How to Register and Enroll in Course on <span class="underline italic">clear.arellanolaw.org </span> Without an account</h1>
+                      <p>
+                        <blockquote>
+                          <ol class="list-decimal text-lg font-normal text-gray-700  pl-6 ">
+                            <li>Go to <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
+                            <li>Click "Register"</li>
+                            <li>Fill in all the details, then click submit.</li>
+                            <li>You will receive an email confirming your registration.</li>
+                            <li>Click "Click Here", You will be directed to the <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
+                            <li>Click "Log In" then enter your username and password.</li>
+                            <li>Click "Orders"</li>  
+                            <li>Click "browser products"</li>
+                            <li>
+                              Click
+                              <div class="flex flex-row sm:flex-row items-center justify-between my-6">
+                                <a href="https://clear.arellanolaw.org/product/pre-bar-review-2024/" title="Click Here">
+                                  <img src="/images/academic/prebar.png" class="carousel-image object-fit transform transition-transform duration-300 hover:scale-105" alt="Carousel Image" />
+                                </a>
                               </div>
-                            </details>
-                          </th>
-                        </tr>
-                        <tr class="border-b odd:bg-white even:bg-gray-50">
-                        <th scope="row" class="hover:bg-official-purple-50 px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
+                            </li>
+                            <li>Click "add to Cart"</li>
+                            <li>Choose coupon code then click "Apply coupon".<br>(Note: Apply the coupon code, if any, you received in your email address)</li>
+                            <li>Review your order then click "Proceed to checkout"</li>
+                            <li>Fill in all the Billing details. Below the Billing details, at the bottom part of the page, you can see the mode and instructions for payment.<br>(Note: Please make sure to take a screenshot of the instructions for bank transfer, for your reference).</li>
+                            <li>Click "place order"</li>
+                            <li>Wait for the verification of your payment from the accounting department. Once verified, you are now officially enrolled.</li>
+                          </ol>
+                        </blockquote>
+                      </p>
+                    </div>
+                    <div class="mb-8">
+                      <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">How to attend on my Enrolled Courses</h1>
+                      <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                        <p>
+                          1. Go to clear.arellanolaw.org Click on Login to LMS button Or go to <i class="underline text-official-purple-800"><a href="https://ichief.arellanolaw.org">https://ichief.arellanolaw.org</a></i>
+                          <br>2. Log your username or email address and password
+                          <br>3. Select MyCourse / Enrolled Courses.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <table class="w-full text-sm text-left text-gray-500">
+                      <tbody>
+                        <tr>
+                        <th scope="row" >
                           <details class="group">
-                          <summary
-                            class="flex  hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
-                            How to attend on my Enrolled Courses
-                            <div>
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            <summary class="cursor-pointer list-none bg-official-purple-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto">
+                              <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                                <path fill="currentColor"
+                                  d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                                </path>
                               </svg>
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-                              </svg>
-                            </div>
-                          </summary>
-                          <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
-                            <p>
-                              1. Go to clear.arellanolaw.org Click on Login to LMS button Or go to <i class="underline text-official-purple-800"><a href="https://ichief.arellanolaw.org">https://ichief.arellanolaw.org</a></i>
-                              <br>2. Log your username or email address and password
-                              <br>3. Select MyCourse / Enrolled Courses.
-                            </p>
-                          </div>
-                        </details>
-                        </th>
-                        </tr>
-                        <tr class="border-b odd:bg-white even:bg-gray-50">
-                        <th scope="row" class="hover:bg-official-purple-50 px-4 py-4 text-lg font-normal text-gray-600 whitespace-wrap hover:bg-official-purple-50" title="Click to expand">
-                          <details class="group">
-                            <summary class="flex hover:underline cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-official-purple-900">
-                              AUSL Privacy Policy
-                              <div>
+                              <span class="text-official-purple-800">AUSL Privacy Policy</span>
+                              <!-- Move this container to the end and apply ml-auto -->
+                              <div class="ml-auto flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
@@ -103,8 +81,9 @@
                                 </svg>
                               </div>
                             </summary>
+ 
 
-                            <div class="pb-6 mt-4 space-y-4 text-gray-800 text-base font-normal leading-relaxed">
+                            <div class="pb-6 mt-8 space-y-4 text-gray-800 text-base font-normal leading-relaxed">
                               <p class="text-center font-bold text-lg">PRIVACY POLICY</p>
                               <hr class="border-t-2 border-official-purple-800">
                               <p class="text-center font-bold text-lg">ARELLANO LAW FOUNDATION PRIVACY POLICY FOR<br>BAR REVIEW PROGRAM and PROJECT PHOENIX</p>
@@ -156,7 +135,7 @@
                 </div>
             </div>
             </aside>
-  
+
         </div>
       </div>
     </main>
@@ -169,7 +148,7 @@
   import { Head } from '@inertiajs/vue3';
   import MainLayout from '@/Layouts/MainLayout.vue';
   import RelatedLinks from '../Components/RelatedLinks.vue';
-  
+  import Header from '../../Components/Header.vue';
   // Create a ref for the current step
   const step = ref(1); // Initially set to Step 1
   

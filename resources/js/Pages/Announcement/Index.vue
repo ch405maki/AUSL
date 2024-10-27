@@ -141,7 +141,6 @@ const filteredPosts = computed(() => {
             post.state.toLowerCase().includes(searchQuery.value.toLowerCase());
         
         const matchesYear = selectedYear.value ? new Date(post.created_at).getFullYear() === Number(selectedYear.value) : true;
-
         return matchesQuery && matchesYear;
     });
 });
