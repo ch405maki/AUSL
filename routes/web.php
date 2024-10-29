@@ -36,7 +36,6 @@ Route::get('/announcement/show/{id}', [MainController::class, 'showAnnouncement'
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');
 Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('gallery.browse');
 Route::get('students', [StudentController::class, 'show'])->name('students');
-Route::get('faculty', [FacultyController::class, 'show'])->name('faculty');
 
 // Empty State
 Route::get('/emptyState', function () {
