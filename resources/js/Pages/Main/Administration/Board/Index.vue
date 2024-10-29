@@ -40,9 +40,7 @@
                         <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                         <hr class="mb-4 border-1 border-purple-800">
                         <ul class="list-inside list-disc">
-                            <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                            <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                            </li>
+                            <RelatedLinks />
                         </ul>
                     </div>
                 </div>
@@ -59,6 +57,7 @@
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
     import Header from '@/Pages/Main/Components/Header.vue'
+    import RelatedLinks from '../Components/RelatedLinks.vue';
     // Dynamic data for board members
     const boardMembers = ref([
     {

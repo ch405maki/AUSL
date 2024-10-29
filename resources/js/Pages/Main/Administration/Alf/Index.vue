@@ -2,7 +2,7 @@
     <MainLayout>
       <Head title="Arellano Law Foundation Inc." />
       <main class="flex-grow">
-        <Header>Arellano law Foundation Inc.</Header>
+        <Header>Arellano Law Foundation Inc.</Header>
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <!-- Main content section -->
@@ -40,9 +40,7 @@
                 <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 <ul class="list-inside list-disc">
-                    <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                    </li>
+                  <RelatedLinks />
                 </ul>
                 </div>
             </div>
@@ -59,6 +57,7 @@ import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import Header from '@/Pages/Main/Components/Header.vue'
+import RelatedLinks from '../Components/RelatedLinks.vue';
 
 // Create a ref for the current step
 const step = ref(1); // Initially set to Step 1

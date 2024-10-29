@@ -8,9 +8,10 @@
     import { ref } from 'vue';
 
     const links = ref([
-    { text: 'Addmission Process', url: '/admissions/process' },
-    { text: 'Requirements', url: '/admissions/requirements' },
-    { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform'}
+      { text: 'Arellano Law Foundation', url: '/administration/alf' },
+      { text: 'Board of Trustees', url: '/administration/board_trustees' },
+      { text: 'Administration Officers', url: '/administration/admin_staff' },
+      { text: 'Departments', url: '/administration/departments' }, 
     ]);
 
 </script>

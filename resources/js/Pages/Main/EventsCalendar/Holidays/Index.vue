@@ -1,22 +1,28 @@
 <template>
     <MainLayout>
       <Head title="Academic Calendar" />
+      <div class="relative mb-4">
+        <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+            ARELLANO UNIVERSITY SCHOOL OF LAW
+            <br>
+            Amended Academic Year <br><span class="underline">2024-2025</span>
+          </h1>
+        </div>
+      </div>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto ">
           <div class="flex flex-col md:flex-row justify-between gap-8">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
-              <section class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mt-8 text-xl sm:text-2xl text-pretty p-2 text-center">
+              <section class="w-full md:w-2/2 p-4">
+                <h1 class="text-purple-900 ml-2 mt-2 font-bold mb-6 text-xl sm:text-2xl text-pretty">
                     Holidays
                 </h1>
-                <div v-show="step === 1">
+                <div>
                   <div class="mb-8 relative px-2">
-                    <div class="mb-8 text-center">
-                    <h1 class=" text-xl sm:text-2xl font-bold text-purple-900">ARELLANO UNIVERSITY SCHOOL OF LAW</h1>
-                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-purple-900 mt-2">Amended Academic Year: <span class="font-bold underline">2023-2024</span></p>
-                    </div>
-                      <div class="text-gray-700 pl-2 sm:pl-4">
+                      <div class="text-gray-700">
                         <table class="w-full text-left border-collapse">
                           <tbody>
                             <tr class="border-b">
@@ -106,28 +112,15 @@
             <!-- asside -->
             <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12">
               <div class="ml-2">
-                <h2 class="mb-2 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                <hr class="mb-4 border-1 border-purple-800">
+                <h2 class="text-purple-900 text-lg font-medium mb-2">On this page</h2>
+                <hr class="mb-2 border-1 border-purple-800">
+                <h1 class="text-lg font-normal text-gray-800 mb-8">Holidays: 2024-2025</h1>
               </div>
-              <ol class="relative ml-8 text-gray-500 border-s border-gray-200 dark:border-slate-600 dark:text-gray-400">
-                <li 
-                  class="mb-6 ms-6 cursor-pointer transition-colors duration-300" 
-                  :class="step === 1 && 'text-slate-900'" 
-                  @click="setStep(1)">
-                  <span :class="['absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-official-purple-100', step === 1 ? 'bg-official-purple-200 text-official-purple-500' : 'bg-gray-100 text-gray-500 dark:bg-slate-600 dark:text-gray-400']">
-                    <v-icon>mdi-calendar</v-icon>
-                  </span>
-                  <h3 class="font-medium leading-tight">Holidays</h3>
-                  <p class="text-sm">2024-2025</p>
-                </li>
-              </ol>
               <div class="ml-2">
                 <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 <ul class="list-inside list-disc">
-                  <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-gray-700 text-lg font-normal hover:text-slate-900 py-2">{{ item.text }}</a>
-                  </li>
+                  <RelatedLinks />
                 </ul>
               </div>
             </aside>
@@ -141,25 +134,10 @@
   <script setup>
     import { ref } from 'vue';
     import { Head } from '@inertiajs/vue3';
-    import MainLayout from '@/Layouts/MainLayout.vue';  
-  
-    // Create a ref for the current step
-    const step = ref(1); // Initially set to Step 1
-  
-    // Function to set the current step
-    const setStep = (newStep) => {
-    step.value = newStep;
-    console.log(`Current step set to: ${newStep}`); // Debugging log
-    };
-  
-    const links = ref([
-      { text: 'Online Enrollment Guide', url: '/enrollment' },
-      { text: 'Student ID Application', url: '/idApplication' },
-      { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
-      { text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
-      { text: 'Guideline/Payment Procedure', url: '/office/accounting' }
-    ]);
-  
+    import Header from '../../Components/Header.vue';
+    import MainLayout from '@/Layouts/MainLayout.vue';
+    import RelatedLinks from '../Components/RelatedLinks.vue';
+    
   </script>
   
   <style scoped>

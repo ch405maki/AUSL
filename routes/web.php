@@ -88,6 +88,10 @@ Route::prefix('contact')->name('contact.')->group(function () {
         Route::get('/socials', function () {
             return Inertia::render('Main/Contact/Social');
         })->name('socials');
+
+        Route::get('/location', function () {
+            return Inertia::render('Main/Contact/Location');
+        })->name('location');
     });
 
 // Academics

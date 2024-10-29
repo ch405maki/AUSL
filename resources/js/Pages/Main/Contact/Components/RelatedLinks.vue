@@ -8,9 +8,9 @@
     import { ref } from 'vue';
 
     const links = ref([
-    { text: 'Addmission Process', url: '/admissions/process' },
-    { text: 'Requirements', url: '/admissions/requirements' },
-    { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform'}
+    { text: 'Contact Us', url: '/contact' },
+    { text: 'School Location', url: '/contact/location' },
+    { text: 'Social Media Links', url: '/contact/socials' },
     ]);
 
 </script>

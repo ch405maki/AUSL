@@ -15,10 +15,10 @@
             <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Contact Us</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Location</a>
+            <a :href="(route('contact.location'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Location</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media Links</a>
+            <a :href="(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media Links</a>
         </li>
         </ul>
     </div>

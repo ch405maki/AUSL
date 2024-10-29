@@ -36,9 +36,7 @@
                         <h2 class="text-purple-900 font-medium mb-4">Related Links</h2>
                         <hr class="mb-4 border-1 border-purple-800">
                         <ul class="list-inside list-disc">
-                            <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                            <a :href="item.url" class="font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a> 
-                            </li>
+                            <RelatedLinks />
                         </ul>
                     </div>
                 </div>
@@ -55,6 +53,7 @@
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
     import Header from '@/Pages/Main/Components/Header.vue';
+    import RelatedLinks from '../Components/RelatedLinks.vue';
     
     // Create a ref for the current step
     const step = ref(1); // Initially set to Step 1
@@ -65,13 +64,6 @@
       console.log(`Current step set to: ${newStep}`); // Debugging log
     };
     
-    const links = ref([
-      { text: 'Arellano Law Foundation', url: '/administration/alf' },
-      { text: 'Board of Trustees', url: '/administration/board_trustees' },
-      { text: 'Administration Officers', url: '/administration/admin_staff' },
-      { text: 'Departments', url: '/administration/departments' }, 
-    ]);
-
     const roles = [
     { role: 'Executive Director', name: 'Atty. Gabriel P. Dela Peña' },
     { role: 'Dean', name: 'Domingo M. Navarro' },

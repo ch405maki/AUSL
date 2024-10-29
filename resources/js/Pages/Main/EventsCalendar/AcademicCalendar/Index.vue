@@ -2,15 +2,15 @@
     <MainLayout>
       <Head title="Academic Calendar" />
       <div class="relative mb-4">
-      <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
-      <div class="absolute inset-0 flex items-center justify-center">
-        <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
-          ARELLANO UNIVERSITY SCHOOL OF LAW
-          <br>
-          Amended Academic Year <br><span class="underline">2024-2025</span>
-        </h1>
+        <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+            ARELLANO UNIVERSITY SCHOOL OF LAW
+            <br>
+            Amended Academic Year <br><span class="underline">2024-2025</span>
+          </h1>
+        </div>
       </div>
-    </div>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto">
           <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -239,14 +239,11 @@
                   <hr class="mb-2 border-1 border-purple-800">
                   <h1 class="text-lg font-normal text-gray-800 mb-8">Academic Calendar</h1>
                 </div>
-              
               <div class="ml-2">
                 <h2 class="text-purple-900 text-md sm:text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 <ul class="list-inside list-disc">
-                  <li v-for="(item, index) in links" :key="index" class="mb-2 font-semibold">
-                    <a :href="item.url" class="text-gray-700 text-md sm:text-lg font-normal hover:text-slate-900">{{ item.text }}</a>
-                  </li>
+                  <RelatedLinks />
                 </ul>
               </div>
             </aside>
@@ -262,6 +259,7 @@
     import { Head } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';  
     import Header from '../../Components/Header.vue';
+    import RelatedLinks from '../Components/RelatedLinks.vue';
   
     // Create a ref for the current step
     const step = ref(1); // Initially set to Step 1
@@ -285,14 +283,6 @@
       step.value--;
     }
     };
-  
-    const links = ref([
-      { text: 'Online Enrollment Guide', url: '/enrollment' },
-      { text: 'Student ID Application', url: '/idApplication' },
-      { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform' }, 
-      { text: 'Downloadable Registrar Forms', url: '/office/registrar' }, 
-      { text: 'Guideline/Payment Procedure', url: '/office/accounting' }
-    ]);
   
   </script>
   

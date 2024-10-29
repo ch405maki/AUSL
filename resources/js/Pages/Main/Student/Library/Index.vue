@@ -6,7 +6,7 @@
             title="This page is currently under development."
             text="The content you are looking for is not available yet."
             image="/images/ausllogo2.png"
-            class="text-white py-6"
+            class="text-white py-10"
             :style="{
                 backgroundImage: 'url(/images/student/library.jpg)',
                 backgroundSize: 'cover',
