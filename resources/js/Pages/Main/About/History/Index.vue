@@ -90,12 +90,12 @@ const showLightbox = ref(false);
 const currentImage = ref(0);
 
 const images = [
-"images/about/rafal-roble.jpg",
 "images/about/tolentino.jpg",
 "images/about/salipsip.jpg",
-"images/about/hadjinoor.jpg",
+"images/about/rafal-roble.jpg",
 "images/about/viloria.jpg",
-"images/about/panotes.jpg"
+"images/about/panotes.jpg",
+"images/about/hadjinoor.jpg",
 ];
 
 function openLightbox(index) {
