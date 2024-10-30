@@ -25,6 +25,11 @@ class MainController extends Controller
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();
+        $events = Post::where('category', 'Events')
+            ->where('state', 'Active')
+            ->orderBy('created_at', 'desc')
+            ->first();
+
         $alumni = Alumni::where('status', true)->get();
 
         return Inertia::render('Main/Home/Index', [
@@ -32,6 +37,7 @@ class MainController extends Controller
             'carousells' => $carousells,
             'alumni' => $alumni,
             'banners' => $banners,
+            'events' => $events,
             'onLoadBanners' => $onLoadBanners,
             'announcements' => $announcements,
         ]);
@@ -74,16 +80,27 @@ class MainController extends Controller
     }
 
     public function departmentShow($id)
-{
-    $offices = Office::findOrFail($id);
-    $officesList = Office::select('id', 'office_name')
-                        ->orderBy('office_name', 'asc')
-                        ->get();
+    {
+        $offices = Office::findOrFail($id);
+        $officesList = Office::select('id', 'office_name')
+                            ->orderBy('office_name', 'asc')
+                            ->get();
 
-    return Inertia::render('Main/Administration/Departments/Show', [
-        'offices' => $offices,
-        'officesList' => $officesList
+        return Inertia::render('Main/Administration/Departments/Show', [
+            'offices' => $offices,
+            'officesList' => $officesList
+        ]);
+    }
+
+    public function events()
+    {
+        $events = Post::whereIn('category', ['Events'])
+        ->where('state', 'Active')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+    return Inertia::render('Main/EventsCalendar/UpcommingEvents/Index', [
+        'events' => $events,
     ]);
-}
-
+    }
 }

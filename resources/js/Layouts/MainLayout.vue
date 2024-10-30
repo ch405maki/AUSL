@@ -23,7 +23,7 @@
     </div>
 
     <!-- Floating Message Icon with Tooltip -->
-    <v-icon class="floating-message-icon mdi mdi-message" title="Chat with us"></v-icon>
+    <!-- <v-icon class="floating-message-icon mdi mdi-message" title="Chat with us"></v-icon> -->
   </div>
 </template>
 

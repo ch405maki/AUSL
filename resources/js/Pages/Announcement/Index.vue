@@ -29,6 +29,16 @@
               </select>
           </div>
 
+        <!-- Category Filter Dropdown -->
+        <div class="relative mr-4 w-32">
+          <select v-model="selectedCategory" class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">All Categories</option>
+            <option value="Announcement">Announcement</option>
+            <option value="Deans">Deans</option>
+            <option value="Events">Events</option>
+          </select>
+        </div>
+
           <div class="flex justify-end flex-grow">
               <a href="announcement/create">
                   <v-btn color="primary" class="w-full md:w-auto px-4">
@@ -40,7 +50,7 @@
           </div>
     </template>  
     
-    <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="flex flex-col min-h-screen bg-gray-100 ">
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto">
           <div class="flex flex-col md:flex-row w-full justify-center mb-6">
@@ -49,6 +59,7 @@
               <v-table fixed-header class="shadow-sm rounded-lg">
                 <thead>
                   <tr>
+                    <th class="text-left">Category</th>
                     <th class="text-left">Title</th>
                     <th class="text-left">Date</th>
                     <th class="text-center">Action</th>
@@ -56,6 +67,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(post, index) in filteredPosts" :key="post.id">
+                    <td>{{ post.category }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
                     <td>
@@ -134,14 +146,15 @@ const handleFileChange = (event) => {
 const searchQuery = ref('');
 const years = ref([2024, 2023, 2022, 2021, 2020]);
 const selectedYear = ref('');
+const selectedCategory = ref('');
 
 const filteredPosts = computed(() => {
     return props.posts.filter(post => {
         const matchesQuery = post.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
             post.state.toLowerCase().includes(searchQuery.value.toLowerCase());
-        
+        const matchesCategory = !selectedCategory.value || post.category === selectedCategory.value;
         const matchesYear = selectedYear.value ? new Date(post.created_at).getFullYear() === Number(selectedYear.value) : true;
-        return matchesQuery && matchesYear;
+        return matchesQuery && matchesYear && matchesCategory;
     });
 });
 

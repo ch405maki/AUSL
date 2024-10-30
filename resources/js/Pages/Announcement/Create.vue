@@ -29,6 +29,7 @@
                           >
                             <option value="Announcement">Announcement</option>
                             <option value="Deans">Deans Corner</option>
+                            <option value="Events">Events</option>
                           </select>
                         </div>
 

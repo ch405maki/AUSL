@@ -11,7 +11,7 @@ class AnnouncementController extends Controller
 {
     public function index()
     {
-        $posts = Post::whereIn('category', ['Announcement', 'Deans'])
+        $posts = Post::whereIn('category', ['Announcement', 'Deans', 'Events'])
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();

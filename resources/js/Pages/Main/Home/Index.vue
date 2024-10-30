@@ -9,7 +9,7 @@
       <Carousel :items="props.carousells" :banners="props.banners" />
       <Message />
       <Post :posts="posts" />
-      <Announcement :announcements="announcements" />
+      <Announcement :announcements="announcements" :events="props.events" />
       <Gallery />
       <!-- <Alumni class="my-4" :items="props.alumni" /> -->
       <GoogleFacebook />
@@ -92,6 +92,10 @@ const closeCookiePopup = () => {
 // Define props here
 const props = defineProps({
   posts: {
+    type: Array,
+    required: true
+  },
+  events: {
     type: Array,
     required: true
   },

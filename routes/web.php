@@ -18,6 +18,8 @@ use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\DeansController;
 use Inertia\Inertia;
 
+use App\Models\Banner;
+
 // Models
 use App\Models\Academic;
 
@@ -28,6 +30,10 @@ Route::get('/', function () {
          'canRegister' => Route::has('register'),
     ]);
  });
+
+ Route::get('/banners', function () {
+    return Banner::where('state', true)->get();
+});
 
 // Start routes can be open without auth
 Route::get('/', [MainController::class, 'index'])->name('main');
@@ -146,9 +152,9 @@ Route::prefix('events')->name('events.')->group(function () {
     Route::get('/academic', function () {
         return Inertia::render('Main/EventsCalendar/AcademicCalendar/Index');
     })->name('academic');
-    Route::get('/upcomming', function () {
-        return Inertia::render('Main/EventsCalendar/UpcommingEvents/Index');
-    })->name('upcomming');
+
+    Route::get('/upcomming', [MainController::class, 'events'])->name('upcomming');
+
     Route::get('/holidays', function () {
         return Inertia::render('Main/EventsCalendar/Holidays/Index');
     })->name('holidays');

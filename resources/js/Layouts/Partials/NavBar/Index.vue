@@ -1,34 +1,9 @@
 <template>
   <div>
     <!-- First Navigation Bar -->
-    <nav ref="firstNav" class="bg-official-purple-800 hidden lg:block z-40 transition-all duration-300 fixed top-0 left-0 right-0">
-      <!-- Primary Navigation Menu -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex justify-between h-18 items-center">
-          <div class="flex items-center">
-            <!-- Logo -->
-            <div class="shrink-0 flex items-center text-white py-2">
-              <Link :href="route('login')" class="flex items-center">
-                <img src="/images/auLogo.png" alt="Image Logo" class="max-w-full h-full max-h-14 mr-4 transition-transform duration-300 transform hover:scale-105">
-              </Link>
-              <div>
-                <div class="garamond uppercase font-bold text-xl tracking-wide leading-tight">ARELLANO UNIVERSITY</div>
-                <hr class="border-t-2 border-white">
-                <div class="garamond uppercase font-bold text-xl tracking-wide leading-tight text-center">SCHOOL OF LAW</div>
-              </div>
-              <Link :href="route('login')" class="flex items-center">
-                <img src="/images/ausllogo2.png" alt="Image Logo" class="max-w-full h-full max-h-14 ml-4 transition-transform duration-300 transform hover:scale-105">
-              </Link>
-            </div>
-          </div>
-          <SearchBar />
-        </div>
-      </div>
-    </nav>
-
+    <TopNav />
     <!-- Second Navigation Bar -->
-    <nav ref="navButtons" class="hidden lg:block border-t-[1px] border-b-[1px] bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-[70px] second-nav">
+    <nav ref="navButtons" class="hidden lg:block border-b-[1px] bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-[70px] second-nav">
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between h-10 items-center">
@@ -47,7 +22,6 @@
               <Events />
               <Student />
               <Contact />
-              <SideDrawer />
             </div>
           </div>
         </div>
@@ -142,6 +116,8 @@ import DeansCorner from './Partials/Buttons/DeansCorner.vue'
 import About from './Partials/Buttons/About.vue'
 import Contact from './Partials/Buttons/Contact.vue'
 import SideDrawer from './Partials/SideDrawer.vue';
+import TopNav from './Partials/TopNav.vue';
+
 
 const { props: { ziggy } } = usePage();
 const route = window.route;

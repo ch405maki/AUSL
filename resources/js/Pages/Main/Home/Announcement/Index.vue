@@ -57,9 +57,9 @@
             Events
           </h1>
           <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto ">
-            <a href="https://www.facebook.com/photo?fbid=986141886642309&set=a.530679615521874">
+            <a :href="events.link">
                 <img class="w-full sm:h-64  object-cover" 
-                src="/images/event.jpg" alt="Event Banner">
+                :src="events.image" alt="Event Banner">
             </a>
           </div>
           <div class="flex justify-center sm:justify-start mb-6">
@@ -82,6 +82,10 @@
   
   const props = defineProps({
     announcements: {
+      type: Array,
+      required: true
+    },
+    events: {
       type: Array,
       required: true
     }

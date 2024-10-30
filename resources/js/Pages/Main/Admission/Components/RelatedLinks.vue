@@ -10,6 +10,7 @@
     const links = ref([
     { text: 'Addmission Process', url: '/admissions/process' },
     { text: 'Requirements', url: '/admissions/requirements' },
+    { text: 'ID Application', url: '/admissions/id' },
     { text: 'Medical Information Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform'}
     ]);
 

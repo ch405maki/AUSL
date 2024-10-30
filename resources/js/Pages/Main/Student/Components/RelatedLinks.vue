@@ -10,6 +10,7 @@
     const links = ref([
       { text: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/' },
       { text: 'LawPhil.net', url: 'https://lawphil.net/' },
+      { text: 'ID Application', url: '/admissions/id' },
       { text: 'Library', url: '/student/library' }, 
       { text: 'Social Media', url: '/contact/socials' }, 
     ]);
