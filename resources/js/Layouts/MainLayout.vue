@@ -1,33 +1,7 @@
-<script setup>
-import { onMounted } from 'vue';
-import Footer from '@/Layouts/Partials/Footer.vue';
-import NavBar from '@/Layouts/Partials/NavBar/Index.vue';
-
-// Function to load Crisp chat script
-// const loadCrispChat = () => {
-//   window.$crisp = [];
-//   window.CRISP_WEBSITE_ID = "0eb66175-e176-41a6-bb43-8847771c8101";
-//   (function() {
-//     const d = document;
-//     const s = d.createElement("script");
-//     s.src = "https://client.crisp.chat/l.js";
-//     s.async = 1;
-//     d.getElementsByTagName("head")[0].appendChild(s);
-//   })();
-// };
-
-// onMounted(() => {
-//   loadCrispChat();
-// });
-
-// const openChat = () => {
-// };
-</script>
-
 <template>
   <div>
     <div class="min-h-screen">
-      <!-- Primary Navigation Menu -->
+      <!-- Navigation Menu -->
       <nav class="bg-white border-b border-gray-100">
         <NavBar />
       </nav>
@@ -49,9 +23,18 @@ import NavBar from '@/Layouts/Partials/NavBar/Index.vue';
     </div>
 
     <!-- Floating Message Icon with Tooltip -->
-    <!-- <v-icon class="floating-message-icon mdi mdi-message" @click="openChat" title="Chat with us"></v-icon> -->
+    <v-icon class="floating-message-icon mdi mdi-message" title="Chat with us"></v-icon>
   </div>
 </template>
+
+<script setup>
+import { onMounted } from 'vue';
+import Footer from '@/Layouts/Partials/Footer.vue';
+import NavBar from '@/Layouts/Partials/NavBar/Index.vue';
+import SideDrawer from './Partials/NavBar/Partials/SideDrawer.vue';
+</script>
+
+
 
 <style scoped>
 .floating-message-icon {

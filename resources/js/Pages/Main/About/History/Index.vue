@@ -41,6 +41,9 @@
                       <img src="images/about/rafal-roble.jpg" class="w-1/4" alt="Cherry Liez O. Rafal-Roble">
                       <img src="images/about/tolentino.jpg" class="w-1/4" alt="Paolo Carlo C. Tolentino">
                       <img src="images/about/salipsip.jpg" class="w-1/4" alt="Daren L. Salipsip">
+                      <img src="images/about/hadjinoor.jpg" class="w-1/4" alt="hadjinoor">
+                      <img src="images/about/viloria.jpg" class="w-1/4" alt="viloria">
+                      <img src="images/about/panotes.jpg" class="w-1/4" alt="panotes">
                     </div>
                   </div>
                   <div class="flex justify-end">
