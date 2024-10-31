@@ -1,7 +1,19 @@
 <template>
     <MainLayout>
       <Head title="Enrollment Guide" />
-      <Header>School Location</Header>
+      <div class="relative mb-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6906568880654!2d120.9925687736211!3d14.559674278080355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c97bafba42c3%3A0x7859c5febabe4837!2sArellano%2University%20School%20of%20Law!5e0!3m2!1sen!2sph!4v1719103813103!5m2!1sen!2sph"
+          style="border:0; width: 100%; height: 300px;"
+          loading="lazy"
+        ></iframe>
+        <div class="absolute inset-0 bg-black opacity-20 pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+            <span>School Location</span>
+          </h1>
+        </div>
+      </div>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto px-4 py-2 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -30,22 +42,13 @@
                   </div>
                   <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">Campus Map</h2>
                   <div class="text-slate-600 leading-relaxed mb-8">
-                    <img src="/images/contact/campus.jpg" alt="Step 2 Image" class="mb-8 font-medium mx-auto rounded-lg" />
-                  </div>
-                  <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">Google Map</h2>
-                  <div class="text-slate-600 leading-relaxed mb-4">
-                    <!-- start google|facebook area -->
-                    <div class="row px-2 py-2 mb-6">
-                        <div class="google-maps shadow-xl rounded-lg">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6906568880654!2d120.9925687736211!3d14.559674278080355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c97bafba42c3%3A0x7859c5febabe4837!2sArellano%20University%20School%20of%20Law!5e0!3m2!1sen!2sph!4v1719103813103!5m2!1sen!2sph"
-                            style="border:0;"
-                            loading="lazy"
-                        ></iframe>
-                        </div>
+                    <div v-for="(image, index) in images" :key="index" @click="openLightbox(index)">
+                      <img :src="image" 
+                        class="cursor-pointer w-full max-w-[200px] md:max-w-[300px] lg:max-w-[300px] h-auto" 
+                        style="aspect-ratio: 4 / 5;" 
+                        />
                     </div>
-                        <!-- end google|facebook area -->
-                  </div>
+                </div>
                 </div>
               </div>
             </section>
@@ -69,6 +72,12 @@
         </div>
       </div>
     </main>
+    <VueEasyLightbox
+    :visible="showLightbox"
+    :imgs="images"
+    :index="currentImage"
+    @hide="showLightbox = false"
+    />
   </MainLayout>
 </template>
 
@@ -78,9 +87,21 @@ import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import RelatedLinks from './Components/RelatedLinks.vue';
-import Header from '../Components/Header.vue';
+import VueEasyLightbox from 'vue-easy-lightbox';
 
 const isMobile = reactive({ value: window.innerWidth <= 768 });
+
+const showLightbox = ref(false);
+const currentImage = ref(0);
+
+const images = [
+"/images/contact/campus.jpg",
+];
+
+function openLightbox(index) {
+currentImage.value = index;
+showLightbox.value = true;
+}
 
 const checkIfMobile = () => {
   isMobile.value = window.innerWidth <= 768;

@@ -55,9 +55,6 @@
           </div>
           </section>
       </div>
-      
-      
-
     </div>
     <MissionVision />
     <Hymn />
