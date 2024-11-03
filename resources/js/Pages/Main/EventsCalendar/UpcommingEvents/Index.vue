@@ -15,9 +15,11 @@
                 <!-- Cards -->
                 <div class="flex flex-wrap mt-4">
                 <div class="w-full md:w-1/4 p-4" v-for="event in events" :key="event.id">
-                    <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 overflow-hidden transform hover:scale-105 hover:-translate-y-1">
+                    <div class="relative bg-white shadow-md hover:shadow-lg transition duration-200 overflow-hidden transform hover:scale-105 hover:-translate-y-1 hover:cursor-pointer">
                     <a :href="event.link" title="Learn More" target="_blank" rel="noopener noreferrer">
-                        <img class="w-full h-full object-cover" :src="event.image" alt="Event 1">
+                    <div v-if="event.image && event.image.length > 0">
+                        <img class="w-full h-full object-cover" :src="event.image[0]" alt="Event Banner">
+                    </div>
                     </a>
                     <div class="p-4">
                         <h5 class="font-medium text-lg">

@@ -39,7 +39,7 @@ class GalleryController extends Controller
         Gallery::create([
             'title' => $request->title,
             'year' => $request->year,
-            'images' => $images, // This will be automatically encoded to JSON
+            'images' => $images,
         ]);
 
         return redirect()->route('gallery');

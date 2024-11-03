@@ -66,12 +66,15 @@
                           <ckeditor :editor="editor" v-model="form.content" :config="editorConfig"></ckeditor>
                         </div>
 
-                        <!-- Conditional Rendering Sections -->
-                        <div class="col-span-full mt-4">
-                          <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Image</label>
+                        <!-- Image Upload Section -->
+                        <div class="col-span-full">
+                          <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Upload Image (s)</label>
                           <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                            <div v-if="previewImage" class="mb-4">
-                              <img :src="previewImage" alt="Selected Image Preview" class="w-full rounded-lg shadow-sm" />
+                            <div v-if="previewImages.length" class="mb-4 grid grid-cols-2 gap-2">
+                              <div v-for="(image, index) in previewImages" :key="index" class="relative mb-2">
+                                <img :src="image" alt="Selected Image Preview" class="preview-image rounded-lg shadow-sm" />
+                                <button @click="removeImage(index)" class="remove-button">X</button>
+                              </div>
                             </div>
                             <div v-else class="text-center">
                               <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -84,16 +87,17 @@
                               <div class="mt-2 flex text-sm leading-6 text-gray-600">
                                 <label
                                   for="image-upload"
-                                  class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                                  class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 hover:text-indigo-500"
                                 >
-                                  <span>Upload an image</span>
-                                  <input id="image-upload" name="image-upload" type="file" class="sr-only" @change="handleFileChange" />
+                                  <span>Upload images</span>
+                                  <input id="image-upload" name="image-upload" type="file" class="sr-only" @change="handleFileChange" multiple />
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                               </div>
                               <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                             </div>
                           </div>
+                          <span v-if="errors.image" class="text-red-500 text-sm">{{ errors.image }}</span>
                         </div>
 
                         <div class="sm:col-span-12 mt-4">
@@ -137,45 +141,49 @@ import { Inertia } from '@inertiajs/inertia';
 const form = useForm({
   title: '',
   content: '',
-  image: null,
+  image: [],
   category: '',
   state: 'Active',
   link: null,
   created_at: '',
 });
 
-
-const previewImage = ref(null);
+const previewImages = ref([]);
+const errors = ref({});
 
 const handleFileChange = (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      previewImage.value = e.target.result;
+      const files = event.target.files;
+      previewImages.value = [];
+      form.image = [];
+    
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => previewImages.value.push(e.target.result);
+        reader.readAsDataURL(file);
+        form.image.push(file);
+      });
     };
-    reader.readAsDataURL(file);
-  } else {
-    previewImage.value = null;
-  }
-  form.image = file;
-};
+    
+    const removeImage = (index) => {
+      previewImages.value.splice(index, 1);
+      form.image.splice(index, 1);
+    };
 
 const submitForm = () => {
   const formData = new FormData();
   formData.append('title', form.title);
   formData.append('content', form.content);
-  if (form.image) {
-    formData.append('image', form.image);
-  }
+  form.image.forEach((image) => formData.append('image[]', image));
   formData.append('created_at', form.created_at);
 
   form.post(route('announcement.store'), {
     data: formData,
-    onSuccess: () => {
-      form.reset();
-      previewImage.value = null;
-    },
+      onSuccess: () => {
+        form.reset();
+        previewImages.value = [];
+        errors.value = {};
+      },
+    onError: (error) => errors.value = error,
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -206,4 +214,38 @@ const editorConfig = {
 .p-4 {
   padding: 1px;
 }
+
+.remove-button {
+      background-color: #f56565;
+      color: #fff;
+      border-radius: 50%;
+      padding: 0.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      position: absolute;
+      top: 0.25rem;
+      right: 0.25rem;
+    }
+    
+    .remove-button:hover {
+      background-color: #e53e3e;
+    }
+  
+    .preview-image {
+      max-width: 100%;
+      width: 150px; /* Adjust the width as needed */
+      height: auto;
+    }
+  
+    .grid-cols-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
 </style>

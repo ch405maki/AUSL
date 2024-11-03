@@ -24,26 +24,31 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string',
-            'content' => 'nullable|string', 
-            'image' => 'nullable|image|mimes:jpg,png,gif|max:10240',
-            'category' => 'required|string',
-            'state' => 'nullable|string',
-            'link' => 'nullable|url',
-            'created_at' => 'required|date',
-        ]);
+    $request->validate([
+        'title' => 'required|string',
+        'content' => 'nullable|string',
+        'image.*' => 'nullable|image|mimes:jpg,png,gif|max:10240',
+        'category' => 'required|string',
+        'state' => 'nullable|string',
+        'link' => 'nullable|url',
+        'created_at' => 'required|date',
+    ]);
 
-        $data = $request->all();
+    $data = $request->all();
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/images');
-            $data['image'] = Storage::url($path);
+    $imagePaths = [];
+    if ($request->hasFile('image')) {
+        foreach ($request->file('image') as $file) {
+            $path = $file->store('public/images');
+            $imagePaths[] = Storage::url($path);
         }
+    }
 
-        $post = Post::create($data);
+    // Assign array of image paths to 'image' field
+    $data['image'] = $imagePaths;
 
-        return redirect('posts');
+    Post::create($data);
+    return redirect('posts');
     }
 
     public function archive(Request $request, Post $post)

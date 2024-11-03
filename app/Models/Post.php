@@ -10,4 +10,19 @@ class Post extends Model
     use HasFactory;
     
     protected $fillable = ['title', 'content', 'image', 'category', 'state', 'link', 'created_at'];
+
+    protected $casts = [
+        'image' => 'array',
+    ];
+
+    public function setImageAttribute($value)
+    {
+        $this->attributes['image'] = $value ? json_encode($value) : null;
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ? json_decode($value, true) : null;
+    }
 }
+

@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content')->nullable();
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->string('category');
             $table->string('state')->default('Active');
             $table->string('link')->nullable();

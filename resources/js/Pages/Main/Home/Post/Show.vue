@@ -22,7 +22,9 @@
                     <p v-html="post.content"></p>
                 </div>
                 <div class="relative mb-8 flex justify-center items-center bg-slate-100">
-                  <img :src="post.image" alt="Image" class="object-center min-h-80 max-h-96 min-w-80 max-w-100">
+                  <div v-for="(image, index) in post.image" :key="index" class="w-full mb-4">
+                    <img :src="image" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in" @click="showLightbox(index)"/>
+                  </div>
                 </div>
                 <!-- Breadcrumb -->
                 <nav class="bg-grey-light w-full rounded-md" aria-label="breadcrumb">
@@ -39,8 +41,8 @@
                 <hr class="mb-4 border-1 border-purple-800">
                 <div v-for="post in allPost" :key="post.id" id="news">
                   <div class="text-left flex items-justify mb-4">
-                    <div class="mr-0">
-                      <img :src="post.image" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
+                    <div v-if="post.image && post.image.length > 0" class="mr-0">
+                      <img :src="post.image[0]" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
                     </div>
                     <div class="text-justify ml-2">
                       <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
@@ -84,6 +86,12 @@
       </main>
     </div>
     </MainLayout>
+    <vue-easy-lightbox
+        :visible="visible"
+        :imgs="post.image"
+        :index="index"
+        @hide="handleHide"
+    />
   </template>
   
   
@@ -92,10 +100,22 @@
     import { defineProps } from 'vue';
     import { ref, computed } from 'vue';
     import MainLayout from '@/Layouts/MainLayout.vue';
+    import VueEasyLightbox from 'vue-easy-lightbox';
 
     // Define props here
     const { post, allPost } = defineProps(['post', 'allPost']);
 
+    const visible = ref(false);
+    const index = ref(0);
+
+    const showLightbox = (i) => {
+        index.value = i;
+        visible.value = true;
+    };
+
+    const handleHide = () => {
+        visible.value = false;
+    };
     
     // Sample data for links and events
     const links = ref([

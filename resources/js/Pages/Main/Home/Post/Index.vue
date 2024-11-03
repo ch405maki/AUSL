@@ -11,8 +11,8 @@
             <div class="rounded-xs overflow-hidden flex-none max-w-full min-h-[350px] flex flex-col justify-between relative card">
             <!-- Image wrapper with overlay -->
             <a :href="`/show/${post.id}`" class="block relative group">
-              <div class="image-wrapper">
-                <img :src="post.image" alt="Card image" class="w-full h-64 object-cover">
+              <div v-if="post.image && post.image.length > 0" class="image-wrapper">
+                <img :src="post.image[0]" alt="Post image" class="w-full h-64 object-cover">
                 <!-- Overlay that appears on hover -->
                 <div class="overlay"></div>
               </div>

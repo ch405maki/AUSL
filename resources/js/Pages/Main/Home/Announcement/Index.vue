@@ -58,8 +58,11 @@
           </h1>
           <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto ">
             <a :href="events.link">
+              <div v-if="events.image && events.image.length > 0">
                 <img class="w-full sm:h-64  object-cover" 
-                :src="events.image" alt="Event Banner">
+                :src="events.image[0]"
+                alt="Event Banner">
+              </div>
             </a>
           </div>
           <div class="flex justify-center sm:justify-start mb-6">

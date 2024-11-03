@@ -27,9 +27,12 @@
                   </div>
                 </div>
 
-                <div v-if="post.image" class="relative mb-8 flex justify-center items-center bg-slate-100">
-                  <img :src="post.image" alt="Image" class="object-center">
+                <div v-if="post.image" class="relative mb-8 flex flex-col items-center bg-slate-100">
+                  <div v-for="(image, index) in post.image" :key="index" class="w-full mb-4">
+                    <img :src="image" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in" @click="showLightbox(index)"/>
+                  </div>
                 </div>
+
                 <!-- Breadcrumb -->
                 <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb" width="100%">
                   <ol class="list-reset flex">
@@ -106,6 +109,12 @@
       </main>
     </div>
   </MainLayout>
+  <vue-easy-lightbox
+        :visible="visible"
+        :imgs="post.image"
+        :index="index"
+        @hide="handleHide"
+    />
 </template>
 
 <script setup>
@@ -114,6 +123,7 @@
   import { ref } from 'vue';
   import MainLayout from '@/Layouts/MainLayout.vue';
   import { onMounted } from 'vue';
+  import VueEasyLightbox from 'vue-easy-lightbox';
 
   const props = defineProps({
     post: {
@@ -125,6 +135,18 @@
       required: true
     }
   });
+
+  const visible = ref(false);
+  const index = ref(0);
+
+  const showLightbox = (i) => {
+      index.value = i;
+      visible.value = true;
+  };
+
+  const handleHide = () => {
+      visible.value = false;
+  };
 
   const links = ref([
     { text: 'Latest Announcement', url: '#' },
