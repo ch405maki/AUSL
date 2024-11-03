@@ -61,7 +61,11 @@
                     <td class="text-center">{{ index + 1 }}</td>
                     <td>{{ post.title }}</td>
                     <td v-html="post.content.substring(0, 200)"></td>
-                    <td><img :src="post.image" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm"></td>
+                    <td>
+                      <div v-if="post.image && post.image.length > 0">
+                      <img :src="post.image[0]" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
+                      </div>
+                    </td>
                     <td>
                       <div class="flex items-center gap-1">
                         <!-- update btn -->

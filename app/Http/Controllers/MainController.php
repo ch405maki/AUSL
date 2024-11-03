@@ -103,4 +103,28 @@ class MainController extends Controller
         'events' => $events,
     ]);
     }
+
+    public function allAnnouncement()
+    {
+        $announcements = Post::whereIn('category', ['Announcement'])
+        ->where('state', 'Active')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return Inertia::render('Main/Home/Announcement/allAnnouncement', [
+            'announcements' => $announcements,
+        ]);
+    }
+
+    public function allNews()
+    {
+        $news = Post::whereIn('category', ['News'])
+        ->where('state', 'Active')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return Inertia::render('Main/Home/Post/allNews', [
+            'allNews' => $news,
+        ]);
+    }
 }

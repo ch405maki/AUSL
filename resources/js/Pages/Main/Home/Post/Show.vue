@@ -66,19 +66,26 @@
               
               
               <!-- Links, Events & Seminars --> 
+              <!-- Links, Events & Seminars --> 
               <div class="w-full md:w-1/3 p-2 flex justify-start">
                 <div class="text-left">
-                  <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                    <h1 class="text-purple-900 text-lg font-medium mb-4">See Also</h1>
-                    <hr class="mb-4 border-1 border-purple-900">
+                  <div class="mb-2 mt-10">
+                  <div class="ml-4">
+                    <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
+                    <hr class="mb-4 border-1 border-purple-800">
+                        <h3 class="text-lg font-normal text-gray-800 mb-8">News</h3>
+                    </div>
+                    <div class="ml-4">
+                    <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                    <hr class="mb-4 border-1 border-purple-800">
                     <ul class="list-inside list-disc">
-                      <li v-for="(item, index) in links" :key="index" class="mb-2">
-                        <a :href="item.url" class="text-slate-700 text-lg font-normal text-gray-600 hover:text-slate-900">{{ item.text }}</a>   
-                      </li>
+                        <RelatedLinks />
                     </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <!-- End Links, Events & Seminars --> 
             </div>
           </div>
@@ -101,6 +108,7 @@
     import { ref, computed } from 'vue';
     import MainLayout from '@/Layouts/MainLayout.vue';
     import VueEasyLightbox from 'vue-easy-lightbox';
+    import RelatedLinks from '../Partials/RelatedLinks.vue';
 
     // Define props here
     const { post, allPost } = defineProps(['post', 'allPost']);

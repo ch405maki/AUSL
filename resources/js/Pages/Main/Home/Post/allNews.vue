@@ -1,7 +1,7 @@
 <template>
     <MainLayout>
-      <Head title="Deans Corner" />
-      <Header>Deans Corner</Header>
+      <Head title="Academic Guidelines" />
+      <Header> AUSL News</Header>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
@@ -10,35 +10,35 @@
               <!-- Step 1 -->
               <div class="ml-2">
                 <h2 class="text-official-purple-800 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">
-                   Dean's Announcement
+                  AUSL News
                 </h2>
                 <div class="w-full">
-                    <div v-for="dean in deans" :key="dean.id" id="news">
+                    <div v-for="news in allNews" :key="news.id" id="news">
                     <div class="text-left flex items-justify mb-4">
-                        <div v-if="dean.image && dean.image.length > 0" class="mr-0">
-                        <img :src="dean.image[0]" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
+                        <div v-if="news.image && news.image.length > 0" class="mr-0">
+                        <img :src="news.image[0]" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
                         </div>
                         <div class="text-justify ml-2">
                         <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
-                            <a :href="`/announcement/show/${dean.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ dean.title }}</a>
+                            <a :href="`/show/${news.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ news.title }}</a>
                         </h3>
                         <p class="text-slate-600 ">
-                            {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+                            {{ new Date(news.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
                         </p>
-                        <div v-if="dean.content">
-                            <p v-if="dean.content.length > 0">
-                            <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 200)"></div>
+                        <div v-if="news.content">
+                            <p v-if="news.content.length > 0">
+                            <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="news.content.substring(0, 200)"></div>
                             </p>
-                            <p v-else>{{ dean.content }}</p>
+                            <p v-else>{{ news.content }}</p>
                         </div>
-                        <a :href="`/announcement/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
+                        <a :href="`/show/${news.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
                         </div>
                     </div>
                     <hr class="mb-4 border-1 border-purple-200">
                     </div>
                     <!-- End Breadcrumb -->
                 </div>
-                <!-- End News and Announcement Section -->
+                <!-- End News and news Section -->
                 </div>
             </section>
   
@@ -47,13 +47,13 @@
                 <div class="ml-4">
                 <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
                 <hr class="mb-4 border-1 border-purple-800">
-                    <h3 class="text-lg font-normal text-gray-800 mb-8">Deans Corner</h3>
+                    <h3 class="text-lg font-normal text-gray-800 mb-8"> AUSL News</h3>
                 </div>
                 <div class="ml-4">
                 <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
                 <hr class="mb-4 border-1 border-purple-800">
                 <ul class="list-inside list-disc">
-                  <RelatedLinks />
+                    <RelatedLinks />
                 </ul>
                 </div>
             </div>
@@ -63,21 +63,24 @@
     </main>
   </MainLayout>
   </template>
-  
-  <script setup>
+
+<script setup>
   import { ref } from 'vue';
   import { reactive, onMounted, onBeforeUnmount } from 'vue';
   import { Head } from '@inertiajs/vue3';
   import MainLayout from '@/Layouts/MainLayout.vue';
   import { defineProps } from 'vue';
   import Header from '../../Components/Header.vue';
-  import RelatedLinks from '../../Home/Partials/RelatedLinks.vue'
+  import RelatedLinks from '../Partials/RelatedLinks.vue';
 
 //   import RelatedLinks from '../Components/RelatedLinks.vue';
   
-  const props = defineProps({
-  deans: { type: Array, required: true },
-  });
+const props = defineProps({
+  allNews: {
+    type: Array,
+    required: true
+  },
+});
   
   const isMobile = reactive({ value: window.innerWidth <= 768 });
   
