@@ -55,7 +55,11 @@
                                         <td>{{ post.state }}</td>
                                         <td>{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
                                         <td>{{ new Date(post.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
-                                        <td><img :src="post.image" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm"></td>
+                                        <td>
+                                            <div v-if="post.image && post.image.length > 0">
+                                            <img :src="post.image[0]" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
+                                            </div>
+                                        </td>
                                         <td class="text-center">
                                             <div class="flex justify-center items-center gap-1">
                                                 <!-- update btn -->
