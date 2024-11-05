@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeadBar/>
+    <HeadBar :banners="banners" />
     <!-- First Navigation Bar -->
     <nav ref="firstNav" class="bg-official-purple-800 hidden lg:block z-50 border-b-[1px] fixed top-[26px] left-0 right-0 transition-all duration-300">
       <!-- Primary Navigation Menu -->

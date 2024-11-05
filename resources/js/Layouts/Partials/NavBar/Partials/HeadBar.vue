@@ -3,8 +3,8 @@
         <div class="max-w-7xl mx-auto">  
             <!-- Flex container for right alignment -->
             <div class="flex justify-end mt-[2px]">
-                <a href="https://aims.arellanolaw.edu/aims/applicants/"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">Online Registration</span>
+                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">{{ banners[0].title }}</span>
                 </a>
                 <a href="https://aims.arellanolaw.edu/aims/faculty/"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
                     <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">AIMS Faculty</span>
@@ -17,25 +17,38 @@
     </nav>
 </template>
 
-    <script setup>
-        import { ref, onMounted } from 'vue';
-        import { usePage } from '@inertiajs/vue3';
+<script setup>
+    import { ref, onMounted } from 'vue';
+    import { usePage } from '@inertiajs/vue3';
 
-        const { props: { ziggy } } = usePage();
-        const route = window.route;
+    const banners = ref([]); // Store banners as an array
 
-        const mainContentClass = ref('');
+    const fetchBanners = async () => {
+    try {
+        const response = await fetch('/banners');
+        banners.value = await response.json(); // Fetch the data as an array
+    } catch (error) {
+        console.error('Error fetching banners:', error);
+    }
+    };
 
-        const updateMainContentClass = () => {
-        const width = window.innerWidth;
-        mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
-        };
+    onMounted(fetchBanners);
 
-        onMounted(() => {
-        updateMainContentClass();
-        window.addEventListener('resize', updateMainContentClass);
-        });
-    </script>
+    const { props: { ziggy } } = usePage();
+    const route = window.route;
+
+    const mainContentClass = ref('');
+
+    const updateMainContentClass = () => {
+    const width = window.innerWidth;
+    mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
+    };
+
+    onMounted(() => {
+    updateMainContentClass();
+    window.addEventListener('resize', updateMainContentClass);
+    });
+</script>
     
     <style scoped>
     @import url('https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond');

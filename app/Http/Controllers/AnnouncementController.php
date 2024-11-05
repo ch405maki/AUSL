@@ -25,11 +25,12 @@ class AnnouncementController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
     $request->validate([
         'title' => 'required|string',
         'content' => 'nullable|string',
         'image.*' => 'nullable|image|mimes:jpg,png,gif|max:10240',
+        'pubmat' => 'nullable|image|mimes:jpg,png,gif|max:10240',
         'category' => 'required|string',
         'state' => 'nullable|string',
         'link' => 'nullable|url',
@@ -38,6 +39,7 @@ class AnnouncementController extends Controller
 
     $data = $request->all();
 
+    // Handle multiple images
     $imagePaths = [];
     if ($request->hasFile('image')) {
         foreach ($request->file('image') as $file) {
@@ -46,13 +48,21 @@ class AnnouncementController extends Controller
         }
     }
 
+    // Handle pubmat file
+    $pubmatPath = null;
+    if ($request->hasFile('pubmat')) {
+        $pubmatPath = $request->file('pubmat')->store('public/pubmats');
+        $data['pubmat'] = Storage::url($pubmatPath);
+    }
+
     // Assign array of image paths to 'image' field
     $data['image'] = $imagePaths;
 
     Post::create($data);
 
     return redirect('announcement');
-    }
+}
+
 
 
     public function destroy($id)
