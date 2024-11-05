@@ -315,7 +315,7 @@ nav {
 }
 
 .main-content-desktop {
-  padding-top: 110px; /* Desktop */
+  padding-top: 137px; /* Desktop */
 }
 
 .main-content-mobile {

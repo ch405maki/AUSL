@@ -3,20 +3,19 @@
         <div class="max-w-7xl mx-auto">  
             <!-- Flex container for right alignment -->
             <div class="flex justify-end mt-[2px]">
-                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">Online Registration</span>
+                <a href="https://aims.arellanolaw.edu/aims/applicants/"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">Online Registration</span>
                 </a>
-                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">AIMS Faculty</span>
+                <a href="https://aims.arellanolaw.edu/aims/faculty/"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">AIMS Faculty</span>
                 </a>
-                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
-                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">Aims Students</span>
+                <a href="https://aims.arellanolaw.edu/aims/students/"  target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-medium text-gray-800 hover:text-purple-900 hover:underline">AIMS Students</span>
                 </a>
             </div>
         </div>
     </nav>
 </template>
-
 
     <script setup>
         import { ref, onMounted } from 'vue';

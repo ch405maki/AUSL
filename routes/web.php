@@ -176,6 +176,8 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::get('/library', function () {
         return Inertia::render('Main/Student/Library/Index');
     })->name('library');
+
+    Route::get('/downloadable-forms', [StudentController::class, 'forms'])->name('downloadable-forms');
 });
 
 Route::get('/dean', function () {

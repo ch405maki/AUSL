@@ -15,16 +15,16 @@
             <a href="/student/oath" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawyer's Oath</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="https://aims.arellanolaw.edu/aims/students/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">AIMS Portal</a>
+            <a href="https://aims.arellanolaw.edu/aims/students/"  target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">AIMS Portal</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a href="https://lawphil.net/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
+            <a href="https://lawphil.net/"  target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="(route('student.library'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('student.library'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Downloadable Forms</a>
+            <a :href="(route('student.downloadable-forms'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Downloadable Forms</a>
         </li>   
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="(route('contact.socials'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Social Media</a>

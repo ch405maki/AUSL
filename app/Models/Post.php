@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'content', 'image', 'category', 'state', 'link', 'created_at'];
+    protected $fillable = ['title', 'content', 'image', 'category', 'state', 'link', 'created_at', 'pubmat'];
 
     protected $casts = [
         'image' => 'array',
