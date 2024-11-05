@@ -1,10 +1,22 @@
 <template>
-    <div class="group inline-block relative">
-        <a :href="(route('history'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
-        <span class="pr-1 font-normal flex-1 garamond uppercase hover:gray-600">Faculty</span>
-        </a>
-    </div>
+    <nav ref="firstNav" class="bg-official-purple-200 hidden lg:block z-50 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto">  
+            <!-- Flex container for right alignment -->
+            <div class="flex justify-end mt-[2px]">
+                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">Online Registration</span>
+                </a>
+                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">AIMS Faculty</span>
+                </a>
+                <a :href="(route(''))" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+                    <span class="pr-1 font-normal text-gray-800 hover:text-gray-900">Aims Students</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 </template>
+
 
     <script setup>
         import { ref, onMounted } from 'vue';

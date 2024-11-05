@@ -3,7 +3,7 @@
     <!-- First Navigation Bar -->
     <TopNav />
     <!-- Second Navigation Bar -->
-    <nav ref="navButtons" class="hidden lg:block border-b-[1px] bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-[70px] second-nav">
+    <nav ref="navButtons" class="hidden lg:block border-b-[1px] bg-official-purple-800 left-0 right-0 z-40 transition-all duration-300 fixed top-[97px] second-nav">
       <!-- Primary Navigation Menu -->
       <div class="max-w-7xl mx-auto">
         <div class="flex justify-between h-10 items-center">

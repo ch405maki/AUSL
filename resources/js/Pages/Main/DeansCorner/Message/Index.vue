@@ -21,6 +21,7 @@
               <img src="/images/deans/deannavarro.png" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4">
               <b class="block text-lg text-slate-800">Atty. Domingo M. Navarro</b>
               <i class="block text-slate-700">Dean</i>
+              <i class="block text-slate-700">(2016 - Present)</i>
             </div>
           </div>
   
@@ -31,6 +32,7 @@
               <img src="images/deans/deansundiang.jpg" alt="Dean Sundiang" class="w-48 h-auto mx-auto mb-4">
               <b class="block text-lg text-slate-800">Atty. Jose R. Sundiang</b>
               <i class="block text-slate-700">Dean</i>
+              <i class="block text-slate-700">(2007 - 2012)</i>
             </div>
             <!-- Main content section with scrollable area -->
             <div class="w-full md:w-2/3 p-4 order-2 md:order-2 text-slate-600 reveal-text">
@@ -99,6 +101,7 @@
               <img src="images/deans/deanMagsalin.jpg" alt="Dean Magsalin" class="w-48 h-auto mx-auto mb-4">
               <b class="block text-lg text-slate-800">Atty. Mariano F. Magsalin, Jr.</b>
               <i class="block text-slate-700">Dean & Executive Director</i>
+              <i class="block text-slate-700">(1994 - 2007)</i>
             </div>
           </div>
         </div>

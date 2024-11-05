@@ -1,9 +1,10 @@
 <template>
   <div>
+    <HeadBar/>
     <!-- First Navigation Bar -->
-    <nav ref="firstNav" class="bg-official-purple-800 hidden lg:block z-50 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300">
+    <nav ref="firstNav" class="bg-official-purple-800 hidden lg:block z-50 border-b-[1px] fixed top-[26px] left-0 right-0 transition-all duration-300">
       <!-- Primary Navigation Menu -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
         
         <div class="flex justify-between h-18 items-center">
           <div class="flex items-center">
@@ -62,6 +63,7 @@
 import { ref, onMounted } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import SearchBar from './SearchBar.vue';
+import HeadBar from './HeadBar.vue';
 
 const banners = ref([]); // Store banners as an array
 
