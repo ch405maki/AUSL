@@ -3,7 +3,7 @@
       <Head title="Show Post" />
       <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
         <main class="flex-grow">
-          <div class="bg-white">
+          <div class="">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <!-- Main content section -->
@@ -44,7 +44,7 @@
                 </div>
                 <!-- End main content section -->
                 <!-- Links, Events & Seminars --> 
-                <div class="w-full md:w-1/3 p-2 flex justify-start">
+                <div class="w-full md:w-1/3  flex justify-start">
                   <div class="text-left">
                     <div class="mb-2 mt-10">
                     <div class="ml-4">
