@@ -9,7 +9,7 @@
             Announcements
           </h1>
           <p class="font-normal text-left text-slate-700 text-md md:text-lg lg:text-xl mb-8">
-            Read about the latest AUSL Initiatives, Achievements, and Developments.
+            <!-- Read about the latest AUSL Initiatives, Achievements, and Developments. -->
           </p>
           
           <div class="announcement-carousel owl-carousel owl-theme">
@@ -18,41 +18,42 @@
               :key="announcement.id"
               
             >
-              <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
-                <!-- Set a fixed height for the iframe -->
-                <div class="overflow-hidden rounded-lg relative group">
-                <div v-if="announcement.pubmat">
-                  <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
-                  <!-- <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-100 object-cover"> -->
-                  <img :src="announcement.pubmat" alt="Announcement Image" class="w-full h-100 object-cover">
-                  <!-- Overlay for hover effect -->
-                  <div class="overlay"></div>
-                  </a>
-                </div>
-                <div v-else>
-                  <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
-                  <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-100 object-cover">
-                  <!-- Overlay for hover effect -->
-                  <div class="overlay"></div>
+            <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
+            <div class="overflow-hidden rounded-lg relative group">
+                <!-- Conditionally render the announcement image or fallback image -->
+                <a :href="announcement.category === 'Announcement' ? `/announcement/show/${announcement.id}` : `/deans/show/${announcement.id}`" class="block relative group">
+                    <img 
+                        :src="announcement.pubmat || '/images/announcement/announcementbg.jpg'" 
+                        alt="Announcement Image" 
+                        class="w-full h-100 object-cover"
+                    />
+                    <!-- Overlay for hover effect -->
+                    <div class="overlay"></div>
                 </a>
-                <a :href="`/announcement/show/${announcement.id}`" class="absolute inset-0 text-white text-sm flex items-end p-4">
-                    <h1
-                      class="w-full py-36 sm:py-20 text-3xl sm:text-xl font-bold cursor-pointer opacity-100 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      {{ announcement.category }}
-                    </h1>
-                  </a>
-                </div>
-                </div>
 
-                <div class="p-4 flex flex-col flex-grow justify-between">
-                  <a
-                    :href="`/announcement/show/${announcement.id}`"
+                <!-- Title overlay for announcement -->
+                <a :href="announcement.category === 'Announcement' ? `/announcement/show/${announcement.id}` : `/deans/show/${announcement.id}`" class="absolute inset-0 text-white text-sm flex items-end p-4">
+                    <h1 v-if="!announcement.pubmat" class="w-full py-36 sm:py-20 text-3xl sm:text-xl font-bold cursor-pointer opacity-100 group-hover:opacity-100 transition-opacity duration-300">
+                        {{ announcement.title.length > 26 ? announcement.title.slice(0, 21) + '...' : announcement.title }}
+                    </h1>
+                </a>
+            </div>
+
+            <div class="p-4 flex flex-col flex-grow justify-between">
+                <!-- Announcement title link -->
+                <a 
+                    :href="announcement.category === 'Announcement' ? `/announcement/show/${announcement.id}` : `/deans/show/${announcement.id}`"
                     class="font-bold text-lg text-left text-gray-800 hover:text-purple-900 cursor-pointer"
-                  >{{ announcement.title || 'Null' }}</a>
-                  <p class="text-gray-600 mt-2 text-left text-lg">{{ new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
-                </div>
-              </div>
+                >
+                    {{ announcement.title || 'Null' }}
+                </a>
+                <!-- Announcement date -->
+                <p class="text-gray-600 mt-2 text-left text-lg">
+                    {{ new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+                </p>
+            </div>
+        </div>
+
             </div>
           </div>
         </div>
@@ -60,7 +61,7 @@
       </section>
 
       <aside class="w-full md:w-1/4 sticky top-0 mb-6 sm:mb-0">
-      <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
+      <div class="mb-8 mt-2">
           <!-- Right Column: Event Highlight -->
         <div class="sm:col-span-12 lg:col-span-4">
           <h1 class="text-slate-800 text-left py-7 mb-[4px] font-bold text-2xl lg:text-2xl">

@@ -18,4 +18,5 @@ class DeansController extends Controller
 
         return Inertia::render('Main/DeansCorner/Corner/Index', ['deans' => $deans]);
     }
+
 }

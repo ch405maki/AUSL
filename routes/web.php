@@ -63,6 +63,8 @@ Route::get('/deans_message', function () {
 })->name('deans_message');
 
 Route::get('/deans corner', [DeansController::class, 'index'])->name('deans corner');
+Route::get('/deans/show/{id}', [MainController::class, 'showDeansAnnouncement'])->name('deans.show');
+
 
 
 // Administration
@@ -177,7 +179,9 @@ Route::prefix('student')->name('student.')->group(function () {
         return Inertia::render('Main/Student/Library/Index');
     })->name('library');
 
-    Route::get('/downloadable-forms', [StudentController::class, 'forms'])->name('downloadable-forms');
+    Route::get('/downloadable-forms', function () {
+        return Inertia::render('Main/Student/Downloadable/Index');
+    })->name('downloadable-forms');
 });
 
 Route::get('/dean', function () {

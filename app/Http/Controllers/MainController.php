@@ -63,6 +63,16 @@ class MainController extends Controller
         ]);
     }
 
+    public function showDeansAnnouncement($id)
+    {
+        $post = Post::findOrFail($id);
+        $deans = Post::where('category', 'Deans')->where('state', 'Active')->get();
+        return Inertia::render('Main/DeansCorner/Corner/Show', [
+            'post' => $post,
+            'deans' => $deans
+        ]);
+    }
+
     public function departmentList()
     {
         $offices = Office::select('id', 'office_name', 'image', 'office_location')
