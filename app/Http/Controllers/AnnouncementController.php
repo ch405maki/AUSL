@@ -64,6 +64,60 @@ class AnnouncementController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+        return inertia('Announcement/Edit', ['post' => $post]);
+    }
+
+    public function update(Request $request, $id)
+{
+    // Validate the incoming data
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'nullable|string',
+        'link' => 'nullable|url',
+        'state' => 'nullable|string', // You can still allow state to be nullable
+        'newImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // For additional images
+        'pubmat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // For pubmat image
+    ]);
+
+    // Retrieve the existing post record
+    $post = Post::findOrFail($id);
+
+    // Get the existing images from the post
+    $images = $post->image; // Assumes 'image' is an array stored in the database
+
+    // If there are new images, process and add them to the post
+    if ($request->hasFile('newImages')) {
+        foreach ($request->file('newImages') as $image) {
+            $path = $image->store('public/images');  // Store new image
+            $images[] = Storage::url($path);  // Add to existing images array
+        }
+    }
+
+    // Handle the pubmat file (if any)
+    if ($request->hasFile('pubmat')) {
+        $pubmatPath = $request->file('pubmat')->store('public/pubmats');
+        $post->pubmat = Storage::url($pubmatPath);  // Store pubmat file URL
+    }
+
+    // Update the post record with the new data, ensuring 'state' is set to 'Active'
+    $post->update([
+        'title' => $request->title,
+        'content' => $request->content,
+        'link' => $request->link,
+        'state' => 'Active', // Set the state to "Active"
+        'created_at' => $request->created_at,
+        'image' => $images, // Existing and new images combined
+        'pubmat' => isset($post->pubmat) ? $post->pubmat : null, // Ensure the pubmat field is included
+    ]);
+
+    return redirect()->route('announcement')->with('success', 'Post updated successfully');
+}
+
+
+    
 
     public function destroy($id)
     {

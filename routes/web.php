@@ -254,6 +254,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/announcement/create', [AnnouncementController::class, 'createAnnouncement'])->name('announcement.create');
     Route::post('/announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
     Route::delete('/announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
+    Route::get('/announcement/edit/{id}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
+    Route::put('/announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
 });
 
 // Deans route

@@ -29,9 +29,7 @@
             <li class="px-2 py-2 transition duration-150 ease-in-out">
                 <a :href="route('academic.course_description')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Course Descriptions</a>
             </li>
-            <li class="px-2 py-2 transition duration-150 ease-in-out">
-                <a :href="route('academic.guidelines')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Guidelines</a>
-            </li>
+            
             </ul>
         </li>
         <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
@@ -51,12 +49,15 @@
             </li>
             </ul>
         </li>
+        <li class="px-2 py-2 transition duration-150 ease-in-out">
+            <a :href="route('academic.guidelines')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Academic Guidelines</a>
+        </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="route('academic.barreview')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bar Review</a>
         </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+        <!-- <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer hover:underline">MCLE</a>
-        </li>
+        </li> -->
         </ul>
     </div>
 </template>

@@ -11,7 +11,7 @@
       { text: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/' },
       { text: 'LawPhil.net', url: 'https://lawphil.net/' },
       { text: 'Downloadable Forms', url: '/student/downloadable-forms' },
-      { text: 'Manual Enlishment', url: 'https://docs.google.com/forms/d/e/1FAIpQLSc04tvc09-7wi9_mnK6rLliwQcCjfzNm7dGjkNRyySEpANorA/closedform' },
+      { text: 'Manual Enlistment', url: 'https://docs.google.com/forms/d/e/1FAIpQLSc04tvc09-7wi9_mnK6rLliwQcCjfzNm7dGjkNRyySEpANorA/closedform' },
       { text: 'ID Application', url: '/admissions/id' },
     //   { text: 'Library', url: '/student/library' }, 
       { text: 'Social Media', url: '/contact/socials' }, 

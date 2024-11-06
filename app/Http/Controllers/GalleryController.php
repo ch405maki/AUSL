@@ -52,7 +52,7 @@ class GalleryController extends Controller
     }
 
     public function update(Request $request, $id)
-{
+    {
     // Validate the incoming data
     $request->validate([
         'title' => 'required|string|max:255',
@@ -82,7 +82,7 @@ class GalleryController extends Controller
     ]);
 
     return redirect()->route('gallery')->with('success', 'Gallery updated successfully');
-}
+    }
 
 
 
