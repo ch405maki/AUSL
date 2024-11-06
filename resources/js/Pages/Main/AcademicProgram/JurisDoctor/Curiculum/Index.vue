@@ -5,10 +5,10 @@
         <div class="relative mb-4">
           <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
           <div class="absolute inset-0 flex items-center justify-center">
-            <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+            <h1 class="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold text-center">
                 ARELLANO UNIVERSITY SCHOOL OF LAW
-              <p class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl">Juris Doctor (143 Units)</p>
-              <p class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl">(School Year 2022-2023)</p>
+              <p class="text-lg sm:text-xl md:text-2xl lg:text-4xl">Juris Doctor (143 Units)</p>
+              <p class="text-lg sm:text-xl md:text-2xl lg:text-4xl">(School Year 2022-2023)</p>
             </h1>
           </div>
         </div>

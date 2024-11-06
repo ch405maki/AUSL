@@ -119,6 +119,10 @@ Route::prefix('academic')->name('academic.')->group(function () {
         return Inertia::render('Main/AcademicProgram/JurisDoctor/Curiculum/Index');
     })->name('juris-doctor');
 
+    Route::get('/refresher-curriculum', function () {
+        return Inertia::render('Main/AcademicProgram/Refresher/Index');
+    })->name('refresher-curriculum');
+
     Route::get('/guidelines', function () {
         $guidelines = Academic::all();
         return Inertia::render('Main/AcademicProgram/Guidelines/Index', ['guidelines' => $guidelines]);
