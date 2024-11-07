@@ -28,7 +28,7 @@
             <!-- Static Text and Search Bar -->
             <button v-if="banners.length">
               <div>
-                <a :href="banners[0].link" class="enroll-link font-sans text-purple-900 hover:text-purple-950 rounded relative hidden sm:block">
+                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="enroll-link font-sans text-yellow-400 hover:text-yellow-500 rounded relative hidden sm:block">
                   {{ banners[0].title }}
                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                 </a>
@@ -175,7 +175,7 @@ li:hover > button svg {
   
   .enroll-link {
     @apply font-extrabold italic text-xl sm:text-2xl lg:text-4xl;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px rgb(70, 10, 82);
     position: relative;
     overflow: hidden;
     }
