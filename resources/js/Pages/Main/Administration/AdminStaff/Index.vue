@@ -74,7 +74,7 @@
     { role: 'Executive Assistant', name: 'Jocelyn L. Doctor' },
     { role: 'Dean for Student Affairs', name: 'Lorina L. Pascasio' },
     { role: 'Director, Institute for Special Studies', name: 'Atty. Michael Vernon C. Guerrero' },
-    { role: 'Adviser & Apprenticeship Program Facilitator <br> Legal Aid Office/Data Privacy Officer', name: 'Atty. Maureen Kay E. Patajo' },
+    { role: 'Legal Admin Officer/Data Privacy Officer', name: 'Atty. Maureen Kay E. Patajo' },
     { role: 'Comptroller', name: 'Atty. Agnes B. Santos' },
     { role: 'Director, General Services', name: 'Pedro S. Cayco' },
     { role: 'Director for Accounting', name: 'Jasmin P. Horlina' },
@@ -85,8 +85,6 @@
     { role: 'Director, Guidance Office', name: 'Arnulfo V. Lopez' },
     { role: 'Chief Librarian', name: 'Edna L. Pareño' },
     { role: 'Director, The Lawphil Project', name: 'Philipp S. Bautista' },
-    { role: 'Department Head, Audio Visual', name: 'Erickson R. Ocampo' },
-    { role: 'Purchasing Officer', name: 'Eduardo C. Villavicencio' },
   ];
     
     const isMobile = reactive({ value: window.innerWidth <= 768 });
