@@ -8,34 +8,39 @@
 
       <Carousel :items="props.carousells" :banners="props.banners" />
       <Message />
-      <Post :posts="posts" />
       <Announcement :announcements="announcements" :events="props.events" />
+      <Post :posts="posts" />
       <Gallery />
-      <!-- <Alumni class="my-4" :items="props.alumni" /> -->
       <GoogleFacebook />
       <RelatedWeb />
 
-      <div v-if="showCookiePopup" class="fixed bottom-0 right-0 mb-4 mr-4 w-64">
-        <div class="bg-white rounded-lg shadow-lg p-4">
-          <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center">
-              <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" class="h-6 w-6 mr-2">
-              <span class="text-gray-700 font-bold text-sm">Cookie Policy</span>
+      <!-- Cookie popup with animation, shown only if showCookiePopup is true -->
+      <transition name="fade">
+        <div v-if="showCookiePopup" class="cookie-popup fixed bottom-0 left-0 right-0 flex items-center justify-center py-4 z-50 mx-4">
+          <div class="container mx-auto p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border">
+            <div class="flex flex-wrap items-center justify-between">
+              <div class="flex items-center px-2 w-full md:w-7/12 lg:w-2/3">
+                <div class="md:mb-0">
+                  <h3 class="text-lg font-bold text-black dark:text-white flex items-center">
+                    We use cookies
+                    <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" class="ml-2 h-6 w-6 mr-2">
+                  </h3>
+                  <p class="text-sm font-medium text-body-color dark:text-gray-300">
+                    We use cookies to ensure you get the best experience on ArellanoLaw.edu <br>
+                    By continuing to browse our site, you are agreeing to our use of cookies. Find out more 
+                    <a :href="route('privacy_policy')" class="text-official-purple-800 underline">Click here</a>
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center w-full md:w-5/12 lg:w-1/3 justify-end space-x-3">
+                <button @click="acceptCookies" class="rounded-lg bg-official-purple-600 px-8 py-2 h-12 text-sm font-semibold
+                  text-white hover:bg-official-purple-500 focus:outline-none focus:ring-2
+                  focus:ring-official-purple-500 focus:ring-offset-2">Accept</button>
+              </div>
             </div>
-            <button @click="closeCookiePopup" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
           </div>
-          <p class="text-gray-600 text-sm">
-            We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
-          </p>
-          <button @click="closeCookiePopup" class="mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded">
-            Accept
-          </button>
         </div>
-      </div>
+      </transition>
     </MainLayout>
   </div>
 </template>
@@ -53,88 +58,44 @@ import Announcement from '@/Pages/Main/Home/Announcement/Index.vue';
 import Gallery from '@/Pages/Main/Home/Gallery/Index.vue';
 import GoogleFacebook from '@/Pages/Main/Contact/Partials/GoogleFacebook.vue';
 import RelatedWeb from '@/Pages/Main/Home/Partials/RelatedWeb.vue';
-// import Alumni from '@/Pages/Main/Alumni/Index.vue';
 
 const loading = ref(true);
-const showCookiePopup = ref(false);
+const showCookiePopup = ref(false); // Initially set to false
 
-const screenWidth = ref(window.innerWidth);
-
-const updateScreenSize = () => {
-  screenWidth.value = window.innerWidth;
+const acceptCookies = () => {
+  showCookiePopup.value = false; // Hide the popup
+  sessionStorage.setItem('cookiesAccepted', 'true'); // Set flag in session storage
 };
 
-const showAlert = () => {
-  // Assuming you want to show an alert for the first banner in the list
-  const banner = props.onLoadBanners[0]; // Adjust as needed to select the appropriate banner
-
-  Swal.fire({
-    title: banner.title || 'Default Title',
-    text: banner.text || 'Default Text',
-    icon: banner.icon || 'info',
-    showCancelButton: true,
-    confirmButtonText: banner.confirmButtonText || 'Confirm',
-    cancelButtonText: banner.cancelButtonText || 'Cancel',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.location.href = banner.url || '';
-    } else {
-      console.log('Action canceled');
-    }
-    showCookiePopup.value = true;
-  });
-};
-
-const closeCookiePopup = () => {
-  showCookiePopup.value = false;
-};
-
-// Define props here
 const props = defineProps({
-  posts: {
-    type: Array,
-    required: true
-  },
-  events: {
-    type: Array,
-    required: true
-  },
-  announcements: {
-    type: Array,
-    required: true
-  },
-  carousells: {
-    type: Array,
-    required: true
-  },
-  alumni: { 
-    type: Array, 
-    required: true 
-  },
-  banners: { 
-    type: Array, 
-    required: true 
-  },
-  onLoadBanners: { 
-    type: Array, 
-    required: true 
-  },
+  posts: { type: Array, required: true },
+  events: { type: Array, required: true },
+  announcements: { type: Array, required: true },
+  carousells: { type: Array, required: true },
+  alumni: { type: Array, required: true },
+  banners: { type: Array, required: true },
+  onLoadBanners: { type: Array, required: true },
 });
 
 onMounted(() => {
   // Simulate loading time
   setTimeout(() => {
     loading.value = false;
-    
-    // Execute remaining onMounted logic after loading is complete
-    updateScreenSize();
-    window.addEventListener('resize', updateScreenSize);
-    
-    showAlert();
-  }, 2000); // Adjust the time as needed
+    // Check if cookies have already been accepted this session
+    if (!sessionStorage.getItem('cookiesAccepted')) {
+      showCookiePopup.value = true; // Show popup if not accepted
+    }
+  }, 2000);
 });
 </script>
 
 <style scoped>
-/* Add any additional styles if necessary */
+/* Fade transition for the popup */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
 </style>

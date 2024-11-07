@@ -26,7 +26,7 @@
                         <img 
                             src="/images/privacy/registration.jpg" 
                             alt="Registration" 
-                            class="h-32 w-full md:h-40 lg:h-48 object-cover" 
+                            class="h-32 md:h-40 lg:h-48 object-cover" 
                         />
                     </a>
                     <a :href="route('privacy_policy')" class="flex-shrink-0">
@@ -44,16 +44,10 @@
                         <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Quick Links</h2>
                         <ul class="text-slate-700">
                             <li class="mb-4">
-                                <a href="/login" class="hover:underline">Login</a>
-                            </li>
-                            <li class="mb-4">
                                 <a :href="route('history')" class="hover:underline cursor-pointer">About AUSL</a>
                             </li>
                             <li class="mb-4">
                                 <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
-                            </li>
-                            <li class="mb-4">
-                                <a class="hover:underline cursor-pointer">Additional Links</a>
                             </li>
                         </ul>
                     </div>

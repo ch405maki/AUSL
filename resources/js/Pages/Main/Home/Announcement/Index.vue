@@ -1,4 +1,5 @@
 <template>
+<div class="bg-official-purple-100 py-6">
 <div class="max-w-7xl mx-auto px-4 lg:py-8">
     <div class="flex flex-col md:flex-row justify-between gap-8  pl-1 sm:pl-1">
       <!-- Main content section -->
@@ -54,11 +55,11 @@
             </div>
         </div>
 
-            </div>
-          </div>
         </div>
       </div>
-      </section>
+    </div>
+  </div>
+  </section>
 
       <aside class="w-full md:w-1/4 sticky top-0 mb-6 sm:mb-0">
       <div class="mb-8 mt-2">
@@ -85,6 +86,7 @@
       </div>
       </aside>
   </div>
+</div>
 </div>
 </template>
   

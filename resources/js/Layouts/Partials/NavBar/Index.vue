@@ -16,10 +16,10 @@
               </button>
               <About />
               <Administration />
+              <Admission />
               <DeansCorner />
               <Academics />
-              <Admission />
-              <Events />
+              <!-- <Events /> -->
               <Student />
               <Contact />
             </div>
