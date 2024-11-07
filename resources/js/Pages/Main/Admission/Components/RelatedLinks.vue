@@ -8,7 +8,7 @@
     import { ref } from 'vue';
 
     const links = ref([
-    { text: 'Addmission Process', url: '/admissions/process' },
+    { text: 'Admission Process', url: '/admissions/process' },
     { text: 'Requirements', url: '/admissions/requirements' },
     { text: 'Downloadable Forms', url: '/student/downloadable-forms' },
     { text: 'Manual Enlistment', url: 'https://docs.google.com/forms/d/e/1FAIpQLSc04tvc09-7wi9_mnK6rLliwQcCjfzNm7dGjkNRyySEpANorA/closedform' },
