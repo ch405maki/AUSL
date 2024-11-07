@@ -19,7 +19,7 @@
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <div class="w-full md:w-2/2 p-2">
                   <h1 class="text-official-purple-800 font-bold text-xl sm:text-2xl text-pretty p-2">
-                    Refresher Curiculum
+                    Refresher Curriculum
                   </h1>
                   <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
                     <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
@@ -97,7 +97,7 @@
   
   const subjects = ref([
   {
-    name: 'First Year - First Semester',
+    name: 'First Semester',
     subjects: [
       { 
         name: 'Civil Law Review I (Refresher)',
@@ -125,7 +125,7 @@
 
 
   {
-    name: 'First Year - Second Semester',
+    name: 'Second Semester',
     subjects: [
       { 
         name: 'Civil Law Review II (Refresher)',
