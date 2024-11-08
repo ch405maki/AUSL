@@ -141,6 +141,19 @@
                 <v-card-text>
                 <form @submit.prevent="submitForm" class="w-full">
                   <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
+                    <!-- Link Input Section -->
+                    <div class="sm:col-span-12">
+                      <label for="link" class="block text-sm font-medium leading-6 text-gray-900">
+                        Link
+                      </label>
+                      <input
+                        type="text"
+                        id="link"
+                        v-model="form.link"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        placeholder="Enter link URL"
+                      />
+                    </div>
                     <!-- Image Upload Section -->
                     <div class="col-span-full">
                       <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">
@@ -211,6 +224,7 @@
 
   const form = useForm({
     image: null,
+    link: '',
   });
 
   const reorderModal = ref(false)
@@ -258,6 +272,7 @@
     const formData = new FormData();
     if (form.image) {
       formData.append('image', form.image);
+      formData.append('link', form.link);
     }
 
     form.post(route('carousell.store'), {
