@@ -1,20 +1,27 @@
 <template>
   <div class="carousel-wrapper">
     <!-- <MainBanner :banners="props.banners" /> -->
-  <div ref="fotoramaContainer" 
+    <div 
+      ref="fotoramaContainer" 
       class="fotorama" 
       data-transition="crossfade"
       data-fit="cover"
       data-width="100%" 
       data-ratio="1152/323" 
       data-nav="false"  
-      data-autoplay="7000">
-    <div v-for="(item, i) in items" :key="i" class="carousel-item">
-      <img :src="item.image" class="carousel-image object-fit" alt="Carousel Image" />
+      data-autoplay="7000"
+      data-stopautoplayontouch="false">
+      
+      <div v-for="(item, i) in items" :key="i" class="carousel-item">
+        <!-- Wrap the image with an anchor tag for linking -->
+        <a :href="item.link" target="_blank" rel="noopener noreferrer">
+          <img :src="item.image" class="carousel-image object-fit" alt="Carousel Image" />
+        </a>
+      </div>
+
+      <div class="fotorama-indicators"></div>
     </div>
-    <div class="fotorama-indicators"></div>
   </div>
-</div>
 </template>
 
 <script setup>
@@ -35,8 +42,14 @@ const props = defineProps({
 const fotoramaContainer = ref(null);
 
 const initializeFotorama = () => {
+
   const $fotorama = $(fotoramaContainer.value).fotorama();
   const fotorama = $fotorama.data('fotorama');
+
+  // Restart autoplay when image or link is clicked
+  $(fotoramaContainer.value).on('click', '.carousel-item a', () => {
+    fotorama.startAutoplay(7000);  // Set your autoplay interval in milliseconds
+  });
 
   // Log items and check for blank slides
   console.log('Items:', props.items);

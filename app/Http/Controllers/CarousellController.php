@@ -20,6 +20,7 @@ class CarousellController extends Controller
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'nullable|url',
         ]);
 
         $imagePath = null;
@@ -30,6 +31,7 @@ class CarousellController extends Controller
 
         Carousell::create([
             'image' => $imagePath,
+            'link' => $request->link,
         ]);
 
         return redirect()->route('carousell');
