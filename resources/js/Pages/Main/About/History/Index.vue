@@ -57,6 +57,7 @@
       </div>
     </div>
     <MissionVision />
+    <!-- <MissionVisionOld /> -->
     <Hymn />
   </main>
 </MainLayout>
@@ -74,6 +75,7 @@ import { reactive, onMounted, onBeforeUnmount } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import MissionVision from '@/Pages/Main/About/MissionVision/Index.vue';
+import MissionVisionOld from '@/Pages/Main/About/MissionVision/IndexOld.vue';
 import Hymn from '@/Pages/Main/About/Hymn/Index.vue';
 import VueEasyLightbox from 'vue-easy-lightbox';
 
@@ -87,9 +89,11 @@ const showLightbox = ref(false);
 const currentImage = ref(0);
 
 const images = [
+"images/about/victorino.jpg",
 "images/about/tolentino.jpg",
 "images/about/salipsip.jpg",
 "images/about/rafal-roble.jpg",
+"images/about/imperial.jpg",
 "images/about/viloria.jpg",
 "images/about/panotes.jpg",
 "images/about/hadjinoor.jpg",
