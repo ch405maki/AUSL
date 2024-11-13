@@ -1,7 +1,7 @@
 <template>
     <MainLayout>
       <Head title="Show Post" />
-      <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div class="flex flex-col min-h-screen bg-gray-100">
         <main class="flex-grow">
           <div class="">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,8 +14,8 @@
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-6" aria-label="breadcrumb">
                     <ol class="list-reset flex">
-                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Date Posted:</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span></li>
+                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 ">Date Posted:</a></li>
+                      <li><span class="mx-2 text-neutral-500">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span></li>
                     </ol>
                   </nav>
                   <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
@@ -36,8 +36,8 @@
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb" width="100%">
                     <ol class="list-reset flex">
-                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-200">Home</a></li>
-                      <li><span class="mx-2 text-neutral-500 dark:text-neutral-200">/ {{post.title}}</span></li>
+                      <li><a href="#" class="text-neutral-500 hover:text-neutral-600">Home</a></li>
+                      <li><span class="mx-2 text-neutral-500">/ {{post.title}}</span></li>
                     </ol>
                   </nav>
                   

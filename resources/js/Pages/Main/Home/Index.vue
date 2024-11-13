@@ -25,7 +25,7 @@
                     We use cookies
                     <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" class="ml-2 h-6 w-6 mr-2">
                   </h3>
-                  <p class="text-xs font-medium text-body-color dark:text-gray-300">
+                  <p class="text-xs font-medium text-body-color">
                     We use cookies to ensure you get the best experience on ArellanoLaw.edu <br>
                     By continuing to browse our site, you are agreeing to our use of cookies. Find out more 
                     <a :href="route('privacy_policy')" class="text-official-purple-800 underline">Click here</a>
