@@ -59,13 +59,6 @@
               <v-list-item v-for="(item, i) in links" :key="i">
                 <v-list-item-title @click="toggleDropdown(i)">
                   <a :href="item.url" class="hover:text-purple-900 flex w-full items-left">
-                    <v-icon
-                      v-if="item.icon"
-                      :icon="item.icon"
-                      class="mr-2 rounded-full p-1"
-                      :color="item.color || 'primary'"
-                      :style="{ backgroundColor: item.bgColor || '#fff' }"
-                    ></v-icon>
                     <span>{{ item.title }}</span>
                     <!-- Show dropdown icon if the item has children -->
                     <v-icon v-if="item.children" :class="isDropdownOpen(i) ? 'mdi-chevron-up' : 'mdi-chevron-down'">mdi-chevron-down</v-icon>
@@ -76,13 +69,6 @@
                   <v-list-item v-for="(child, j) in item.children" :key="j">
                     <v-list-item-title>
                       <a :href="child.url" class="pl-4 hover:text-purple-800 flex items-center">
-                        <v-icon
-                          v-if="child.icon"
-                          :icon="child.icon"
-                          class="mr-2 rounded-full p-1"
-                          :color="child.color || 'primary'"
-                          :style="{ backgroundColor: child.bgColor || '#fff' }"
-                        ></v-icon>
                         {{ child.title }}
                       </a>
                     </v-list-item-title>
@@ -138,87 +124,67 @@ onMounted(() => {
 
 //Humberger Menu links with child items
 const links = ref([
-  { title: 'Home', url: '/', icon: 'mdi-home', color: 'blue', bgColor: '#e0f7fa' },
+  { title: 'Home', url: '/'},
+  {
+    title: 'Admissions',
+    url: '#',
+    children: [
+      { title: 'Admission Process', url: '/admissions/process'},
+      { title: 'Requirements', url: '/admissions/requirements'},
+      { title: 'Application Forms', url: '/admissions/application-forms' },
+      { title: 'ID Application', url: '/admissions/id'},
+    ]
+  },
   {
     title: 'Administration',
     url: '#',
-    icon: 'mdi-school',
-    color: 'green',
-    bgColor: '#e8f5e9',
     children: [
-      { title: 'AUSL Foundation', url: '/administration/alf', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
-      { title: 'Board of Trustees', url: '/administration/board_trustees', icon: 'mdi-book', color: 'brown', bgColor: '#efebe9' },
-      { title: 'Administration Officers', url: '/administration/admin_staff', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
-      { title: 'Departments', url: '/administration/departments', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
+      { title: 'AUSL Foundation', url: '/administration/alf'},
+      { title: 'Board of Trustees', url: '/administration/board_trustees'},
+      { title: 'Administration Officers', url: '/administration/admin_staff'},
+      { title: 'Departments', url: '/administration/departments'},
     ]
   },
   {
     title: 'Academic Programs',
     url: '#',
-    icon: 'mdi-school-outline',
-    color: 'red',
-    bgColor: '#ffebee',
     children: [
-      { title: 'Juris Doctor', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
-      { title: 'Refresher', url: '/academic/curiculumn', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
-      { title: 'Bar Review', url: '/academic/barreview', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
-      { title: 'MCLE', url: 'https://clear.arellanolaw.org/', icon: 'mdi-book-open', color: 'brown', bgColor: '#efebe9' },
+      { title: 'Juris Doctor', url: '/academic/curiculumn'},
+      { title: 'Refresher', url: '/academic/curiculumn'},
+      { title: 'Bar Review', url: '/academic/barreview'},
+      { title: 'MCLE', url: 'https://clear.arellanolaw.org/'},
     ]
   },
   {
-    title: 'Admissions',
+    title: 'Deans',
     url: '#',
-    icon: 'mdi-file-edit',
-    color: 'purple',
-    bgColor: '#f3e5f5',
     children: [
-      { title: 'Admission Process', url: '/admissions/process', icon: 'mdi-progress-check', color: 'green', bgColor: '#e8f5e9' },
-      { title: 'Requirements', url: '/admissions/requirements', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
-      { title: 'Application Forms', url: '/admissions/application-forms', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
-      { title: 'ID Application', url: '/admissions/id', icon: 'mdi-file-edit', color: 'purple', bgColor: '#f3e5f5' },
+      { title: 'Deans Messages', url: '/deans_message'},
+      { title: 'Deans Corner', url: '/deans corner'},
     ]
   },
   {
     title: 'Events Calendar',
     url: '#',
-    icon: 'mdi-calendar',
-    color: 'deep-orange',
-    bgColor: '#fbe9e7',
     children: [
-      { title: 'Academic Calendar', url: '/events/academic', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
-      { title: 'Upcoming Events', url: '/events/upcomming', icon: 'mdi-calendar-month', color: 'red', bgColor: '#ffebee' },
-      { title: 'Holidays', url: '/events/holidays', icon: 'mdi-calendar-range', color: 'blue', bgColor: '#e3f2fd' },
-      { title: 'Important Dates', url: '/emptyState', icon: 'mdi-calendar-alert', color: 'yellow', bgColor: '#fff9c4' }
+      { title: 'Academic Calendar', url: '/events/academic'},
+      { title: 'Upcoming Events', url: '/events/upcomming'},
+      { title: 'Holidays', url: '/events/holidays'},
+      { title: 'Important Dates', url: '/emptyState'}
     ]
   },
   {
     title: 'Student Resources',
     url: '#',
-    icon: 'mdi-school',
-    color: 'green',
-    bgColor: '#e8f5e9',
     children: [
-      { title: 'Lawyers Oath', url: '/student/oath', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
-      { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/', icon: 'mdi-web', color: 'blue', bgColor: '#e0f7fa' },
-      { title: 'Lawphil.net', url: 'https://lawphil.net/', icon: 'mdi-book', color: 'brown', bgColor: '#efebe9' },
-      { title: 'Library', url: '#', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
-      { title: 'Social Media', url: '/contact/socials', icon: 'mdi-library', color: 'purple', bgColor: '#f3e5f5' },
-      {
-        title: 'Socials',
-        url: '#',
-        icon: 'mdi-account-group',
-        color: 'teal',
-        bgColor: '#e0f2f1',
-        children: [
-          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
-          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
-          { title: 'Title', url: '#', icon: 'mdi-account', color: 'orange', bgColor: '#ffe0b2' },
-        ]
-      }
+      { title: 'Lawyers Oath', url: '/student/oath'},
+      { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/'},
+      { title: 'Lawphil.net', url: 'https://lawphil.net/'},
+      { title: 'Social Media', url: '/contact/socials'},
     ]
   },
-  { title: 'About AUSL', url: '/history', icon: 'mdi-information', color: 'indigo', bgColor: '#e8eaf6'},
-  { title: 'Contact Us', url: '/contact', icon: 'mdi-phone', color: 'teal', bgColor: '#e0f2f1'}
+  { title: 'About AUSL', url: '/history'},
+  { title: 'Contact Us', url: '/contact'}
 ]);
 
 // Manage menu visibility
