@@ -16,24 +16,24 @@
 
       <!-- Cookie popup with animation, shown only if showCookiePopup is true -->
       <transition name="fade">
-        <div v-if="showCookiePopup" class="cookie-popup fixed bottom-0 left-0 right-0 flex items-center justify-center py-4 z-50 mx-4">
-          <div class="container mx-auto p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border">
+        <div v-if="showCookiePopup" class="cookie-popup fixed bottom-0  left-0 right-0 flex items-center justify-center py-4 z-50 mx-4 sm:mx-10">
+          <div class="container mx-auto px-4 py-2 bg-white rounded-lg shadow-lg border">
             <div class="flex flex-wrap items-center justify-between">
-              <div class="flex items-center px-2 w-full md:w-7/12 lg:w-2/3">
+              <div class="flex items-center px-[2px] w-full md:w-7/12 lg:w-2/3">
                 <div class="md:mb-0">
-                  <h3 class="text-lg font-bold text-black dark:text-white flex items-center">
+                  <h3 class="text-sm font-bold text-black flex items-center">
                     We use cookies
                     <img src="https://www.svgrepo.com/show/401340/cookie.svg" alt="Cookie" class="ml-2 h-6 w-6 mr-2">
                   </h3>
-                  <p class="text-sm font-medium text-body-color dark:text-gray-300">
+                  <p class="text-xs font-medium text-body-color dark:text-gray-300">
                     We use cookies to ensure you get the best experience on ArellanoLaw.edu <br>
                     By continuing to browse our site, you are agreeing to our use of cookies. Find out more 
                     <a :href="route('privacy_policy')" class="text-official-purple-800 underline">Click here</a>
                   </p>
                 </div>
               </div>
-              <div class="flex items-center w-full md:w-5/12 lg:w-1/3 justify-end space-x-3">
-                <button @click="acceptCookies" class="rounded-lg bg-official-purple-600 px-8 py-2 h-12 text-sm font-semibold
+              <div class="flex items-center w-full md:w-5/12 lg:w-1/3 justify-end space-x-3 pr-2">
+                <button @click="acceptCookies" class="rounded-lg bg-official-purple-600 px-8 h-9 text-sm font-semibold
                   text-white hover:bg-official-purple-500 focus:outline-none focus:ring-2
                   focus:ring-official-purple-500 focus:ring-offset-2">Accept</button>
               </div>
