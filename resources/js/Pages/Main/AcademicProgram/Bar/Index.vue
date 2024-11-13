@@ -14,7 +14,7 @@
                 </h2>
                   <div class="mb-8 relative">
                     <div class="flex flex-row sm:flex-row items-center justify-between mb-8">
-                        <img src="/images/academic/barreview.jpg" class="carousel-image object-fit" alt="Carousel Image" />
+                        <img src="/images/academic/barreview.png" class="carousel-image object-fit" alt="Carousel Image" />
                   </div>
                   <div>
                     <div class="mb-8">
