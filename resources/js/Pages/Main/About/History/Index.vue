@@ -56,8 +56,8 @@
           </section>
       </div>
     </div>
-    <MissionVision />
-    <!-- <MissionVisionOld /> -->
+    <!-- <MissionVision /> -->
+    <MissionVisionOld />
     <Hymn />
   </main>
 </MainLayout>
