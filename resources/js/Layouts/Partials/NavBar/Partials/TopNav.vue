@@ -28,7 +28,7 @@
             <!-- Static Text and Search Bar -->
             <button v-if="banners.length">
               <div>
-                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="font-black enroll-link text-yellow-300 hover:text-yellow-400 rounded relative hidden sm:block">
+                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="font-black italic text-xl sm:text-2xl lg:text-4xl  enroll-link text-yellow-300 hover:text-yellow-400 rounded relative hidden sm:block">
                   {{ banners[0].title }}
                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                 </a>
@@ -85,6 +85,10 @@ onMounted(fetchBanners);
 
 .garamond {
   font-family: 'Garamond', serif;
+}
+
+.font-arial {
+    font-family: Arial, sans-serif;
 }
 
 .nav-btn {
@@ -174,7 +178,6 @@ li:hover > button svg {
   }
   
   .enroll-link {
-    @apply font-extrabold italic text-xl sm:text-2xl lg:text-4xl;
     -webkit-text-stroke: 1px rgb(70, 10, 82);
     position: relative;
     overflow: hidden;
