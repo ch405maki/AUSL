@@ -28,7 +28,7 @@
             <!-- Static Text and Search Bar -->
             <button v-if="banners.length">
               <div>
-                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="enroll-link font-sans text-yellow-300 hover:text-yellow-400 rounded relative hidden sm:block">
+                <a :href="banners[0].link"  target="_blank" rel="noopener noreferrer" class="font-black enroll-link text-yellow-300 hover:text-yellow-400 rounded relative hidden sm:block">
                   {{ banners[0].title }}
                   <span class="absolute inset-0 z-10" aria-hidden="true"></span>
                 </a>
