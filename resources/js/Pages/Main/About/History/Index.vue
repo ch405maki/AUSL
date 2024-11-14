@@ -10,7 +10,7 @@
             <div class="ml-2">
               <div class="mb-8">
               <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
-                  The evolution of Arellano University and its School of Law
+                  Evolution of Arellano University and its School of Law
               </h2>
                 <div class="flex flex-col space-y-6 text-justify">
                   <p class="text-lg font-normal text-gray-600 mb-4">
@@ -22,7 +22,6 @@
                   <br><br>
                   <div v-if="showMore">
                     In 1948, the university moved to Plaza Guipit. In 1955, it was relocated back to its old site in Legarda, but this time housed in a modern four-storey concrete building. Today, it has seven campuses in the National Capital Region in the cities of Manila, Pasay, Pasig, Mandaluyong, and Malabon. It currently offers various programs from basic education to graduate schools recognized by DepEd, CHED, LEB, and TESDA, and accredited by PACUCOA.
-                    The first AUSL Dean was Vicente Sinco who served from 1938-1940 and later became the President of the University of the Philippines.
                     <br><br>
                     The first AUSL Dean was Vicente Sinco who served from 1938-1940 and later became the President of the University of the Philippines. Francisco Capistrano, a civil law expert who sat as member of the Civil Code Commission that revised the old Civil Code and later became Justice of the Court of Appeals, served as Dean from 1940-1956. He was followed by Enrique Voltaire Garcia who served as Dean from 1956-1963. Manila Councillor and bar placer Mariano M. Magsalin, Sr. then assumed the deanship in 1963, holding the position until 1979.
                     <br><br>
