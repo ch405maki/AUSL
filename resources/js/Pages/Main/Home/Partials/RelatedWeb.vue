@@ -16,7 +16,7 @@ import { ref } from 'vue';
 
 const relatedLinks = ref([
     {text:'Arellano University', link: 'https://www.arellano.edu.ph/', image:'/images/auLogo.png'},
-    {text:'IChief', link: 'https://ichief.arellanolaw.org/', image:'/images/alflogo.png'},
+    {text:'IChief LMS', link: 'https://ichief.arellanolaw.org/', image:'/images/alflogo.png'},
     {text:'LawPhil', link: 'https://lawphil.net/', image:'/images/lawphilLogo.png'},
     {text:'Arellano Law Foundation', link: 'https://arellanolaw.org/', image:'/images/alflogo.png'},
 ]);
