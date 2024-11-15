@@ -220,6 +220,30 @@ Route::get('/privacy_policy', function () {
     return Inertia::render('Main/Footer/Privacy/Index');
 })->name('privacy_policy');
 
+// Relevant Links
+
+    Route::get('/manual', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdKYmxSPSOLMZ_Fih8L9ojrDT-KoSbJlb1qjZ4C5RlpD4dGrA/viewform');
+    });
+    Route::get('/medical', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLScZXZAGt2BnVhXl35xgSxLnj8CLWlcL0FImY2jz90PzJofpPw/viewform');
+    });
+    Route::get('/acadrev', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeOl0S9Pwy1Q-e1RRJYg1CA85NmY4nnF_b-wVQSxyFmCwU1qA/viewform');
+    });
+    Route::get('/adding', function () {
+        return redirect()->away('https://forms.gle/3FpSCS2ZdoRW8sXS8');
+    });
+    Route::get('/beadles', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSegRiW6hkI3QLGhNOB9DxAhgxErDzovW8AaJx3_a0gZMtQXOQ/viewform');
+    });
+    Route::get('/jdapp', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeCeXXF6USz8yNDxEufHjC7_CxoUH9_ST_vT-EYvolfioX9jA/viewform');
+    });
+    Route::get('/olavolunteerlawyers', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSewXtsFJ0dIPCRxGCI2Pexy9XBRWXdHTpyqA5okULvzg1y2Jw/viewform?fbclid=IwAR2CYNO8m1j1lgVkPIEVXKrxKxv9QKu30K0jnzfkZZeeqUtlrbffATRZrHc');
+    });
+
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
 

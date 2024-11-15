@@ -1,7 +1,7 @@
 <template>
     <div class="group inline-block relative">
         <a :href="(route('history'))" class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-24">
-        <span class="pr-1 font-normal flex-1 garamond uppercase">About Us</span>
+        <span class="pr-1 font-normal flex-1 garamond uppercase hover:text-gray-300">About Us</span>
         </a>
     </div>
 </template>

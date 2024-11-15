@@ -12,10 +12,10 @@
                         <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-purple-900">
                             Arellano University School of Law
                         </span>
-                        <p>Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
-                        <p>Tel. Nos. 8404-30 89 to 93</p>
-                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-slate-700 hover:text-slate-900">
-                            onlinesupport@arellanolaw.edu
+                        <p class="text-official-purple-800"><span class="mdi mdi-map-marker mr-2 text-official-purple-700"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
+                        <p class="text-official-purple-800"><span class="mdi mdi-phone mr-2 text-official-purple-700"></span> Tel. Nos. 8404-30 89 to 93</p>
+                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-official-purple-800 hover:text-slate-900">
+                            <span class="mdi mdi-email mr-2 text-official-purple-700"></span> onlinesupport@arellanolaw.edu
                         </a>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                             <li class="mb-4 flex items-center">
                                 <a href="/contact/socials" class="hover:underline hover:text-blue-600 flex items-center">
                                     <i class="mdi mdi-facebook text-blue-600 mr-2"></i>
-                                    <span>Facebook Pages</span>
+                                    <span>Facebook</span>
                                 </a>
                             </li>
                             <li class="mb-4 flex items-center">
                                 <a href="https://www.youtube.com/@AUSLofficial" class="hover:underline hover:text-red-600 flex items-center">
                                     <i class="mdi mdi-youtube text-red-600 mr-2"></i>
-                                    <span>YouTube Channel</span>
+                                    <span>YouTube</span>
                                 </a>
                             </li>
                         </ul>

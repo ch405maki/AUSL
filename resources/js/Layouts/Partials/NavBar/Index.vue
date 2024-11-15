@@ -54,7 +54,7 @@
             <template v-slot:activator="{ props }">
               <v-icon v-bind="props" icon="mdi-menu" color="white" class="text-white"></v-icon>
             </template>
-            <v-list @click.stop minWidth="250px">
+            <v-list @click.stop minWidth="300px">
               <!-- Loop through links to create menu items -->
               <v-list-item v-for="(item, i) in links" :key="i">
                 <v-list-item-title @click="toggleDropdown(i)">
@@ -88,20 +88,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import { Inertia } from '@inertiajs/inertia';
 import { usePage } from '@inertiajs/vue3';
-import SearchBar from './Partials/SearchBar.vue';
 import Academics from './Partials/Buttons/Academic.vue' 
 import Administration from './Partials/Buttons/Administration.vue'
 import Admission from './Partials/Buttons/Admission.vue'
-import Events from './Partials/Buttons/Events.vue'
 import Student from './Partials/Buttons/Student.vue'
 import DeansCorner from './Partials/Buttons/DeansCorner.vue'
 import About from './Partials/Buttons/About.vue'
 import Contact from './Partials/Buttons/Contact.vue'
-import SideDrawer from './Partials/SideDrawer.vue';
 import TopNav from './Partials/TopNav.vue';
 
 
@@ -131,15 +127,13 @@ const links = ref([
     children: [
       { title: 'Admission Process', url: '/admissions/process'},
       { title: 'Requirements', url: '/admissions/requirements'},
-      { title: 'Application Forms', url: '/admissions/application-forms' },
-      { title: 'ID Application', url: '/admissions/id'},
     ]
   },
   {
     title: 'Administration',
     url: '#',
     children: [
-      { title: 'AUSL Foundation', url: '/administration/alf'},
+      { title: 'Arellano Law Foundation', url: '/administration/alf'},
       { title: 'Board of Trustees', url: '/administration/board_trustees'},
       { title: 'Administration Officers', url: '/administration/admin_staff'},
       { title: 'Departments', url: '/administration/departments'},
@@ -149,10 +143,13 @@ const links = ref([
     title: 'Academic Programs',
     url: '#',
     children: [
-      { title: 'Juris Doctor', url: '/academic/curiculumn'},
-      { title: 'Refresher', url: '/academic/curiculumn'},
+      { title: 'Juris Doctor', url: '/academic/juris-doctor'},
+      { title: 'Refresher', url: '/academic/refresher-curriculum'},
+      { title: 'Course Descriptions', url: '/academic/course_description'},
       { title: 'Bar Review', url: '/academic/barreview'},
       { title: 'MCLE', url: 'https://clear.arellanolaw.org/'},
+      { title: 'Academic Guidelines', url: '/academic/guidelines'},
+      { title: 'Academic Calendar', url: '/events/academic'},
     ]
   },
   {
@@ -170,7 +167,6 @@ const links = ref([
       { title: 'Academic Calendar', url: '/events/academic'},
       { title: 'Upcoming Events', url: '/events/upcomming'},
       { title: 'Holidays', url: '/events/holidays'},
-      { title: 'Important Dates', url: '/emptyState'}
     ]
   },
   {
@@ -179,12 +175,21 @@ const links = ref([
     children: [
       { title: 'Lawyers Oath', url: '/student/oath'},
       { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/'},
+      { title: 'Downloadable Forms', url: '/student/downloadable-forms'},
       { title: 'Lawphil.net', url: 'https://lawphil.net/'},
       { title: 'Social Media', url: '/contact/socials'},
     ]
   },
   { title: 'About AUSL', url: '/history'},
-  { title: 'Contact Us', url: '/contact'}
+  {
+    title: 'Contact Us',
+    url: '#',
+    children: [
+      { title: 'Contact Us', url: '/contact'},
+      { title: 'Location', url: '/contact/location'},
+      { title: 'Social Media Links', url: '/contact/socials'},
+    ]
+  },
 ]);
 
 // Manage menu visibility

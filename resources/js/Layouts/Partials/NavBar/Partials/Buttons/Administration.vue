@@ -1,7 +1,7 @@
 <template>
     <div class="group inline-block relative">
     <button class="outline-none focus:outline-none px-2 py-2 text-white rounded-md flex items-center min-w-32">
-    <span class="pr-1 font-normal flex-1 garamond uppercase">Administration</span>
+    <span class="pr-1 font-normal flex-1 garamond hover:text-gray-300 uppercase">Administration</span>
     <span>
         <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-300 ease-in-out"
             xmlns="http://www.w3.org/2000/svg"
