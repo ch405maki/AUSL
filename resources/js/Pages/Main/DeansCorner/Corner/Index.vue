@@ -33,7 +33,7 @@
                             </h1>
                           </div>
                         
-                        <div class="text-justify ml-2">
+                        <div class="ml-2">
                         <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
                             <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-purple-900 hover:underline nowarp">{{ dean.title }}</a>
                         </h3>

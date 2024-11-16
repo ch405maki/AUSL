@@ -96,7 +96,7 @@
                             {{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}
                           </h1>
                         </div>
-                        <div class="text-justify ml-2">
+                        <div class="ml-2">
                         <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
                             <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}</a>
                         </h3>

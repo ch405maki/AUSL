@@ -10,7 +10,7 @@
               <!-- Step 1 -->
               <div class="ml-2">
                 <h2 class="text-official-purple-800 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">
-                   Announcements
+                  Announcements
                 </h2>
                 <div class="w-full">
                     <div v-for="announcement in announcements" :key="announcement.id" id="news">
