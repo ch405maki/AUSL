@@ -52,11 +52,27 @@
               </video>
             </div>
             <div class="mt-8 text-start">
-            <p class="text-2xl sm:text-2xl font-bold text-purple-900 mb-2">Title...</p>
+            <p class="text-2xl sm:text-2xl font-bold text-purple-900 mb-2">Arellano Hymn</p>
             <p class="text-lg text-gray-600 mb-8">By...</p>
 
             <div class="tracking-wide text-lg font-normal text-gray-600 ">
-              <p>Lyrics...</p>
+              <p>Arellano pamantasan namin</p>
+              <p>Mahal naming Alma Mater.</p>
+              <p>Alay sa iyo mga puso namin</p>
+              <p>Lagi ka naming pakamamahalin</p>
+              <p>Ikaw ang aming tanging bukal</p>
+              <p>Ng malayang karunungan</p>
+              <p>O pamantasan naming mahal</p>
+              <p>Arellano University.</p>
+                <br>
+              <p>Arellano aming pamantasan</p>
+              <p>Lingkod na tapat ng bayan</p>
+              <p>Ang dunong na sa amin ay bigay</p>
+              <p>Sa buhay ay gagamiting tanglaw</p>
+              <p>Sa Diyos ang samo nami't hiling</p>
+              <p>Ngalan mo'y laging magniningning</p>
+              <p>O pamantasan naming mahal</p>
+              <p>Arellano University.</p>
             </div>
           </div>
           </div>

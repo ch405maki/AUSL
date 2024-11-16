@@ -12,7 +12,7 @@
             </template>  
 
             <main>
-              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden ">
                   <form @submit.prevent="submitForm" class="bg-white py-6 mb-8 shadow-sm rounded-lg">
                       <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">

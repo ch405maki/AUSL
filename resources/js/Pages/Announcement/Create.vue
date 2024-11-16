@@ -15,7 +15,7 @@
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="overflow-hidden ">
               <form @submit.prevent="submitForm" class="bg-white py-6 mb-8 shadow-sm rounded-lg">
-                  <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
+                  <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 grid-cols-12">
                     <!-- category Input -->
                     <div class="col-span-12 grid grid-cols-2 gap-6"> <!-- Add grid layout and gap -->
                     <!-- Category Input -->
@@ -47,7 +47,7 @@
                   </div>
 
                     <!-- Title Input -->
-                    <div class="sm:col-span-12">
+                    <div class="col-span-12">
                       <InputLabel for="title" value="Title" />
                       <TextInput
                         id="title"
@@ -76,15 +76,16 @@
                     </div>
 
                     <!-- Content Input with CKEditor -->
-                    <div class="sm:col-span-12">
+                    <div class="col-span-12">
                       <InputLabel for="content" value="Content" />
                       <ckeditor :editor="editor" v-model="form.content" :config="editorConfig"></ckeditor>
                     </div>
 
                     <!-- Image Upload Section -->
-                    <div class="col-span-full">
+                    <div class="col-span-12">
                       <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Upload Image (s)</label>
-                      <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div class="mt-2 flex justify-center rounded-lg border border-dashed border-
+                      gray-900/25 px-6 py-10">
                         <div v-if="previewImages.length" class="mb-4 grid grid-cols-2 gap-2">
                           <div v-for="(image, index) in previewImages" :key="index" class="relative mb-2">
                             <img :src="image" alt="Selected Image Preview" class="preview-image rounded-lg shadow-sm" />
@@ -115,7 +116,7 @@
                       <span v-if="errors.image" class="text-red-500 text-sm">{{ errors.image }}</span>
                     </div>
 
-                    <div class="sm:col-span-12 mt-4">
+                    <div class="col-span-12 mt-4">
                       <InputLabel for="link" value="Link" />
                       <TextInput
                         id="link"
@@ -128,7 +129,7 @@
                     </div>
                     
                     <!-- Submit Button -->
-                    <div class="sm:col-span-12 flex justify-center">
+                    <div class="col-span-12 flex justify-center">
                       <PrimaryButton :disabled="form.processing">
                         <i class="fa-solid fa-save"></i> Save
                       </PrimaryButton>

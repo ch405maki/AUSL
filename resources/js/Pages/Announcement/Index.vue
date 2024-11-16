@@ -6,49 +6,68 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Announcement</h2>
     </template>
 
-    <template #action >
-      <div class="flex items-center p-3">
-            <!-- Search Input -->
-            <div class="relative mr-4">
-                <input 
-                    v-model="searchQuery" 
-                    type="text" 
-                    placeholder="Search Title Here..." 
-                    class="search-input"
-                />
-                <svg class="search-icon" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="#9CA3AF"/>
-                </svg>
-            </div>
-        
-          <!-- Year Filter Dropdown -->
-          <div class="relative mr-4 w-32">
-              <select v-model="selectedYear" class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                  <option value="">All Years</option>
-                  <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-              </select>
-          </div>
+    <template #action>
+  <div class="flex items-center p-3">
+    <!-- Search Input -->
+    <div class="relative mr-4 hidden md:block">
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Search Title Here..."
+        class="search-input"
+      />
+      <svg
+        class="search-icon"
+        width="20"
+        height="20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"
+          fill="#9CA3AF"
+        />
+      </svg>
+    </div>
 
-        <!-- Category Filter Dropdown -->
-        <div class="relative mr-4 w-32">
-          <select v-model="selectedCategory" class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            <option value="">All Categories</option>
-            <option value="Announcement">Announcement</option>
-            <option value="Deans">Deans</option>
-            <option value="Events">Events</option>
-          </select>
-        </div>
+    <!-- Year Filter Dropdown -->
+    <div class="relative mr-4 w-32 hidden md:block">
+      <select
+        v-model="selectedYear"
+        class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="">All Years</option>
+        <option v-for="year in years" :key="year" :value="year">
+          {{ year }}
+        </option>
+      </select>
+    </div>
 
-          <div class="flex justify-end flex-grow">
-              <a href="announcement/create">
-                  <v-btn color="primary" class="w-full md:w-auto px-4">
-                      Add Announcement
-                      <v-icon right>mdi-plus</v-icon>
-                  </v-btn>
-              </a>
-          </div>
-          </div>
-    </template>  
+    <!-- Category Filter Dropdown -->
+    <div class="relative mr-4 w-32 hidden md:block">
+      <select
+        v-model="selectedCategory"
+        class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="">All Categories</option>
+        <option value="Announcement">Announcement</option>
+        <option value="Deans">Deans</option>
+        <option value="Events">Events</option>
+      </select>
+    </div>
+
+    <!-- Add Announcement Button (always visible) -->
+    <div class="flex justify-end flex-grow">
+      <a href="announcement/create">
+        <v-btn color="primary" class="w-full md:w-auto px-4">
+          Add Announcement
+          <v-icon right>mdi-plus</v-icon>
+        </v-btn>
+      </a>
+    </div>
+  </div>
+</template>
+  
     
     <div class="flex flex-col min-h-screen bg-gray-100 ">
       <main class="flex-grow">
@@ -61,7 +80,7 @@
                   <tr>
                     <th class="text-left">Category</th>
                     <th class="text-left">Title</th>
-                    <th class="text-left">Date</th>
+                    <th class="text-left hidden md:table-cell">Date</th>
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
@@ -69,7 +88,7 @@
                   <tr v-for="(post, index) in filteredPosts" :key="post.id">
                     <td>{{ post.category }}</td>
                     <td>{{ post.title }}</td>
-                    <td>{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
+                    <td class="hidden md:table-cell">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
                     <td>
                       <div class="flex justify-center">
                         <!-- update btn -->

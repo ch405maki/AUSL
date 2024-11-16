@@ -9,12 +9,12 @@
     <template #action >
       <div class="flex items-center p-3">
             <!-- Search Input -->
-            <div class="relative mr-4">
+            <div class="relative mr-4 hidden md:block">
                 <input 
                     v-model="searchQuery" 
                     type="text" 
                     placeholder="Search Title Here..." 
-                    class="search-input"
+                    class="search-input "
                 />
                 <svg class="search-icon" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="#9CA3AF"/>
@@ -22,7 +22,7 @@
             </div>
         
           <!-- Year Filter Dropdown -->
-          <div class="relative mr-4 w-32">
+          <div class="relative mr-4 w-32 hidden md:block">
               <select v-model="selectedYear" class="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                   <option value="">All Years</option>
                   <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
@@ -49,19 +49,19 @@
               <v-table fixed-header class="shadow-sm rounded-lg">
                 <thead>
                   <tr>
-                    <th class="text-left">Number</th>
+                    <th class="text-left hidden md:table-cell">Number</th>
                     <th class="text-left">Title</th>
-                    <th class="text-left">Content</th>
-                    <th class="text-left">Preview</th>
+                    <th class="text-left hidden md:table-cell">Content</th>
+                    <th class="text-left hidden md:table-cell">Preview</th>
                     <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="(post, index) in filteredPosts" :key="post.id">
-                    <td class="text-center">{{ index + 1 }}</td>
+                    <td class="text-center hidden md:table-cell">{{ index + 1 }}</td>
                     <td>{{ post.title }}</td>
-                    <td v-html="post.content.substring(0, 200)"></td>
-                    <td>
+                    <td class="hidden md:table-cell" v-html="post.content.substring(0, 200)"></td>
+                    <td class="hidden md:table-cell">
                       <div v-if="post.image && post.image.length > 0">
                       <img :src="post.image[0]" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
                       </div>
