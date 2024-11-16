@@ -97,7 +97,7 @@
                       </h1>
                     </a>
                   </div>
-                  <div class="p-4 flex flex-col flex-grow justify-between">
+                  <div class="p-4 flex flex-col flex-grow">
                     <a
                       :href="announcement ? `/announcement/show/${announcement.id}` : '#'"
                       class="font-bold text-lg text-left text-gray-800 hover:text-purple-900 cursor-pointer"

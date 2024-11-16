@@ -44,7 +44,7 @@
                     <div v-if="post.image && post.image.length > 0" class="mr-0">
                       <img :src="post.image[0]" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
                     </div>
-                    <div class="text-justify ml-2">
+                    <div class=" ml-2">
                       <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
                         <a :href="`/show/${post.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ post.title }}</a>
                       </h3>
