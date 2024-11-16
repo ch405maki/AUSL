@@ -17,7 +17,7 @@
               <form @submit.prevent="submitForm" class="bg-white py-6 mb-8 shadow-sm rounded-lg">
                   <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 grid-cols-12">
                     <!-- category Input -->
-                    <div class="col-span-12 grid grid-cols-2 gap-6"> <!-- Add grid layout and gap -->
+                    <div class="col-span-12 grid grid-cols-2 gap-6">
                     <!-- Category Input -->
                     <div>
                       <InputLabel for="category" value="Category" />
