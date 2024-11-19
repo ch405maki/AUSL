@@ -17,7 +17,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <section class="w-full mx-6">
-                <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">
+                <h1 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">
                   Regular Program
                 </h1>
                 <!-- Step 1 -->
@@ -235,13 +235,13 @@
             <!-- asside -->
             <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12 mb-6 ml-4">
                 <div class="ml-2">
-                  <h2 class="text-purple-900 text-lg font-medium mb-2">On this page</h2>
-                  <hr class="mb-2 border-1 border-purple-800">
+                  <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
+                  <hr class="mb-2 border-1 border-official-purple-800">
                   <h1 class="text-lg font-normal text-gray-800 mb-8">Academic Calendar</h1>
                 </div>
               <div class="ml-2">
-                <h2 class="text-purple-900 text-md sm:text-lg font-medium mb-4">Related Links</h2>
-                <hr class="mb-4 border-1 border-purple-800">
+                <h2 class="text-official-purple-900 text-md sm:text-lg font-medium mb-4">Related Links</h2>
+                <hr class="mb-4 border-1 border-official-purple-800">
                 <ul class="list-inside list-disc">
                   <RelatedLinks />
                 </ul>

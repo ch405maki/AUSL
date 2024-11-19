@@ -28,6 +28,7 @@
             <a href="https://aims.arellanolaw.edu/aims/applicants/">
               <img src="/images/online.png"  class="w-96 h-auto" alt="">
             </a>
+            
             <!-- Static Text and Search Bar -->
             <!-- <button v-if="banners.length">
               <div>

@@ -6,7 +6,7 @@
       <div class="max-w-7xl mx-auto px-6">
         <section class="w-full text-gray-600">
               <div class="flex flex-wrap mt-4 mb-8">
-                <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Departments</h1>
+                <h1 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Departments</h1>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div v-for="(office, index) in offices" :key="office.id" class="grid gap-4 relative">
                   <div class="overflow-hidden rounded-lg relative group">
@@ -31,7 +31,7 @@
                 </div>
                 </div>
             <!-- Facilities List -->
-              <h1 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Facilities</h1>
+              <h1 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty">Facilities</h1>
               <div class="flex flex-wrap mt-4 -m-4 mb-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div v-for="(facility, index) in facilities" :key="facility.id" class="grid gap-4 relative">

@@ -8,7 +8,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <div class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mb-6 mt-8 text-xl sm:text-3xl text-pretty text-start">
+                <h1 class="text-official-purple-900 font-bold mb-6 mt-8 text-xl sm:text-3xl text-pretty text-start">
                   {{ post.title }}
                 </h1>
                 <!-- Breadcrumb -->
@@ -53,13 +53,13 @@
                       Share on Facebook
                     </button>
                     
-                    <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                    <hr class="mb-4 border-1 border-purple-800">
+                    <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+                    <hr class="mb-4 border-1 border-official-purple-800">
                         <h3 class="text-lg font-normal text-gray-800 mb-8">Announcement</h3>
                     </div>
                     <div class="ml-4">
-                    <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                    <hr class="mb-4 border-1 border-purple-800">
+                    <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                    <hr class="mb-4 border-1 border-official-purple-800">
                     <ul class="list-inside list-disc">
                         <RelatedLinks />
                     </ul>
@@ -72,10 +72,10 @@
 
             <!-- News and Announcement Section -->
             <div class="w-7xl px-2">
-            <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
+            <h1 class="text-official-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
               Latest Announcement
             </h1>
-            <hr class="mb-4 border-1 border-purple-800">
+            <hr class="mb-4 border-1 border-official-purple-800">
             <div class="announcement-carousel owl-carousel owl-theme">
               <div
                 v-for="(announcement, index) in announcements || []"
@@ -100,7 +100,7 @@
                   <div class="p-4 flex flex-col flex-grow">
                     <a
                       :href="announcement ? `/announcement/show/${announcement.id}` : '#'"
-                      class="font-bold text-lg text-left text-gray-800 hover:text-purple-900 cursor-pointer"
+                      class="font-bold text-lg text-left text-gray-800 hover:text-official-purple-900 cursor-pointer"
                     >{{ announcement?.title || 'No Title Available' }}</a>
                     <p class="text-gray-600 mt-2 text-left text-lg">{{ announcement ? new Date(announcement.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '' }}</p>
                   </div>

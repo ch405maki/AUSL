@@ -39,7 +39,7 @@
             Beyond learning more about the law school and updating you with school events, the resources available here can only be as relevant as the way you make use of them. Coupled with traditional values of studying hard and judicious time management, these resources will help make your study of the law convenient and even let you save on resources.
           </p>
           </div>
-          <a @click.prevent="toggleShowMore" class="text-purple-900 font-normal mt-8 mb-4 border-[1px] border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+          <a @click.prevent="toggleShowMore" class="text-official-purple-900 font-normal mt-8 mb-4 border-[1px] border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
             {{ showMore ? 'Read Less' : 'Read More' }}
           </a>
         </div>

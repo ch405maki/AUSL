@@ -111,7 +111,7 @@
                 <!-- Loop through links to create menu items -->
                 <v-list-item v-for="(item, i) in links" :key="i">
                   <v-list-item-title @click="toggleDropdown(i)">
-                    <a :href="item.url" class="hover:text-purple-900 flex w-full items-left">
+                    <a :href="item.url" class="hover:text-official-purple-900 flex w-full items-left">
                       <v-icon
                         v-if="item.icon"
                         :icon="item.icon"
@@ -128,7 +128,7 @@
                   <v-list v-if="item.children && isDropdownOpen(i)" @click.stop>
                     <v-list-item v-for="(child, j) in item.children" :key="j">
                       <v-list-item-title>
-                        <a :href="child.url" class="pl-4 hover:text-purple-800 flex items-center">
+                        <a :href="child.url" class="pl-4 hover:text-official-purple-800 flex items-center">
                           <v-icon
                             v-if="child.icon"
                             :icon="child.icon"

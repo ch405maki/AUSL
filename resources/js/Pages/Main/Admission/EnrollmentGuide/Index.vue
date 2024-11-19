@@ -10,7 +10,7 @@
               <!-- Step 1 -->
               <div>
                 <div class="bg-white border-none rounded-lg mb-6 pl-2 relative">
-                  <h2 class="text-xl sm:text-2xl text-left text-purple-900 font-bold mb-6 border-left">Step One: Online Registration - New and Transferee Students</h2>
+                  <h2 class="text-xl sm:text-2xl text-left text-official-purple-900 font-bold mb-6 border-left">Step One: Online Registration - New and Transferee Students</h2>
                   <div class="text-slate-600 leading-relaxed">
                     <p class="text-lg font-normal text-gray-700 mb-2 text-md">1. Go to <a href="https://aims.arellanolaw.edu/aims/applicants" target="_blank" class="text-blue-600 underline">https://aims.arellanolaw.edu/aims/applicants</a> <i>(For Old Students, proceed to No. 7)</i></p>
                     <p class="text-lg font-normal text-gray-700 mb-2 text-md">2. Click "APPLY!"</p>
@@ -30,13 +30,13 @@
                     <img src="/images/admission/image4.jpg" alt="Step 5 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <img src="/images/admission/image5.jpg" alt="Step 6 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">6. Jot down Username and password
-                      <div class="bg-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
-                      <svg viewBox="0 0 24 24" class="text-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                      <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
+                      <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
                         <path fill="currentColor"
                           d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                         </path>
                       </svg>
-                      <span class="text-purple-800">
+                      <span class="text-official-purple-800">
                         Note: Username will be changed once officially enrolled into your Student Number
                       </span>
                     </div>Default password is your lastname, birthmonth and day.</p>
@@ -53,16 +53,16 @@
               <!-- Step 2 -->
               <div class="mb-8">
                 <div class="bg-white border-none rounded-lg pl-2 mb-6 relative">
-                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-2">Step Two: Enlist Subjects</h2>
+                  <h2 class="text-xl sm:text-2xl font-bold text-official-purple-900 mb-2">Step Two: Enlist Subjects</h2>
                   <div class="text-slate-600 leading-relaxed mb-2">
                     <p class="text-lg font-normal text-gray-700 mb-2">8. To enlist your subjects and schedules: Click on the "Registration" tab and select your preferred subjects and schedule.</p>
-                    <div class="bg-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
-                      <svg viewBox="0 0 24 24" class="text-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                    <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
+                      <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
                         <path fill="currentColor"
                           d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                         </path>
                       </svg>
-                      <span class="text-purple-800">
+                      <span class="text-official-purple-800">
                         Note: One Subject or One Schedule at a time
                       </span>
                     </div>
@@ -76,7 +76,7 @@
               <!-- Step 3 -->
               <div class="mb-8">
                 <div class="bg-white border-none rounded-lg pl-2 mb-6 relative">
-                  <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-2">Step Three: Payment Procedures</h2>
+                  <h2 class="text-xl sm:text-2xl font-bold text-official-purple-900 mb-2">Step Three: Payment Procedures</h2>
                   <div class="text-slate-600 leading-relaxed">
                     <p class="text-lg font-normal text-gray-700 mb-2">1. Choose a payment option:</p>
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
@@ -112,13 +112,13 @@
             <aside class="w-full md:w-1/4 sticky top-0">
               <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                 <div class="ml-4">
-                  <h2 class="text-purple-900 text-lg font-medium mb-2">On this page</h2>
-                  <hr class="mb-2 border-1 border-purple-800">
+                  <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
+                  <hr class="mb-2 border-1 border-official-purple-800">
                   <h1 class="text-lg font-normal text-gray-800 mb-8">Online Enrollment Process</h1>
               </div>
                 <div class="ml-4">
-                    <h2 class="text-purple-900 text-lg font-medium mb-2">Related Links</h2>
-                    <hr class="mb-2 border-1 border-purple-800">
+                    <h2 class="text-official-purple-900 text-lg font-medium mb-2">Related Links</h2>
+                    <hr class="mb-2 border-1 border-official-purple-800">
                     <ul class="list-inside list-disc">
                       <RelatedLinks />
                     </ul>

@@ -36,8 +36,8 @@
                 <div class="w-full md:w-1/3 p-2 flex justify-start">
                   <div class="text-left">
                     <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                      <h1 class="text-purple-900 text-lg font-medium mb-4">Related Links</h1>
-                      <hr class="mb-4 border-1 border-purple-900">
+                      <h1 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h1>
+                      <hr class="mb-4 border-1 border-official-purple-900">
                       <ul class="list-inside list-disc">
                         <li v-for="(item, index) in links" :key="index" class="mb-2 text-official-purple-800 ">
                           <a :href="item.url" class="text-lg font-normal text-official-purple-800 hover:underline">{{ item.text }}</a>

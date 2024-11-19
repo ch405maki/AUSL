@@ -4,7 +4,7 @@
       <!-- Video section -->
       <section class="w-full md:w-1/2">
         <div class="ml-2">
-          <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+          <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
             Arellano University School of Law
           </h2>
           <div class="bg-white border-none rounded-lg relative">
@@ -14,7 +14,7 @@
               </video>
             </div>
             <div class="mt-8 text-start">
-            <p class="text-2xl sm:text-2xl font-bold text-purple-900 mb-2">Hail to the Chief</p>
+            <p class="text-2xl sm:text-2xl font-bold text-official-purple-900 mb-2">Hail to the Chief</p>
             <p class="text-lg text-gray-600 mb-8">By Dean Mariano F. Magsalin, Jr.</p>
 
             <div class="tracking-wide text-lg font-normal text-gray-600 ">
@@ -42,7 +42,7 @@
       <section class="w-full md:w-1/2">
         <div class="bg-white border-none rounded-lg relative">
           <div class="ml-2">
-          <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+          <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
             Arellano University
           </h2>
           <div class="bg-white border-none rounded-lg relative">
@@ -52,7 +52,7 @@
               </video>
             </div>
             <div class="mt-8 text-start">
-            <p class="text-2xl sm:text-2xl font-bold text-purple-900 mb-2">Arellano Hymn</p>
+            <p class="text-2xl sm:text-2xl font-bold text-official-purple-900 mb-2">Arellano Hymn</p>
             <p class="text-lg text-gray-600 mb-8">By...</p>
 
             <div class="tracking-wide text-lg font-normal text-gray-600 ">

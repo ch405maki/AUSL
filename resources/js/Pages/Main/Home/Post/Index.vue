@@ -22,7 +22,7 @@
               <!-- Title with flex-grow to push the date down -->
               <a
                 :href="`/show/${post.id}`"
-                class="font-semibold text-lg text-white text-left hover:text-purple-900 hover:underline cursor-pointer line-clamp-2 flex-grow"
+                class="font-semibold text-lg text-white text-left hover:text-official-purple-900 hover:underline cursor-pointer line-clamp-2 flex-grow"
               >{{ post.title }}</a>
               <!-- Date that stays at the bottom -->
               <p class="text-gray-100 text-left mt-auto">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>

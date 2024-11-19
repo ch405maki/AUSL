@@ -8,16 +8,16 @@
           <section class="w-full md:w-3/4 relative">
             <!-- Step 1 -->
             <div class="ml-2">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+              <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
                 ID Application
               </h2>
                 <div class="mb-6 relative">
                   <div class="flex flex-row sm:flex-row items-center justify-between mb-6">
                     <div class="mb-6 relative">
-                    <h2 class="text-purple-900 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">Student ID Application and Releasing Procedures</h2>
+                    <h2 class="text-official-purple-900 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">Student ID Application and Releasing Procedures</h2>
                     <blockquote class="text-gray-700 pl-0 sm:pl-4 flex flex-wrap items-center">
                         <div class="w-full md:w-2/3">
-                        <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 1.</span> Completely fill up and submit the online application at: <a href="https://arellanolaw.edu/ausl-id" class="text-purple-700 underline">https://arellanolaw.edu/ausl-id.</a></p>
+                        <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 1.</span> Completely fill up and submit the online application at: <a href="https://arellanolaw.edu/ausl-id" class="text-official-purple-700 underline">https://arellanolaw.edu/ausl-id.</a></p>
                         <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 2.</span> After submitting the form, your application will be validated. Once application is confirmed, the student will receive a confirmation email that the student ID is ready for release.</p>
                         <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 3.</span> To claim the ID, proceed to the IT Center, 3rd floor Admin Bldg. and present your confirmation email.</p>
                         <p class="mb-4 text-lg font-normal text-gray-800 mb-8">If your Student ID will be claimed by another person or via courier delivery services, please provide an Authorization letter with photocopy of Government Issued ID of the student and the authorized representative.</p>
@@ -37,13 +37,13 @@
           <aside class="w-full md:w-1/4 sticky top-0">
           <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
               <div class="ml-4">
-              <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-              <hr class="mb-4 border-1 border-purple-800">
+              <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+              <hr class="mb-4 border-1 border-official-purple-800">
                 <h3 class="text-lg font-normal text-gray-800 mb-8">ID Application.</h3>
               </div>
               <div class="ml-4">
-              <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-              <hr class="mb-4 border-1 border-purple-800">
+              <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+              <hr class="mb-4 border-1 border-official-purple-800">
               <ul class="list-inside list-disc">
                   <RelatedLinks />
               </ul>

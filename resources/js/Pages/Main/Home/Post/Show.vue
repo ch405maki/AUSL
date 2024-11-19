@@ -8,7 +8,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <div class="w-full md:w-2/2 p-2">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
+                <h1 class="text-official-purple-900 font-bold mb-4 mt-8 text-xl sm:text-3xl text-pretty text-start">
                   {{ post.title }}
                 </h1>
 
@@ -35,18 +35,18 @@
                 </nav>
                 <!-- News and Announcement Section -->
               <div class="w-full">
-                <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
+                <h1 class="text-official-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
                   Latest News
                 </h1>
-                <hr class="mb-4 border-1 border-purple-800">
+                <hr class="mb-4 border-1 border-official-purple-800">
                 <div v-for="post in allPost" :key="post.id" id="news">
                   <div class="text-left flex items-justify mb-4">
                     <div v-if="post.image && post.image.length > 0" class="mr-0">
                       <img :src="post.image[0]" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
                     </div>
                     <div class=" ml-2">
-                      <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
-                        <a :href="`/show/${post.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ post.title }}</a>
+                      <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
+                        <a :href="`/show/${post.id}`" class="text-lg font-medium text-official-purple-900 hover:underline">{{ post.title }}</a>
                       </h3>
                       <p class="text-slate-600 ">{{ formattedDate(post.created_at) }}</p>
                       <p v-if="post.content.length > 0">
@@ -56,7 +56,7 @@
                       <p v-else>{{ post.content }}</p>
                     </div>
                   </div>
-                  <hr class="mb-4 border-1 border-purple-200">
+                  <hr class="mb-4 border-1 border-official-purple-200">
                 </div>
                 <!-- End Breadcrumb -->
               </div>
@@ -71,13 +71,13 @@
                 <div class="text-left">
                   <div class="mb-2 mt-10">
                   <div class="ml-4">
-                    <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                    <hr class="mb-4 border-1 border-purple-800">
+                    <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+                    <hr class="mb-4 border-1 border-official-purple-800">
                         <h3 class="text-lg font-normal text-gray-800 mb-8">News</h3>
                     </div>
                     <div class="ml-4">
-                    <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                    <hr class="mb-4 border-1 border-purple-800">
+                    <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                    <hr class="mb-4 border-1 border-official-purple-800">
                     <ul class="list-inside list-disc">
                         <RelatedLinks />
                     </ul>

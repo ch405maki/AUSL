@@ -10,7 +10,10 @@
                             <div class="flex flex-col w-full mb-20 mt-10 text-center">
                                 <h1 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">Our Gallery</h1>
                                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">
-                                    Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.
+                                    Discover A collection of captured moments from recent 
+                                </p>
+                                <p class="lg:w-2/3 mx-auto leading-relaxed text-base sm:text-xl">
+                                    AUSL School Events.
                                 </p>
                             </div>
 

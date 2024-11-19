@@ -8,7 +8,7 @@
               <div class="flex flex-col md:flex-row w-full justify-center">
                 <!-- Main content section -->
                 <div class="w-full md:w-2/2 p-2">
-                  <h1 class="text-purple-900 font-bold mb-6 mt-8 text-xl sm:text-3xl text-pretty text-start">
+                  <h1 class="text-official-purple-900 font-bold mb-6 mt-8 text-xl sm:text-3xl text-pretty text-start">
                     {{ post.title }}
                   </h1>
                   <!-- Breadcrumb -->
@@ -53,13 +53,13 @@
                         Share on Facebook
                       </button>
                       
-                      <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                      <hr class="mb-4 border-1 border-purple-800">
+                      <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+                      <hr class="mb-4 border-1 border-official-purple-800">
                           <h3 class="text-lg font-normal text-gray-800 mb-8">Announcement</h3>
                       </div>
                       <div class="ml-4">
-                      <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                      <hr class="mb-4 border-1 border-purple-800">
+                      <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                      <hr class="mb-4 border-1 border-official-purple-800">
                       <ul class="list-inside list-disc">
                           <RelatedLinks />
                       </ul>
@@ -72,10 +72,10 @@
   
               <!-- News and Announcement Section -->
               <div class="w-7xl px-2">
-              <h1 class="text-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
+              <h1 class="text-official-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
                 Latest Deans Announcement
               </h1>
-              <hr class="mb-4 border-1 border-purple-800">
+              <hr class="mb-4 border-1 border-official-purple-800">
               <div class="w-full">
                     <div v-for="dean in deans" :key="dean.id" id="news">
                     <div class="text-left flex items-justify mb-4">
@@ -97,8 +97,8 @@
                           </h1>
                         </div>
                         <div class="ml-2">
-                        <h3 class="text-purple-800 font-semibold text-md tracking-wide leading-6">
-                            <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-purple-900 hover:underline">{{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}</a>
+                        <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
+                            <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-official-purple-900 hover:underline">{{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}</a>
                         </h3>
                         <p class="text-slate-600 ">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
@@ -112,7 +112,7 @@
                         <a :href="`/deans/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
                         </div>
                     </div>
-                    <hr class="mb-4 border-1 border-purple-200">
+                    <hr class="mb-4 border-1 border-official-purple-200">
                     </div>
                     <!-- End Breadcrumb -->
                 </div>

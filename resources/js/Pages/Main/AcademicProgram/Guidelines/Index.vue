@@ -14,7 +14,7 @@
               </h2>
               <div v-for="(guideline, index) in guidelines" :key="index">
                 <div class="mb-8">
-                    <h1 class="text-purple-900 font-bold mb-4 text-xl sm:text-2xl text-pretty">{{guideline.title}}</h1>
+                    <h1 class="text-official-purple-900 font-bold mb-4 text-xl sm:text-2xl text-pretty">{{guideline.title}}</h1>
                     <p class="" v-html="guideline.content"></p>
                 </div>
                 </div>
@@ -24,13 +24,13 @@
           <aside class="w-full md:w-1/4 sticky top-0">
           <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
               <div class="ml-4">
-              <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-              <hr class="mb-4 border-1 border-purple-800">
+              <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+              <hr class="mb-4 border-1 border-official-purple-800">
                   <h3 class="text-lg font-normal text-gray-800 mb-8">Academic Guidelines</h3>
               </div>
               <div class="ml-4">
-              <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-              <hr class="mb-4 border-1 border-purple-800">
+              <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+              <hr class="mb-4 border-1 border-official-purple-800">
               <ul class="list-inside list-disc">
                   <RelatedLinks />
               </ul>

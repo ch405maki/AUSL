@@ -10,7 +10,7 @@
               <!-- Step 1 -->
               <div class="ml-2">
                 <div class="mb-8">
-                <h2 class="text-purple-900 font-bold mt-4 mb-2 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mt-4 mb-2 text-xl sm:text-2xl text-pretty text-left">
                   Website Privacy Policy Notice
                 </h2>
                 <div class="border-none rounded-lg relative text-left">
@@ -20,19 +20,19 @@
                   <br>
                   <p>Please read this Website Privacy Policy carefully so that you understand our privacy practices.</p>
                 </div>
-                <h2 class="text-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
                   Scope
                 </h2>
                 <div class="border-none rounded-lg relative text-left">
                 <p>This Website Privacy Policy applies to personal information collected by this website.</p>
                 </div>
-                <h2 class="text-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
                   Security
                 </h2>
                 <div class="border-none rounded-lg relative text-left">
                 <p>ALF is committed to ensuring the security of your information. We maintain reasonable safeguards in this website to protect against unauthorized disclosure, use, alteration or destruction of the personal information you provide on the Site. If you have any questions about security at our Site, you can send an email to dpo@arellanolaw.edu</p>
                 </div>
-                <h2 class="text-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
                   Sharing Your Information
                 </h2>
                 <div class="border-none rounded-lg relative text-left">
@@ -46,7 +46,7 @@
                   <li>3. With service providers acting on our behalf who have agreed to protect the confidentiality of the data;</li>
                 </ul>
                 </div>
-                <h2 class="text-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
                 Links To Other Websites
                 </h2>
                 <div class="border-none rounded-lg relative text-left">
@@ -54,15 +54,15 @@
                 <br>
                 <p>In case the user follows a link to any of these websites, the School does not accept any responsibility or liability for these policies.</p>
                 </div>
-                <h2 class="text-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
+                <h2 class="text-official-purple-900 font-bold mb-2 mt-8 text-xl sm:text-2xl text-pretty text-left">
                   Changes To Statement
                 </h2>
                 <div class="border-none rounded-lg relative text-left mb-10">
                 <p>Any changes in this privacy policy in the future will be posted on this page even without prior notice to all our stakeholders. We encourage the user to check on this page regularly for any changes.</p>
                 </div>
 
-                <h1 class="text-purple-900 font-bold text-xl sm:text-lg text-pretty">Contact Us</h1>
-                <p class="text-purple-900 mb-2 font-bold text-lg sm:text-xl text-pretty">
+                <h1 class="text-official-purple-900 font-bold text-xl sm:text-lg text-pretty">Contact Us</h1>
+                <p class="text-official-purple-900 mb-2 font-bold text-lg sm:text-xl text-pretty">
                   The Data Protection Officer
                 </p>
                 <p>                  

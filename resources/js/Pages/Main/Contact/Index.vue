@@ -24,7 +24,7 @@
                         <input
                           type="text"
                           id="table-search"
-                          class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-purple-500 focus:border-purple-500"
+                          class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-official-purple-500 focus:border-official-purple-500"
                           placeholder="Search for Contact Information"
                           v-model="searchQuery"
                         />
@@ -39,7 +39,7 @@
                         <td class="py-2 text-gray-600">
                           Telephone Numbers
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-official-purple-900 italic flex items-center">
                           <i class="mdi mdi-phone mr-1"></i> <!-- MDI Telephone Icon -->
                           <span>
                             8404-3089 <br> 8404-3090 <br> 8404-3091
@@ -50,7 +50,7 @@
                         <td class="py-2 text-gray-600">
                           Fax Number
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-official-purple-900 italic flex items-center">
                           <i class="mdi mdi-printer mr-1"></i> <!-- MDI Fax Icon -->
                           <span>
                             8521-4691
@@ -83,10 +83,10 @@
                             <span v-html="item.email"></span>
                           </p>
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic">
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-official-purple-900 italic">
                           <span v-html="item.local"></span>
                         </td>
-                        <td class="py-2 ml-2 font-normal text-gray-600 text-purple-900 italic flex items-center">
+                        <td class="py-2 ml-2 font-normal text-gray-600 text-official-purple-900 italic flex items-center">
                           <i class="mdi mdi-phone mr-1" v-if="item.mobile"></i>
                           <span v-if="item.mobile" v-html="item.mobile"></span>
                         </td>
@@ -101,13 +101,13 @@
             <aside class="w-full md:w-1/4 sticky top-0">
             <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
             <div class="ml-4">
-              <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-              <hr class="mb-4 border-1 border-purple-800">
+              <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+              <hr class="mb-4 border-1 border-official-purple-800">
               <h3 class="text-lg font-normal text-gray-800 mb-8">Contact Information</h3>
             </div>
             <div class="ml-4">
-            <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-            <hr class="mb-4 border-1 border-purple-800">
+            <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+            <hr class="mb-4 border-1 border-official-purple-800">
             <ul class="list-inside list-disc">
                 <RelatedLinks />
             </ul>

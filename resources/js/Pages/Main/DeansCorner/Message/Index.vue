@@ -78,7 +78,7 @@
                     </p>
                   </div>
                   </div>
-                  <a @click.prevent="toggleShowMore" class="text-purple-900 font-normal mb-4 border-[2px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300 cursor-pointer">
+                  <a @click.prevent="toggleShowMore" class="text-official-purple-900 font-normal mb-4 border-[2px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300 cursor-pointer">
                     {{ showMore ? 'Read Less' : 'Read More' }}
                   </a>
                 </div>
@@ -108,7 +108,7 @@
                     </p>
                   </div>
                 </div>
-                <a @click.prevent="toggleShowMoresecond" class="text-purple-900 font-normal mb-4 border-[2px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300 cursor-pointer">
+                <a @click.prevent="toggleShowMoresecond" class="text-official-purple-900 font-normal mb-4 border-[2px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300 cursor-pointer">
                     {{ ShowMoresecond ? 'Read Less' : 'Read More' }}
                   </a>
               </div>

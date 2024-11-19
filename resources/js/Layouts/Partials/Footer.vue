@@ -1,5 +1,11 @@
 <template>
-    <footer class="bg-official-purple-100">
+    <footer class="bg-official-purple-50">
+        <button
+            @click="scrollToTop"
+            class="fixed bottom-4 right-4 flex items-center justify-center w-10 h-10 bg-official-purple-600 text-white rounded-full shadow-lg hover:bg-official-purple-500 focus:outline-none focus:ring-2 focus:ring-official-purple-400 focus:ring-offset-2 z-40"
+            >
+            <i class="mdi mdi-arrow-up text-lg"></i>
+        </button>
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
@@ -9,12 +15,12 @@
 
                     <!-- Text Content -->
                     <div class="text-slate-700">
-                        <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-purple-900">
+                        <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-official-purple-900">
                             Arellano University School of Law
                         </span>
                         <p class="text-official-purple-800"><span class="mdi mdi-map-marker mr-2 text-official-purple-700"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
                         <p class="text-official-purple-800"><span class="mdi mdi-phone mr-2 text-official-purple-700"></span> Tel. Nos. 8404-30 89 to 93</p>
-                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-official-purple-800 hover:text-slate-900">
+                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-official-purple-800 hover:text-official-purple-900">
                             <span class="mdi mdi-email mr-2 text-official-purple-700"></span> onlinesupport@arellanolaw.edu
                         </a>
                     </div>
@@ -41,7 +47,7 @@
                 </div>
                 <div class="grid grid-cols-3 justify-items gap-8 sm:gap-6 sm:grid-cols-3 px-2">
                     <div>
-                        <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Quick Links</h2>
+                        <h2 class="mb-4 text-sm font-semibold text-official-purple-900 uppercase">Quick Links</h2>
                         <ul class="text-slate-700">
                             <li class="mb-4">
                                 <a :href="route('history')" class="hover:underline cursor-pointer">About AUSL</a>
@@ -52,7 +58,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Follow us</h2>
+                        <h2 class="mb-4 text-sm font-semibold text-official-purple-900 uppercase">Follow us</h2>
                         <ul class="text-slate-700">
                             <li class="mb-4 flex items-center">
                                 <a href="/contact/socials" class="hover:underline hover:text-blue-600 flex items-center">
@@ -69,7 +75,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-4 text-sm font-semibold text-purple-900 uppercase">Legal</h2>
+                        <h2 class="mb-4 text-sm font-semibold text-official-purple-900 uppercase">Legal</h2>
                         <ul class="text-slate-700">
                             <li class="mb-4">
                                 <a :href="route('privacy_policy')" class="hover:underline">Privacy Policy</a>
@@ -79,7 +85,7 @@
 
                 </div>
             </div>
-            <hr class="my-6 border-purple-800 sm:mx-auto dark:border-purple-900 lg:my-8" />
+            <hr class="my-6 border-official-purple-800 sm:mx-auto dark:border-official-purple-900 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">AUSL</a>. All Rights Reserved.
                 </span>
@@ -93,6 +99,10 @@
 
 <script setup>
     import { ref } from 'vue';
+
+    function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
 
 <style scoped>

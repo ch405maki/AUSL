@@ -17,7 +17,7 @@
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
               <section class="w-full md:w-2/2 p-4">
-                <h1 class="text-purple-900 ml-2 mt-2 font-bold mb-6 text-xl sm:text-2xl text-pretty">
+                <h1 class="text-official-purple-900 ml-2 mt-2 font-bold mb-6 text-xl sm:text-2xl text-pretty">
                     Holidays
                 </h1>
                 <div>
@@ -112,13 +112,13 @@
             <!-- asside -->
             <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12">
               <div class="ml-2">
-                <h2 class="text-purple-900 text-lg font-medium mb-2">On this page</h2>
-                <hr class="mb-2 border-1 border-purple-800">
+                <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
+                <hr class="mb-2 border-1 border-official-purple-800">
                 <h1 class="text-lg font-normal text-gray-800 mb-8">Holidays: 2024-2025</h1>
               </div>
               <div class="ml-2">
-                <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                <hr class="mb-4 border-1 border-purple-800">
+                <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                <hr class="mb-4 border-1 border-official-purple-800">
                 <ul class="list-inside list-disc">
                   <RelatedLinks />
                 </ul>

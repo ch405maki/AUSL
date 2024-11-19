@@ -9,7 +9,7 @@
           <section class="w-full relative">
             <div class="ml-2">
               <div class="mb-8">
-              <h2 class="text-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+              <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
                   Evolution of Arellano University and its School of Law
               </h2>
                 <div class="flex flex-col space-y-6 text-justify">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="flex justify-end">
                   <a @click.prevent="toggleShowMore" 
-                    class="text-purple-900 font-normal mt-8 border-2 border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+                    class="text-official-purple-900 font-normal mt-8 border-2 border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
                     {{ showMore ? 'Read Less' : 'Read More' }}
                   </a>
                 </div>

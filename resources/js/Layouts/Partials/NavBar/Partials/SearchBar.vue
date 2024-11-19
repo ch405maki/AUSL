@@ -14,7 +14,7 @@
           v-model="searchQuery"
           @focus="showSuggestions = true"
           @blur="hideSuggestions"
-          class="bg-white border border-gray-300 dark:border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 py-2.5 focus:outline-none"
+          class="bg-white border border-gray-300 dark:border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-official-purple-500 focus:border-purple-500 block w-full pl-10 py-2.5 focus:outline-none"
           placeholder="Search something..."
           required
         />

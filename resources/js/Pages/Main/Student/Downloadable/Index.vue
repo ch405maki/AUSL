@@ -11,13 +11,13 @@
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 mb-8">
                         <thead class="text-xs text-gray-700 bg-gray-50 ">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-lg font-medium text-purple-900 mb-8">
+                                <th scope="col" class="px-6 py-3 text-lg font-medium text-official-purple-900 mb-8">
                                     Code
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-lg font-medium text-purple-900 mb-8">
+                                <th scope="col" class="px-6 py-3 text-lg font-medium text-official-purple-900 mb-8">
                                     Description
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-lg font-medium text-purple-900 mb-8">
+                                <th scope="col" class="px-6 py-3 text-lg font-medium text-official-purple-900 mb-8">
                                     Action
                                 </th>
                             </tr>
@@ -27,7 +27,7 @@
                             <td class="px-6 py-4 text-lg font-normal text-gray-800 whitespace-nowrap">{{ pdf.code }}</td>
                             <td class="px-6 py-4 text-lg font-normal text-gray-800 whitespace-nowrap">{{ pdf.description }}</td>
                             <td class="px-6 py-4">
-                            <a :href="pdf.url" download class="flex items-center text-purple-500 hover:text-purple-700 text-lg font-normal">
+                            <a :href="pdf.url" download class="flex items-center text-official-purple-500 hover:text-official-purple-700 text-lg font-normal">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1 fill-current" viewBox="0 0 24 24">
                                 <path d="M12 16.5l-4-4h2.5V3h3v9.5H16l-4 4zm-7 1.5h14v2H5v-2z"/>
                                 </svg>
@@ -43,13 +43,13 @@
                 <aside class="w-full md:w-1/4 sticky top-0">
                 <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
                     <div class="ml-4">
-                        <h2 class="mb-4 text-lg leading-6 font-medium text-purple-900 capitalize">On this page</h2>
-                        <hr class="mb-4 border-1 border-purple-800">
+                        <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
+                        <hr class="mb-4 border-1 border-official-purple-800">
                         <h3 class="text-lg font-normal text-gray-800 mb-8">Downloadable Forms</h3>
                     </div>
                     <div class="ml-4">
-                        <h2 class="text-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                        <hr class="mb-4 border-1 border-purple-800">
+                        <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
+                        <hr class="mb-4 border-1 border-official-purple-800">
                         <ul class="list-inside list-disc">
                             <RelatedLinks />
                         </ul>

@@ -8,7 +8,7 @@
                 <!-- Row -->
                 <div class="flex justify-center">
                     <div class="w-full md:w-2/3 text-center">
-                    <h3 class="text-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">AUSL Events</h3>
+                    <h3 class="text-official-purple-900 font-bold my-6 text-xl sm:text-2xl text-pretty">AUSL Events</h3>
                     <h6 class="mx-auto leading-relaxed text-base sm:text-xl mb-6">Discover various aspects of AUSL Departments and stay up-to-date with our latest announcements.</h6>
                     </div>
                 </div>
@@ -23,9 +23,9 @@
                     </a>
                     <div class="p-4">
                         <h5 class="font-medium text-lg">
-                        <a :href="event.link"  class="text-gray-800 hover:text-purple-900">{{ event.title }}</a>
+                        <a :href="event.link"  class="text-gray-800 hover:text-official-purple-900">{{ event.title }}</a>
                         </h5>
-                        <a :href="event.link"  class="text-purple-900 mt-2 inline-block">Learn More</a>
+                        <a :href="event.link"  class="text-official-purple-900 mt-2 inline-block">Learn More</a>
                     </div>
                     </div>
                 </div>
