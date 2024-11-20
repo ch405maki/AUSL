@@ -10,6 +10,7 @@
       <Message />
       <Announcement :announcements="announcements" :events="props.events" />
       <Post :posts="posts" />
+      <Countdown />
       <Gallery />
       <GoogleFacebook />
       <RelatedWeb />
@@ -59,6 +60,7 @@ import Announcement from '@/Pages/Main/Home/Announcement/Index.vue';
 import Gallery from '@/Pages/Main/Home/Gallery/Index.vue';
 import GoogleFacebook from '@/Pages/Main/Contact/Partials/GoogleFacebook.vue';
 import RelatedWeb from '@/Pages/Main/Home/Partials/RelatedWeb.vue';
+import Countdown from './Countdown/Index.vue';
 
 const loading = ref(true);
 const showCookiePopup = ref(false); // Initially set to false

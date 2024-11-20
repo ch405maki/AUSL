@@ -26,7 +26,7 @@
           <!-- Static Text and Search Bar -->
           <div class="relative inset-0 flex items-center justify-end z-10 space-x-4">
             <a href="https://aims.arellanolaw.edu/aims/applicants/">
-              <img src="/images/online.png"  class="w-96 h-auto" alt="">
+              <img src="/images/online.png"  class="w-96 h-auto transition-all duration-300 transform hover:scale-105" alt="">
             </a>
             
             <!-- Static Text and Search Bar -->

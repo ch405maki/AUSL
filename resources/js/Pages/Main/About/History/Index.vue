@@ -44,7 +44,7 @@
                 </div>
                 <div class="flex justify-end">
                   <a @click.prevent="toggleShowMore" 
-                    class="text-official-purple-900 font-normal mt-8 border-2 border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+                    class="text-official-purple-900 font-normal mt-8 border-[1px] border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
                     {{ showMore ? 'Read Less' : 'Read More' }}
                   </a>
                 </div>

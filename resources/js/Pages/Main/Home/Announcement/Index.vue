@@ -61,30 +61,43 @@
   </div>
   </section>
 
-      <aside class="w-full md:w-1/4 sticky top-0 mb-6 sm:mb-0">
-      <div class="mb-8 mt-2">
-          <!-- Right Column: Event Highlight -->
-        <div class="sm:col-span-12 lg:col-span-4">
-          <h1 class="text-slate-800 text-left py-7 mb-[4px] font-bold text-2xl lg:text-2xl">
-            Events
-          </h1>
-          <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto ">
-            <a :href="events.link">
-              <div v-if="events.image && events.image.length > 0">
-                <img class="w-full sm:h-64  object-cover" 
-                :src="events.image[0]"
+  <aside class="w-full md:w-1/4 sticky top-0 mb-6 sm:mb-0">
+    <div class="mb-8 mt-2">
+      <!-- Right Column: Event Highlight -->
+      <div class="sm:col-span-12 lg:col-span-4">
+        <div class="flex justify-between items-center py-7 mb-[4px]">
+        <h1 class="text-slate-800 font-bold text-2xl lg:text-2xl">  
+          Events
+        </h1>
+        <a 
+          :href="route('events.upcomming')" 
+          class="block sm:hidden w-full max-w-xs text-center text-slate-800 font-medium text-base border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+          Show All Events
+        </a>
+      </div>
+
+        <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto">
+          <a :href="events.link">
+            <!-- Hide image on mobile screens -->
+            <div 
+              v-if="events.image && events.image.length > 0" 
+              class="hidden sm:block">
+              <img class="w-full sm:h-64 object-cover" 
+                :src="events.image[0]" 
                 alt="Event Banner">
-              </div>
-            </a>
-          </div>
-          <div class="flex justify-center sm:justify-start mb-6">
-            <a :href="route('events.upcomming')" class="text-slate-800 font-medium text-base border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
-              Show All Events
-            </a>
-          </div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden sm:block flex justify-center sm:justify-start mb-6">
+          <a :href="route('events.upcomming')" class="text-slate-800 font-medium text-base border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+            Show All Events
+          </a>
         </div>
       </div>
-      </aside>
+    </div>
+  </aside>
+
+
   </div>
 </div>
 </div>
