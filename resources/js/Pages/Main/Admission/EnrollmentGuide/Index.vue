@@ -14,13 +14,13 @@
                   <div class="text-slate-600 leading-relaxed">
                     <p class="text-lg font-normal text-gray-700 mb-2 text-md">1. Go to <a href="https://aims.arellanolaw.edu/aims/applicants" target="_blank" class="text-blue-600 underline">https://aims.arellanolaw.edu/aims/applicants</a> <i>(For Old Students, proceed to No. 7)</i></p>
                     <p class="text-lg font-normal text-gray-700 mb-2 text-md">2. Click "APPLY!"</p>
-                    <img src="/images/admission/image1.jpg" alt="Step 2 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image1.png" alt="Step 2 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">3. Fill Up the necessary fields</p>
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
                       <li>For New and Transferee students, choose LAW as Department and click "Continue."</li>
                       <li>For Refresher, choose LAW-REFRESHER as Department and click "Continue."</li>
                     </ul>
-                    <img src="/images/admission/image2.jpg" alt="Step 3 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image2.png" alt="Step 3 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">4. Fill up ALL the required fields <i>(Do not leave any blank spaces)</i>. If done, click "Save Changes".</p>
                     <img src="/images/admission/image3.jpg" alt="Step 4 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">5. A pop-up will appear for Data Privacy Policy.</p>
@@ -45,7 +45,7 @@
                       <li>For New Students and Transferees, you will be contacted by the Admissions office for further instructions.</li>
                     </ul>
                     <p class="text-lg font-normal text-gray-700 mb-2">7. Log in to <a href="https://aims.arellanolaw.edu/aims/students" target="_blank" class="text-blue-600 underline">https://aims.arellanolaw.edu/aims/students</a></p>
-                    <img src="/images/admission/image6.jpg" alt="Step 7 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image6.png" alt="Step 7 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                   </div>
                 </div>
               </div>
