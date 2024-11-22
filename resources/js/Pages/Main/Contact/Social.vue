@@ -115,6 +115,12 @@ const socialMediaLinks = [
     hoverClass: "hover:text-blue-600"
   },
   {
+    name: "AUSL Alumni ",
+    url: "https://www.facebook.com/arellanolawalumni",
+    logo: "/images/contact/social/ALUMNI.jpg",
+    hoverClass: "hover:text-purple-800"
+  },
+  {
     name: "Arellano Law Student Government",
     url: "https://www.facebook.com/AUSLSG",
     logo: "/images/contact/social/ALSG.jpg",
