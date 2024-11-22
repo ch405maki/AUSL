@@ -22,13 +22,13 @@
                     </ul>
                     <img src="/images/admission/image2.png" alt="Step 3 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">4. Fill up ALL the required fields <i>(Do not leave any blank spaces)</i>. If done, click "Save Changes".</p>
-                    <img src="/images/admission/image3.jpg" alt="Step 4 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image3.png" alt="Step 4 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">5. A pop-up will appear for Data Privacy Policy.</p>
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
                       <li>Check all boxes and click "Submit".</li>
                     </ul>
-                    <img src="/images/admission/image4.jpg" alt="Step 5 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
-                    <img src="/images/admission/image5.jpg" alt="Step 6 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image4.png" alt="Step 5 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto w-[500px] mb-4 rounded-lg" />
+                    <img src="/images/admission/image5.png" alt="Step 6 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">6. Jot down Username and password
                       <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
                       <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
@@ -66,9 +66,9 @@
                         Note: One Subject or One Schedule at a time
                       </span>
                     </div>
-                    <img src="/images/admission/image8.jpg" alt="Step 8 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image8.png" alt="Step 8 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto" />
                     <p class="text-lg font-normal text-gray-700 mb-2">For NEW, OLD & TRANSFEREE Students only.</p>
-                    <img src="/images/admission/image7.jpg" alt="Step 8 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
+                    <img src="/images/admission/image7.png" alt="Step 8 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                   </div>
                 </div>
               </div>
