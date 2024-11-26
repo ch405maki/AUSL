@@ -65,27 +65,27 @@
                       </div>
                       <!-- End main content section -->
                       <v-dialog v-model="isChangeStateModalOpen" max-width="500px">
-  <v-card>
-    <v-card-title class="headline ml-2">Change State</v-card-title>
-    <v-card-text>
-      <p>Are you sure you want to change the state of <br>
-        <h1 class="font-semibold mb-4">"{{ selectedBanner.title }}"?</h1></p>
-      <v-radio-group v-model="newState">
-        <v-radio label="Active" :value="1"></v-radio>
-        <v-radio label="Disabled" :value="0"></v-radio>
-      </v-radio-group>
-    </v-card-text>
-    <v-card-actions class="justify-center">
-      <button 
-        @click="changeState"
-        class="px-4 py-2 mb-3 bg-blue-600 text-white rounded hover:bg-blue-700"
-        aria-label="Create a new banner"
-      >
-        Change State
-      </button>
-    </v-card-actions>
-  </v-card>
-</v-dialog>
+                      <v-card>
+                        <v-card-title class="headline ml-2">Change State</v-card-title>
+                        <v-card-text>
+                          <p>Are you sure you want to change the state of <br>
+                            <h1 class="font-semibold mb-4">"{{ selectedBanner.title }}"?</h1></p>
+                          <v-radio-group v-model="newState">
+                            <v-radio label="Active" :value="1"></v-radio>
+                            <v-radio label="Disabled" :value="0"></v-radio>
+                          </v-radio-group>
+                        </v-card-text>
+                        <v-card-actions class="justify-center">
+                          <button 
+                            @click="changeState"
+                            class="px-4 py-2 mb-3 bg-blue-600 text-white rounded hover:bg-blue-700"
+                            aria-label="Create a new banner"
+                          >
+                            Change State
+                          </button>
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
 
                       <!-- Modal Component -->
                       <BannerModal

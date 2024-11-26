@@ -16,12 +16,14 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\DeansController;
+use App\Http\Controllers\DashboardController;
 use Inertia\Inertia;
 
 use App\Models\Banner;
 
 // Models
 use App\Models\Academic;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     // Fetch the posts data from your database
@@ -61,6 +63,9 @@ Route::get('/history', function () {
 Route::get('/deans_message', function () {
     return Inertia::render('Main/DeansCorner/Message/Index');
 })->name('deans_message');
+Route::get('/deans_archive', function () {
+    return Inertia::render('Main/DeansCorner/Archive/Index');
+})->name('deans_archive');
 
 Route::get('/deans corner', [DeansController::class, 'index'])->name('deans corner');
 Route::get('/deans/show/{id}', [MainController::class, 'showDeansAnnouncement'])->name('deans.show');
@@ -316,6 +321,10 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/chat', function () {
         return Inertia::render('Chat/Index');
     })->name('chat');
+});
+
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 // alumni route

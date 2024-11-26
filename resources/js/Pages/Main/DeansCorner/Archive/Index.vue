@@ -1,46 +1,10 @@
 <template>
     <MainLayout>
       <Head title="Dean's Message" />
-      <Header>Dean's Message</Header>
+      <Header>Previous Dean's Message</Header>
       <main class="flex-grow">
         <div class="container mx-auto px-4 py-4 lg:py-8">
-          <!-- First Section -->
-          <div class="flex flex-col md:flex-row justify-center mb-10">
-            <!-- Main content section -->
-            <div class="w-full md:w-2/3 p-4 order-2 md:order-1 text-slate-600 reveal-text">
-              <p class="text-left mb-4 font-bold text-lg md:text-xl text-official-purple-800 lg:text-2xl">Welcome to the Arellano University School of Law website!</p>
-              <p class="mb-4 font-normal text-md lg:text-lg text-slate-800 text-justify">
-                The school administration has always striven to make you, our students, feel that you belong to a community, the Arellano Law Community, and this website is one way for you to know more about your law school. Here you'll find information on the academic programs and different offices of the AUSL, a gallery of school events, as well as helpful tabs that will lead you to Lawphil, one of the most searched online sources of legal information, the school's publications, and links to websites such as those of the senate and House of Representatives which may prove useful to students and legal researchers.
-              </p>
-              <p class="mb-4 font-normal text-md lg:text-lg text-slate-800 text-justify">
-                Beyond learning more about the law school and updating you with school events, the resources available here can only be as relevant as the way you make use of them. Coupled with traditional values of studying hard and judicious time management, theses resources will help make your study the law convenient and even let you save on resources.
-              </p>
-            </div>
-            <!-- Dean's information section -->
-            <div class="w-full md:w-1/3 p-4 text-center order-1 md:order-2">
-              <img src="/images/deans/deannavarro.png" alt="Dean Navarro" class="w-48 h-auto mx-auto mb-4">
-              <b class="block text-lg text-slate-800">Atty. Domingo M. Navarro</b>
-              <i class="block text-slate-700">Dean</i>
-              <i class="block text-slate-700">(2016 - Present)</i>
-            </div>
-          </div>
-
-          <div>
-            <!-- Toggle Button -->
-            <!-- <div class="fter:h-px my-24 flex items-center before:h-px before:flex-1 before:bg-gray-300 before:content-[''] after:h-px after:flex-1 after:bg-gray-300 after:content-['']">
-              <button @click="toggleMessages" type="button" class="flex items-center rounded-full border border-gray-300 bg-secondary-50 px-3 py-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :class="{'rotate-180 transform transition-transform duration-300': showMessages}"  fill="currentColor" class="mr-1 h-4 w-4">
-                  <path fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd" />
-                </svg>
-                {{ showMessages ? 'Hide Messages' : 'See Message From The Previous Dean' }}
-              </button>
-            </div> -->
-
-            <!-- Second Section (Hidden by default) -->
-            <div v-if="showMessages" >
-                
+          
             <!-- Second Section -->
             <div class="flex flex-col md:flex-row justify-center mb-10">
               <!-- Dean's information section -->
@@ -120,8 +84,6 @@
                 <i class="block text-slate-700">(1994 - 2007)</i>
               </div>
             </div>
-          </div>
-        </div>
         </div>
       </main>
     </MainLayout>
