@@ -6,6 +6,8 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use App\Models\UserLog;
+use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller
 {
@@ -108,6 +110,11 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
         $gallery->delete();
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Deleted gallery',
+        ]);
 
         return redirect()->route('gallery');
     }

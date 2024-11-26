@@ -6,7 +6,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Announcement</h2>
     </template>
 
-    <template #action>
+  <template #action>
   <div class="flex items-center p-3">
     <!-- Search Input -->
     <div class="relative mr-4 hidden md:block">

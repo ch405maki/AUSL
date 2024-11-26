@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use App\Models\UserLog;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -48,6 +50,12 @@ class PostController extends Controller
     $data['image'] = $imagePaths;
 
     Post::create($data);
+
+    UserLog::create([
+        'user_id' => Auth::id(),
+        'action' => 'Created New Post',
+    ]);
+
     return redirect('posts');
     }
 
@@ -56,6 +64,11 @@ class PostController extends Controller
         $post->state = 'Archived';
         $post->save();
 
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Archived Post',
+        ]);
+
         return redirect()->back()->with('success', 'Post archived successfully.');
     }
 
@@ -63,6 +76,11 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Deleted Post',
+        ]);
 
         return redirect()->route('posts');
     }

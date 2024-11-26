@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\UserLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -15,6 +18,11 @@ class UserController extends Controller
         $superAdminRoleId = 3; // Assuming role_id 1 is for Super Admin
         $users = User::where('role_id', '!=', $superAdminRoleId)->get(); // Exclude Super Admin users
         $roles = Role::all(); // Fetch all roles
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Visit User Management',
+        ]);
 
         return Inertia::render('UserManagement/Index', [
             'users' => $users,
@@ -36,6 +44,11 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => $request->role_id,
+        ]);
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Created New Account',
         ]);
 
         return redirect()->route('users')->with('success', 'User created successfully.');

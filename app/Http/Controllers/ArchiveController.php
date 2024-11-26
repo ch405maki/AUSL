@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Inertia\Inertia;
+use App\Models\UserLog;
+use Illuminate\Support\Facades\Auth;
 
 class ArchiveController extends Controller
 {
@@ -23,6 +25,11 @@ class ArchiveController extends Controller
     {
         $post->state = 'Active';
         $post->save();
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Reposted Archived Post',
+        ]);
 
         return redirect()->back()->with('success', 'Posted successfully.');
     }

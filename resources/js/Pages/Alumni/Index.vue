@@ -179,9 +179,6 @@
                 </div>
             </div>
             </main>
-            <!-- Footer -->
-            <Footer />
-            <!-- Footer -->
         </div>
         </AuthenticatedLayout>
     </template>

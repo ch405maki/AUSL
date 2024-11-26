@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use App\Models\UserLog;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -59,6 +61,11 @@ class AnnouncementController extends Controller
         $data['image'] = $imagePaths;
 
         Post::create($data);
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Archived Post',
+        ]);
 
         return redirect('announcement');
     }
@@ -123,6 +130,11 @@ class AnnouncementController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+
+        UserLog::create([
+            'user_id' => Auth::id(),
+            'action' => 'Deleted Announcement',
+        ]);
 
         return redirect()->route('announcement');
     }

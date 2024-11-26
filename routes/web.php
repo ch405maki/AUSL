@@ -17,13 +17,16 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\DeansController;
 use App\Http\Controllers\DashboardController;
-use Inertia\Inertia;
+use App\Http\Controllers\UserLogController;
 
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 use App\Models\Banner;
 
 // Models
 use App\Models\Academic;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 
 Route::get('/', function () {
     // Fetch the posts data from your database
@@ -32,6 +35,11 @@ Route::get('/', function () {
          'canRegister' => Route::has('register'),
     ]);
  });
+
+    Route::get('/logout', function() {
+        Auth::logout();
+        return redirect('/');
+    })->name('/logout');
 
  Route::get('/banners', function () {
     return Banner::where('state', true)->get();
@@ -370,6 +378,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/onload-banners/{id}', [SettingsController::class, 'updateOnloadState'])->name('onload-banner.update');
     Route::delete('/onload-banners/{id}', [SettingsController::class, 'OnloadDestroy'])->name('onload-banners.destroy');
 
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user-logs', [UserLogController::class, 'index'])->name('user.logs.index');
 });
 
 // End routes can be open with auth

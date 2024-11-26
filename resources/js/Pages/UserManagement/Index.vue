@@ -121,9 +121,6 @@
                     </div>
                 </div>
             </main>
-            <!-- Footer -->
-            <Footer />
-            <!-- Footer -->
         </div>
 
         <!-- Change Role Modal -->
