@@ -47,9 +47,8 @@
                 <thead>
                   <tr>
                     <th class="text-left w-1/12">User Name</th>
-                    <th class="text-left w-1/12">Date</th>
+                    <th class="text-left w-1/12">Date</th>  
                     <th class="text-left">Action</th>
-                    <th class="text-center hidden sm:table-cell">IP</th>
                     <th class="text-center hidden sm:table-cell">User Agent</th>
                   </tr>
                 </thead>
@@ -63,8 +62,7 @@
                         new Date(log.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
                       }}
                     </td>
-                    <td class="text-left whitespace-nowrap">{{ log.action }}</td>
-                    <td class="text-center hidden sm:table-cell">{{ log.ip_address || 'N/A' }}</td>
+                    <td class="text-left whitespace-nowrap bg-red-100">{{ log.action }}</td>
                     <td class="text-center hidden sm:table-cell">{{ log.user_agent || 'N/A' }}</td>
                   </tr>
                 </tbody>
@@ -85,10 +83,11 @@
   defineProps({
     logs: Object,
   });
+
   </script>
   
 
-  <style scoped>
+<style scoped>
 .mx-auto.text-center {
   display: flex;
   flex-direction: column;

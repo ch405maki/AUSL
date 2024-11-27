@@ -51,6 +51,7 @@ Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 Route::get('/announcement/show/{id}', [MainController::class, 'showAnnouncement'])->name('announcement.show');
 Route::get('/announcements', [MainController::class, 'allAnnouncement'])->name('announcements');
 Route::get('/news', [MainController::class, 'allNews'])->name('news');
+Route::get('/log', [MainController::class, 'log'])->name('log');
 
 
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');

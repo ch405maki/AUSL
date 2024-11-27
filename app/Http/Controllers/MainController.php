@@ -10,6 +10,7 @@ use App\Models\Alumni;
 use App\Models\Banner;
 use App\Models\Office;
 use App\Models\OnLoadBanner;
+use App\Models\UserLog;
 
 class MainController extends Controller
 {
@@ -33,8 +34,9 @@ class MainController extends Controller
 
         $alumni = Alumni::where('status', true)->get();
 
+
         return Inertia::render('Main/Home/Index', [
-            'posts' => $posts,
+            'posts' => $posts,  
             'carousells' => $carousells,
             'alumni' => $alumni,
             'banners' => $banners,
@@ -136,6 +138,13 @@ class MainController extends Controller
 
         return Inertia::render('Main/Home/Post/allNews', [
             'allNews' => $news,
+        ]);
+    }
+
+    public function log (){
+        // Check if the log was already created in the current session
+        UserLog::create([
+            'action' => 'Page Visit',
         ]);
     }
 }

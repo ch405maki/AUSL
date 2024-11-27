@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_logs', function (Blueprint $table) {
             $table->id();
-            $table->uuid('user_id'); // Match the UUID type from the users table
-            $table->string('action'); // Store actions like 'login' or 'logout'
-            $table->ipAddress('ip_address')->nullable(); // Optional, to log IP addresses
-            $table->text('user_agent')->nullable(); // Optional, to log browser/OS info
-            $table->timestamps(); // Auto-set creation timestamp
-
+            $table->uuid('user_id')->nullable(); 
+            $table->string('action'); 
+            $table->ipAddress('ip_address')->nullable(); 
+            $table->text('user_agent')->nullable(); 
+            $table->timestamps();
+    
             // Foreign key linking to the users table
             $table->foreign('user_id')
                 ->references('id')
@@ -26,6 +26,7 @@ return new class extends Migration
                 ->onDelete('cascade');
         });
     }
+    
 
     /**
      * Reverse the migrations.

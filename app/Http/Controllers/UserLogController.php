@@ -13,15 +13,16 @@ class UserLogController extends Controller
      * Display a list of user logs.
      */
     public function index(Request $request): Response
-    {
-        // Fetch logs and eager load the user relationship to get user name
-        $logs = UserLog::with('user:id,name')  // Only fetch the 'id' and 'name' columns of the user
-                        ->latest()           // Order by the most recent log
-                        ->paginate(10);      // Pagination
+{
+    // Fetch logs excluding 'Page Visit' actions and eager load the user relationship
+    $logs = UserLog::with(['user:id,name']) // Eager load 'user' with only 'id' and 'name'
+                   ->where('action', '!=', 'Page Visit') // Exclude 'Page Visit'
+                   ->latest() // Order by most recent log
+                   ->paginate(10); // Paginate results
 
-        return Inertia::render('UserLogs/Index', [
-            'logs' => $logs,
-        ]);
-    }
+    return Inertia::render('UserLogs/Index', [
+        'logs' => $logs,
+    ]);
+}
 }
 
