@@ -45,11 +45,21 @@
           <canvas id="pageVisitsChart"></canvas>
         </div>
       </div>
+
+      <div class="px-4 mt-8 sm:px-8">
+        <div class="bg-white p-4 border rounded-lg">
+          <h1>Server Dashboard</h1>
+            <ServerStatus />
+        </div>
+      </div>
+
+      
     </AuthenticatedLayout>
   </template>
   
   <script setup>
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+  import ServerStatus from '@/Components/ServerStatus.vue';
   import { Head } from '@inertiajs/vue3';
   import { defineProps, onMounted } from 'vue';
   import Chart from 'chart.js/auto';

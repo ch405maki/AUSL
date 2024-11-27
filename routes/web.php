@@ -18,6 +18,7 @@ use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\DeansController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserLogController;
+use App\Http\Controllers\ServerStatusController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -385,6 +386,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/user-logs', [UserLogController::class, 'index'])->name('user.logs.index');
 });
+
+Route::get('/server-status', [ServerStatusController::class, 'status'])->name('server.status');
 
 // End routes can be open with auth
 
