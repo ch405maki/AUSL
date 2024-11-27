@@ -80,7 +80,6 @@ onMounted(() => {
     loading.value = false;
     if (!sessionStorage.getItem('cookiesAccepted')) {
       showCookiePopup.value = true; 
-      
     }
   }, 2000);
 });

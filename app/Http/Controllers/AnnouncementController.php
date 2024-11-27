@@ -64,7 +64,7 @@ class AnnouncementController extends Controller
 
         UserLog::create([
             'user_id' => Auth::id(),
-            'action' => 'Archived Post',
+            'action' => 'Upload Announcement',
         ]);
 
         return redirect('announcement');
