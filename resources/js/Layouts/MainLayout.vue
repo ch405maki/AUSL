@@ -79,7 +79,6 @@ onMounted(() => {
   setTimeout(() => {
     loading.value = false;
     if (!sessionStorage.getItem('cookiesAccepted')) {
-      Inertia.get(route('log'));
       showCookiePopup.value = true; 
       
     }

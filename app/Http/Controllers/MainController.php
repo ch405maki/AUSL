@@ -34,6 +34,9 @@ class MainController extends Controller
 
         $alumni = Alumni::where('status', true)->get();
 
+        UserLog::create([
+            'action' => 'Page Visit',
+        ]);
 
         return Inertia::render('Main/Home/Index', [
             'posts' => $posts,  
@@ -146,5 +149,7 @@ class MainController extends Controller
         UserLog::create([
             'action' => 'Page Visit',
         ]);
+
+        return redirect()->back();
     }
 }
