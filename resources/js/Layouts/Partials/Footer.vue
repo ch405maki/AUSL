@@ -55,6 +55,9 @@
                             <li class="mb-4">
                                 <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
                             </li>
+                            <li class="mb-4">
+                                <a :href="route('administration.alf')" class="hover:underline cursor-pointer">Administration</a>
+                            </li>
                         </ul>
                     </div>
                     <div>
