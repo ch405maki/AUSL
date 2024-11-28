@@ -9,7 +9,8 @@
         <div class="flex justify-between h-10 items-center">
           <div class="flex items-center">
             <div class="lg:flex sm:items-center mt-1">
-              <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-left min-w-24">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-2">
+              <button class="outline-none focus:outline-none py-2 text-white rounded-md flex items-center min-w-24">
                 <span class="font-normal flex-1 garamond hover:text-gray-300 uppercase">
                   <a :href="route('main')" class="">Home</a>
                 </span>
@@ -23,6 +24,7 @@
               <Student />
               <Contact />
             </div>
+          </div>
           </div>
         </div>
       </div>
