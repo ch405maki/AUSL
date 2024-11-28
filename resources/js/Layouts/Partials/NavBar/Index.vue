@@ -15,7 +15,7 @@
                 </span>
               </button>
               <About />
-              <Administration />
+              <!-- <Administration /> -->
               <Admission />
               <DeansCorner />
               <Academics />
