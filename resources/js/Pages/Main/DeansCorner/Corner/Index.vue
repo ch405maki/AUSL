@@ -14,41 +14,46 @@
                 </h2>
                 <div class="w-full">
                     <div v-for="dean in deans" :key="dean.id" id="news">
-                    <div class="text-left flex items-justify mb-4">
-                          <div v-if="dean.pubmat" class="mr-0 ">
+                      <div class="text-left flex flex-col sm:flex-row items-justify mb-4">
+                        <!-- Conditionally render dean.pubmat image -->
+                        <div v-if="dean.pubmat" class="mr-0 hidden sm:block">
                           <img :src="dean.pubmat" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
-                          </div>
-                          <div v-else class="relative w-32 mr-2">
-                            <!-- Image -->
-                            <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-auto rounded-md">
+                        </div>
 
-                            <!-- Overlay for hover effect -->
-                            <div class="absolute inset-0 opacity-50"></div>
+                        <!-- Conditionally render fallback image -->
+                        <div v-else class="relative w-32 mr-2 hidden sm:block">
+                          <!-- Image -->
+                          <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-auto rounded-md">
 
-                            <!-- Overlay text -->
-                            <h1
-                              class="absolute inset-0 flex items-center justify-center text-white text-xs font-bold px-2 text-center  duration-300"
-                            >
-                              {{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}
-                            </h1>
-                          </div>
-                        
-                        <div class="ml-2">
-                        <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
-                            <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-official-purple-900 hover:underline nowarp">{{ dean.title }}</a>
-                        </h3>
-                        <p class="text-slate-600 ">
+                          <!-- Overlay for hover effect -->
+                          <div class="absolute inset-0 opacity-50"></div>
+
+                          <!-- Overlay text -->
+                          <h1
+                            class="absolute inset-0 flex items-center justify-center text-white text-xs font-bold px-2 text-center duration-300"
+                          >
+                            {{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}
+                          </h1> 
+                        </div>
+
+                        <!-- Content section -->
+                        <div class="ml-0 sm:ml-2 mt-4 sm:mt-0">
+                          <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
+                            <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-official-purple-900 hover:underline">{{ dean.title }}</a>
+                          </h3>
+                          <p class="text-slate-600">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
-                        </p>
-                        <div v-if="dean.content">
+                          </p>
+                          <div v-if="dean.content">
                             <p v-if="dean.content.length > 0">
-                            <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 200)"></div>
+                              <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 200)"></div>
                             </p>
                             <p v-else>{{ dean.content }}</p>
+                          </div>
+                          <a :href="`/deans/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
                         </div>
-                        <a :href="`/deans/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
-                        </div>
-                    </div>
+                      </div>
+
                     <hr class="mb-4 border-1 border-official-purple-200">
                     </div>
                     <!-- End Breadcrumb -->

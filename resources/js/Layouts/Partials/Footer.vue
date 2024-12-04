@@ -18,10 +18,10 @@
                         <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-official-purple-900">
                             Arellano University School of Law
                         </span>
-                        <p class="text-official-purple-800"><span class="mdi mdi-map-marker mr-2 text-official-purple-700"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
-                        <p class="text-official-purple-800"><span class="mdi mdi-phone mr-2 text-official-purple-700"></span> Tel. Nos. 8404-30 89 to 93</p>
-                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline text-official-purple-800 hover:text-official-purple-900">
-                            <span class="mdi mdi-email mr-2 text-official-purple-700"></span> onlinesupport@arellanolaw.edu
+                        <p class=""><span class="mdi mdi-map-marker mr-2"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
+                        <p class=""><span class="mdi mdi-phone mr-2"></span> Tel. Nos. 8404-30 89 to 93</p>
+                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline ">
+                            <span class="mdi mdi-email mr-2"></span> onlinesupport@arellanolaw.edu
                         </a>
                     </div>
                 </div>

@@ -84,18 +84,23 @@
               >
                 <div class="overflow-hidden mb-4 flex flex-col h-full relative card">
                   <div class="overflow-hidden rounded-lg relative group">
-                  <a :href="`/announcement/show/${announcement.id}`" class="block relative group">
-                    <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-100 object-cover">
-                    <!-- Overlay for hover effect -->
-                    <div class="overlay"></div>
+                  <!-- Conditionally render the announcement image or fallback image -->
+                  <a :href="announcement.category === 'Announcement' ? `/announcement/show/${announcement.id}` : `/deans/show/${announcement.id}`" class="block relative group">
+                      <img 
+                          :src="announcement.pubmat || '/images/announcement/announcementbg.jpg'" 
+                          alt="Announcement Image" 
+                          class="w-full h-100 object-cover"
+                      />
+                      <!-- Overlay for hover effect -->
+                      <div class="overlay"></div>
                   </a>
-                  <a :href="`/announcement/show/${announcement.id}`" class="absolute inset-0 text-white text-sm flex items-end p-4">
-                      <h1
-                        class="w-full text-center py-36 sm:py-20 text-3xl sm:text-xl font-bold cursor-pointer opacity-100 group-hover:opacity-100 transition-opacity duration-300"
-                      >
-                        {{ announcement.category }}
+
+                  <!-- Title overlay for announcement -->
+                  <a :href="announcement.category === 'Announcement' ? `/announcement/show/${announcement.id}` : `/deans/show/${announcement.id}`" class="absolute inset-0 text-white text-sm flex items-end p-4">
+                      <h1 v-if="!announcement.pubmat" class="w-full py-36 sm:py-20 text-3xl sm:text-xl font-bold cursor-pointer opacity-100 group-hover:opacity-100 transition-opacity duration-300">
+                          {{ announcement.title.length > 26 ? announcement.title.slice(0, 21) + '...' : announcement.title }}
                       </h1>
-                    </a>
+                  </a>
                   </div>
                   <div class="p-4 flex flex-col flex-grow">
                     <a
