@@ -97,11 +97,20 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 
 const props = defineProps(['post']);
 
+// Helper to format date to YYYY-MM-DD
+const formatDate = (date) => {
+  const d = new Date(date);
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${year}-${month}-${day}`;
+};
+
 const form = ref({
   title: props.post.title,
-  content: props.post.content,
+  content: props.post.content ?? '',
   link: props.post.link || '',
-  created_at: props.post.created_at, // Fetch the current created_at value
+  created_at: props.post.created_at ? formatDate(props.post.created_at) : '', // Format the date
   newImages: [],
   pubmat: null,
 });
@@ -115,17 +124,18 @@ const handlePubmatChange = (event) => {
 };
 
 const updatePost = () => {
+  if (!form.value.created_at) {
+    Swal.fire('Error', 'Date is required', 'error');
+    return;
+  }
+
   const formData = new FormData();
   formData.append('title', form.value.title);
   formData.append('content', form.value.content); // Add content
   formData.append('link', form.value.link); // Add link
-  
-  // Only append created_at if it was changed
-  if (form.value.created_at !== props.post.created_at) {
-    formData.append('created_at', form.value.created_at);
-  }
-  
+  formData.append('created_at', form.value.created_at); // Always append the date
   formData.append('_method', 'PUT'); // Spoof the method to PUT for Laravel
+
   form.value.newImages.forEach((file, index) => {
     formData.append(`newImages[${index}]`, file);
   });
@@ -149,3 +159,4 @@ const editorConfig = {
   toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'],
 };
 </script>
+
