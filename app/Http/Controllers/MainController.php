@@ -23,7 +23,7 @@ class MainController extends Controller
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();
-        $announcements = Post::whereIn('category', ['Announcement', 'Deans'])
+        $announcements = Post::whereIn('category', ['Announcement', 'Deans', 'Exam'])
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();
@@ -75,7 +75,7 @@ class MainController extends Controller
         $post = Post::findOrFail($id);
     
         // Fetch active Dean's announcements, sorted by latest first
-        $deans = Post::where('category', 'Deans')
+        $deans = Post::whereIn('category', ['Exam', 'Deans'])
                     ->where('state', 'Active')
                     ->orderBy('created_at', 'desc')
                     ->get();
@@ -86,6 +86,32 @@ class MainController extends Controller
             'deans' => $deans,
         ]);
     }
+
+    public function showExamAnnouncement($id)
+    {
+        // Fetch the specific post by ID
+        $post = Post::findOrFail($id);
+
+        // Fetch active Dean's announcements, sorted by latest first
+        $exam = Post::where('category', 'underExam')
+                    ->where('state', 'Active')
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+
+        // Fetch posts belonging to either 'Exam' or 'Deans' category
+        $deans = Post::whereIn('category', ['Exam', 'Deans'])
+                    ->where('state', 'Active')
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+
+        // Render the view with the fetched data
+        return Inertia::render('Main/DeansCorner/Exam/Show', [
+            'post' => $post,
+            'exam' => $exam,
+            'deans' => $deans,
+        ]);
+    }
+
     
 
     public function departmentList()

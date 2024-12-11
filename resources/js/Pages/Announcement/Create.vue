@@ -30,6 +30,8 @@
                         <option value="Announcement">Announcement</option>
                         <option value="Deans">Deans Corner</option>
                         <option value="Events">Events</option>
+                        <option value="Exam">Exams [Deans]</option>
+                        <option value="underExam">Under Exam [Deans]</option>
                       </select>
                     </div>
 

@@ -11,7 +11,7 @@ class DeansController extends Controller
 {
     public function index()
     {
-        $deans = Post::whereIn('category', ['Deans'])
+        $deans = Post::whereIn('category', ['Deans', 'Exam'])
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();

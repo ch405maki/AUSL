@@ -54,7 +54,6 @@ Route::get('/announcements', [MainController::class, 'allAnnouncement'])->name('
 Route::get('/news', [MainController::class, 'allNews'])->name('news');
 Route::get('/log', [MainController::class, 'log'])->name('log');
 
-
 Route::get('/gallery/browse/{id}', [GalleryController::class, 'browseShow'])->name('gallery.browse.show');
 Route::get('/gallery/browse', [GalleryController::class, 'browse'])->name('gallery.browse');
 Route::get('students', [StudentController::class, 'show'])->name('students');
@@ -79,6 +78,7 @@ Route::get('/deans_archive', function () {
 
 Route::get('/deans corner', [DeansController::class, 'index'])->name('deans corner');
 Route::get('/deans/show/{id}', [MainController::class, 'showDeansAnnouncement'])->name('deans.show');
+Route::get('/exam/show/{id}', [MainController::class, 'showExamAnnouncement'])->name('exam.show');
 
 
 

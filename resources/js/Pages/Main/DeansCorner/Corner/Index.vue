@@ -39,18 +39,21 @@
                         <!-- Content section -->
                         <div class="ml-0 sm:ml-2 mt-4 sm:mt-0">
                           <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
-                            <a :href="`/deans/show/${dean.id}`" class="text-lg font-medium text-official-purple-900 hover:underline">{{ dean.title }}</a>
-                          </h3>
+                            <a
+                              :href="dean.category === 'Exam' ? `/exam/show/${dean.id}` : `/deans/show/${dean.id}`"
+                              class="text-lg font-medium text-official-purple-900 hover:underline"
+                              >
+                                {{ dean.title }}
+                            </a>                          
+                            </h3>
                           <p class="text-slate-600">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
                           </p>
-                          <!-- <div v-if="dean.content">
-                            <p v-if="dean.content.length > 0">
-                              <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 100)"></div>
-                            </p>
-                            <p v-else>{{ dean.content }}</p>
-                          </div> -->
-                          <a :href="`/deans/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
+                          <a
+                              :href="dean.category === 'Exam' ? `/exam/show/${dean.id}` : `/deans/show/${dean.id}`"
+                              class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline"
+                            >Read more
+                          </a>
                         </div>
                       </div>
 

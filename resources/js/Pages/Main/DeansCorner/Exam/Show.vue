@@ -18,23 +18,66 @@
                       <li><span class="mx-2 text-neutral-500">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span></li>
                     </ol>
                   </nav>
-                  <div class="text-lg font-normal text-gray-600 mb-4 font-normal text-slate-700 mb-8">
-                    <p v-html="post.content"></p>
-                  </div>
-                  <div v-if="post.link" class="relative mb-8 flex justify-center items-center bg-slate-100">
-                    <div class="container">
-                      <iframe frameborder="0" height="800" scrolling="no" :src="post.link + 'preview'" width="100%"></iframe>
-                    </div>
-                  </div>
-  
-                  <div v-if="post.image" class="relative mb-8 flex flex-col items-center bg-slate-100">
-                    <div v-for="(image, index) in post.image" :key="index" class="w-full mb-4">
-                      <img :src="image" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in" @click="showLightbox(index)"/>
-                    </div>
-                  </div>
-  
+
+                <div id="accordion-flush">
+                    <div v-for="(item, index) in exam" :key="item.id" class="border-b border-gray-200">
+                        <h2 :id="`accordion-flush-heading-${item.id}`">
+                            <button
+                                type="button"
+                                @click="toggleAccordion(item.id)"
+                                :aria-expanded="expandedItem === item.id"
+                                :aria-controls="`accordion-flush-body-${item.id}`"
+                                title="Click to Expand"
+                                class="flex items-center justify-between w-full p-5 cursor-pointer gap-3 transition duration-200 hover:bg-gray-200 cursor-pointer "
+                                >
+                                <span
+                                    class="font-medium text-lg text-official-purple-800 transition duration-200 hover:text-official-purple-900"
+                                >
+                                    {{ item.title }}
+                                </span>
+                                <svg
+                                    :class="expandedItem === item.id ? 'rotate-180' : ''"
+                                    class="w-3 h-3 transition-transform duration-200 shrink-0"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 10 6"
+                                >
+                                    <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5 5 1 1 5"
+                                    />
+                                </svg>
+                                </button>
+
+                                </h2>
+                                <div
+                                :id="`accordion-flush-body-${item.id}`"
+                                class="transition-all duration-300"
+                                v-show="expandedItem === item.id"
+                                >
+                                <div class="py-5">
+                                    <!-- Render images with zoom-in cursor -->
+                                    <img
+                                    v-if="item.image && item.image.length"
+                                    :src="item.image[0]"
+                                    alt="Exam Image"
+                                    class="w-full rounded-lg mb-4 object-cover cursor-zoom-in"
+                                    @click="showLightbox(index)"
+                                    />
+                                    <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                    {{ item.content || '' }}
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
                   <!-- Breadcrumb -->
-                  <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb" width="100%">
+                  <nav class="bg-grey-light w-full rounded-md mb-4 mt-10" aria-label="breadcrumb" width="100%">
                     <ol class="list-reset flex">
                       <li><a href="#" class="text-neutral-500 hover:text-neutral-600">Home</a></li>
                       <li><span class="mx-2 text-neutral-500">/ {{post.title}}</span></li>
@@ -108,7 +151,8 @@
                               class="text-lg font-medium text-official-purple-900 hover:underline"
                               >
                                 {{ dean.title }}
-                            </a>                           </h3>
+                            </a>                           
+                          </h3>
                           <p class="text-slate-600">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
                           </p>
@@ -138,88 +182,103 @@
       </div>
     </MainLayout>
     <vue-easy-lightbox
-          :visible="visible"
-          :imgs="post.image"
-          :index="index"
-          @hide="handleHide"
-      />
+  :visible="visible"
+  :imgs="exam.map(item => item.image[0]).filter(img => img)" 
+  :index="index"
+  @hide="handleHide"
+/>
   </template>
   
   <script setup>
-    import { Link, Head } from '@inertiajs/vue3';
-    import { defineProps } from 'vue';
-    import { ref } from 'vue';
-    import MainLayout from '@/Layouts/MainLayout.vue';
-    import { onMounted } from 'vue';
-    import VueEasyLightbox from 'vue-easy-lightbox';
-    import RelatedLinks from '@/Pages/Main/Home/Partials/RelatedLinks.vue';
+import { Link, Head } from '@inertiajs/vue3';
+import { defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
+import MainLayout from '@/Layouts/MainLayout.vue';
+import VueEasyLightbox from 'vue-easy-lightbox';
+import RelatedLinks from '@/Pages/Main/Home/Partials/RelatedLinks.vue';
 
-    const props = defineProps({
-      post: {
-        type: Array,
-        required: true
+const props = defineProps({
+  post: {
+    type: Array,
+    required: true,
+  },
+  exam: { 
+    type: Array, 
+    required: true, 
+  },
+  deans: { 
+    type: Array, 
+    required: true, 
+  },
+});
+
+// Lightbox state
+const visible = ref(false);
+const index = ref(0);
+
+const showLightbox = (i) => {
+  index.value = i;
+  visible.value = true;
+};
+
+const handleHide = () => {
+  visible.value = false;
+};
+
+// Function to format dates
+const formattedDate = (date) => {
+  return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
+
+// Owl Carousel setup
+onMounted(() => {
+  if (typeof $ !== 'undefined') {
+    const owlCarousel = $('.announcement-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      responsive: {
+        0: { 
+          items: 1,
+          center: true,
         },
-      deans: { 
-        type: Array, 
-        required: true 
-        },
-    });
-  
-    const visible = ref(false);
-    const index = ref(0);
-  
-    const showLightbox = (i) => {
-        index.value = i;
-        visible.value = true;
-    };
-  
-    const handleHide = () => {
-        visible.value = false;
-    };
-  
-    const formattedDate = (date) => {
-    return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  };
-  
-  onMounted(() => {
-      if (typeof $ !== 'undefined') {
-        const owlCarousel = $('.announcement-carousel').owlCarousel({
-          loop: true,
-          margin: 10,
-          nav: false,
-          autoplay: true,
-          autoplayTimeout: 5000,
-          responsive: {
-            0: { 
-              items: 1,
-              center: true, // Centering the single item on mobile
-            },
-            600: { items: 2 },
-            800: { items: 3 },
-            1000: { items: 4 }
-          }
-        });
-    
-        // Pause autoplay on mouseover
-        $('.announcement-carousel').on('mouseover', function() {
-          owlCarousel.trigger('stop.owl.autoplay');
-        });
-    
-        // Resume autoplay on mouseleave
-        $('.announcement-carousel').on('mouseleave', function() {
-          owlCarousel.trigger('play.owl.autoplay', [5000]);
-        });
-      } else {
-        console.error('jQuery is not loaded');
+        600: { items: 2 },
+        800: { items: 3 },
+        1000: { items: 4 },
       }
     });
-  
-    const shareToFacebook = () => {
-      const url = encodeURIComponent(window.location.href);
-      const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-      window.open(fbShareUrl, '_blank', 'width=600,height=400');
-    };
-  </script>
+
+    // Pause autoplay on mouseover
+    $('.announcement-carousel').on('mouseover', function() {
+      owlCarousel.trigger('stop.owl.autoplay');
+    });
+
+    // Resume autoplay on mouseleave
+    $('.announcement-carousel').on('mouseleave', function() {
+      owlCarousel.trigger('play.owl.autoplay', [5000]);
+    });
+  } else {
+    console.error('jQuery is not loaded');
+  }
+});
+
+// Social media sharing
+const shareToFacebook = () => {
+  const url = encodeURIComponent(window.location.href);
+  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+  window.open(fbShareUrl, '_blank', 'width=600,height=400');
+};
+
+// Accordion state
+const expandedItem = ref(null);
+
+const toggleAccordion = (id) => {
+  expandedItem.value = expandedItem.value === id ? null : id; // Toggle accordion
+};
+</script>
+
   
   <style scoped>
   .container {
