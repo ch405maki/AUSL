@@ -44,12 +44,12 @@
                           <p class="text-slate-600">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
                           </p>
-                          <div v-if="dean.content">
+                          <!-- <div v-if="dean.content">
                             <p v-if="dean.content.length > 0">
                               <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 100)"></div>
                             </p>
                             <p v-else>{{ dean.content }}</p>
-                          </div>
+                          </div> -->
                           <a :href="`/deans/show/${dean.id}`" class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline">Read more</a>
                         </div>
                       </div>
