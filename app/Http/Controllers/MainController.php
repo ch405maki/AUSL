@@ -71,13 +71,22 @@ class MainController extends Controller
 
     public function showDeansAnnouncement($id)
     {
+        // Fetch the specific post by ID
         $post = Post::findOrFail($id);
-        $deans = Post::where('category', 'Deans')->where('state', 'Active')->get();
+    
+        // Fetch active Dean's announcements, sorted by latest first
+        $deans = Post::where('category', 'Deans')
+                     ->where('state', 'Active')
+                     ->orderBy('created_at', 'desc')
+                     ->get();
+    
+        // Render the view with the fetched data
         return Inertia::render('Main/DeansCorner/Corner/Show', [
             'post' => $post,
-            'deans' => $deans
+            'deans' => $deans,
         ]);
     }
+    
 
     public function departmentList()
     {

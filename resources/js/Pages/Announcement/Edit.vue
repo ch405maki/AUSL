@@ -110,7 +110,7 @@ const form = ref({
   title: props.post.title,
   content: props.post.content ?? '',
   link: props.post.link || '',
-  created_at: props.post.created_at ? formatDate(props.post.created_at) : '', // Format the date
+  created_at: props.post.created_at ? formatDate(props.post.created_at) : '', 
   newImages: [],
   pubmat: null,
 });
