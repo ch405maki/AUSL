@@ -32,7 +32,7 @@
                           <h1
                             class="absolute inset-0 flex items-center justify-center text-white text-xs font-bold px-2 text-center duration-300"
                           >
-                            {{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}
+                            {{ dean.title.length > 26 ? dean.title.slice(0, 18) + '...' : dean.title }}
                           </h1> 
                         </div>
 
@@ -46,7 +46,7 @@
                           </p>
                           <div v-if="dean.content">
                             <p v-if="dean.content.length > 0">
-                              <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 200)"></div>
+                              <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 100)"></div>
                             </p>
                             <p v-else>{{ dean.content }}</p>
                           </div>

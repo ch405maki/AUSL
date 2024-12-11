@@ -76,9 +76,9 @@ class MainController extends Controller
     
         // Fetch active Dean's announcements, sorted by latest first
         $deans = Post::where('category', 'Deans')
-                     ->where('state', 'Active')
-                     ->orderBy('created_at', 'desc')
-                     ->get();
+                    ->where('state', 'Active')
+                    ->orderBy('created_at', 'desc')
+                    ->get();
     
         // Render the view with the fetched data
         return Inertia::render('Main/DeansCorner/Corner/Show', [
