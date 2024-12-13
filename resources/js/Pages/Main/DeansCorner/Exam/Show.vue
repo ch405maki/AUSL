@@ -324,7 +324,7 @@ const toggleExamAccordion = (id) => {
   .responsive-iframe-container {
     position: relative;
     width: 100%;
-    padding-bottom: 177.77%; 
+    padding-bottom: 66.25%; 
   }
 
   .responsive-iframe-container iframe {
