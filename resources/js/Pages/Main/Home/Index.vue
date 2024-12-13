@@ -62,8 +62,32 @@ onMounted(() => {
     if (!sessionStorage.getItem('cookiesAccepted')) {
       showCookiePopup.value = true; // Show popup if not accepted
     }
+    showAlert();
   }, 2000);
 });
+
+const showAlert = () => {
+  // Assuming you want to show an alert for the first banner in the list
+  const banner = props.onLoadBanners[0]; // Adjust as needed to select the appropriate banner
+
+  Swal.fire({
+    title: banner.title || 'Default Title',
+    text: banner.text || 'Default Text',
+    icon: banner.icon || 'info',
+    showCancelButton: true,
+    confirmButtonText: banner.confirmButtonText || 'Confirm',
+    cancelButtonText: banner.cancelButtonText || 'Cancel',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = banner.url || '';
+    } else {
+      console.log('Action canceled');
+    }
+    showCookiePopup.value = true;
+  });
+};
+
+
 </script>
 
 <style scoped>

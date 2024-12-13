@@ -13,8 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $post = Post::whereIn('category', ['News'])
-            ->where('state', 'Active')
+        $post = Post::where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();
 

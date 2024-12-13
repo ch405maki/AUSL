@@ -12,8 +12,7 @@ class ArchiveController extends Controller
 {
     public function newsIndex()
     {
-        $posts = Post::where('category', 'News')
-            ->where('state', 'Archived')
+        $posts = Post::where('state', 'Archived')
             ->get();
 
         return Inertia::render('Archive/Index', [
