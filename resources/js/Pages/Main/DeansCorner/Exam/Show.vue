@@ -19,7 +19,56 @@
                     </ol>
                   </nav>
 
-                <div id="accordion-flush">
+                  <!-- Subject Offered Status -->
+                  <div id="accordion-flush">
+                    <div class="border-b border-gray-200">
+                      <h2 id="accordion-flush-heading-1">
+                        <button
+                          type="button"
+                          title="Click to Expand"
+                          class="flex items-center justify-between w-full p-5 cursor-pointer gap-3 transition duration-200 hover:bg-gray-200"
+                          @click="toggleExamAccordion('accordion-flush-body-exam')"
+                        >
+                          <span class="font-medium text-lg text-official-purple-800 transition duration-200 hover:text-official-purple-900">
+                            Subject Offered Status As of: <span class="font-bold text-lg text-official-purple-900">December 13, 2024 [ 8:45am ]</span>
+                          </span>
+                          <svg
+                            class="w-3 h-3 shrink-0"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 10 6"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              :d="expandedItem === 'accordion-flush-body-exam' ? 'M1 1l4 4 4-4' : 'M9 5L5 1 1 5'"
+                            />
+                          </svg>
+                        </button>
+                      </h2>
+                      <div
+                        id="accordion-flush-body-exam"
+                        class="transition-all duration-300 overflow-hidden"
+                        :class="{ 'hidden': expandedItem !== 'accordion-flush-body-exam', 'block': expandedItem === 'accordion-flush-body-exam' }"
+                      >
+                      <div class="p-6">
+                        <div class="responsive-iframe-container ">
+                        <iframe 
+                          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ47NVN7URV9-0nSYIYB7IECmT1__c0-YatkygbYo7CdChd3clxR8YgAuI-o8jgJW9TpbBPDAB-RHQc/pubhtml?gid=952579375&amp;single=true&amp;widget=true&amp;headers=false"
+                          frameborder="0"
+                          width="100%"
+                          height="100%"
+                        ></iframe>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="accordion-flush">
                     <div v-for="(item, index) in exam" :key="item.id" class="border-b border-gray-200">
                         <h2 :id="`accordion-flush-heading-${item.id}`">
                             <button
@@ -51,30 +100,29 @@
                                     d="M9 5 5 1 1 5"
                                     />
                                 </svg>
-                                </button>
-
-                                </h2>
-                                <div
-                                :id="`accordion-flush-body-${item.id}`"
-                                class="transition-all duration-300"
-                                v-show="expandedItem === item.id"
-                                >
-                                <div class="py-5">
-                                    <!-- Render images with zoom-in cursor -->
-                                    <img
-                                    v-if="item.image && item.image.length"
-                                    :src="item.image[0]"
-                                    alt="Exam Image"
-                                    class="w-full rounded-lg mb-4 object-cover cursor-zoom-in"
-                                    @click="showLightbox(index)"
-                                    />
-                                    <p class="mb-2 text-gray-500 dark:text-gray-400">
-                                    {{ item.content || '' }}
-                                    </p>
-                                </div>
-                                </div>
+                            </button>
+                        </h2>
+                            <div
+                              :id="`accordion-flush-body-${item.id}`"
+                              class="transition-all duration-300"
+                              v-show="expandedItem === item.id"
+                              >
+                              <div class="py-5">
+                                  <!-- Render images with zoom-in cursor -->
+                                  <img
+                                  v-if="item.image && item.image.length"
+                                  :src="item.image[0]"
+                                  alt="Exam Image"
+                                  class="w-full rounded-lg mb-4 object-cover cursor-zoom-in"
+                                  @click="showLightbox(index)"
+                                  />
+                                  <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                  {{ item.content || '' }}
+                                  </p>
+                              </div>
                             </div>
                         </div>
+                    </div>
 
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-4 mt-10" aria-label="breadcrumb" width="100%">
@@ -191,12 +239,14 @@
   
   <script setup>
 import { Link, Head } from '@inertiajs/vue3';
-import { defineProps } from 'vue';
-import { ref, onMounted } from 'vue';
+import { defineProps, ref, onMounted } from 'vue';
 import MainLayout from '@/Layouts/MainLayout.vue';
 import VueEasyLightbox from 'vue-easy-lightbox';
 import RelatedLinks from '@/Pages/Main/Home/Partials/RelatedLinks.vue';
 
+/**
+ * Component props
+ */
 const props = defineProps({
   post: {
     type: Array,
@@ -211,8 +261,7 @@ const props = defineProps({
     required: true, 
   },
 });
-
-// Lightbox state
+// Lightbox
 const visible = ref(false);
 const index = ref(0);
 
@@ -225,57 +274,42 @@ const handleHide = () => {
   visible.value = false;
 };
 
-// Function to format dates
+// Date Formatting
 const formattedDate = (date) => {
   return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
-// Owl Carousel setup
+// Owl Carousel
 onMounted(() => {
-  if (typeof $ !== 'undefined') {
-    const owlCarousel = $('.announcement-carousel').owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: false,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      responsive: {
-        0: { 
-          items: 1,
-          center: true,
-        },
-        600: { items: 2 },
-        800: { items: 3 },
-        1000: { items: 4 },
-      }
-    });
-
-    // Pause autoplay on mouseover
-    $('.announcement-carousel').on('mouseover', function() {
-      owlCarousel.trigger('stop.owl.autoplay');
-    });
-
-    // Resume autoplay on mouseleave
-    $('.announcement-carousel').on('mouseleave', function() {
-      owlCarousel.trigger('play.owl.autoplay', [5000]);
-    });
-  } else {
-    console.error('jQuery is not loaded');
+  try {
+    // ...
+  } catch (error) {
+    console.error('Owl Carousel initialization failed:', error);
   }
 });
 
-// Social media sharing
+// Social Media Sharing
 const shareToFacebook = () => {
-  const url = encodeURIComponent(window.location.href);
-  const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  window.open(fbShareUrl, '_blank', 'width=600,height=400');
+  try {
+    const url = encodeURIComponent(window.location.href);
+    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(fbShareUrl, '_blank', 'width=600,height=400');
+  } catch (error) {
+    console.error('Facebook sharing failed:', error);
+  }
 };
 
-// Accordion state
+// Accordion
 const expandedItem = ref(null);
 
 const toggleAccordion = (id) => {
-  expandedItem.value = expandedItem.value === id ? null : id; // Toggle accordion
+  expandedItem.value = expandedItem.value === id ? null : id;
+};
+
+
+// Method to toggle the accordion
+const toggleExamAccordion = (id) => {
+  expandedItem.value = expandedItem.value === id ? null : id;
 };
 </script>
 
@@ -285,6 +319,21 @@ const toggleAccordion = (id) => {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+  }
+
+  .responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 177.77%; 
+  }
+
+  .responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
   </style>
   
