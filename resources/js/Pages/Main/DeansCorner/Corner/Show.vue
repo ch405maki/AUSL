@@ -32,6 +32,17 @@
                       <img :src="image" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in" @click="showLightbox(index)"/>
                     </div>
                   </div>
+                  
+                  <!-- Subject Offered Status -->
+                  <div v-if="post.iframe" class="bg-slate-100 mb-4">
+                    <div class="responsive-iframe-container ">  
+                        <iframe 
+                          :src="post.iframe"
+                          frameborder="0"
+                          width="700" Height="400"
+                        ></iframe>
+                      </div>
+                  </div>
   
                   <!-- Breadcrumb -->
                   <nav class="bg-grey-light w-full rounded-md mb-4" aria-label="breadcrumb" width="100%">
@@ -112,12 +123,12 @@
                           <p class="text-slate-600">
                             {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
                           </p>
-                          <div v-if="dean.content">
+                          <!-- <div v-if="dean.content">
                             <p v-if="dean.content.length > 0">
                               <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 400)"></div>
                             </p>
                             <p v-else>{{ dean.content }}</p>
-                          </div>
+                          </div> -->
                           <a
                             :href="dean.category === 'Exam' ? `/exam/show/${dean.id}` : `/deans/show/${dean.id}`"
                             class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline"
@@ -227,5 +238,21 @@
     height: 100vh;
     overflow: hidden;
   }
+
+  .responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.25%; 
+  }
+
+  .responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   </style>
   

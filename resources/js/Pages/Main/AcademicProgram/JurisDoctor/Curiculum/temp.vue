@@ -1,167 +1,63 @@
-<template>
-  <MainLayout>
-    <Head title="Juris Doctor Curriculum" />
-    <div class="flex flex-col min-h-screen">
-      <div class="relative mb-4">
-        <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
-        <div class="absolute inset-0 flex items-center justify-center">
-          <h1 class="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold text-center text-invicta">
-            ARELLANO UNIVERSITY SCHOOL OF LAW
-          </h1>
-        </div>
-      </div>
-      <main class="flex-grow">
-        <div class="bg-white">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row w-full justify-center">
-              <div class="w-full md:w-2/2 p-2">
-                <div class="flex border-b border-official-purple-800">
-                  <button
-                    class="w-1/2 py-4 text-center font-medium focus:outline-none"
-                    :class="{ 'active': activeTab === 'tab1', 'bg-gray-100 text-gray-600': activeTab !== 'tab1' }"
-                    @click="setActiveTab('tab1')"
-                  >
-                    <p class="text-lg font-bold">Juris Doctor (143 Units)</p>
-                    <p>(School Year 2022-2023)</p>
-                  </button>
-                  <button
-                    class="w-1/2 py-4 text-center font-medium focus:outline-none"
-                    :class="{ 'active': activeTab === 'tab2', 'bg-gray-100 text-gray-600': activeTab !== 'tab2' }"
-                    @click="setActiveTab('tab2')"
-                  >
-                    <p class="text-lg font-bold">Juris Doctor</p>
-                    <p>(School Year 2013-2014)</p>
-                  </button>
-                </div>
-                
-                <div v-show="activeTab === 'tab1'" class="tabcontent p-4">
-                  <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
-                    <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
-                      <thead class="bg-official-purple-100">
-                        <tr>
-                          <th colspan="2" class="px-4 py-3 text-left text-lg font-medium text-gray-800">
-                            {{ semester.name }}
-                          </th>
-                        </tr>
-                        <tr>
-                          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 border border-gray-600">
-                            Subject
-                          </th>
-                          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600 w-24 ">
-                            Units
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="(subject, index) in semester.subjects" :key="index" class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap" title="Click for subject description">
-                            <details class="group">
-                              <summary
-                                  class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                                  {{subject.name}}
-                              </summary>
-                              <div class="pb-4 mt-2 text-secondary-500"><p v-html="subject.description"></p></div>
-                          </details>
-                          </th>
-                          <td class="px-4 text-lg font-normal text-gray-600 whitespace-nowrap text-center border border-gray-600">
-                            {{ subject.units }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap"></td>
-                          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap text-center border-1 border-slate-700">
-                            <b>{{ semester.totalUnits }}</b>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+<h1 class="text-official-purple-800 font-bold text-xl sm:text-2xl text-pretty p-2">
+    Juris Doctor Curiculum
+  </h1>
+  <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
+    <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
+      <thead class="bg-official-purple-100">
+        <tr>
+          <th colspan="2" class="px-4 py-3 text-left text-lg font-medium text-gray-800">
+            {{ semester.name }}
+          </th>
+        </tr>
+        <tr>
+          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 border border-gray-600">
+            Subject
+          </th>
+          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600 w-24 ">
+            Units
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(subject, index) in semester.subjects" :key="index" class="border-b odd:bg-white even:bg-gray-50">
+          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap" title="Click for subject description">
+            <details class="group">
+              <summary
+                  class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500">
+                  {{subject.name}}
+                  <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                      </svg>
                   </div>
-                </div>
-                
-                <div v-show="activeTab === 'tab2'" class="tabcontent p-4">
-                  <div v-for="semester in subjects_old" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
-                    <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
-                      <thead class="bg-official-purple-100">
-                        <tr>
-                          <th colspan="2" class="px-4 py-3 text-left text-lg font-medium text-gray-800">
-                            {{ semester.name }}
-                          </th>
-                        </tr>
-                        <tr>
-                          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 border border-gray-600">
-                            Subject
-                          </th>
-                          <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600 w-24 ">
-                            Units
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="(subject, index) in semester.subjects" :key="index" class="border-b odd:bg-white even:bg-gray-50">
-                          <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap" title="Click for subject description">
-                            <details class="group">
-                              <summary
-                                  class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                                  {{subject.name}}
-                              </summary>
-                              <div class="pb-4 mt-2 text-secondary-500"><p v-html="subject.description"></p></div>
-                          </details>
-                          </th>
-                          <td class="px-4 text-lg font-normal text-gray-600 whitespace-nowrap text-center border border-gray-600">
-                            {{ subject.units }}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap"></td>
-                          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap text-center border-1 border-slate-700">
-                            <b>{{ semester.totalUnits }}</b>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              
-              <aside class="w-full md:w-1/3 sticky top-0">
-                <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">
-                  <div class="ml-4">
-                    <h2 class="mb-4 text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
-                    <hr class="mb-4 border-1 border-official-purple-800">
-                    <h3 class="text-lg font-normal text-gray-800 mb-8">Juris Doctor Curriculum</h3>
-                  </div>
-                  <div class="ml-4">
-                    <h2 class="text-official-purple-900 text-lg font-medium mb-4">Related Links</h2>
-                    <hr class="mb-4 border-1 border-official-purple-800">
-                    <ul class="list-inside list-disc">
-                      <RelatedLinks />
-                    </ul>
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </MainLayout>
-</template>
+              </summary>
+              <div class="pb-4 mt-2 text-secondary-500"><p v-html="subject.description"></p></div>
+          </details>
+          </th>
+          <td class="px-4 text-lg font-normal text-gray-600 whitespace-nowrap text-center border border-gray-600">
+            {{ subject.units }}
+          </td>
+        </tr>
+        <tr>
+          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap"></td>
+          <td class="px-6 py-2 text-lg font-normal text-gray-600 whitespace-nowrap text-center border-1 border-slate-700">
+            <b>{{ semester.totalUnits }}</b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<script setup>
-import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
-import MainLayout from '@/Layouts/MainLayout.vue';
-import RelatedLinks from '../../Components/RelatedLinks.vue';
 
-// Reactive state for the active tab
-const activeTab = ref('tab1');
 
-// Method to change the active tab
-function setActiveTab(tabName) {
-  activeTab.value = tabName;
-}
 
-const subjects = ref([
+
+  const subjects = ref([
   {
     name: 'First Year - First Semester',
     subjects: [
@@ -465,418 +361,3 @@ const subjects = ref([
       totalUnits: 16,
     }
   ]);
-
-const subjects_old = ref([
-  {
-    name: 'First Year - First Semester',
-    subjects: [
-      { 
-        name: 'Person and Family Relations',
-        description: '',
-        units: 5,
-        showDescription: false
-      },
-      { 
-        name: 'Criminal Law I',
-        description: '',
-        units: 4,
-        showDescription: false
-      },
-      { 
-        name: 'Constitutional Law I',
-        description: '',
-        units: 4,
-        showDescription: false
-      },
-      { 
-        name: 'Legal Writing',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Statutory Construction',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Legal Research',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-    ],
-    totalUnits: 19
-  },
-  {
-    name: 'First Year - Second Semester',
-    subjects: [
-      { 
-        name: 'Obligations and Contracts',
-        description: '',
-        units: 5,
-        showDescription: false
-      },
-      { 
-        name: 'Constitutional Law II',
-        description: '',
-        units: 3,
-        showDescription: false
-      },
-      { 
-        name: 'Criminal Law II (Pre-Crim. I)',
-        description: '',
-        units: 4,
-        showDescription: false
-      },
-      { 
-        name: 'Legal Technique and Logic',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Agrarian Laws & Social Legislation',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Basic Legal Ethics',
-        description: '',
-        units: 3,
-        showDescription: false
-      },
-    ],
-    totalUnits: 19
-  },
-  {
-  name: 'Second Year - First Semester',
-  subjects: [
-    { 
-      name: 'Property (Pre-Oblig.)',
-      description: '',
-      units: 4,
-      showDescription: false
-    },
-    { 
-      name: 'Criminal Procedure',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Sales',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Labor Law I',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Public International Law',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Human Rights Law',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Alternative Dispute Resolution',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Administrative Law, Law on Public Officers & Election Laws',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-  ],
-  totalUnits: 22
-},
-{
-  name: 'Second Year - Second Semester',
-  subjects: [
-    { 
-      name: 'Civil Procedure',
-      description: '',
-      units: 5,
-      showDescription: false
-    },
-    { 
-      name: 'Negotiable Instruments (Pre-Oblig.)',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Credit Transactions (Pre-Oblig.)',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Labor Law II',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Natural Resources & Environmental Law',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Land Titles and Deeds',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Insurance (Pre-Oblig.)',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-  ],
-  totalUnits: 21
-},
-{
-  name: 'Summer',
-  subjects: [
-    { 
-      name: 'Apprenticeship',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-  ],
-  totalUnits: 2
-},
-{
-  name: 'Third Year - First Semester',
-  subjects: [
-    { 
-      name: 'Succession',
-      description: '',
-      units: 4,
-      showDescription: false
-    },
-    { 
-      name: 'Agency, Trust and Partnership',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Taxation I',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Transportation',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Torts and Damages',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Conflict of Laws',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Legal Medicine',
-      description: '',
-      units: 1,
-      showDescription: false
-    },
-    { 
-      name: 'Public Corporations',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-  ],
-  totalUnits: 19
-},
-{
-  name: 'Third Year - Second Semester',
-  subjects: [
-    { 
-      name: 'Evidence',
-      description: '',
-      units: 4,
-      showDescription: false
-    },
-    { 
-      name: 'Corporation Law',
-      description: '',
-      units: 5,
-      showDescription: false
-    },
-    { 
-      name: 'Taxation II',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Special Proceedings',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Copyright and Intellectual Property Laws',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Legal Forms',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-    { 
-      name: 'Problem Areas in Legal Ethics',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-  ],
-  totalUnits: 21
-},
-{
-  name: 'Fourth Year - First Semester',
-  subjects: [
-    { 
-      name: 'Constitutional Law Review',
-      description: '',
-      units: 5,
-      showDescription: false
-    },
-    { 
-      name: 'Civil Law Review I',
-      description: '',
-      units: 4,
-      showDescription: false
-    },
-    { 
-      name: 'Criminal Law Review',
-      description: '',
-      units: 5,
-      showDescription: false
-    },
-    { 
-      name: 'Labor Law Review',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Remedial Law Review I',
-      description: '',
-      units: 3,
-      showDescription: false
-    },
-    { 
-      name: 'Practice Court I',
-      description: '',
-      units: 2,
-      showDescription: false
-    },
-  ],
-    totalUnits: 22
-  },
-  {
-    name: 'Fourth Year - Second Semester',
-    subjects: [
-      { 
-        name: 'Remedial Law Review II',
-        description: '',
-        units: 4,
-        showDescription: false
-      },
-      { 
-        name: 'Civil Law Review II',
-        description: '',
-        units: 4,
-        showDescription: false
-      },
-      { 
-        name: 'Commercial Law Review',
-        description: '',
-        units: 5,
-        showDescription: false
-      },
-      { 
-        name: 'Legal Counseling and Social Responsibility',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Practice Court II',
-        description: '',
-        units: 2,
-        showDescription: false
-      },
-      { 
-        name: 'Taxation Law Review',
-        description: '',
-        units: 3,
-        showDescription: false
-      },
-    ],
-    totalUnits: 20
-  },
-  ]);
-</script>
-
-<style scoped>
-@import url('https://db.onlinewebfonts.com/c/14ab77252fbc4bdca1dbdf8051cb7e96?family=BF+Invicta+W00+Bold');
-
-.text-invicta {
-  font-family: 'BF Invicta W00 Bold', sans-serif;
-}
-
-.active {
-  background-color: #004ea8; 
-  color: #fff;
-}
-
-.tabcontent {
-  transition: opacity 0.3s ease-in-out;
-}
-
-
-.active {
-  background-color: #004ea8; /* official purple */
-  color: #fff;
-}
-
-.text-gray-600 {
-  color: #333;
-}
-</style>

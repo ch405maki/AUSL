@@ -61,6 +61,7 @@
                         placeholder="Headline Here..."
                       />
                     </div>
+
                     <!-- Pubmat Input -->
                     <div class="col-span-12">
                       <InputLabel for="pubmat" value="Upload Pubmat" />
@@ -118,6 +119,19 @@
                       <span v-if="errors.image" class="text-red-500 text-sm">{{ errors.image }}</span>
                     </div>
 
+                    <!-- Iframe Input -->
+                    <div class="col-span-12">
+                      <InputLabel for="iframe" value="Iframe" />
+                      <TextInput
+                        id="iframe"
+                        v-model="form.iframe"
+                        autofocus
+                        type="text"
+                        class="mt-1 block w-full border border-gray-300 rounded-lg"
+                        placeholder="iframe Here..."
+                      />
+                    </div>
+
                     <div class="col-span-12 mt-4">
                       <InputLabel for="link" value="Link" />
                       <TextInput
@@ -159,8 +173,9 @@ import { Inertia } from '@inertiajs/inertia';
 const form = useForm({
 title: '',
 content: '',
+iframe: '',
 image: [],
-pubmat: null, // Add pubmat field
+pubmat: null,
 category: '',
 state: 'Active',
 link: null,
@@ -234,11 +249,9 @@ headers: {
 
 const editor = ClassicEditor;
 const editorConfig = {
-toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote','insertTable', 'mediaEmbed', ],
 };
 </script>
-
-
 
 
 <style scoped>

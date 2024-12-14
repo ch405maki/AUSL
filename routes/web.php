@@ -37,10 +37,10 @@ Route::get('/', function () {
     ]);
  });
 
-    Route::get('/logout', function() {
-        Auth::logout();
-        return redirect('/');
-    })->name('/logout');
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('/');
+})->name('/logout');
 
  Route::get('/banners', function () {
     return Banner::where('state', true)->get();
@@ -258,6 +258,8 @@ Route::get('/privacy_policy', function () {
     Route::get('/olavolunteerlawyers', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSewXtsFJ0dIPCRxGCI2Pexy9XBRWXdHTpyqA5okULvzg1y2Jw/viewform?fbclid=IwAR2CYNO8m1j1lgVkPIEVXKrxKxv9QKu30K0jnzfkZZeeqUtlrbffATRZrHc');
     });
+    
+    // Wifi link
 
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//

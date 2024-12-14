@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\UserLog;
 use Illuminate\Support\Facades\Auth;
 
+use HTMLPurifier;
+use HTMLPurifier_Config;
+
 use Illuminate\Http\Request;
 
 class AnnouncementController extends Controller
@@ -31,6 +34,7 @@ class AnnouncementController extends Controller
         $request->validate([
             'title' => 'required|string',
             'content' => 'nullable|string',
+            'iframe' => 'nullable|string',
             'image.*' => 'nullable|image|mimes:jpg,png,gif|max:10240',
             'pubmat' => 'nullable|image|mimes:jpg,png,gif|max:10240',
             'category' => 'required|string',

@@ -18,56 +18,7 @@
                       <li><span class="mx-2 text-neutral-500">{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span></li>
                     </ol>
                   </nav>
-
-                  <!-- Subject Offered Status -->
-                  <div id="accordion-flush">
-                    <div class="border-b border-gray-200">
-                      <h2 id="accordion-flush-heading-1">
-                        <button
-                          type="button"
-                          title="Click to Expand"
-                          class="flex items-center justify-between w-full p-5 cursor-pointer gap-3 transition duration-200 hover:bg-gray-200"
-                          @click="toggleExamAccordion('accordion-flush-body-exam')"
-                        >
-                          <span class="font-medium text-lg text-official-purple-800 transition duration-200 hover:text-official-purple-900">
-                            Subject Offered Status As of: <span class="font-bold text-lg text-official-purple-900">December 13, 2024 [ 8:45am ]</span>
-                          </span>
-                          <svg
-                            class="w-3 h-3 shrink-0"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 10 6"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              :d="expandedItem === 'accordion-flush-body-exam' ? 'M1 1l4 4 4-4' : 'M9 5L5 1 1 5'"
-                            />
-                          </svg>
-                        </button>
-                      </h2>
-                      <div
-                        id="accordion-flush-body-exam"
-                        class="transition-all duration-300 overflow-hidden"
-                        :class="{ 'hidden': expandedItem !== 'accordion-flush-body-exam', 'block': expandedItem === 'accordion-flush-body-exam' }"
-                      >
-                      <div class="p-6">
-                        <div class="responsive-iframe-container ">
-                        <iframe 
-                          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ47NVN7URV9-0nSYIYB7IECmT1__c0-YatkygbYo7CdChd3clxR8YgAuI-o8jgJW9TpbBPDAB-RHQc/pubhtml?gid=952579375&amp;single=true&amp;widget=true&amp;headers=false"
-                          frameborder="0"
-                          width="100%"
-                          height="100%"
-                        ></iframe>
-                      </div>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-
+                  
                   <div id="accordion-flush">
                     <div v-for="(item, index) in exam" :key="item.id" class="border-b border-gray-200">
                         <h2 :id="`accordion-flush-heading-${item.id}`">
