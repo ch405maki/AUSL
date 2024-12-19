@@ -77,6 +77,29 @@
                   </v-list-item>
                 </v-list>
               </v-list-item>
+              <div class="my-4 bg-gray-300 h-[1px] m-4"></div>
+              <v-list-item>
+                <v-list-item-title >
+                  <a href="https://aims.arellanolaw.edu/aims/students/" target="_blank" rel="noopener noreferrer"  class="mb-4 text-official-purple-800 flex w-full items-left">
+                    <span>AIMS Students</span>
+                  </a>
+                </v-list-item-title>
+                <v-list-item-title >
+                  <a href="https://aims.arellanolaw.edu/aims/faculty/" target="_blank" rel="noopener noreferrer"  class="mb-4 text-official-purple-800 flex w-full items-left">
+                    <span>AIMS Faculty</span>
+                  </a>
+                </v-list-item-title>
+                <v-list-item-title >
+                  <a href="https://clear.arellanolaw.org/" target="_blank" rel="noopener noreferrer"  class="mb-4 text-official-purple-800 flex w-full items-left">
+                    <span>Bar Review</span>
+                  </a>
+                </v-list-item-title>
+                <v-list-item-title >
+                  <a href="https://aims.arellanolaw.edu/aims/applicants/" target="_blank" rel="noopener noreferrer" >
+                    <img src="/images/online.png"  class="w-64 h-auto transition-all duration-300 transform hover:scale-105" alt="">
+                  </a>
+                </v-list-item-title>
+              </v-list-item>
             </v-list>
           </v-menu>
         </div>
