@@ -109,6 +109,12 @@ const socialMediaLinks = [
     hoverClass: "hover:text-blue-600"
   },
   {
+    name: "CLEAR Facebook Page",
+    url: "https://www.facebook.com/p/Center-for-Legal-Education-and-Research-100063942916347/",
+    logo: "/images/contact/social/CLEAR.jpg",
+    hoverClass: "hover:text-blue-600"
+  },
+  {
     name: "Audio Visual Facebook Page",
     url: "https://www.facebook.com/avausl",
     logo: "/images/contact/social/AUSL.png",

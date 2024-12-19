@@ -22,6 +22,9 @@
                         <p class=""><span class="mdi mdi-phone mr-2"></span> Tel. Nos. 8404-30 89 to 93</p>
                         <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline ">
                             <span class="mdi mdi-email mr-2"></span> onlinesupport@arellanolaw.edu
+                        </a><br>
+                        <a href="mailto:itc@arellanolaw.edu" class="hover:underline ">
+                            <span class="mdi mdi-email mr-2"></span> itc@arellanolaw.edu
                         </a>
                     </div>
                 </div>
@@ -54,9 +57,6 @@
                             </li>
                             <li class="mb-4">
                                 <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
-                            </li>
-                            <li class="mb-4">
-                                <a :href="route('administration.alf')" class="hover:underline cursor-pointer">Administration</a>
                             </li>
                         </ul>
                     </div>
