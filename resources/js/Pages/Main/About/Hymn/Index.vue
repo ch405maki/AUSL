@@ -11,12 +11,12 @@
           <div class="bg-white border-none rounded-lg relative">
             <div class="mt-4 flex justify-center items-center">
               <video controls class="max-w-full h-auto">
-                <source src="/videos/auslHymn.mp4" type="video/mp4">
+                <source src="/videos/auHymn.mp4" type="video/mp4">
               </video>
             </div>
             <div class="mt-8 text-start">
             <p class="text-2xl sm:text-2xl font-bold text-official-purple-900 mb-2">Arellano Hymn</p>
-            <p class="text-lg text-gray-600 mb-8">By...</p>
+            <p class="text-lg text-gray-600 mb-8"></p>
 
             <div class="tracking-wide text-lg font-normal text-gray-600 ">
               <p>Arellano pamantasan namin</p>

@@ -132,16 +132,6 @@ const links = ref([
     ]
   },
   {
-    title: 'Administration',
-    url: '#',
-    children: [
-      { title: 'Arellano Law Foundation', url: '/administration/alf'},
-      { title: 'Board of Trustees', url: '/administration/board_trustees'},
-      { title: 'Administration Officers', url: '/administration/admin_staff'},
-      { title: 'Departments', url: '/administration/departments'},
-    ]
-  },
-  {
     title: 'Academic Programs',
     url: '#',
     children: [
