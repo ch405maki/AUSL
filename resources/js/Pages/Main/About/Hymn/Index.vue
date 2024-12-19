@@ -60,11 +60,11 @@
             <p class="text-lg text-gray-600 mb-8">By Dean Mariano F. Magsalin, Jr.</p>
 
             <div class="tracking-wide text-lg font-normal text-gray-600 ">
-              <p>Hail Alma Mater</p>
               <p>Hail to the Chief</p>
+              <p>Hail Alma Mater</p>
               <p>Hail Arellano Law</p>
               <p>Our loyalty we pledge to keep</p>
-              <p>Our hearts and minds do commit</p>
+              <p>Our hearts and minds we do commit</p>
               <p>To stand for what is just and right</p>
               <p>To always be the best</p>
               <br>
@@ -73,7 +73,7 @@
               <p>Hail Arellano Law</p>
               <p>Our voices will ring forever</p>
               <p>Arellano, Arellano</p>
-              <p>O hail!</p>
+              <p>O Hail!</p>
             </div>
           </div>
           </div>
