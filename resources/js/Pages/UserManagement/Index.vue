@@ -159,6 +159,7 @@ import Swal from 'sweetalert2';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import { router } from "@inertiajs/vue3";
 import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
@@ -181,6 +182,14 @@ const openChangeRoleModal = (user) => {
     selectedUser.value = user;
     selectedRole.value = user.role_id;
     changeRoleDialog.value = true;
+};
+
+const deleteUser = (userId) => {
+    router.delete(`/users/${userId}`, {
+        onBefore: () => console.log("Deleting user..."),
+        onSuccess: () => console.log("User deleted successfully."),
+        onError: (errors) => console.error(errors),
+    });
 };
 
 const confirmChangeRole = () => {
