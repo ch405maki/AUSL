@@ -94,7 +94,7 @@
       { code: 'RO10', description: 'Application for the Degree of Juris Doctor', url: '/pdf/RO10.pdf' },
       { code: 'RO10b', description: 'Curriculum Evaluation Form (SY 2013-2014)', url: '/pdf/RO10b.pdf' },
       { code: 'RO13b', description: 'Authorization to Release Students Academic and Personal Data', url: '/pdf/RO13b.pdf' },
-      { code: 'RO26b', description: 'Application for Additional Subjects for Manual Enrollment', url: '/pdf/RO26b.pdf' },
+      { code: 'RO26', description: 'Application for Additional Subjects for Manual Enrollment', url: '/pdf/RO26.pdf' },
     ]);
     </script>
     
