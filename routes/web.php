@@ -63,6 +63,11 @@ Route::get('/emptyState', function () {
     return Inertia::render('Main/Partials/EmptyEstate');
 })->name('emptyState');
 
+// Quick Links
+Route::get('/auslpassers', function () {
+    return Inertia::render('Main/BarPassers/Index');
+})->name('auslpassers');
+
 // About
 Route::get('/history', function () {
     return Inertia::render('Main/About/History/Index');
@@ -79,7 +84,6 @@ Route::get('/deans_archive', function () {
 Route::get('/deans corner', [DeansController::class, 'index'])->name('deans corner');
 Route::get('/deans/show/{id}', [MainController::class, 'showDeansAnnouncement'])->name('deans.show');
 Route::get('/exam/show/{id}', [MainController::class, 'showExamAnnouncement'])->name('exam.show');
-
 
 
 // Administration
