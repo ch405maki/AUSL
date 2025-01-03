@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $superAdminRoleId = 3; // Assuming role_id 1 is for Super Admin
+        $superAdminRoleId = 4; // Assuming role_id 1 is for Super Admin
         $users = User::where('role_id', '!=', $superAdminRoleId)->get(); // Exclude Super Admin users
         $roles = Role::all(); // Fetch all roles
 
