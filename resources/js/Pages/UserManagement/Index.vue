@@ -185,12 +185,26 @@ const openChangeRoleModal = (user) => {
 };
 
 const deleteUser = (userId) => {
-    router.delete(`/users/${userId}`, {
-        onBefore: () => console.log("Deleting user..."),
-        onSuccess: () => console.log("User deleted successfully."),
-        onError: (errors) => console.error(errors),
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This action cannot be undone!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            router.delete(`/users/${userId}`, {
+                onBefore: () => Swal.fire('Processing...', 'Please wait...', 'info'),
+                onSuccess: () => Swal.fire('Deleted!', 'User has been deleted.', 'success'),
+                onError: (errors) => Swal.fire('Error!', 'Failed to delete the user.', 'error'),
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelled', 'User is safe.', 'info');
+        }
     });
 };
+
 
 const confirmChangeRole = () => {
     // Close the modal first

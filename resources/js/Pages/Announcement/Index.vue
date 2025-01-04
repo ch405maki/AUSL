@@ -191,7 +191,7 @@ const handleFileChange = (event) => {
 };
 
 const searchQuery = ref('');
-const years = ref([2024, 2023, 2022, 2021, 2020]);
+const years = ref([2025, 2024, 2023, 2022, 2021, 2020]);
 const selectedYear = ref('');
 const selectedCategory = ref('');
 

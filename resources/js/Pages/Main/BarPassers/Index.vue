@@ -7,6 +7,14 @@
           <div class="flex justify-center">
             <!-- Centering Y1996 Component -->
             <div class="w-full">
+              <Y2004 />
+              <Y2003 />
+              <Y2002 />
+              <Y2001 />
+              <Y2000 />
+              <Y1999 />
+              <Y1998 />
+              <Y1997 />
               <Y1996 />
             </div>
           </div>
@@ -23,6 +31,14 @@
   import MainLayout from '@/Layouts/MainLayout.vue';
   import Header from '../Components/Header.vue';
   import Y1996 from '@/Pages/Main/BarPassers/1996.vue';
+  import Y1997 from '@/Pages/Main/BarPassers/1997.vue';
+  import Y1998 from '@/Pages/Main/BarPassers/1998.vue';
+  import Y1999 from '@/Pages/Main/BarPassers/1999.vue';
+  import Y2000 from '@/Pages/Main/BarPassers/2000.vue';
+  import Y2001 from '@/Pages/Main/BarPassers/2001.vue';
+  import Y2002 from '@/Pages/Main/BarPassers/2002.vue';
+  import Y2003 from '@/Pages/Main/BarPassers/2003.vue';
+  import Y2004 from '@/Pages/Main/BarPassers/2004.vue';
 
   // Create a ref for the current step
   const step = ref(1); // Initially set to Step 1
