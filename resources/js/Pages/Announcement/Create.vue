@@ -49,18 +49,18 @@
                   </div>
 
                     <!-- Title Input -->
-                    <div class="col-span-12">
-                      <InputLabel for="title" value="Title" />
-                      <TextInput
-                        id="title"
-                        v-model="form.title"
-                        autofocus
-                        required
-                        type="text"
-                        class="mt-1 block w-full border border-gray-300 rounded-lg"
-                        placeholder="Headline Here..."
-                      />
-                    </div>
+                  <div class="col-span-12">
+                    <InputLabel for="title" value="Title" />
+                    <TextInput
+                      id="title"
+                      v-model="titleCaseTitle"
+                      autofocus
+                      required
+                      type="text"
+                      class="mt-1 block w-full border border-gray-300 rounded-lg"
+                      placeholder="Headline Here..."
+                    />
+                  </div>
 
                     <!-- Pubmat Input -->
                     <div class="col-span-12">
@@ -159,7 +159,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
@@ -246,6 +246,15 @@ headers: {
 },
 });
 };
+
+const titleCaseTitle = computed({
+  get() {
+    return form.title;
+  },
+  set(value) {
+    form.title = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  },
+});
 
 const editor = ClassicEditor;
 const editorConfig = {

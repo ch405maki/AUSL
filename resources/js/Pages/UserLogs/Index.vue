@@ -50,6 +50,7 @@
                     <th class="text-left w-1/12">Date</th>  
                     <th class="text-left">Action</th>
                     <th class="text-center hidden sm:table-cell">User Agent</th>
+                    <th class="text-center hidden sm:table-cell">IP</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,6 +65,7 @@
                     </td>
                     <td class="text-left whitespace-nowrap bg-red-100">{{ log.action }}</td>
                     <td class="text-center hidden sm:table-cell">{{ log.user_agent || 'N/A' }}</td>
+                    <td class="text-center hidden sm:table-cell">{{ log.ip_address || 'N/A' }}</td>
                   </tr>
                 </tbody>
               </v-table>
