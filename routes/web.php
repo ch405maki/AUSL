@@ -19,7 +19,7 @@ use App\Http\Controllers\DeansController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserLogController;
 use App\Http\Controllers\ServerStatusController;
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\DocumentController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -207,9 +207,7 @@ Route::prefix('student')->name('student.')->group(function () {
         return Inertia::render('Main/Student/Library/Index');
     })->name('library');
 
-    Route::get('/downloadable-forms', function () {
-        return Inertia::render('Main/Student/Downloadable/Index');
-    })->name('downloadable-forms');
+    Route::get('/downloadable-forms', [StudentController::class, 'form'])->name('downloadable-forms');
 });
 
 Route::get('/dean', function () {
@@ -381,8 +379,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 //Forms
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/form', [FormController::class, 'index'])->name('form');
+    Route::get('/documents', [DocumentController::class, 'index'])->name('documents');
+    Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
+
+    Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 });
+
+//Download Route
+Route::get('/documents/{document}/download', [DocumentController::class, 'download'])->name('documents.download');
+
 
 //settings
 Route::middleware(['auth', 'verified'])->group(function () {

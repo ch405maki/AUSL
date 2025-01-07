@@ -216,7 +216,7 @@
   const links = [
     { name: 'Academic Guidelines', route:'academic_guidelines'},
     { name: 'Carousell', route: 'carousell'},
-    { name: 'Forms', route: 'form'},
+    { name: 'Forms', route: 'documents'},
     { name: 'Main Banner', route: 'banner'},
     { name: 'Offices', route: 'offices'},
     { name: 'On Load Banner', route: 'onload'}
