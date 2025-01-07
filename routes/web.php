@@ -19,6 +19,7 @@ use App\Http\Controllers\DeansController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserLogController;
 use App\Http\Controllers\ServerStatusController;
+use App\Http\Controllers\FormController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -376,6 +377,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/academic_guidelines', [AcademicController::class, 'guide_index'])->name('academic_guidelines');
     Route::post('/academic_guidelines', [AcademicController::class, 'guide_store'])->name('academic_guidelines.store');
     Route::delete('/academic_guidelines/{id}', [AcademicController::class, 'guide_destroy'])->name('academic_guidelines.destroy');
+});
+
+//Forms
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/form', [FormController::class, 'index'])->name('form');
 });
 
 //settings
