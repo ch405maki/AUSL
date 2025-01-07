@@ -67,19 +67,18 @@ import SideDrawer from './Partials/NavBar/Partials/SideDrawer.vue';
 import { Inertia } from '@inertiajs/inertia';
 
 const loading = ref(true);
-const showCookiePopup = ref(false); // Initially set to false
+const showCookiePopup = ref(false);
 
 const acceptCookies = () => {
   showCookiePopup.value = false; 
-  sessionStorage.setItem('cookiesAccepted', 'true');
+  localStorage.setItem('cookiesAccepted', 'true');
 };
 
 onMounted(() => {
-  // Simulate loading time
   setTimeout(() => {
     loading.value = false;
-    if (!sessionStorage.getItem('cookiesAccepted')) {
-      showCookiePopup.value = true; 
+    if (!localStorage.getItem('cookiesAccepted')) {
+      showCookiePopup.value = true;
     }
   }, 2000);
 });

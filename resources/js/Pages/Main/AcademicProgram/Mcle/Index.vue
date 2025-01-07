@@ -80,7 +80,7 @@
       { description: 'Registration form (12 units)', url: '/pdf/Registration form (12 units).pdf' },
       { description: 'Registration form (24 units)', url: '/pdf/Registration form (24 units).pdf' },
       { description: 'Registration form (36 units)', url: '/pdf/Registration form (36 units).pdf' },
-      { description: 'Registration form (Completion units).pdf', url: '/pdf/Registration form (Completion units).pdf' },
+      { description: 'Registration form (Completion units)', url: '/pdf/Registration form (Completion units).pdf' },
     ]);
   
   const isMobile = reactive({ value: window.innerWidth <= 768 });

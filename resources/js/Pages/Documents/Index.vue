@@ -161,7 +161,7 @@ const uploadDocument = async () => {
           text: 'Document uploaded successfully.',
           confirmButtonText: 'OK',
         }).then(() => {
-          router.visit('/documents'); // Redirect to the documents page
+          router.visit('/documents');
         });
         resetForm();
       },
