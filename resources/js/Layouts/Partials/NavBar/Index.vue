@@ -91,7 +91,12 @@
                 </v-list-item-title>
                 <v-list-item-title >
                   <a href="https://clear.arellanolaw.org/" target="_blank" rel="noopener noreferrer"  class="mb-4 text-official-purple-800 flex w-full items-left">
-                    <span>Bar Review</span>
+                    <span>Bar Review Program</span>
+                  </a>
+                </v-list-item-title>
+                <v-list-item-title >
+                  <a :href="route ('academic.mcle')" class="mb-4 text-official-purple-800 flex w-full items-left">
+                    <span>MCLE</span>
                   </a>
                 </v-list-item-title>
                 <v-list-item-title >

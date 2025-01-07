@@ -154,6 +154,10 @@ Route::prefix('academic')->name('academic.')->group(function () {
     Route::get('/barreview', function () {
         return Inertia::render('Main/AcademicProgram/Bar/Index');
     })->name('barreview');
+    
+    Route::get('/mcle', function () {
+        return Inertia::render('Main/AcademicProgram/Mcle/Index');
+    })->name('mcle');
 });
 
 // admissions

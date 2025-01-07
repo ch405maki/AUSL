@@ -12,7 +12,7 @@
     { text: 'Refresher/Curriculum', url: 'refresher-curriculum' },
     { text: 'Academic Guidelines', url: 'guidelines' },
     { text: 'Bar Review', url: 'barreview' },
-    { text: 'MCLE', url: 'https://clear.arellanolaw.org/' },
+    { text: 'MCLE Website', url: 'https://clear.arellanolaw.org/' },
     ]);
 
 </script>
