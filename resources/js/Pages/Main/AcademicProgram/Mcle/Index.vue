@@ -43,6 +43,11 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="relative mb-8 flex flex-col items-center bg-slate-100">
+                        <div  class="w-full mb-4">
+                            <img src="/images/mcle/mcle_poster.jpg" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in" @click="showLightbox(index)"/>
+                        </div>
+                    </div>
                 </div>
             </section>
   

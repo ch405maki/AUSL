@@ -163,7 +163,7 @@ Route::prefix('academic')->name('academic.')->group(function () {
 
 // admissions
 Route::prefix('admissions')->name('admissions.')->group(function () {
-    Route::get('/process', function () {
+    Route::get('/', function () {
         return Inertia::render('Main/Admission/EnrollmentGuide/Index');
     })->name('process');
 
