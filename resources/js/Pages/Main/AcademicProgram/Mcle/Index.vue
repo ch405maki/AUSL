@@ -1,7 +1,7 @@
 <template>
     <MainLayout>
       <Head title="Academic Guidelines" />
-      <Header>60th MCLE Seminar (March 8,15,22 and 29)</Header>
+      <Header>60th MCLE Seminar (March 8,15,22 and 29, 2025)</Header>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
           <div class="flex flex-col md:flex-row justify-between gap-8">
