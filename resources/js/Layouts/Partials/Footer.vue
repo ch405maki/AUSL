@@ -59,7 +59,7 @@
                                 <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
                             </li>
                             <li class="mb-4">
-                                <a :href="route('auslpassers')" class="hover:underline cursor-pointer">AUSL Bar Passers</a>
+                                <a :href="route('auslpassers')" class="hover:underline cursor-pointer">2024 AUSL Bar Passers</a>
                             </li>
                         </ul>
                     </div>
@@ -93,7 +93,7 @@
             </div>
             <hr class="my-6 border-official-purple-800 sm:mx-auto dark:border-official-purple-900 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">AUSL</a>. All Rights Reserved.
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="#" class="hover:underline">AUSL</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <!-- Social media links here -->
