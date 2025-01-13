@@ -142,6 +142,10 @@ Route::prefix('academic')->name('academic.')->group(function () {
     Route::get('/refresher-curriculum', function () {
         return Inertia::render('Main/AcademicProgram/Refresher/Index');
     })->name('refresher-curriculum');
+    
+    Route::get('/pre-requisite', function () {
+        return Inertia::render('Main/AcademicProgram/JurisDoctor/PreRequisite/Index');
+    })->name('pre-requisite');
 
     Route::get('/guidelines', function () {
         $guidelines = Academic::all();

@@ -23,13 +23,15 @@
             </span>
             </button>
             <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-            <li class="px-2 py-2 transition duration-150 ease-in-out">
-                <a :href="route('academic.juris-doctor')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Curriculum</a>
-            </li>
-            <li class="px-2 py-2 transition duration-150 ease-in-out">
-                <a :href="route('academic.course_description')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Course Descriptions</a>
-            </li>
-            
+                <li class="px-2 py-2 transition duration-150 ease-in-out">
+                    <a :href="route('academic.juris-doctor')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Curriculum</a>
+                </li>
+                <li class="px-2 py-2 transition duration-150 ease-in-out">
+                    <a :href="route('academic.course_description')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Course Descriptions</a>
+                </li>
+                <li class="px-2 py-2 transition duration-150 ease-in-out">
+                    <a :href="route('academic.pre-requisite')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Sequence of Subjects</a>
+                </li>
             </ul>
         </li>
         <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
@@ -60,6 +62,9 @@
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="route('academic.barreview')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bar Review Program</a>
+        </li>
+        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+            <a :href="route('academic.pre-requisite')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Sequence of Subjects</a>
         </li>
         <!-- <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer hover:underline">MCLE</a>
