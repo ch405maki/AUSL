@@ -39,7 +39,8 @@
                       <span class="text-official-purple-800 sm:text-lg text-sm">
                         Note: Username will be changed once officially enrolled into your Student Number
                       </span>
-                    </div>Default password is your lastname, birthmonth and day.</p>
+                    </div>
+                    Default password is your lastname, birthmonth and day.</p>
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
                       <li>For Refresher: Disregard Examination Schedule and wait for your account to be accepted.</li>
                       <li>For New Students and Transferees, you will be contacted by the Admissions office for further instructions.</li>
