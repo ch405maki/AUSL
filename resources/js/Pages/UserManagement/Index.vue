@@ -5,7 +5,7 @@
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">User Management</h2>
         </template>
-        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="flex flex-col min-h-screen bg-gray-100">
             <main class="flex-grow">
                 <div class="max-w-7xl mx-auto">
                     <div class="flex flex-col md:flex-row w-full justify-center">

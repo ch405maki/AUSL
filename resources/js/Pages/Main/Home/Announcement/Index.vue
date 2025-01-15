@@ -72,8 +72,6 @@
                   </p>
               </div>
           </div>
-
-
         </div>
       </div>
     </div>
@@ -96,7 +94,7 @@
       </div>
 
         <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto">
-          <a :href="events.link">
+          <a :href="events.link ">
             <!-- Hide image on mobile screens -->
             <div 
               v-if="events.image && events.image.length > 0" 
@@ -115,8 +113,6 @@
       </div>
     </div>
   </aside>
-
-
   </div>
 </div>
 </div>
