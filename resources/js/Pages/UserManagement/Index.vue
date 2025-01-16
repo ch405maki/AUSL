@@ -164,7 +164,7 @@ import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
     users: { type: Array, required: true },
-    roles: { type: Array, required: true }, // Add roles prop
+    roles: { type: Array, required: true },
 });
 
 const form = useForm({

@@ -237,8 +237,6 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2';
 
-
-
 const props = defineProps({
   offices: { type: Array, required: true },
 });

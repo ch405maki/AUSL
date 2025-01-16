@@ -314,11 +314,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
 });
 
-// Deans route
-Route::middleware(['auth', 'verified'])->group(function () {
-    
-});
-
 // Carousel route
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/carousell', [CarousellController::class, 'index'])->name('carousell');
@@ -385,7 +380,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/documents', [DocumentController::class, 'index'])->name('documents');
     Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
-
     Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 });
 
@@ -399,6 +393,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/banners', [SettingsController::class, 'storeBanner'])->name('banners.create');
     Route::put('/banners/update-state/{id}', [SettingsController::class, 'updateState'])->name('banners.updateState');
     Route::delete('/banners/{id}', [SettingsController::class, 'bannerDestroy'])->name('banners.destroy');
+
+    Route::get('/visit-log', [SettingsController::class, 'visitIndex'])->name('visit-log');
+    Route::get('/clear-logs', [SettingsController::class, 'clearLogs'])->name('clear-logs');
+
 
     Route::get('/onload', [SettingsController::class, 'onloadbannerIndex'])->name('onload');
     Route::post('/onload-banners', [SettingsController::class, 'store'])->name('onload-banners.store');

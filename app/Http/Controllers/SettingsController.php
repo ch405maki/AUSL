@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Banner;
 use App\Models\OnLoadBanner;
+use App\Models\UserLog;
+use Carbon\Carbon;
 
 
 class SettingsController extends Controller
@@ -93,5 +95,30 @@ class SettingsController extends Controller
 
         return redirect()->route('onload');
     }
-    
+
+    // Visit Log
+
+    public function visitIndex()
+    {
+        try {
+            $logs = UserLog::whereAction('Page Visit')
+                ->latest()
+                ->paginate(100);
+            
+            return Inertia::render('Settings/Visit/Index', ['logs' => $logs]);
+        } catch (\Throwable $e) {
+            Log::error($e->getMessage());
+            return redirect()->back()->withErrors(['Failed to retrieve logs.']);
+        }
+    }
+
+    public function clearLogs(Request $request)
+    {
+        // Delete logs logic for previous 5 days
+        $fiveDaysAgo = Carbon::now()->subDays(5);
+        UserLog::where('created_at', '<=', $fiveDaysAgo)->delete();
+        
+        // Redirect
+        return redirect()->route('visit-log');
+    }
 }

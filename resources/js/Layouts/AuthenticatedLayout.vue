@@ -231,6 +231,7 @@
   const settings = [
     { name: 'Manage Users', route: 'users'},
     { name: 'Activity Logs', route: 'user.logs.index'},
+    { name: 'Visit Log', route: 'visit-log'},
     { name: 'Testimonial', route: 'alumni'}
   ];
 
