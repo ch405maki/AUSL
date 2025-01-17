@@ -27,6 +27,8 @@
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
         "chart.js": "^4.4.6",
+        "html2canvas": "^1.4.1",
+        "html2pdf.js": "^0.10.2",
         "jquery": "^3.7.1",
         "sweetalert2": "^11.6.13",
         "vite-plugin-vuetify": "^2.0.3",

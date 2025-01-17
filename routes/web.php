@@ -312,6 +312,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
     Route::get('/announcement/edit/{id}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
     Route::put('/announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
+    
+    Route::get('/maintenance', [AnnouncementController::class, 'maintenance'])->name('maintenance');
+
 });
 
 // Carousel route
