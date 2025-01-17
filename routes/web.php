@@ -314,6 +314,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
     
     Route::get('/maintenance', [AnnouncementController::class, 'maintenance'])->name('maintenance');
+    Route::get('/pubmat', [AnnouncementController::class, 'pubmat'])->name('pubmat');
 
 });
 

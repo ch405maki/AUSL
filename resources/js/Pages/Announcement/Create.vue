@@ -14,6 +14,7 @@
         <main>
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="overflow-hidden ">
+              {{ imagePath }}
               <form @submit.prevent="submitForm" class="bg-white py-6 mb-8 shadow-sm rounded-lg">
                   <div class="mx-8 grid grid-cols-1 gap-x-6 gap-y-8 grid-cols-12">
                     <!-- category Input -->
@@ -169,6 +170,11 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Inertia } from '@inertiajs/inertia';
+
+const props = defineProps({
+  imagePath: String, 
+});
+
 
 const form = useForm({
 title: '',

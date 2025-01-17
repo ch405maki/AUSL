@@ -131,6 +131,11 @@ class AnnouncementController extends Controller
     {
         return Inertia::render('Announcement/Maintenance/Index');
     }
+
+    public function pubmat()
+    {
+        return Inertia::render('Announcement/Pubmat/Index');
+    }
     
 
     public function destroy($id)
