@@ -63,9 +63,6 @@
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="route('academic.barreview')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bar Review Program</a>
         </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="route('academic.pre-requisite')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Sequence of Subjects</a>
-        </li>
         <!-- <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a href="https://clear.arellanolaw.org/" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer hover:underline">MCLE</a>
         </li> -->

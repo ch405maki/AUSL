@@ -15,13 +15,7 @@
             <a :href="(route('office.accounting'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Accounting</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Admission</a>
-        </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Dean</a>
-        </li>
-        <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('contact.index'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Registrar</a>
+            <a :href="(route('office.registrar'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Registrar</a>
         </li>
         </ul>
     </div>
