@@ -22,7 +22,7 @@
               <Academics />
               <!-- <Events /> -->
               <Student />
-              <Offices />
+              <!-- <Offices /> -->
               <Contact />
             </div>
           </div>
