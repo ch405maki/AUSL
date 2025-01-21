@@ -12,7 +12,7 @@
     { text: 'Refresher/Curriculum', url: 'refresher-curriculum' },
     { text: 'Academic Guidelines', url: 'guidelines' },
     { text: 'Bar Review', url: 'barreview' },
-    { text: 'MCLE', url: '#' },
+    { text: 'MCLE', url: 'https://docs.google.com/forms/d/e/1FAIpQLSejpaElKhPbldhEcZquVFFd3DJJc3tdjLSI0TSclvpJi6KrOA/viewform' },
     ]);
 
 </script>

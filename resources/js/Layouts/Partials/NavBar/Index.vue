@@ -22,6 +22,7 @@
               <Academics />
               <!-- <Events /> -->
               <Student />
+              <!-- <Offices /> -->
               <Contact />
             </div>
           </div>
@@ -128,6 +129,7 @@ import Student from './Partials/Buttons/Student.vue'
 import DeansCorner from './Partials/Buttons/DeansCorner.vue'
 import About from './Partials/Buttons/About.vue'
 import Contact from './Partials/Buttons/Contact.vue'
+import Offices from './Partials/Buttons/Offices.vue'
 import TopNav from './Partials/TopNav.vue';
 
 

@@ -100,7 +100,7 @@
         // Trigger download
         const link = document.createElement('a');
         link.href = imgURL;
-        link.download = 'advisory.png';
+        link.download = 'pubmat.png';
         link.click();
       })
       .catch((error) => {

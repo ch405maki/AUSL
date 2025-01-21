@@ -221,10 +221,6 @@ Route::get('/dean', function () {
 //office route
 Route::prefix('office')->group(function () {
 
-    Route::get('/', function () {
-        return Inertia::render('Main/Office/Index');
-    })->name('office');
-
     Route::get('/accounting', function () {
         return Inertia::render('Main/Office/Accounting/Index');
     })->name('office.accounting');
