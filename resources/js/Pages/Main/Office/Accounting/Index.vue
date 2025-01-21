@@ -33,12 +33,86 @@
                   </div>
                   
                   <div v-show="activeTab === 'tab1'" class="tabcontent">
-                    <div class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
+                    <div class="grid grid-flow-col text-left rounded-lg mt-8 mb-8">
                       <div>
                         <div class="bg-white border-none rounded-lg mb-6 pl-2 relative">
-                          <h2 class="text-xl sm:text-2xl text-left text-official-purple-900 font-bold mb-6 border-left">Notice Regarding Unpaid Enlishment</h2>
                           <div class="text-slate-600 leading-relaxed">
-                            
+                            <div>
+                              <div class="mx-auto max-w-full">
+                              <div class="divide-y divide-gray-100">
+                                  <details class="group" open>
+                                      <summary
+                                          class="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-official-purple-800 group-open:text-primary-500">
+                                          Accordion item 01
+                                          <div>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                              </svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                              </svg>
+                                          </div>
+                                      </summary>
+                                      <p class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">This is the first item's accordion body.</p>
+                                  </details>
+                                  <details class="group">
+                                      <summary
+                                          class="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
+                                          Accordion item 02
+                                          <div>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                              </svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                              </svg>
+                                          </div>
+                                      </summary>
+                                      <div class="pb-4 text-secondary-500">This is the second item's accordion body.</div>
+                                  </details>
+                                  <details class="group">
+                                      <summary
+                                          class="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-medium text-secondary-900 group-open:text-primary-500">
+                                          Accordion item 03
+                                          <div>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                              </svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                  stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                                              </svg>
+                                          </div>
+                                      </summary>
+                                      <div class="pb-4 text-secondary-500">This is the third item's accordion body.</div>
+                                  </details>
+                              </div>
+                          </div>
+                              <div class="mb-8">
+                                <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">Notice Regarding Unpaid Enlishment</h1>
+                                <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                                  <img src="/images/faculty/registrar/notice.jpg" class="mx-auto mb-4 rounded shadow-lg max-w-full h-auto max-h-lvh" alt="Notice Image">
+                                </div>
+                              </div>
+                              <div class="mb-8">
+                                <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">July 17, Notice</h1>
+                                <div class="pb-4 mt-2 text-secondary-500 text-lg font-normal text-gray-800">
+                                  <p>
+                                    Please provide original and photocopy of all required documents.                                <br><br>
+                                    <ul class="list-disc list-inside pl-4">
+                                    <li>Holder of Bachelor's degree in the arts or sciences.</li>
+                                    <li>Must have earned the following undergraduate units:</li>
+                                    <li>Rizal - 3 units</li>
+                                  </ul>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

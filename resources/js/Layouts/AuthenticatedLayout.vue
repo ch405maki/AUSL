@@ -169,6 +169,34 @@
                       </details>
                   </li>
                 </ul>
+
+                <ul class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                  <li>
+                      <details class="group">
+                          <!-- Dropdown Trigger -->
+                          <summary class="flex items-center justify-between font-medium marker:content-none hover:cursor-pointer">
+                              <span class="flex">
+                                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
+                                  </svg>
+                                  <span class="truncate">Offices</span>
+                              </span>
+                              <!-- Dropdown Indicator -->
+                              <svg class="w-5 h-5 text-gray-500 transition-transform transform group-open:rotate-90 ml-9" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                              </svg>
+                          </summary>
+
+                          <!-- Dropdown Content -->
+                          <article class="px-4 pb-4">
+                              <ul class="flex flex-col gap-3 pl-4 mt-4">
+                                  <li><a :href="route('posts')" class="hover:text-purple-800">Accounting</a></li>
+                                  <li><a :href="route('announcement')" class="hover:text-purple-800">Registrar</a></li>
+                              </ul>
+                          </article>
+                      </details>
+                  </li>
+                </ul>
                 <a :href="route('gallery')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
                   <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5zM5.25 6a.75.75 0 100 1.5h.75a.75.75 0 100-1.5h-.75zM9 6a.75.75 0 100 1.5h9.75a.75.75 0 100-1.5H9zM12 9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM3.75 18l4.5-5.25 3 3.75h9.75"></path>
