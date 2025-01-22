@@ -84,45 +84,7 @@
                   </div>
                   
                   <div v-show="activeTab === 'tab2'" class="tabcontent p-4">
-                    <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
-                      <span class="text-official-purple-800 text-sm">
-                        Note: In accordance with Section 4 of LEB Memorandum Order No. 2. Series of 2013 and the existing academic policies of Arellano University School of Law, the following revised guidelines on pre-requisite subjects are hereby implemented.
-                      </span>
-                    </div>
-                    <div v-for="semester in oldSubjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
-                      <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
-                        <thead class="bg-official-purple-100">
-                          <tr>
-                            <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 border border-gray-600">
-                              Latest Announcement(s)
-                            </th>
-                            <th scope="col" class="px-4 py-2 text-lg font-medium text-gray-600 hover:text-slate-900 text-center border border-gray-600">
-                              Archives
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr v-for="(subject, index) in oldSubjects[0].subjects" class="border-b odd:bg-white even:bg-gray-50">
-                            <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap" title="Click for subject description">
-                              <details class="group">
-                                <summary
-                                    class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                                    {{subject.title}}
-                                </summary>
-                              </details>
-                            </th>
-                            <th scope="row" class="px-4 py-2 text-lg font-normal text-gray-600 whitespace-wrap border" title="Click for subject description">
-                              <details class="group">
-                                <summary
-                                    class="flex cursor-pointer list-none items-center justify-between text-lg font-medium text-secondary-900 group-open:text-primary-500">
-                                    {{ subject.preRequisite }}
-                                </summary>
-                              </details>
-                            </th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <p class="text-red-500"> Content for Archives! </p>
                   </div>
                 </div>
                 

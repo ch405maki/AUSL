@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserLogController;
 use App\Http\Controllers\ServerStatusController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\OfficePostController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -368,6 +369,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/offices/{id}', [OfficeController::class, 'destroy'])->name('office.destroy');
 });
 
+//Office Post
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/officepost', [OfficePostController::class, 'accounting'])->name('officepost.accounting');
+    Route::get('/officepost/create', [OfficePostController::class, 'create'])->name('officepost.create');
+    Route::post('/officepost/store', [OfficePostController::class, 'store'])->name('officepost.store');
+});
 
 //Academics
 Route::middleware(['auth', 'verified'])->group(function () {

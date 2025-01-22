@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('office_post', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); 
+            $table->string('category');
+            $table->string('title'); 
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->string('state')->default('active'); 
+            $table->timestamps(); 
         });
     }
 

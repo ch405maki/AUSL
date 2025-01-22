@@ -37,7 +37,7 @@ class MainController extends Controller
         $alumni = Alumni::where('status', true)->get();
 
         UserLog::create([
-            'user_id' => Auth::check() ? Auth::id() : null, // Null for guests
+            'user_id' => Auth::check() ? Auth::id() : null,
             'action' => 'Page Visit',
             'ip_address' => request()->ip(),
             'user_agent' => request()->header('User-Agent'),
@@ -85,7 +85,7 @@ class MainController extends Controller
                     ->where('state', 'Active')
                     ->orderBy('created_at', 'desc')
                     ->get();
-    
+        
         // Render the view with the fetched data
         return Inertia::render('Main/DeansCorner/Corner/Show', [
             'post' => $post,
