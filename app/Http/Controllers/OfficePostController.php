@@ -16,7 +16,11 @@ class OfficePostController extends Controller
 {
     public function accounting()
     {
-        return Inertia::render('OfficePost/Index');
+        $posts = OfficePost::where('category', 'Accounting')
+            ->where('state', 'Active')
+            ->get();
+
+        return Inertia::render('OfficePost/Index', ['posts' => $posts]);
     }
 
     
