@@ -29,14 +29,16 @@ class OfficePostController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'content' => 'required|string',
-            'image.*' => 'nullable|image|mimes:jpg,png,gif|max:10240',
+            'content' => 'nullable|string',
+            'image.*' => 'nullable|file|mimes:jpeg,jpg,png,gif,pdf|max:10240',
             'category' => 'string',
             'state' => 'nullable|string',
             'created_at' => 'required|date',
         ]);
 
         $data = $request->all();
+
+        $dd = $data;
 
         // Handle multiple images
         $imagePaths = [];
