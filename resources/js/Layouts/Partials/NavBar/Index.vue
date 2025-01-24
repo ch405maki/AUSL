@@ -21,8 +21,8 @@
               <DeansCorner />
               <Academics />
               <!-- <Events /> -->
+              <Offices />
               <Student />
-              <!-- <Offices /> -->
               <Contact />
             </div>
           </div>

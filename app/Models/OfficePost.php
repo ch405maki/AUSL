@@ -26,6 +26,7 @@ class OfficePost extends Model
         'title',
         'content',
         'image',
+        'link',
         'state',
     ];
 

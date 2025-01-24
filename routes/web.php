@@ -221,22 +221,8 @@ Route::get('/dean', function () {
 
 //office route
 Route::prefix('office')->group(function () {
-
-    Route::get('/accounting', function () {
-        return Inertia::render('Main/Office/Accounting/Index');
-    })->name('office.accounting');
-    
-    Route::get('/registrar', function () {
-        return Inertia::render('Main/Office/Registrar/Index');
-    })->name('office.registrar');
-    
-    Route::get('/admission', function () {
-        return Inertia::render('Main/Office/Admission/Index');
-    })->name('office.admission');
-
-    Route::get('/deans', function () {
-        return Inertia::render('Main/Office/Dean/Index');
-    })->name('office.deans');
+    Route::get('/bursar', [OfficePostController::class, 'bursar'])->name('office.bursar');
+    Route::get('/registrar', [OfficePostController::class, 'registrar'])->name('office.registrar');
 });
 
 Route::get('/privacy_policy', function () {
@@ -371,9 +357,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 //Office Post
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/officepost', [OfficePostController::class, 'accounting'])->name('officepost.accounting');
+    Route::get('/officepost', [OfficePostController::class, 'index'])->name('officepost.index');
     Route::get('/officepost/create', [OfficePostController::class, 'create'])->name('officepost.create');
     Route::post('/officepost/store', [OfficePostController::class, 'store'])->name('officepost.store');
+    Route::delete('/officepost/{id}', [OfficePostController::class, 'destroy'])->name('officepost.destroy');
+    Route::put('/officepost/{id}/archive', [OfficePostController::class, 'archive'])->name('officepost.archive');
+
 });
 
 //Academics

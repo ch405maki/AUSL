@@ -25,6 +25,8 @@
                     <a
                       :href="link.url"
                       :class="link.hoverClass"
+                      target="_blank" 
+                      rel="noopener noreferrer"
                       class="
                           text-slate-700
                           text-lg font-normal

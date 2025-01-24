@@ -59,13 +59,25 @@
                             placeholder="Headline Here..."
                         />
                         </div>
-    
+                        
                         <!-- Content Input with CKEditor -->
                         <div class="col-span-12">
                             <InputLabel for="content" value="Content" />
                             <ckeditor :editor="editor" v-model="form.content" :config="editorConfig"></ckeditor>
                         </div>
-    
+                        
+                        <div class="col-span-12 mt-4">
+                        <InputLabel for="link" value="Link" />
+                        <TextInput
+                            id="link"
+                            v-model="form.link"
+                            autofocus
+                            type="text"
+                            class="mt-1 block w-full border border-gray-300 rounded-lg"
+                            placeholder="Enter link..."
+                        />
+                        </div>
+                        
                         <!-- Image Upload Section -->
                         <div class="col-span-12">
                             <label for="image-upload" class="block text-sm font-medium leading-6 text-gray-900">Upload Image (s)</label>
@@ -134,6 +146,7 @@
     const form = useForm({
         category: '',
         title: '',
+        link: '',
         content: '',
         image: [],
         state: 'active',
@@ -158,17 +171,6 @@
     });
     };
     
-    // Handle pubmat file change
-    const handlePubmatChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => previewPubmat.value = e.target.result; // Set preview for pubmat
-    reader.readAsDataURL(file);
-    form.pubmat = file; // Assign the file to the form pubmat field
-    }
-    };
-    
     const removeImage = (index) => {
     previewImages.value.splice(index, 1);
     form.image.splice(index, 1);
@@ -184,6 +186,7 @@
     const formData = new FormData();
     formData.append('title', form.title);
     formData.append('content', form.content);
+    formData.append('link', form.link);
     form.image.forEach((image) => formData.append('image[]', image));
     formData.append('created_at', form.created_at);
     

@@ -9,28 +9,7 @@
   <template #action>
     <div class="flex items-center p-3">
       <!-- Search Input -->
-      <div class="relative mr-4 hidden md:block">
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="Search Title Here..."
-          class="search-input"
-        />
-        <svg
-          class="search-icon"
-          width="20"
-          height="20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17.753 15.852l-4.51-4.51a6.004 6.004 0 1 0-1.406 1.406l4.51 4.51a1 1 0 0 0 1.415-1.414zM9 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"
-            fill="#9CA3AF"
-          />
-        </svg>
-      </div>
-  
-      
+
       <!-- Add Announcement Button (always visible) -->
       <div class="flex justify-end flex-grow">
         <a href="officepost/create">
@@ -49,28 +28,47 @@
         <div class="flex flex-col md:flex-row w-full justify-center mb-6">
           <!-- Main content section -->
           <div class="w-full mx-4">
-            
-            <div v-for="post in posts" :key="post.id" class="post-item">
-            <h2 class="text-xl font-bold">{{ post.title }}</h2>
-            <p><strong>Category:</strong> {{ post.category }}</p>
-            <p><strong>Created At:</strong> {{ formatDate(post.created_at) }}</p>
-
-            <!-- Display the content or PDF -->
-            <div v-if="post.content">
-              <p>{{ post.content }}</p>
-            </div>
-            <div v-else-if="post.image.length">
-              <embed  
-                :src="post.image[0]"
-                type="application/pdf"
-                width="100%"
-                height="600px"
-              />
-            </div>
-            <div v-else>
-              <p>No content available.</p>
-            </div>
-          </div>
+            <v-table fixed-header class="shadow-sm rounded-lg">
+              <thead>
+                <tr>
+                  <th class="text-left hidden md:table-cell">Number</th>
+                  <th class="text-left">Title</th>
+                  <th class="text-left hidden md:table-cell">Content</th>
+                  <th class="text-left hidden md:table-cell">Preview</th>
+                  <th class="text-left">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(post, index) in filteredPosts" :key="post.id">
+                  <td class="text-center hidden md:table-cell">{{ index + 1 }}</td>
+                  <td>{{ post.title }}</td>
+                  <td class="hidden md:table-cell" v-html="post.content"></td>
+                  <td class="hidden md:table-cell">
+                    <div v-if="post.image && post.image.length > 0">
+                    <img :src="post.image[0]" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
+                    </div>
+                  </td>
+                  <td>
+                  <div class="flex items-center gap-2">
+                    <!-- Update Button -->
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-md"
+                      @click="updatePostStatus(post.id, post.title)"
+                    >
+                      Archive
+                    </button>
+                    <!-- Delete Button -->
+                    <button
+                      class="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded-md"
+                      @click="deletePost(post.id, post.title)"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+                </tr>
+              </tbody>
+            </v-table>
           </div>
           <!-- End main content section -->
         </div>
@@ -82,29 +80,25 @@
 
 <script setup>
 import { ref, computed} from 'vue';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import { usePage } from '@inertiajs/vue3';
-import Footer from '@/Layouts/Partials/Footer.vue';
 import Swal from 'sweetalert2';
-import { Inertia } from '@inertiajs/inertia';
 
 // Define props for posts
 const props = defineProps({
   posts: { type: Array, required: true },
 });
 
-// Reactive variables
-const previewImage = ref(null);
-const selectedPost = ref(null);
+const form = useForm({
+  title: '',
+  content: '',
+  image: null,
+});
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleString();
 };
-
-const isPDF = (file) => file.endsWith(".pdf");
 
 const searchQuery = ref('');
 const years = ref([2025, 2024, 2023, 2022, 2021, 2020]);
@@ -121,14 +115,33 @@ const filteredPosts = computed(() => {
     });
 });
 
-
-// Show a post
-const showPost = (id) => {
-  Inertia.visit(`/announcement/show/${id}`);
-};
-
-const edit = (id) => {
-  Inertia.visit(`/announcement/edit/${id}`);
+const updatePostStatus = (id, title) => {
+  Swal.fire({
+    title: `Are you sure you want to archive "${title}"?`,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, archive it!',
+    cancelButtonText: 'No, cancel!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.put(route('officepost.archive', id), {
+        onSuccess: () => {
+          Swal.fire({
+            title: 'Archived!',
+            text: `"${title}" has been archived successfully.`,
+            icon: 'success',
+          });
+        },
+        onError: () => {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Failed to archive the post. Please try again.',
+            icon: 'error',
+          });
+        },
+      });
+    }
+  });
 };
 
 // Delete a post with confirmation using SweetAlert
@@ -141,11 +154,10 @@ const deletePost = (id, title) => {
     cancelButtonText: 'No, cancel!',
   }).then((result) => {
     if (result.isConfirmed) {
-      form.delete(route('announcement.destroy', id));
+      form.delete(route('officepost.destroy', id));
     }
   });
 };
-
 </script>
 
 

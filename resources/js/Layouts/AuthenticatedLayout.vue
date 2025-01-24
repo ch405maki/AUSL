@@ -190,7 +190,7 @@
                           <!-- Dropdown Content -->
                           <article class="px-4 pb-4">
                               <ul class="flex flex-col gap-3 pl-4 mt-4">
-                                  <li><a :href="route('officepost.accounting')" class="hover:text-purple-800">Accounting</a></li>
+                                  <li><a :href="route('officepost.index')" class="hover:text-purple-800">Office Posting</a></li>
                               </ul>
                           </article>
                       </details>
