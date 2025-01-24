@@ -58,7 +58,10 @@ class MainController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        $allPost = Post::where('category', 'News')->where('state', 'Active')->get();
+        $allPost = Post::where('category', 'News')
+                        ->where('state', 'Active')
+                        ->latest() // Add this line
+                        ->get();
         return Inertia::render('Main/Home/Post/Show', [
             'post' => $post,
             'allPost' => $allPost
@@ -68,7 +71,7 @@ class MainController extends Controller
     public function showAnnouncement($id)
     {
         $post = Post::findOrFail($id);
-        $announcements = Post::where('category', 'Announcement')->where('state', 'Active')->get();
+        $announcements = Post::where('category', 'Announcement')->where('state', 'Active')->latest()->get();
         return Inertia::render('Main/Home/Announcement/Show', [
             'post' => $post,
             'announcements' => $announcements
