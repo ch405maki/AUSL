@@ -55,7 +55,7 @@
                                             class="group rounded-sm transition duration-300 border-b border-gray-200"
                                             >
                                             <summary
-                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
+                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-2  text-base sm:text-base md:text-md lg:text-lg font-normal text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
                                             >
                                                 {{ post.title }}
                                                 <div>
@@ -75,10 +75,10 @@
                                                 </div>
                                             </summary>
                                             <div class="p-4">
-                                                <p
-                                                class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
+                                                <div
+                                                class="pb-4 mt-2 text-xs sm:text-xs md:text-sm lg:text-sm font-normal text-gray-800 leading-relaxed"
                                                 v-html="post.content"
-                                                ></p>
+                                                ></div>
                                                 <div
                                                 v-if="post.link"
                                                 class="relative mb-8 flex justify-center items-center bg-slate-100"
@@ -147,7 +147,7 @@
                                             class="group rounded-sm transition duration-300 border-b border-gray-200"
                                             >
                                             <summary
-                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
+                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-2  text-base sm:text-base md:text-md lg:text-lg font-normal text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
                                             >
                                                 {{ post.title }}
                                                 <div>
@@ -167,10 +167,10 @@
                                                 </div>
                                             </summary>
                                             <div class="p-4">
-                                                <p
-                                                class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
+                                                <div
+                                                class="pb-4 mt-2 text-xs sm:text-xs md:text-sm lg:text-sm font-normal text-gray-800 leading-relaxed"
                                                 v-html="post.content"
-                                                ></p>
+                                                ></div>
                                                 <div
                                                 v-if="post.link"
                                                 class="relative mb-8 flex justify-center items-center bg-slate-100"
@@ -232,7 +232,8 @@
                         <h2 class="mb-4 text-base sm:text-base md:text-md lg:text-lg leading-6 font-medium text-official-purple-900 capitalize">On this page</h2>
                         <hr class="mb-4 border-1 border-official-purple-800">
                         <h3 class="text-base sm:text-base md:text-md lg:text-lg font-normal text-gray-800 mb-8">
-                        {{ office }}
+                        {{ office }} <br>
+                        <a v-if="office === 'Registrar'" :href="route('student.downloadable-forms')" class="text-official-purple-800 hover:text-official-purple-900"> Downloadable Forms</a>
                         </h3>
                     </div>
                     <div class="ml-4">
@@ -311,7 +312,7 @@ function openLightboxForOfficeImage(src) {
 // Function to open lightbox for posts with multiple images
 function openLightbox1(index, images) {
     currentImageIndex.value = index;
-    lightboxImages.value = images; // Pass the array of images
+    lightboxImages.value = images; 
     isLightboxVisible.value = true;
 }
 </script>
