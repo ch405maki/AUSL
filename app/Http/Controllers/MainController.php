@@ -160,8 +160,8 @@ class MainController extends Controller
         ->get();
 
     return Inertia::render('Main/EventsCalendar/UpcommingEvents/Index', [
-        'events' => $events,
-    ]);
+            'events' => $events,
+        ]);
     }
 
     public function allAnnouncement()

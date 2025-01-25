@@ -6,7 +6,7 @@
             <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
             <div class="absolute inset-0 flex items-center justify-center">
             <h1 class="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold text-center">
-                {{ office }} Department
+                {{ office }} Office
             </h1>
             </div>
         </div>
@@ -33,49 +33,88 @@
                     </div>
                     
                     <div v-show="activeTab === 'tab1'" class="tabcontent">
-                    <div class="grid grid-flow-col text-left rounded-lg mt-8 mb-8">
-                        <div>
-                        <div class="bg-white border-none rounded-lg mb-6 relative">
-                            <div class="text-slate-600 leading-relaxed">
+                        <div class="grid grid-flow-col text-left rounded-lg mt-8 mb-8">
                             <div>
-                                <div class="mx-auto max-w-full">
-                                <div class="divide-y divide-gray-100">
-                                    <div v-for="(post, index) in posts" :key="post.id"
-                                    :class="index % 2 === 0 ? 'bg-gray-100' : 'bg-white'">
-                                    <details class="group rounded-sm transition duration-300 border-b border-gray-200">
-                                        <summary
-                                        class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300">
-                                        {{ post.title }}
-                                        <div>
-                                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                                            </path>
-                                            </svg>
+                            <div class="bg-white border-none rounded-lg mb-6 relative">
+                                <div class="text-slate-600 leading-relaxed">
+                                <div>
+                                    <div class="mx-auto max-w-full">
+                                    <div class="divide-y divide-gray-100">
+                                        <!-- Show "No posts yet" if the posts array is empty -->
+                                        <div v-if="posts.length === 0" class="text-center text-gray-500 py-4">
+                                        No posts yet
                                         </div>
-                                        </summary>
-                                        <div class="p-4">
-                                        <p
-                                            class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
-                                            v-html="post.content"></p>
-                                        <div v-if="post.link" class="relative mb-8 flex justify-center items-center bg-slate-100">
-                                            <div class="container">
-                                            <iframe frameborder="0" height="800" scrolling="no" :src="post.link + 'preview'" width="100%"></iframe>
+                                        <!-- Display posts if the posts array is not empty -->
+                                        <div v-else>
+                                        <div
+                                            v-for="(post, index) in posts"
+                                            :key="post.id"
+                                            :class="index % 2 === 0 ? 'bg-gray-100' : 'bg-white'"
+                                        >
+                                            <details
+                                            class="group rounded-sm transition duration-300 border-b border-gray-200"
+                                            >
+                                            <summary
+                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
+                                            >
+                                                {{ post.title }}
+                                                <div>
+                                                <svg
+                                                    class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 16 16"
+                                                >
+                                                    <path
+                                                    fill-rule="evenodd"
+                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                                                    ></path>
+                                                </svg>
+                                                </div>
+                                            </summary>
+                                            <div class="p-4">
+                                                <p
+                                                class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
+                                                v-html="post.content"
+                                                ></p>
+                                                <div
+                                                v-if="post.link"
+                                                class="relative mb-8 flex justify-center items-center bg-slate-100"
+                                                >
+                                                <div class="container">
+                                                    <iframe
+                                                    frameborder="0"
+                                                    height="800"
+                                                    scrolling="no"
+                                                    :src="post.link + 'preview'"
+                                                    width="100%"
+                                                    ></iframe>
+                                                </div>
+                                                </div>
+                                                <div
+                                                v-if="post.image"
+                                                class="relative mb-8 flex flex-col items-center bg-slate-100"
+                                                >
+                                                <div
+                                                    v-for="(image, index) in post.image"
+                                                    :key="index"
+                                                    class="w-full mb-4"
+                                                >
+                                                    <img
+                                                    :src="image"
+                                                    alt="Post Image"
+                                                    class="object-cover w-full rounded-lg hover:cursor-zoom-in"
+                                                    @click="openLightbox1(index, post.image)"
+                                                    />
+                                                </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div v-if="post.image" class="relative mb-8 flex flex-col items-center bg-slate-100">
-                                            <div v-for="(image, index) in post.image" :key="index" class="w-full mb-4">
-                                            <img
-                                                :src="image"
-                                                alt="Post Image"
-                                                class="object-cover w-full rounded-lg hover:cursor-zoom-in"
-                                                @click="openLightbox1(index, post.image)"
-                                            />
-                                            </div>
+                                            </details>
                                         </div>
                                         </div>
-                                    </details>
+                                    </div>
                                     </div>
                                 </div>
                                 </div>
@@ -83,50 +122,91 @@
                             </div>
                         </div>
                         </div>
-                    </div>
-                    </div>
+
                     
-                    <div v-show="activeTab === 'tab2'" class="tabcontent">
-                    <div class="grid grid-flow-col text-left rounded-lg mt-8 mb-8">
-                        <div>
-                        <div class="bg-white border-none rounded-lg mb-6 relative">
-                            <div class="text-slate-600 leading-relaxed">
+                        <div v-show="activeTab === 'tab2'" class="tabcontent">
+                        <div class="grid grid-flow-col text-left rounded-lg mt-8 mb-8">
                             <div>
-                                <div class="mx-auto max-w-full">
-                                <div class="divide-y divide-gray-100">
-                                    <div v-for="(post, index) in archives" :key="post.id" 
-                                    :class="index % 2 === 0 ? 'bg-gray-100' : 'bg-white'">
-                                    <details class="group rounded-sm transition duration-300 border-b border-gray-200">
-                                        <summary
-                                        class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300">
-                                        {{ post.title }}
-                                        <div>
-                                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                                            </path>
-                                            </svg>
+                            <div class="bg-white border-none rounded-lg mb-6 relative">
+                                <div class="text-slate-600 leading-relaxed">
+                                <div>
+                                    <div class="mx-auto max-w-full">
+                                    <div class="divide-y divide-gray-100">
+                                        <!-- Show "No archives yet" if the archives array is empty -->
+                                        <div v-if="archives.length === 0" class="text-center text-gray-500 py-4">
+                                        No archives yet
                                         </div>
-                                        </summary>
-                                        <div class="p-4">
-                                        <p
-                                            class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
-                                            v-html="post.content"></p>
-                                        <div v-if="post.link" class="relative mb-8 flex justify-center items-center bg-slate-100">
-                                            <div class="container">
-                                            <iframe frameborder="0" height="800" scrolling="no" :src="post.link + 'preview'" width="100%"></iframe>
+                                        <!-- Display archives if the archives array is not empty -->
+                                        <div v-else>
+                                        <div
+                                            v-for="(post, index) in archives"
+                                            :key="post.id"
+                                            :class="index % 2 === 0 ? 'bg-gray-100' : 'bg-white'"
+                                        >
+                                            <details
+                                            class="group rounded-sm transition duration-300 border-b border-gray-200"
+                                            >
+                                            <summary
+                                                class="flex cursor-pointer list-none items-center justify-between px-2 py-[8px] text-base sm:text-lg md:text-xl lg:text-xl font-medium text-official-purple-800 group-hover:bg-official-purple-100 group-open:text-primary-500 transition duration-300"
+                                            >
+                                                {{ post.title }}
+                                                <div>
+                                                <svg
+                                                    class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 16 16"
+                                                >
+                                                    <path
+                                                    fill-rule="evenodd"
+                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                                                    ></path>
+                                                </svg>
+                                                </div>
+                                            </summary>
+                                            <div class="p-4">
+                                                <p
+                                                class="pb-4 mt-2 text-sm sm:text-base md:text-base lg:text-lg font-normal text-gray-800 leading-relaxed"
+                                                v-html="post.content"
+                                                ></p>
+                                                <div
+                                                v-if="post.link"
+                                                class="relative mb-8 flex justify-center items-center bg-slate-100"
+                                                >
+                                                <div class="container">
+                                                    <iframe
+                                                    frameborder="0"
+                                                    height="800"
+                                                    scrolling="no"
+                                                    :src="post.link + 'preview'"
+                                                    width="100%"
+                                                    ></iframe>
+                                                </div>
+                                                </div>
+                                                <div
+                                                v-if="post.image"
+                                                class="relative mb-8 flex flex-col items-center bg-slate-100"
+                                                >
+                                                <div
+                                                    v-for="(image, index) in post.image"
+                                                    :key="index"
+                                                    class="w-full mb-4"
+                                                >
+                                                    <img
+                                                    :src="image"
+                                                    alt="Post Image"
+                                                    class="object-cover w-full rounded-lg hover:cursor-zoom-in"
+                                                    @click="openLightbox(index)"
+                                                    />
+                                                </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div v-if="post.image" class="relative mb-8 flex flex-col items-center bg-slate-100">
-                                            <div v-for="(image, index) in post.image" :key="index" class="w-full mb-4">
-                                            <img :src="image" alt="Post Image" class="object-cover w-full rounded-lg hover:cursor-zoom-in"
-                                                @click="openLightbox(index)"
-                                            />
-                                            </div>
+                                            </details>
                                         </div>
                                         </div>
-                                    </details>
+                                    </div>
                                     </div>
                                 </div>
                                 </div>
@@ -135,8 +215,6 @@
                         </div>
                         </div>
                     </div>
-                    </div>
-                </div>
                 
                 <aside class="w-full md:w-1/3 sticky top-0 ">
                     <div class="mb-8 sm:mt-4 md:mt-8 lg:mt-10 xl:mt-12">

@@ -15,22 +15,25 @@
                 <a href="https://www.facebook.com/avausl" target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Audio Visual</a>
             </li>
             <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                <a :href="(route('office.bursar'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bursar</a>
+                <a :href="(route('office.bursar'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Bursar's Office</a>
             </li>
             <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Guidance</a>
+                <a :href="route('deans corner')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Dean's Office</a>
+            </li>
+            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+                <a :href="(route('office.guidance'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Guidance and Counseling</a>
+            </li>
+            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+                <a :href="(route('office.itc'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">IT Center</a>
+            </li>
+            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+                <a :href="route('office.library')" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Library</a>
+            </li>
+            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
+                <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Office of Student Affairs</a>
             </li>
             <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
                 <a :href="(route('office.registrar'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Registrar</a>
-            </li>
-            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">ITC</a>
-            </li>
-            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                <a href="#" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Medical And Dental</a>
-            </li>
-            <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-                <a href="https://www.facebook.com/AUSLOfficeofStudentAffairs" target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">OSA</a>
             </li>
         </ul>
     </div>

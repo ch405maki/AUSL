@@ -9,10 +9,13 @@
   <template #action>
     <div class="flex items-center p-3">
       <!-- Search Input -->
+        <div class="text-lg font-semibold text-gray-800">
+          {{ category }}
+        </div>
 
       <!-- Add Announcement Button (always visible) -->
       <div class="flex justify-end flex-grow">
-        <a href="officepost/create">
+        <a :href="route('officepost.create')">
           <v-btn color="primary" class="w-full md:w-auto px-4">
             Add Post
             <v-icon right>mdi-plus</v-icon>
@@ -86,6 +89,7 @@ import Swal from 'sweetalert2';
 
 // Define props for posts
 const props = defineProps({
+  category: { type: String },
   posts: { type: Array, required: true },
 });
 

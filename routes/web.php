@@ -223,6 +223,9 @@ Route::get('/dean', function () {
 Route::prefix('office')->group(function () {
     Route::get('/bursar', [OfficePostController::class, 'bursar'])->name('office.bursar');
     Route::get('/registrar', [OfficePostController::class, 'registrar'])->name('office.registrar');
+    Route::get('/guidance', [OfficePostController::class, 'guidance'])->name('office.guidance');
+    Route::get('/itc', [OfficePostController::class, 'itc'])->name('office.itc');
+    Route::get('/library', [OfficePostController::class, 'library'])->name('office.library');
 });
 
 Route::get('/privacy_policy', function () {
@@ -357,7 +360,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 //Office Post
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/officepost', [OfficePostController::class, 'index'])->name('officepost.index');
+    Route::get('/officeposts/{category}', [OfficePostController::class, 'index'])->name('officepost.index');
+    Route::get('/officepost', [OfficePostController::class, 'archivedPost'])->name('officepost.default');
+
     Route::get('/officepost/create', [OfficePostController::class, 'create'])->name('officepost.create');
     Route::post('/officepost/store', [OfficePostController::class, 'store'])->name('officepost.store');
     Route::delete('/officepost/{id}', [OfficePostController::class, 'destroy'])->name('officepost.destroy');

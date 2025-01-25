@@ -189,8 +189,26 @@
 
                           <!-- Dropdown Content -->
                           <article class="px-4 pb-4">
-                              <ul class="flex flex-col gap-3 pl-4 mt-4">
-                                  <li><a :href="route('officepost.index')" class="hover:text-purple-800">Office Posting</a></li>
+                              <ul class="flex flex-col gap-3 pl-4 mt-4 mb-2">
+                                <a :href="route('officepost.default')" class="hover:text-purple-800">Archived</a>
+                              </ul>
+                              <hr>
+                              <ul class="flex flex-col gap-3 pl-4 mt-2">
+                                <li>
+                                  <a :href="route('officepost.index', { category: 'Bursar' })" class="hover:text-purple-800">Bursar</a>
+                                </li>
+                                <li>
+                                  <a :href="route('officepost.index', { category: 'Guidance' })" class="hover:text-purple-800">Guidance</a>
+                                </li>
+                                <li>
+                                  <a :href="route('officepost.index', { category: 'IT Center' })" class="hover:text-purple-800">IT Center</a>
+                                </li>
+                                <li>
+                                  <a :href="route('officepost.index', { category: 'Library' })" class="hover:text-purple-800">Library</a>
+                                </li>
+                                <li>
+                                  <a :href="route('officepost.index', { category: 'Registrar' })" class="hover:text-purple-800">Registrar</a>
+                                </li>
                               </ul>
                           </article>
                       </details>

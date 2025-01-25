@@ -21,7 +21,7 @@
               <DeansCorner />
               <Academics />
               <!-- <Events /> -->
-              <!-- <Offices /> -->
+              <Offices />
               <Student />
               <Contact />
             </div>
@@ -189,6 +189,20 @@ const links = ref([
       { title: 'Academic Calendar', url: '/events/academic'},
       { title: 'Upcoming Events', url: '/events/upcomming'},
       { title: 'Holidays', url: '/events/holidays'},
+    ]
+  },
+  {
+    title: 'Academic Offices',
+    url: '#',
+    children: [
+      { title: 'Audio Visual', url: 'https://www.facebook.com/avausl'},
+      { title: "Bursar's Office", url: '/office/bursar'},
+      { title: "Dean's Office", url: '/deans corner'},
+      { title: "Guidance and Counseling", url: '/office/guidance'},
+      { title: 'IT Center', url: '/office/itc'},
+      { title: 'Library', url: '/office/library'},
+      { title: 'Office of Student Affairs', url: 'https://www.facebook.com/AUSLOfficeofStudentAffairs'},
+      { title: 'Registrar', url: '/office/registrar'},
     ]
   },
   {

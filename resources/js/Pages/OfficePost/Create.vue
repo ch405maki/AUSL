@@ -10,7 +10,7 @@
                 </a>
                 </div>
             </template>  
-    
+            
             <main>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="overflow-hidden ">
@@ -23,13 +23,16 @@
                         <div>
                             <InputLabel for="category" value="Category" />
                             <select
-                            v-model="form.category"
-                            class="mt-1 block w-full border border-gray-300 rounded-lg"
-                            id="category"
-                            required
-                            >
-                            <option value="Accounting">Accounting</option>
-                            <option value="Registrar">Registrar</option>
+                                v-model="form.category"
+                                class="mt-1 block w-full border border-gray-300 rounded-lg"
+                                id="category"
+                                required
+                                >
+                                <option value="Bursar">Bursar</option>
+                                <option value="Guidance">Guidance</option>
+                                <option value="IT Center">IT Center</option>
+                                <option value="Library">Library</option>
+                                <option value="Registrar">Registrar</option>
                             </select>
                         </div>
     

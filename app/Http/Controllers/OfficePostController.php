@@ -14,15 +14,24 @@ use App\Models\OfficePost;
 
 class OfficePostController extends Controller
 {
-    public function index()
+    public function index($category)
     {
-        $posts = OfficePost::where('category', 'Accounting')
-            ->where('state', 'Active')
+        $category = $category;
+        $posts = OfficePost::where('category', $category)
+            ->where('state', 'active')
             ->get();
+
+        return Inertia::render('OfficePost/Index', ['posts' => $posts, 'category' => $category]);
+    }
+    
+    public function archivedPost()   
+    {
+        $posts = OfficePost::where('state', 'archived')
+        ->get();
 
         return Inertia::render('OfficePost/Index', ['posts' => $posts]);
     }
-    
+
     public function create()
     {
         return Inertia::render('OfficePost/Create');
@@ -67,7 +76,7 @@ class OfficePostController extends Controller
 
     public function bursar()
     {
-        $office = 'Bursar';
+        $office = "Bursar";
         $posts = OfficePost::where('category', 'Bursar')
             ->where('state', 'active')
             ->orderBy('created_at', 'desc')
@@ -83,13 +92,61 @@ class OfficePostController extends Controller
 
     public function registrar()
     {
-        $office = 'Registrar';
+        $office = "Registrar";
         $posts = OfficePost::where('category', 'Registrar')
             ->where('state', 'active')
             ->orderBy('created_at', 'desc')
             ->get();
     
         $archives = OfficePost::where('category', 'Registrar')
+            ->where('state', 'archived')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        return Inertia::render('Main/Office/Index', ['posts' => $posts, 'archives' => $archives, 'office' => $office]);
+    }
+
+    public function guidance()
+    {
+        $office = "Guidance and Counseling Center";
+        $posts = OfficePost::where('category', 'Guidance')
+            ->where('state', 'active')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        $archives = OfficePost::where('category', 'Guidance')
+            ->where('state', 'archived')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        return Inertia::render('Main/Office/Index', ['posts' => $posts, 'archives' => $archives, 'office' => $office]);
+    }
+
+    public function itc()
+    {
+        $office = "IT Center";
+        $posts = OfficePost::where('category', 'IT Center')
+            ->where('state', 'active')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        $archives = OfficePost::where('category', 'IT Center')
+            ->where('state', 'archived')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        return Inertia::render('Main/Office/Index', ['posts' => $posts, 'archives' => $archives, 'office' => $office]);
+    }
+
+    public function library()
+    {
+        $office = "Library";
+        $posts = OfficePost::where('category', 'Library')
+            ->where('state', 'active')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+        $archives = OfficePost::where('category', 'Library')
             ->where('state', 'archived')
             ->orderBy('created_at', 'desc')
             ->get();
