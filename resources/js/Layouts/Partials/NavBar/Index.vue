@@ -169,7 +169,7 @@ const links = ref([
       { title: 'Refresher', url: '/academic/refresher-curriculum'},
       { title: 'Course Descriptions', url: '/academic/course_description'},
       { title: 'Bar Review', url: '/academic/barreview'},
-      { title: 'MCLE', url: 'https://clear.arellanolaw.org/'},
+      { title: 'MCLE', url: '/academic/mcle'},
       { title: 'Academic Guidelines', url: '/academic/guidelines'},
       { title: 'Academic Calendar', url: '/events/academic'},
     ]
