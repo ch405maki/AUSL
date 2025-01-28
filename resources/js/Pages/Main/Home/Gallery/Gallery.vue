@@ -54,6 +54,7 @@ import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import { Inertia } from '@inertiajs/inertia';
 import MainLayout from '@/Layouts/MainLayout.vue';
+import { router } from '@inertiajs/vue3';
 
 const props = defineProps({
     galleries: {
@@ -63,7 +64,7 @@ const props = defineProps({
 });
 
 const viewImages = (id) => {
-    Inertia.visit(route('gallery.browse.show', id));
+  router.visit(`/gallery/browse/${id}`);
 };
 </script>
 

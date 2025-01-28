@@ -3,8 +3,8 @@
     <Head title="Gallery" />
         <div class="flex flex-col min-h-screen bg-gray-100">
             <main class="flex-grow">
-                <div class="max-w-7xl mx-auto">
-                    <div class="flex flex-col w-full mx-4 justify-center">
+                <div class="max-w-7xl mx-auto px-2">
+                    <div class="flex flex-col w-full justify-center">
                         <!-- Gallery Details Section -->
                         <div class="w-full py-8 px-2">
                             <h3 class="text-2xl mb-8 font-bold text-official-purple-800">Year: {{ gallery.year }} / <span class="text-slate-800">{{ gallery.title }}</span></h3>
