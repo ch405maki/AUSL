@@ -29,7 +29,7 @@
                 </svg>
                 <span class="pr-1 font-medium text-white hover:text-official-purple-900 hover:underline">AIMS Students</span>
             </a>
-            <a  href="https://clear.arellanolaw.org/" target="_blank" rel="noopener noreferrer" class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
+            <a  :href="route('academic.barreview')"  class="outline-none focus:outline-none px-2 rounded-md flex items-center min-w-24">
                 <svg class="w-4 h-4 mr-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14 3h7v7h-2V5.414l-7.293 7.293-1.414-1.414L17.586 4H14V3z"/>
                     <path d="M5 5v14h14v-6h2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h6v2H5z"/>
