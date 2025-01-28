@@ -173,7 +173,7 @@ class OfficePostController extends Controller
             'action' => 'Deleted Post',
         ]);
 
-        return redirect()->route('officepost.index');
+        return redirect()->back()->with('success', 'Post deleted successfully.');
     }
     
 }

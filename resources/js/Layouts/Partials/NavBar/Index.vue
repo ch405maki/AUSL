@@ -138,19 +138,16 @@ const route = window.route;
 
 const mainContentClass = ref('');
 
-// Function to update the class based on window width
 const updateMainContentClass = () => {
   const width = window.innerWidth;
   mainContentClass.value = width >= 1024 ? 'main-content-desktop' : 'main-content-mobile';
 };
 
-// Update the class on mount and when the window is resized
 onMounted(() => {
   updateMainContentClass();
   window.addEventListener('resize', updateMainContentClass);
 });
 
-//Humberger Menu links with child items
 const links = ref([
   { title: 'Home', url: '/'},
   {

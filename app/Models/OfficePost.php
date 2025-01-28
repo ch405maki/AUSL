@@ -28,6 +28,7 @@ class OfficePost extends Model
         'image',
         'link',
         'state',
+        'created_at',
     ];
 
     /**

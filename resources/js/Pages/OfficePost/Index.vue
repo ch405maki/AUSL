@@ -35,6 +35,7 @@
               <thead>
                 <tr>
                   <th class="text-left hidden md:table-cell">Number</th>
+                  <th class="text-left hidden md:table-cell">Date</th>
                   <th class="text-left">Title</th>
                   <th class="text-left hidden md:table-cell">Content</th>
                   <th class="text-left hidden md:table-cell">Preview</th>
@@ -44,8 +45,12 @@
               <tbody>
                 <tr v-for="(post, index) in filteredPosts" :key="post.id">
                   <td class="text-center hidden md:table-cell">{{ index + 1 }}</td>
+                  <td>{{ new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</td>
                   <td>{{ post.title }}</td>
-                  <td class="hidden md:table-cell" v-html="post.content"></td>
+                  <td v-if="post && post.content">
+                    <div v-html="limitedContent(post.content)"></div>
+                  </td>
+                  <td v-else>No content available</td>
                   <td class="hidden md:table-cell">
                     <div v-if="post.image && post.image.length > 0">
                     <img :src="post.image[0]" alt="Image Logo" class="my-2 min-w-32 w-32 h-min max-h-100 mr-2 rounded-sm">
@@ -86,6 +91,11 @@ import { ref, computed} from 'vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
+
+function limitedContent(content) {
+  if (!content) return '';
+  return content.length > 200 ? content.substring(0, 200) + '...' : content;
+}
 
 // Define props for posts
 const props = defineProps({
