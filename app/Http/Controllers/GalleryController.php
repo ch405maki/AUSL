@@ -96,7 +96,7 @@ class GalleryController extends Controller
 
     public function browse()
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::latest()->get();
         return Inertia::render('Main/Home/Gallery/Gallery', ['galleries' => $galleries]);
     }
 
