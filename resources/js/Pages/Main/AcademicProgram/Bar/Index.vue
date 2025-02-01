@@ -40,7 +40,7 @@
                         <li>Fill in all the details, then click submit.</li>
                         <li>You will receive an email confirming your registration.</li>
                         <li>Click "Click Here", You will be directed to the <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
-                        <li>Click "Log In" then enter your username and password.</li>
+                        <li>Click "My Account" then enter your username and password.</li>
                         <li>Click "Orders"</li>  
                         <li>Click "browser products"</li>
                         <li>
