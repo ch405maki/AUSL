@@ -23,35 +23,6 @@
     <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
         <a href="/administration/departments" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Departments</a>
     </li>
-    <!-- <li class="rounded-md relative px-2 py-2 transition duration-150 ease-in-out">
-        <button class="w-full text-left flex items-center outline-none focus:outline-none">
-        <span class="pr-1 flex-1 block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Departments</span>
-        <span class="mr-auto">
-            <svg class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20">
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-            </svg>
-        </span>
-        </button>
-        <ul class="bg-white border rounded-md shadow-lg absolute top-0 right-0 transition duration-300 ease-in-out origin-top-left min-w-32 mt-2">
-        <li class="px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Offices 1</a>
-        </li>
-        <li class="px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Offices 2</a>
-        </li>
-        <li class="px-2 py-2 transition duration-150 ease-in-out">
-            <a @click="$inertia.visit(route('emptyState'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Offices 3</a>
-        </li>
-        <li class="px-2 py-2 transition duration-150 ease-in-out">
-            <a href="/office/accounting" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Accounting</a>
-        </li>
-        <li class="px-2 py-2 transition duration-150 ease-in-out">
-            <a href="/office/deans" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Deans</a>
-        </li> 
-        </ul>
-    </li>-->
     </ul>
 </div>
 </template>
