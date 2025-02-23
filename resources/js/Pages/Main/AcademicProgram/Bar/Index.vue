@@ -50,7 +50,9 @@
                               d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                             </path>
                           </svg>
-                          <span class="text-official-purple-800">2025 ONLINE PREBAR REVIEW SCHEDULE</span>
+                          <span class="text-official-purple-800 text-sm md:text-lg lg:text-xl">
+                            2025 ONLINE PREBAR REVIEW SCHEDULE
+                          </span>
                           <!-- Move this container to the end and apply ml-auto -->
                           <div class="ml-auto flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
@@ -62,20 +64,20 @@
                           </div>
                         </summary>
 
-                        <div class="pb-6 px-2 mt-8 text-gray-800 text-base font-normal leading-relaxed">
+                        <div class="pb-6 mt-8 text-gray-800 text-base font-normal leading-relaxed">
                           <div class="text-center mb-2 flex items-center justify-center">
                             <img src="/images/student/alflogo.png" alt="alf logo" class="w-20 h-24 mr-4">
                             <div>
-                              <h1 class="text-xl font-bold garamond text-purple-950">ARELLANO LAW FOVNDATION</h1>
-                              <h1 class="text-xl font-bold text-purple-950">BAR REVIEW PROGRAM</h1>
+                              <h1 class="text-sm md:text-lg lg:text-xl font-bold garamond text-purple-950">ARELLANO LAW FOVNDATION</h1>
+                              <h1 class="text-sm md:text-lg lg:text-xl font-bold text-purple-950">BAR REVIEW PROGRAM</h1>
                             </div>
                             <img src="/images/contact/social/CLEAR.jpg" alt="clear logo" class="w-24 h-24 ml-4">
                           </div>
                           <div class="text-center mb-4">
-                            <h1 class="text-xl font-bold">2025 ONLINE PREBAR REVIEW SCHEDULE</h1>
-                            <h1 class="text-xl font-bold">(MARCH 01 - MAY 31)</h1>
+                            <h1 class="text-sm md:text-lg lg:text-xl font-bold">2025 ONLINE PREBAR REVIEW SCHEDULE</h1>
+                            <h1 class="text-sm md:text-lg lg:text-xl font-bold">(MARCH 01 - MAY 31)</h1>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- Header Row -->
                             <div class="bg-blue-300 p-[4px] font-semibold text-center border border-gray-300">DATE</div>
                             <div class="bg-blue-300 p-[4px] font-semibold text-center border border-gray-300">DAY</div>
@@ -96,11 +98,11 @@
                               <div class="p-[4px]">Atty. Charles Aames M. Bautista</div>
                             </div>
                           </div>
-                          <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
+                          <div class="grid grid-cols-1 border border-gray-300 text-xs lg:text-sm overflow-hidden">
                             <!-- Header Row -->
                             <div class="bg-yellow-300 p-[4px] font-semibold text-center">REMEDIAL</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] text-xs lg:text-sm overflow-hidden">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">March 2, 2025</div>
@@ -139,11 +141,11 @@
                               <div class="p-[4px] ">Judge Janice L. Andrade-Udarbe</div>
                             </div>
                           </div>
-                          <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
+                          <div class="grid grid-cols-1 text-xs lg:text-sm border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
                             <div class="bg-yellow-300 p-[4px] font-semibold text-center">LEGAL & JUDICIAL ETHICS, AND PRACTICAL EXERCISES</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] text-xs lg:text-sm overflow-hidden">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">March 15, 2025</div>
@@ -166,9 +168,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">CRIMINAL LAW</div>
+                            <div class="bg-yellow-300 text-xs lg:text-sm p-[4px] font-semibold text-center">CRIMINAL LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] text-xs lg:text-sm overflow-hidden">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">March 22, 2025</div>
@@ -196,9 +198,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">CIVIL LAW</div>
+                            <div class="bg-yellow-300 p-[4px] text-xs lg:text-sm font-semibold text-center">CIVIL LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] text-xs lg:text-sm overflow-hidden">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">March 30, 2025</div>
@@ -247,9 +249,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">LABOR LAW</div>
+                            <div class="bg-yellow-300 p-[4px] font-semibold text-center text-xs lg:text-sm">LABOR LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] text-xs lg:text-sm overflow-hidden">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">April 20, 2025</div>
@@ -278,9 +280,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">COMMERCIAL LAW</div>
+                            <div class="bg-yellow-300 p-[4px] font-semibold text-center text-xs lg:text-sm">COMMERCIAL LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] text-white">.</div>
@@ -346,9 +348,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">TAXATION LAW</div>
+                            <div class="bg-yellow-300 p-[4px] font-semibold text-center text-xs lg:text-sm">TAXATION LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px]">May 11, 2025</div>
@@ -380,9 +382,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-yellow-300 p-[4px] font-semibold text-center">POLITICAL LAW</div>
+                            <div class="bg-yellow-300 p-[4px] font-semibold text-center text-xs lg:text-sm">POLITICAL LAW</div>
                           </div>
-                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_auto_1fr_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Row -->
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">May 18, 2025</div>
@@ -427,9 +429,9 @@
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
                             <!-- Header Row -->
-                            <div class="bg-lime-600 p-[4px] font-semibold text-center">MOCK BAR SCHEDULE</div>
+                            <div class="bg-lime-600 p-[4px] font-semibold text-center text-xs lg:text-sm">MOCK BAR SCHEDULE</div>
                           </div>
-                          <div class="grid grid-cols-[auto_1fr] overflow-hidden">
+                          <div class="grid grid-cols-[auto_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Column (Smaller Width) -->
                             <div class="border border-gray-300 min-w-[120px] text-center">
                               <div class="p-[4px]">May 18, 2025</div>
@@ -458,7 +460,7 @@
                                 d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                               </path>
                             </svg>
-                            <span class="text-yellow-900 text-sm">
+                            <span class="text-yellow-900 text-xs lg:text-sm">
                               Note: Pre-Week lecture will be uploaded starting 16 August 2025
                             </span>
                           </div>
@@ -473,7 +475,7 @@
                                 <path fill-rule="evenodd" d="M9.657 15.874 7.358 13H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2.358l-2.3 2.874a3 3 0 0 1-4.685 0ZM17 16a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd"/>
                               </svg>
 
-                              <span class="text-official-purple-800 text-sm">
+                              <span class="text-official-purple-800 text-xs lg:text-sm">
                                 Download pdf: 2025 ONLINE PREBAR REVIEW SCHEDULE (MARCH 01 - MAY 31)
                               </span>
                             </div>
