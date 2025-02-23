@@ -12,25 +12,25 @@
                 Program
               </h2>
               <div class="mb-8 relative">
-                <div class="flex justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4">
                   <!-- First Image -->
                   <img
                     src="/images/academic/online_bar_review_program_2.jpg"
-                    class="w-full md:w-1/3 object-cover cursor-pointer"
+                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
                     alt="Carousel Image 1"
                     @click="openLightbox(0)"
                   />
                   <!-- Second Image -->
                   <img
                     src="/images/academic/online_bar_review_program_1.jpg"
-                    class="w-full md:w-1/3 object-cover cursor-pointer"
+                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
                     alt="Carousel Image 2"
                     @click="openLightbox(1)"
                   />
                   <!-- Third Image -->
                   <img
                     src="/images/academic/roster.png"
-                    class="w-full md:w-1/3 object-cover cursor-pointer"
+                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
                     alt="Carousel Image 3"
                     @click="openLightbox(2)"
                   />
