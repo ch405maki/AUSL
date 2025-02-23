@@ -65,7 +65,7 @@
                           <div class="text-center mb-2 flex items-center justify-center">
                             <img src="/images/student/alflogo.png" alt="alf logo" class="w-20 h-24 mr-4">
                             <div>
-                              <h1 class="text-xl font-bold garamond text-purple-950">ARELLANO LAW FOUNDATION</h1>
+                              <h1 class="text-xl font-bold garamond text-purple-950">ARELLANO LAW FOVNDATION</h1>
                               <h1 class="text-xl font-bold text-purple-950">BAR REVIEW PROGRAM</h1>
                             </div>
                             <img src="/images/contact/social/CLEAR.jpg" alt="clear logo" class="w-24 h-24 ml-4">
