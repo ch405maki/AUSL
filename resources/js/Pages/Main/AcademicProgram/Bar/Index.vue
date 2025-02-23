@@ -12,30 +12,31 @@
                 Program
               </h2>
               <div class="mb-8 relative">
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap md:flex-nowrap justify-center gap-3">
                   <!-- First Image -->
                   <img
                     src="/images/academic/online_bar_review_program_2.jpg"
-                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
                     alt="Carousel Image 1"
                     @click="openLightbox(0)"
                   />
                   <!-- Second Image -->
                   <img
                     src="/images/academic/online_bar_review_program_1.jpg"
-                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
                     alt="Carousel Image 2"
                     @click="openLightbox(1)"
                   />
                   <!-- Third Image -->
                   <img
                     src="/images/academic/roster.png"
-                    class="w-full md:w-1/3 lg:w-1/3 object-cover cursor-pointer"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
                     alt="Carousel Image 3"
                     @click="openLightbox(2)"
                   />
                 </div>
               </div>
+
 
               <!-- 2025 ONLINE PREBAR REVIEW SCHEDULE -->
               <table class="w-full text-sm text-left text-gray-500 mb-8">
@@ -61,7 +62,7 @@
                           </div>
                         </summary>
 
-                        <div class="pb-6 mt-8 text-gray-800 text-base font-normal leading-relaxed">
+                        <div class="pb-6 px-2 mt-8 text-gray-800 text-base font-normal leading-relaxed">
                           <div class="text-center mb-2 flex items-center justify-center">
                             <img src="/images/student/alflogo.png" alt="alf logo" class="w-20 h-24 mr-4">
                             <div>
