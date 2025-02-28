@@ -61,6 +61,12 @@
                             <li class="mb-4">
                                 <a :href="route('auslpassers')" class="hover:underline cursor-pointer">2024 AUSL Bar Passers</a>
                             </li>
+                            <li class="mb-4">
+                                <a :href="route('response')" class="hover:underline cursor-pointer">Response</a>
+                            </li>
+                            <li class="mb-4">
+                                <a :href="route('track')" class="hover:underline cursor-pointer">Status</a>
+                            </li>
                         </ul>
                     </div>
                     <div>

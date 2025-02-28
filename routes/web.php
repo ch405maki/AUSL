@@ -21,6 +21,7 @@ use App\Http\Controllers\UserLogController;
 use App\Http\Controllers\ServerStatusController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\OfficePostController;
+use App\Http\Controllers\GwaController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -265,6 +266,13 @@ Route::get('/privacy_policy', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// User Management route
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/gwa', [GwaController::class, 'index'])->name('gwa.index');
+});
+Route::get('/response', [GwaController::class, 'response'])->name('response');
+Route::get('/track', [GwaController::class, 'track'])->name('track');
 
 // User Management route
 Route::middleware(['auth', 'verified'])->group(function () {
