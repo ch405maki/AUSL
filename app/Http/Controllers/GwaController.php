@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Student;
+use Illuminate\Support\Facades\Storage;
 
 class GwaController extends Controller
 {
@@ -29,25 +30,37 @@ class GwaController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'student_number' => 'required|unique:students',
-            'year_level' => 'required',
-            'full_name' => 'required',
-            'email' => 'required|email|unique:students',
-            'contact_number' => 'required',
-            'document' => 'nullable',
-            'gwa' => 'nullable|numeric',
-            'remarks' => 'nullable',
-        ]);
+{
+    $request->validate([
+        'student_number' => 'required|unique:students',
+        'year_level' => 'required',
+        'full_name' => 'required',
+        'email' => 'required|email|unique:students',
+        'contact_number' => 'required',
+        'document' => 'required|mimes:pdf,doc,docx|max:2048', // Ensure document is required
+        'remarks' => 'nullable',
+    ]);
 
-        $student = Student::create($request->all());
+    $studentData = $request->except('document'); // Remove document from mass assignment
 
-        return response()->json([
-            'message' => 'Student created successfully!',
-            'student' => $student,
-        ], 201);
+    if ($request->hasFile('document')) {
+        $document = $request->file('document');
+        $filename = $request->input('student_number') . '.' . $document->getClientOriginalExtension();
+        
+        // Store the file in storage/app/public/documents
+        $path = $document->storeAs('public/gwa_documents', $filename);
+
+        // Store the accessible public URL
+        $studentData['document'] = 'gwa_documents/' . $filename;
     }
+
+    // Create the student record
+    Student::create($studentData);
+
+    return response()->json([
+        'message' => 'Student created successfully!',
+    ], 201);
+}
 
     public function update(Request $request, $id)
     {

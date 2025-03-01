@@ -161,7 +161,7 @@
                               <div class="p-[4px] border-b">SPECIAL LECTURE IN LEGAL ETHICS</div>
                             </div>
                             <div class="border border-gray-300">
-                              <div class="p-[4px] border-b border-gray-300">Atty. Leah P. Laja</div>
+                              <div class="p-[4px] border-b border-gray-300">Dep. Comm. Erickson H. Balmes</div>
                               <div class="p-[4px] border-b border-gray-300">Atty. Rickson M. Buenviaje</div>
                               <div class="p-[4px]">Justice Jose C. Reyes, Jr.</div>
                             </div>

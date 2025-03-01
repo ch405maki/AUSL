@@ -1,13 +1,24 @@
 <template>
-    <Head title="GWA Responses" />
+    <Head title="Response Status" />
     <AuthenticatedLayout>
       <template #header>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">GWA Deficiency Responses</h2>
       </template>
-  
+
       <template #action>
-        <div class="flex justify-start font-medium p-3">
-            GWA Deficiency Responses
+        <div class="flex items-center justify-between">
+          <div class="p-2">
+            <h1 class="text-lg font-bold">GWA Deficiency Responses</h1>
+          </div>
+          <!-- Search Input -->
+          <div class="py-2 ">
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search by name, student number, or year level"
+              class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
       </template>
   
@@ -24,19 +35,54 @@
                       <th class="text-left">Year</th>
                       <th class="text-left">Full Name</th>
                       <th class="text-left">GWA</th>
+                      <th class="text-left">Document</th>
                       <th class="text-left">Status</th>
                       <th class="text-left">Remarks</th>
                       <th class="text-center">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(student, index) in students" :key="student.id">
+                    <tr v-for="(student, index) in filteredStudents" :key="student.id">
                       <td>{{ student.student_number }}</td>
                       <td>{{ student.year_level }}</td>
                       <td>{{ student.full_name }}</td>
                       <td>{{ student.gwa }}</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <a
+                          :href="`/storage/${student.document}`"
+                          download
+                          class="text-blue-500 hover:text-blue-700"
+                        >
+                          <i class="fa-solid fa-download"></i> Download
+                        </a>
+                      </td>
                       <td>{{ student.status }}</td>
-                      <td>{{ student.remarks }}</td>
+                      <td>
+                        <span
+                          v-if="student.remarks === 'approve'"
+                          class="px-2 py-1 text-sm text-white rounded-md bg-green-500"
+                        >
+                          Approved
+                        </span>
+                        <span
+                          v-else-if="student.remarks === 'pending'"
+                          class="px-2 py-1 text-sm text-white rounded-md bg-yellow-500"
+                        >
+                          Received
+                        </span>
+                        <span
+                          v-else-if="student.remarks === 'denied'"
+                          class="px-2 py-1 text-sm text-white rounded-md bg-red-500"
+                        >
+                          Denied
+                        </span>
+                        <span
+                          v-else-if="student.remarks === 'encoded'"
+                          class="px-2 py-1 text-sm text-white rounded-md bg-blue-500"
+                        >
+                          Encoded
+                        </span>
+                      </td>
                       <td class="text-center">
                         <button @click="openModal(student)" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">
                           Update
@@ -105,12 +151,28 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import axios from 'axios';
 
+// Props
 const props = defineProps({ students: { type: Array, required: true } });
+
+// Search query
+const searchQuery = ref('');
+
+// Filtered students computed property
+const filteredStudents = computed(() => {
+  const query = searchQuery.value.toLowerCase();
+  return props.students.filter((student) => {
+    return (
+      student.full_name.toLowerCase().includes(query) ||
+      student.student_number.toLowerCase().includes(query) ||
+      student.year_level.toLowerCase().includes(query)
+    );
+  });
+});
 
 // Modal state
 const isModalOpen = ref(false);
@@ -121,7 +183,7 @@ const form = useForm({
   printing_by: '',
   encoded_by: '',
   gwa: null,
-  status: 'received',
+  status: '',
   remarks: '',
 });
 
