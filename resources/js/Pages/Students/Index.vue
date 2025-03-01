@@ -5,23 +5,35 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">GWA Deficiency Responses</h2>
       </template>
 
-      <template #action>
-        <div class="flex items-center justify-between">
-          <div class="p-2">
-            <h1 class="text-lg font-bold">GWA Deficiency Responses</h1>
-          </div>
-          <!-- Search Input -->
-          <div class="py-2 ">
-            <input
-              v-model="searchQuery"
-              type="text"
-              placeholder="Search by name, student number, or year level"
-              class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+      <action class="py-8">
+          <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
+            <div class=" overflow-hidden shadow-sm bg-white rounded-lg px-4">
+              <div class="flex items-center justify-between">
+              <!-- Title -->
+              <div >
+                <h1 class="text-lg font-bold text-gray-800">GWA Deficiency Responses</h1>
+              </div>
+
+              <!-- Search Input Container -->
+              <div class="flex-1 max-w-md ml-4 px-2 pt-[13px]">
+                <div class="relative w-full">
+                  <input  
+                    v-model="searchQuery"
+                    type="text"
+                    placeholder="Search by name, student number, or year level"
+                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  />
+                  <!-- Search Icon -->
+                  <span class="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </template>
-  
+      </action>
+
       <div class="flex flex-col min-h-screen bg-gray-100">
         <main class="flex-grow">
           <div class="max-w-7xl mx-auto">
@@ -100,7 +112,7 @@
 
       <!-- Update Modal -->
       <div v-if="isModalOpen" class="fixed inset-0 flex items-center justify-center">
-        <div class="bg-white p-6 rounded-lg w-1/3">
+        <div class="bg-white-mode p-6 rounded-lg w-1/3">
           <h2 class="text-xl font-bold mb-4">Update Student Details</h2>
           <form @submit.prevent="updateStudent">
             <div class="mb-4">
@@ -230,7 +242,7 @@ const updateStudent = async () => {
 }
 
 /* Modal content */
-.bg-white {
+.bg-white-mode {
   background-color: white;
   z-index: 1001; /* Ensure modal content is above the backdrop */
   border-radius: 0.5rem;

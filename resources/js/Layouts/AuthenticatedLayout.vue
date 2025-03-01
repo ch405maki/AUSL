@@ -249,12 +249,12 @@
           </div>
           <main class="lg:col-span-9 xl:col-span-10">
             <action class="bg-white py-8" v-if="$slots.action">
-            <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
-              <div class="bg-white overflow-hidden shadow-sm rounded-lg">
-                  <slot name="action" />
+              <div class="max-w-7xl mx-auto mb-6 px-4 sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+                    <slot name="action" />
+                </div>
               </div>
-            </div>
-          </action>
+            </action>
           <!-- main Slot -->
           <slot />
           <!-- main Slot -->
