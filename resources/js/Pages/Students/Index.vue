@@ -45,7 +45,7 @@
                     <tr>
                       <th class="text-left">Student Number</th>
                       <th class="text-left">Year</th>
-                      <th class="text-left">Full Name</th>
+                      <th class="text-left">Full Name | Email</th>
                       <th class="text-left">GWA</th>
                       <th class="text-left">Document</th>
                       <th class="text-left">Status</th>
@@ -57,7 +57,11 @@
                     <tr v-for="(student, index) in filteredStudents" :key="student.id">
                       <td>{{ student.student_number }}</td>
                       <td>{{ student.year_level }}</td>
-                      <td>{{ student.full_name }}</td>
+                      <td>{{ student.full_name }} <br>
+                        <span class="text-blue-700 hover:underline">
+                          {{ student.email }}
+                        </span>
+                      </td>
                       <td>{{ student.gwa }}</td>
                       <td class="px-6 py-4 whitespace-nowrap">
                         <a
@@ -116,42 +120,42 @@
           <h2 class="text-xl font-bold mb-4">Update Student Details</h2>
           <form @submit.prevent="updateStudent">
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">Printing By</label>
-                <select v-model="form.printing_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    <option value="Emy">Emy</option>
-                    <option value="Jay">Jay</option>
-                    <option value="Grace">Grace</option>
-                </select>
-                </div>
+              <label class="block text-sm font-medium text-gray-700">Printing By</label>
+              <select v-model="form.printing_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="Emy">Emy</option>
+                <option value="Jay">Jay</option>
+                <option value="Grace">Grace</option>
+              </select>
+            </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">Encoded By</label>
-                <select v-model="form.encoded_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    <option value="Emy">Emy</option>
-                    <option value="Jay">Jay</option>
-                    <option value="Grace">Grace</option>
-                </select>
+              <label class="block text-sm font-medium text-gray-700">Encoded By</label>
+              <select v-model="form.encoded_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="Emy">Emy</option>
+                <option value="Jay">Jay</option>
+                <option value="Grace">Grace</option>
+              </select>
             </div>
             <div class="mb-4">
               <label class="block text-sm font-medium text-gray-700">GWA</label>
               <input v-model="form.gwa" type="number" step="0.01" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
             </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">Status</label>
-                <select v-model="form.status" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    <option value="Probation">Probation</option>
-                    <option value="Strict Probation">Strict Probation</option>
-                    <option value="Waived First Sem Only">Waived First Sem Only</option>
-                    <option value="Fourth Year Not Required">Fourth Year Not Required</option>
-                </select>
+              <label class="block text-sm font-medium text-gray-700">Status</label>
+              <select v-model="form.status" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="Probation">Probation</option>
+                <option value="Strict Probation">Strict Probation</option>
+                <option value="Waived First Sem Only">Waived First Sem Only</option>
+                <option value="Fourth Year Not Required">Fourth Year Not Required</option>
+              </select>
             </div>
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">Remarks</label>
-                <select v-model="form.remarks" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    <option value="approve">Approve</option>
-                    <option value="denied">Denied</option>
-                    <option value="encoded">Encoded</option>
-                </select>
-                </div>
+              <label class="block text-sm font-medium text-gray-700">Remarks</label>
+              <select v-model="form.remarks" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="approve">Approve</option>
+                <option value="denied">Denied</option>
+                <option value="encoded">Encoded</option>
+              </select>
+            </div>
             <div class="flex justify-end">
               <button type="button" @click="closeModal" class="bg-gray-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-gray-600">Cancel</button>
               <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
@@ -163,7 +167,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import axios from 'axios';
@@ -198,6 +202,26 @@ const form = useForm({
   status: '',
   remarks: '',
 });
+
+// Watch for changes in form.status
+watch(
+  () => form.status,
+  (newStatus) => {
+    if (newStatus === 'Probation' || newStatus === 'Strict Probation') {
+      form.remarks = 'approve';
+    }
+  }
+);
+
+// Watch for changes in form.encoded_by
+watch(
+  () => form.encoded_by,
+  (newEncodedBy) => {
+    if (newEncodedBy) {
+      form.remarks = 'encoded';
+    }
+  }
+);
 
 // Open modal and set form data
 const openModal = (student) => {

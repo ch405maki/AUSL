@@ -31,6 +31,10 @@
       >
         <section v-if="student" class="relative overflow-hidden">
           <div class="mt-2 md:mt-0 py-12 pb-6 sm:py-16 lg:pb-24 overflow-hidden">
+            <div class="text-xl font-bold mb-10 text-center text-gray-700 py-4">
+              <h1>{{ student.student_number }}</h1>
+              <h1>{{ student.full_name }}</h1>
+            </div>
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative">
               <div class="relative mt-12 lg:mt-20">
                 <div class="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
@@ -46,7 +50,14 @@
                     />
                   </svg>
                 </div>
-                <div class="relative grid grid-cols-1 text-center gap-y-8 sm:gap-y-10 md:gap-y-12 md:grid-cols-3 gap-x-12">
+                <div 
+                    class="relative grid text-center gap-y-8 sm:gap-y-10 md:gap-y-12 gap-x-12"
+                    :class="[
+                      student.status === 'Probation' || student.status === 'Strict Probation' 
+                      ? 'md:grid-cols-4' 
+                      : 'md:grid-cols-3',
+                    ]"
+                  >
                   <!-- Email Received -->
                   <transition appear name="status" mode="out-in">
                     <div :key="student.remarks">
@@ -103,6 +114,36 @@
                         ]"
                       >
                         {{ statusMessages.evaluation }}
+                      </p>
+                    </div>
+                  </transition>
+
+                  <!-- Visit Onsite for Signing -->
+                  <transition v-if="student.status === 'Probation' || student.status === 'Strict Probation'" appear name="status" mode="out-in">
+                    <div :key="student.remarks">
+                      <div
+                        :class="[
+                          'flex items-center justify-center w-16 h-16 mx-auto border-2 rounded-full shadow transition-all duration-300',
+                          statusClasses.onsite.container
+                        ]"
+                      >
+                        <span
+                          :class="[
+                            'text-xl font-semibold transition-all duration-300',
+                            statusClasses.onsite.text
+                          ]"
+                        >
+                          <i class="fa-solid fa-building"></i>
+                        </span>
+                      </div>
+                      <h3 class="mt-4 sm:mt-6 text-xl font-semibold leading-tight text-gray-900 md:mt-10">Visit Onsite for Signing</h3>
+                      <p
+                        :class="[
+                          'mt-3 sm:mt-4 text-base transition-all duration-300',
+                          statusClasses.onsite.text
+                        ]"
+                      >
+                        {{ statusMessages.onsite }}
                       </p>
                     </div>
                   </transition>
@@ -206,15 +247,15 @@ const statusClasses = computed(() => {
     evaluation: {
       container: remarks === 'encoded' 
         ? 'bg-green-100 border-green-300' 
-        : remarks === 'approve' 
-        ? 'bg-blue-100 border-blue-300' 
+        : remarks === 'approve'
+        ? 'bg-green-100 border-green-300' 
         : remarks === 'denied' 
         ? 'bg-red-100 border-red-300' 
         : 'bg-gray-100 border-gray-300',
       text: remarks === 'encoded' 
         ? 'text-green-700' 
-        : remarks === 'approve' 
-        ? 'text-blue-700' 
+        : remarks === 'approve'
+        ? 'text-green-700' 
         : remarks === 'denied' 
         ? 'text-red-700' 
         : 'text-gray-700',
@@ -223,18 +264,40 @@ const statusClasses = computed(() => {
         : 'fa-solid fa-list-check'
     },
     enlisted: {
-      container: remarks === 'encoded' || remarks === 'enlisted' 
+      container: remarks === 'encoded' 
         ? 'bg-green-100 border-green-300' 
         : 'bg-gray-100 border-gray-300',
       text: remarks === 'encoded' || remarks === 'enlisted' 
         ? 'text-green-700' 
         : 'text-gray-700'
-    }
+    },
+    onsite: {
+      container: remarks === 'encoded' 
+        ? 'bg-green-100 border-green-300' 
+        : remarks === 'approve'
+        ? 'bg-green-100 border-green-300' 
+        : remarks === 'denied' 
+        ? 'bg-red-100 border-red-300' 
+        : 'bg-gray-100 border-gray-300',
+      text: remarks === 'encoded' 
+        ? 'text-green-700' 
+        : remarks === 'approve'
+        ? 'text-green-700' 
+        : remarks === 'denied' 
+        ? 'text-red-700' 
+        : 'text-gray-700',
+      icon: remarks === 'denied' 
+        ? 'fa-solid fa-times-circle' 
+        : 'fa-solid fa-list-check'
+    },
   };
 });
 
+// Computed property for status messages
 const statusMessages = computed(() => {
   const remarks = student.value?.remarks?.toLowerCase() || '';
+  const status = student.value?.status?.toLowerCase() || '';
+
   return {
     email: remarks === 'pending' 
       ? 'Pending' 
@@ -243,16 +306,40 @@ const statusMessages = computed(() => {
           month: 'long', 
           day: 'numeric'
         })}`,
-    evaluation: remarks === 'approve' 
-      ? 'Evaluation in progress' 
+    evaluation: (remarks === 'approve' || status === 'probation')
+      ? `Evaluation in progress as of ${new Date(student.value.updated_at).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      })}`
       : remarks === 'denied' 
       ? 'Evaluation denied' 
       : remarks === 'encoded' 
-      ? 'Evaluation has been completed' 
+      ? `Evaluation has been completed as of ${new Date(student.value.updated_at).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      })}`
       : 'Not yet evaluated',
-    enlisted: remarks === 'enlisted' 
-      ? 'Subjects enlisted' 
-      : `Subjects not yet enlisted`
+    enlisted: remarks === 'encoded' 
+      ? `Subjects enlisted as of ${new Date(student.value.updated_at).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      })}`
+      : `Subjects not yet enlisted`,
+    onsite: remarks === 'approve' 
+      ? `Visit onsite for signing `
+      : `Not yet visited onsite for signing`
   };
 });
 </script>
