@@ -71,12 +71,14 @@
           </div>
 
           <!-- Document -->
-          <div class="col-span-2">
-            <label class="block text-sm font-medium text-gray-700">Document</label>
+          <div class="col-span-2 flex gap-4">
+            <!-- Letter to Dean -->
+            <div class="w-1/2">
+              <h1 class="font-semibold tracking-wider mb-4">Letter to Dean</h1>
               <div class="flex items-center justify-center w-full">
                 <label
-                  for="dropzone-file"
-                  class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+                  for="letter-to-dean"
+                  class="mb-4 flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
                 >
                   <div class="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg
@@ -103,7 +105,7 @@
                     </p>
                   </div>
                   <input
-                    id="dropzone-file"
+                    id="letter-to-dean"
                     type="file"
                     class="hidden"
                     @change="handleFileUpload"
@@ -111,6 +113,51 @@
                 </label>
               </div>
             </div>
+
+            <!-- RO 26 -->
+            <div class="w-1/2">
+              <h1 class="font-semibold tracking-wider mb-4">RO 26</h1>
+              <div class="flex items-center justify-center w-full">
+                <label
+                  for="ro-26"
+                  class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+                >
+                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg
+                      class="w-8 h-8 mb-4 text-gray-500"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 16"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                      />
+                    </svg>
+                    <p v-if="!form.ro26" class="mb-2 text-sm text-gray-500">
+                      <span class="font-semibold">Click to upload</span> or drag and drop
+                    </p>
+                    <p v-if="!form.ro26" class="text-xs text-gray-500">PDF, DOC, or DOCX (MAX. 5MB)</p>
+                    <p v-if="form.ro26" class="mt-2 text-sm text-gray-600">
+                      Selected file
+                      : <span class="text-official-purple-600 font-semibold">{{ form.ro26.name }}</span>
+                    </p>
+                  </div>
+                  <input
+                    id="ro-26"
+                    type="file"
+                    class="hidden"
+                    @change="handleRO26Upload"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
           </div>
 
         <!-- Submit Button -->

@@ -338,7 +338,7 @@ const statusMessages = computed(() => {
       })}`
       : `Subjects not yet enlisted`,
     onsite: remarks === 'approve' 
-      ? `Visit onsite for signing `
+      ? `Visit onsite for signing of GWA waiver`
       : `Not yet visited onsite for signing`
   };
 });

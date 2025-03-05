@@ -15,8 +15,12 @@
               </div>
 
               <!-- Search Input Container -->
-              <div class="flex-1 max-w-md ml-4 px-2 pt-[13px]">
-                <div class="relative w-full">
+              <div class="flex items-center space-x-4">
+              <div class="mt-[4px]">
+                <a href="" class="py-[9px] px-6 rounded-lg text-white hover:text-blue-800 bg-blue-500 hover:bg-blue-600"><i class="fa-solid fa-file-excel"></i> Export</a>
+              </div>
+              <div class="flex-1 max-w-md mt-[11px]">
+                <div class="relative w-full mt-[6px]">
                   <input  
                     v-model="searchQuery"
                     type="text"
@@ -29,6 +33,7 @@
                   </span>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -43,6 +48,7 @@
                 <v-table fixed-header class="shadow-sm rounded-lg">
                   <thead>
                     <tr>
+                      <th class="text-left">Time Stamp</th>
                       <th class="text-left">Student Number</th>
                       <th class="text-left">Year</th>
                       <th class="text-left">Full Name | Email</th>
@@ -55,6 +61,14 @@
                   </thead>
                   <tbody>
                     <tr v-for="(student, index) in filteredStudents" :key="student.id">
+                      <td>{{ new Date(student.created_at).toLocaleString('en-US', { 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric', 
+                          hour: 'numeric', 
+                          minute: 'numeric', 
+                          hour12: true 
+                        }) }}</td>
                       <td>{{ student.student_number }}</td>
                       <td>{{ student.year_level }}</td>
                       <td>{{ student.full_name }} <br>
@@ -125,16 +139,10 @@
                 <option value="Emy">Emy</option>
                 <option value="Jay">Jay</option>
                 <option value="Grace">Grace</option>
+                <option value="" class="text-red-500 border-t">Clear</option>
               </select>
             </div>
-            <div class="mb-4">
-              <label class="block text-sm font-medium text-gray-700">Encoded By</label>
-              <select v-model="form.encoded_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                <option value="Emy">Emy</option>
-                <option value="Jay">Jay</option>
-                <option value="Grace">Grace</option>
-              </select>
-            </div>
+            
             <div class="mb-4">
               <label class="block text-sm font-medium text-gray-700">GWA</label>
               <input v-model="form.gwa" type="number" step="0.01" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
@@ -156,6 +164,15 @@
                 <option value="encoded">Encoded</option>
               </select>
             </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700">Encoded By</label>
+              <select v-model="form.encoded_by" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="Emy">Emy</option>
+                <option value="Jay">Jay</option>
+                <option value="Grace">Grace</option>
+                <option value="" class="text-red-500">Clear</option>
+              </select>
+            </div>
             <div class="flex justify-end">
               <button type="button" @click="closeModal" class="bg-gray-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-gray-600">Cancel</button>
               <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Update</button>
@@ -163,6 +180,7 @@
           </form>
         </div>
       </div>
+      
     </AuthenticatedLayout>
 </template>
 
@@ -307,8 +325,4 @@ button:hover {
   background-color: #6b7280;
 }
 
-/* Update button */
-.bg-blue-500 {
-  background-color: #3b82f6;
-}
 </style>
