@@ -318,7 +318,6 @@ function openLightbox1(index, images) {
 </script>
     
 <style scoped>
-    @import url('https://db.onlinewebfonts.com/c/14ab77252fbc4bdca1dbdf8051cb7e96?family=BF+Invicta+W00+Bold');
     
     .text-invicta {
         font-family: 'BF Invicta W00 Bold', sans-serif;

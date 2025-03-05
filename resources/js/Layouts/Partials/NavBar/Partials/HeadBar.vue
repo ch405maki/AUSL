@@ -80,7 +80,6 @@
 </script>
     
     <style scoped>
-    @import url('https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond');
 
     .garamond {
     font-family: 'Garamond', serif;
