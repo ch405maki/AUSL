@@ -154,7 +154,7 @@ const links = ref([
     title: 'Admissions',
     url: '#',
     children: [
-      { title: 'Admission Process', url: '/admissions/process'},
+      { title: 'Admission Process', url: '/admissions'},
       { title: 'Requirements', url: '/admissions/requirements'},
     ]
   },
