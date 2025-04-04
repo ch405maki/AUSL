@@ -108,6 +108,28 @@
                   </div>
                 </div>
               </div>
+              <!-- Step 4 -->
+              <div class="mb-8">
+                <div class="bg-white border-none rounded-lg pl-2 mb-6 relative">
+                <h2 class="text-official-purple-900 font-bold my-8 text-xl sm:text-2xl text-pretty text-start">
+                  Step Four: Student ID Application and Releasing Procedures
+                </h2>
+                  <div class="mb-6 relative">
+                    <div class="flex flex-row sm:flex-row items-center justify-between mb-6">
+                      <div class="mb-6 relative">
+                      <blockquote class="text-gray-700 pl-0 sm:pl-4 flex flex-wrap items-center">
+                          <div class="w-full ">
+                          <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 1.</span> Completely fill up and submit the online application at: <a href="https://arellanolaw.edu/ausl-id" class="text-official-purple-700 underline">https://arellanolaw.edu/ausl-id.</a></p>
+                          <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 2.</span> After submitting the form, your application will be validated. Once application is confirmed, the student will receive a confirmation email that the student ID is ready for release.</p>
+                          <p class="mb-4 text-lg font-normal text-gray-800 mb-8"><span class="text-lg font-normal text-gray-800 mb-8">STEP 3.</span> To claim the ID, proceed to the IT Center, 3rd floor Admin Bldg. and present your confirmation email.</p>
+                          <p class="mb-4 text-lg font-normal text-gray-800 mb-8">If your Student ID will be claimed by another person or via courier delivery services, please provide an Authorization letter with photocopy of Government Issued ID of the student and the authorized representative.</p>
+                          </div>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
             </section>
   
             <aside class="w-full md:w-1/4 sticky top-0">
