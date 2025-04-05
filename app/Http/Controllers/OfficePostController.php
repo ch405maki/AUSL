@@ -76,7 +76,7 @@ class OfficePostController extends Controller
 
     public function bursar()
     {
-        $office = "Bursar";
+        $office = "Bursar's";
         $posts = OfficePost::where('category', 'Bursar')
             ->where('state', 'active')
             ->orderBy('created_at', 'desc')
