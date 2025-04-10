@@ -13,7 +13,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::orderBy('year', 'asc')->get();
+        $galleries = Gallery::latest('year')->get();
         return Inertia::render('Gallery/Index', ['galleries' => $galleries]);
     }
 
