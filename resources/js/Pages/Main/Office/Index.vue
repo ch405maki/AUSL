@@ -6,7 +6,7 @@
             <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
             <div class="absolute inset-0 flex items-center justify-center">
             <h1 class="text-white text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold text-center">
-                {{ office }} Office
+                {{ office }}
             </h1>
             </div>
         </div>
