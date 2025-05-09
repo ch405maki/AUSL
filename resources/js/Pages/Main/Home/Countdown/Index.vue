@@ -2,11 +2,11 @@
     <div class="h-[600px] flex flex-col items-center justify-center text-slate-800">
         <!-- Logo or Header -->
         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-official-purple-800 text-center">
-          Final Examinations (Graduating)
+          Deadline For Submission Of Final Grades
         </h1>
                 
         <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-official-purple-800 text-center">
-          April 26 - May 4, 2025
+          May 18, 2025
         </h1> 
                 
         <!-- Countdown Timer -->
@@ -38,7 +38,7 @@
   const seconds = ref(0);
   
   // Set the target countdown date
-  const countDownDate = new Date("April 26, 2025 00:00:00").getTime();
+  const countDownDate = new Date("May 18, 2025 00:00:00").getTime();
   
   // Update countdown function
   const updateCountdown = () => {
