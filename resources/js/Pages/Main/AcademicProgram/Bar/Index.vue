@@ -434,11 +434,11 @@
                           <div class="grid grid-cols-[auto_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Column (Smaller Width) -->
                             <div class="border border-gray-300 min-w-[120px] text-center">
-                              <div class="p-[4px]">May 18, 2025</div>
+                              <div class="p-[4px]">June</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] border-b border-gray-300 text-white">.</div>
-                              <div class="p-[4px]">May 24, 2025</div>
+                              <div class="p-[4px]">July</div>
                             </div>
 
                             <!-- Second Column (Flexible Width) -->
@@ -466,7 +466,7 @@
                           </div>
                           <a 
                             class="hover:underline text-official-purple-600"
-                            href="https://drive.google.com/file/d/1m4q4D8PTIjerdgVSCd73Al3-bB8OFVhr/view?usp=drive_link"
+                            href="https://drive.google.com/file/d/1Ez-a6EV44GLmsI4iG4mvKqZi2g279WW4/view?usp=sharing"
                             target="_blank"
                             >
                             <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
