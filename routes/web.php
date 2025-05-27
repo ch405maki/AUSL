@@ -256,9 +256,13 @@ Route::get('/privacy_policy', function () {
     Route::get('/olavolunteerlawyers', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSewXtsFJ0dIPCRxGCI2Pexy9XBRWXdHTpyqA5okULvzg1y2Jw/viewform?fbclid=IwAR2CYNO8m1j1lgVkPIEVXKrxKxv9QKu30K0jnzfkZZeeqUtlrbffATRZrHc');
     });
+    // Route::get('/gwa', function () {
+    //     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdd4mzMVkddcuLAAQ3cws4U-Q4DFzSWlx1P102t0qpQaWMA1A/viewform');
+    // });
+
     Route::get('/gwa', function () {
-        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdd4mzMVkddcuLAAQ3cws4U-Q4DFzSWlx1P102t0qpQaWMA1A/viewform');
-    });
+        return Inertia::render('Main/GWA/Index');
+    })->name('gwa');
     
     // Wifi link
 
