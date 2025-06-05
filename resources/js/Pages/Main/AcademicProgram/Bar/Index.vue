@@ -416,7 +416,7 @@
                               <div class="p-[4px] mt-">SPECIAL LECTURE IN POLITICAL LAW</div>
                             </div>
                             <div class="border border-gray-300">
-                              <div class="p-[4px] border-b border-gray-300">TBA</div>
+                              <div class="p-[4px] border-b border-gray-300">Dean Cecilio D. Duka</div>
                               <div class="p-[4px] border-b border-gray-300">Dean Reynaldo G. Lopez</div>
                               <div class="p-[4px] border-b border-gray-300">Atty. Michael Vernon Guerrero </div>
                               <div class="p-[4px] text-white">.</div>
