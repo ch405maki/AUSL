@@ -19,6 +19,21 @@
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
                       <li>For New and Transferee students, choose LAW as Department and click "Continue."</li>
                       <li>For Refresher, choose LAW-REFRESHER as Department and click "Continue."</li>
+                      <div class="bg-red-200 px-6 py-4 mb-4 mx-2 mt-4 rounded-md text-lg flex items-center mx-auto border">
+                        <svg viewBox="0 0 24 24" class="text-red-600 w-8 h-8 sm:w-5 sm:h-5 mr-3">
+                          <path fill="currentColor"
+                            d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                          </path>
+                        </svg>
+                        <span class="text-red-800 sm:text-xs text-xs tracking-wide">
+                          <p>Note: An enrolee in the refresher course must enroll in the pre-bar review class as pre-requisite to the issuance of an official certificate. </p>
+                          Please email a photocopy of Government Issued IDs to
+                          <span class="underline font-medium">
+                            <a href="mailto:records@arellanolaw.edu?subject=Request%20for%20Documents&body=Hi%20Records%20Office," class="underline hover:text-rose-900">
+                              records@arellanolaw.edu
+                            </a></span> for validation purposes.
+                          </span>
+                      </div>
                     </ul>
                     <img src="/images/admission/image2.png" alt="Step 3 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">4. Fill up ALL the required fields <i>(Do not leave any blank spaces)</i>. If done, click "Save Changes".</p>
@@ -30,16 +45,16 @@
                     <img src="/images/admission/image4.png" alt="Step 5 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto w-[500px] mb-4 rounded-lg" />
                     <img src="/images/admission/image5.png" alt="Step 6 Image" class="text-lg font-normal text-gray-700 mb-2 mx-auto rounded-lg" />
                     <p class="text-lg font-normal text-gray-700 mb-2">6. Jot down Username and password
-                      <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
-                      <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
-                        <path fill="currentColor"
-                          d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
-                        </path>
-                      </svg>
-                      <span class="text-official-purple-800 sm:text-lg text-sm">
-                        Note: Username will be changed once officially enrolled into your Student Number
-                      </span>
-                    </div>
+                      <div class="bg-red-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
+                        <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                          <path fill="currentColor"
+                            d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                          </path>
+                        </svg>
+                        <span class="text-red-800 sm:text-lg text-sm">
+                          Note: Username will be changed once officially enrolled into your Student Number
+                        </span>
+                      </div>
                     Default password is your lastname, birthmonth and day.</p>
                     <ul class="list-disc list-inside text-lg font-normal text-gray-700 mb-2">
                       <li>For Refresher: Disregard Examination Schedule and wait for your account to be accepted.</li>
@@ -57,13 +72,13 @@
                   <h2 class="text-xl sm:text-2xl font-bold text-official-purple-900 mb-2">Step Two: Enlist Subjects</h2>
                   <div class="text-slate-600 leading-relaxed mb-2">
                     <p class="text-lg font-normal text-gray-700 mb-2">8. To enlist your subjects and schedules: Click on the "Registration" tab and select your preferred subjects and schedule.</p>
-                    <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
-                      <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                    <div class="bg-red-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
+                      <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
                         <path fill="currentColor"
                           d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                         </path>
                       </svg>
-                      <span class="text-official-purple-800 sm:text-lg text-sm">
+                      <span class="text-red-800 sm:text-lg text-sm">
                         Note: One Subject or One Schedule at a time
                       </span>
                     </div>
