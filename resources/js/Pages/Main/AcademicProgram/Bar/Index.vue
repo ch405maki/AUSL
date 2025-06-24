@@ -211,7 +211,6 @@
                               <div class="p-[4px]">April 19, 2025</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] text-white">.</div>
                             </div>
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">Sunday</div>
@@ -221,7 +220,6 @@
                               <div class="p-[4px] text-white  border-b border-gray-300">.</div> 
                               <div class="p-[4px] ">Saturday</div>
                               <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] text-white">.</div> 
                               <div class="p-[4px] text-white">.</div> 
                             </div>
                             <div class="border border-gray-300">
@@ -233,10 +231,9 @@
                               <div class="p-[4px] border-b">SPECIAL CONTRACTS</div>
                               <div class="p-[4px] border-b">TORTS & DAMAGES</div>
                               <div class="p-[4px] border-b">SPECIAL LECTURE IN CIVIL LAW I</div>
-                              <div class="p-[4px] border-b">SPECIAL LECTURE IN CIVIL LAW II</div>
                             </div>
                             <div class="border border-gray-300">
-                              <div class="p-[4px] border-b border-gray-300">Atty. Elmer T. Rabuya</div>
+                              <div class="p-[4px] border-b border-gray-300">Atty. Primo Antonio Ramos III</div>
                               <div class="p-[4px] border-b border-gray-300">Dean Jord Jharoah B. Valenton</div>
                               <div class="p-[4px] border-b border-gray-300">Atty. Erwin L. Tiamson</div>
                               <div class="p-[4px] border-b border-gray-300">Dean Domingo M. Navarro</div>
@@ -244,7 +241,6 @@
                               <div class="p-[4px] border-b border-gray-300">Atty. Primo Antonio Ramos, III</div>
                               <div class="p-[4px] border-b border-gray-300">Atty. Nico B. Valderrama</div>
                               <div class="p-[4px] border-b border-gray-300">Dean Ma. Soledad Deriquito-Mawis</div>
-                              <div class="p-[4px] border-b border-gray-300">Atty. Crisostomo A. Uribe</div>
                             </div>
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
@@ -307,7 +303,7 @@
                               <div class="p-[4px]">Sunday</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
-                              <div class="p-[4px] ">Saturday</div>
+                              <div class="p-[4px]">Saturday</div>
                               <div class="p-[4px] text-white">.</div>
                             </div>
                             <div class="border border-gray-300">
@@ -327,22 +323,20 @@
                               </div>
                               <div class="p-[4px] border-b">INSURANCE LAW</div>
                               <div class="p-[4px] border-b">TRANSPORTATION LAW</div>
-                              <div class="p-[4px] border-b">SPECIAL LECTURE ON COMMERCIAL LAW</div>
                               <div class="p-[4px]">SPECIAL LECTURE ON COMMERCIAL LAW </div>
                             </div>
                             <div class="border border-gray-300">
-                              <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] text-white">.</div>
+                              <div class="text-white">.</div>
+                              <div class="text-white">.</div>
                               <div class="p-[4px]">Atty. Joanne L. Ranada</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
-                              <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] ">Atty. Mary Ann LL. Reyes</div>
-                              <div class="p-[4px] text-white">.</div>
+                              <div class="text-white">.</div>
+                              <div class="p-[4px]">Atty. Mary Ann LL. Reyes</div>
+                              <div class="text-white">.</div>
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
                               <div class="p-[4px]">Dep. Comm. Erickson H. Balmes</div>
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
-                              <div class="p-[4px] border-b border-gray-300">Dean Nilo T. Divina</div>
                               <div class="p-[4px]">Atty. Ma. Zarah Villanueva-Castro</div>
                             </div>
                           </div>
@@ -434,20 +428,14 @@
                           <div class="grid grid-cols-[auto_1fr] overflow-hidden text-xs lg:text-sm">
                             <!-- First Column (Smaller Width) -->
                             <div class="border border-gray-300 min-w-[120px] text-center">
-                              <div class="p-[4px]">June</div>
-                              <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] text-white">.</div>
-                              <div class="p-[4px] border-b border-gray-300 text-white">.</div>
                               <div class="p-[4px]">July</div>
+                              <div class="p-[4px] text-white">.</div>
                             </div>
 
                             <!-- Second Column (Flexible Width) -->
                             <div class="border border-gray-300">
-                              <div class="p-[4px] border-b">REMEDIAL LAW MOCK BAR</div>
-                              <div class="p-[4px] border-b">CIVIL LAW MOCK BAR</div>
                               <div class="p-[4px] border-b">COMMERCIAL LAW & TAXATION LAW</div>
                               <div class="p-[4px] border-b">POLITICAL LAW MOCK BAR</div>
-                              <div class="p-[4px]">Coaching Sessions</div>
                             </div>
                           </div>
 
