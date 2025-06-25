@@ -262,6 +262,9 @@ Route::get('/privacy_policy', function () {
     Route::get('/gwa', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdd4mzMVkddcuLAAQ3cws4U-Q4DFzSWlx1P102t0qpQaWMA1A/viewform');
     });
+    Route::get('/deansemail', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeCR_d5YoG9y5r-abu7Z5gnZJHa285MP3iHRh6hXOLjffmjyg/viewform');
+    });
 
     // Wifi link
 
