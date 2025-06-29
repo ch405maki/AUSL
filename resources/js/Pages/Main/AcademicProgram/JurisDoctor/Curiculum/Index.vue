@@ -476,7 +476,7 @@ const subjects = ref([
         },
         { 
           name: 'Criminal Law Review and Integration', 
-          units: 3,
+          units: 5,
           description: 'Prerequisites: Criminal Law I and II <br><br> A review course intended for bar examinees focusing on criminal laws, important and common special penal laws and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
         },
         { 
