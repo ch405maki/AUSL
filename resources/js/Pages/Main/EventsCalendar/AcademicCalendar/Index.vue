@@ -4,7 +4,7 @@
       <div class="relative mb-4">
         <img src="/images/headerbg.jpg" alt="Background Image" class="w-full h-auto object-cover" />
         <div class="absolute inset-0 flex items-center justify-center">
-          <h1 class="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center">
+          <h1 class="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-center">
             ARELLANO UNIVERSITY SCHOOL OF LAW
             <br>
             Amended Academic Year <br><span class="underline">{{ activeTab === '2024-2025' ? '2024-2025' : '2025-2026' }}</span>
