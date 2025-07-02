@@ -6,7 +6,7 @@
     <!-- First Semester -->
     <div class="mb-12 bg-white overflow-hidden">
       <div class="bg-purple-100 px-6 py-3">
-        <h3 class="text-lg font-bold text-gray-800">ENROLLMENT (FIRST SEMESTER)</h3>
+        <h3 class="text-sm sm:text-lg font-bold text-gray-800">ENROLLMENT (FIRST SEMESTER)</h3>
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="(item, index) in firstSemester" :key="index" class="px-6 py-3 hover:bg-gray-50">
@@ -21,7 +21,7 @@
     <!-- Second Semester -->
     <div class="mb-12 bg-white overflow-hidden">
       <div class="bg-purple-100 px-6 py-3">
-        <h3 class="text-lg font-bold text-gray-800">ENROLLMENT (SECOND SEMESTER)</h3>
+        <h3 class="text-sm sm:text-lg font-bold text-gray-800">ENROLLMENT (SECOND SEMESTER)</h3>
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="(item, index) in secondSemester" :key="index" class="px-6 py-3 hover:bg-gray-50">
@@ -38,7 +38,7 @@
     <!-- Summer -->
     <div class="mb-12 bg-white overflow-hidden">
       <div class="bg-purple-100 px-6 py-3">
-        <h3 class="text-lg font-bold text-gray-800">SUMMER</h3>
+        <h3 class="text-sm sm:text-lg font-bold text-gray-800">SUMMER</h3>
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="(item, index) in summer" :key="index" class="px-6 py-3 hover:bg-gray-50">
@@ -53,7 +53,7 @@
     <!-- Holidays -->
     <div class="bg-white overflow-hidden">
       <div class="bg-yellow-100 px-6 py-3">
-        <h3 class="text-lg font-bold text-gray-800">PHILIPPINE PUBLIC HOLIDAYS</h3>
+        <h3 class="text-sm sm:text-lg font-bold text-gray-800">PHILIPPINE PUBLIC HOLIDAYS</h3>
       </div>
       <div class="divide-y divide-gray-200">
         <div v-for="(item, index) in holidays" :key="index" class="px-6 py-3 hover:bg-gray-50">

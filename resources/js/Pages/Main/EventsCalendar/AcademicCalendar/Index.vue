@@ -13,10 +13,10 @@
       </div>
       <main class="flex-grow">
         <div class="max-w-7xl mx-auto">
-          <div class="flex flex-col md:flex-row justify-between gap-8">
+          <div class="flex flex-col md:flex-row justify-between">
             <div class="flex flex-col md:flex-row w-full justify-center">
               <!-- Main content section -->
-              <section class="w-full mx-6">
+              <section class="w-full px-6">
                 <!-- Tab Content -->
                 <AcademicYear2025 v-if="activeTab === '2025-2026'" />
                 <AcademicYear2024 v-if="activeTab === '2024-2025'" />
@@ -76,33 +76,9 @@
   
     // Create a ref for the current step
     const step = ref(1);
-  
-    // Function to set the current step
-    const setStep = (newStep) => {
-      step.value = newStep;
-      console.log(`Current step set to: ${newStep}`);
-    };
-  
-    // Function to go to the next step
-    const nextStep = () => {
-      if (step.value < 3) {
-        step.value++;
-      }
-    };
-  
-    // Function to go to the previous step
-    const prevStep = () => {
-      if (step.value > 1) {
-        step.value--;
-      }
-    };
   </script>
   
   <style scoped>
-    .container {
-      max-width: 1200px;
-    }
-  
     .sticky {
       position: sticky;
       top: 0;
