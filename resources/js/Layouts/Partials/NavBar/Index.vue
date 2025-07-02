@@ -42,9 +42,9 @@
             <img src="/images/auLogo.png" alt="Arellano University Logo" class="max-h-10 mr-2">
           </Link>
           <div class="text-center">
-            <div class="garamond uppercase font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
+            <div class="garamond uppercase text-sm font-bold tracking-wide mb-[-4px]">ARELLANO UNIVERSITY</div>
             <hr class="border-t-1 border-white">
-            <div class="garamond uppercase font-bold tracking-wide">SCHOOL OF LAW</div>
+            <div class="garamond text-sm uppercase font-bold tracking-wide">SCHOOL OF LAW</div>
           </div>
           <Link :href="route('main')" class="flex ml-2">
             <img src="/images/ausllogo2.png" alt="School of Law Logo" class="max-h-10">

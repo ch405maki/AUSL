@@ -70,6 +70,7 @@
     import RelatedLinks from '../Components/RelatedLinks.vue';
     import AcademicYear2024 from './Components/AcademicYear2024.vue';
     import AcademicYear2025 from './Components/AcademicYear2025.vue';
+    import Header from '../../Components/Header.vue';
 
     // Tab state - default to 2025-2026 as shown in your example
     const activeTab = ref('2025-2026');
@@ -77,45 +78,3 @@
     // Create a ref for the current step
     const step = ref(1);
   </script>
-  
-  <style scoped>
-    .sticky {
-      position: sticky;
-      top: 0;
-    }
-  
-    .overflow-y-auto {
-      overflow-y: auto;
-    }
-  
-    .h-screen {
-      height: 100vh;
-    }
-  
-    .fixed {
-      position: fixed;
-    }
-  
-    .bottom-4 {
-      bottom: 1rem;
-    }
-  
-    .right-4 {
-      right: 1rem;
-    }
-  
-    .flex {
-      display: flex;
-    }
-  
-    .space-x-2 > :not([hidden]) ~ :not([hidden]) {
-      --tw-space-x-reverse: 0;
-      margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-      margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-    }
-  
-    .v-btn {
-      margin-top: 16px;
-      margin-right: 8px;
-    }
-  </style>
