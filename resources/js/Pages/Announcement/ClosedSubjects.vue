@@ -4,42 +4,63 @@
     <template #action>
       <div class="flex justify-between p-3 space-x-2 items-center">
         <div>
-            <h1 class="text-xl font-bold">Closed Subjects</h1>
+            <h1 class="text-lg font-medium  text-zinc-700">Closed Subjects</h1>
             <p>Update status currently closed for enrollment.</p>
         </div>
         <div class="flex space-x-2">
-            <v-btn v-if="subjects >= 0" color="primary" class="px-4" @click="openCreateModal">
-                Add Subject
+            <v-btn color="primary" class="px-4" @click="openCreateModal">
+                Update Status
             </v-btn>
-            <a href="/closed-subjects">
+            <a href="/subjects-status">
                 <v-btn color="secondary" class="px-4">Back</v-btn>
             </a>
         </div>
       </div>
     </template>
-
+    <div class="mx-2 mb-4">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="rounded-lg bg-indigo-600 p-2 shadow-lg sm:p-3">
+                <div class="flex flex-wrap items-center justify-between">
+                    <div class="flex w-0 flex-1 items-center">
+                        <span class="flex rounded-lg bg-indigo-800 p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                        </span>
+                        <p class="ml-3 truncate font-medium text-white">
+                            <span class="">Click here to access the spreadsheet!</span>
+                        </p>
+                    </div>
+                    <div class="order-3  w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+                        <a target="_blank" rel="noopener noreferrer" class="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50"
+                            href="https://docs.google.com/spreadsheets/d/16GjGa6wNNc2vQEZjseEDR2CVa6g9ZgfV8UyRXf32Kp0/edit?gid=0#gid=0">Click Here!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <main>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Subjects List -->
-        <div class="bg-white rounded shadow p-4">
+        <div class="rounded-lg bg-white shadow p-4 ">
+          <h1 class="text-xl font-medium text-zinc-700">Update Status Logs</h1>
           <ul v-if="subjects.length">
-            <li v-for="subject in subjects" :key="subject.id" class="py-2 flex justify-between items-center">
+            <li v-for="subject in subjects" :key="subject.id" class="border-b py-2 flex justify-between items-center">
               <div>
                 <strong>{{ subject.description }}</strong>
               </div>
               <div class="flex gap-2">
-                <button
+                <!-- <button
                         @click="updateNow(subject)"
                         class="px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 transition"
                     >
                         Update Now
-                    </button>
-                    <button
-                        @click="destroy(subject.id)"
-                        class="px-3 py-2 text-sm font-medium text-white bg-red-600 rounded hover:bg-red-700 transition"
-                    >
-                        Delete
-                    </button>
+                  </button> -->
+                  <button
+                      @click="destroy(subject.id)"
+                      class="px-3 py-2 text-sm font-medium text-white bg-red-600 rounded hover:bg-red-700 transition"
+                  >
+                      Delete
+                  </button>
                 </div>
             </li>
           </ul>
@@ -127,36 +148,6 @@ const openCreateModal = () => {
   showModal.value = true
 }
 
-// ✅ Open modal to edit (if needed later)
-const openEditModal = (subject) => {
-  isEdit.value = true
-  editingId.value = subject.id
-
-  const dt = new Date(subject.description)
-  form.value.datetime = dt.toISOString().slice(0, 16) // 'YYYY-MM-DDTHH:mm'
-  errors.value = {}
-  showModal.value = true
-}
-
-// ✅ Update subject with current date & time
-const updateNow = async (subject) => {
-  const now = new Date()
-  const formatted = formatDate(now)
-
-  try {
-    const response = await axios.put(`/api/subjects/${subject.id}`, {
-      description: formatted,
-    })
-
-    const index = props.subjects.findIndex(s => s.id === subject.id)
-    if (index !== -1) {
-      props.subjects[index] = response.data.subject
-    }
-  } catch (error) {
-    console.error('Failed to update subject:', error)
-  }
-}
-
 // ✅ Submit from modal (create or update)
 const submit = async () => {
   loading.value = true
@@ -210,7 +201,3 @@ const destroy = async (id) => {
   }
 }
 </script>
-
-
-<style scoped>
-</style>

@@ -21,7 +21,7 @@
             <a href="https://lawphil.net/"  target="_blank" rel="noopener noreferrer" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal">Lawphil.net</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
-            <a :href="(route('student.closed-subjects'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Closed Subjects</a>
+            <a :href="(route('student.subjects-status'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Subjects Offered Status</a>
         </li>
         <li class="rounded-md px-2 py-2 transition duration-150 ease-in-out">
             <a :href="(route('student.downloadable-forms'))" class="block w-full text-left text-gray-600 hover:text-slate-900 font-normal cursor-pointer">Downloadable Forms</a>

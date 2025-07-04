@@ -163,7 +163,7 @@
                                   <li><a :href="route('pubmat')" class="hover:text-purple-800">PubMat</a></li>
                                   <li><a :href="route('maintenance')" class="hover:text-purple-800">Advisory</a></li>
                                   <hr>
-                                  <li><a :href="route('closed-subjects')" class="hover:text-purple-800 ">Closed Subjects</a></li>
+                                  <li><a :href="route('subjects-status')" class="hover:text-purple-800 ">Subjects Status</a></li>
                                   <li><a :href="route('archive')" class="hover:text-purple-800 ">Archives</a></li>
                               </ul>
                           </article>

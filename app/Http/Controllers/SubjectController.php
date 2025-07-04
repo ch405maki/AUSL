@@ -11,7 +11,7 @@ class SubjectController extends Controller
 
     public function create()
     {
-        $subjects = Subject::all();
+        $subjects = Subject::orderBy('id', 'desc')->get();
 
         return Inertia::render('Announcement/ClosedSubjects', [
             'subjects' => $subjects,

@@ -7,7 +7,7 @@
         <h1 class="text-white text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center">
           ARELLANO UNIVERSITY SCHOOL OF LAW
           <br />
-          Closed Subjects as of {{ latestSubjectDate }}
+          Subjects Offered Status as of {{ latestSubjectDate }}
         </h1>
       </div>
     </div>
@@ -26,7 +26,6 @@
                 ></iframe>
               </div>
             </div>
-            
           </section>
 
           <!-- Sidebar -->
@@ -38,7 +37,7 @@
                 </h2>
                 <hr class="mb-4 border-1 border-official-purple-800" />
                 <h3 class="text-sm lg:text-lg font-normal text-gray-800 mb-8">
-                  Closed Subjects
+                  Subjects Offered Status
                 </h3>
               </div>
               <div class="ml-2 lg:ml-4">
