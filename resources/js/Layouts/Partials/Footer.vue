@@ -14,8 +14,8 @@
                     <img src="/images/ausllogo2.png" class="h-16 w-auto" alt="AUSL Logo" />
 
                     <!-- Text Content -->
-                    <div class="text-slate-700">
-                        <span class="text-invicta self-center text-xl font-semibold whitespace-nowrap text-official-purple-900">
+                    <div class="text-slate-700 text-sm sm:text-xl">
+                        <span class="text-invicta self-center text-sm sm:text-xl font-semibold whitespace-nowrap text-official-purple-900">
                             Arellano University School of Law
                         </span>
                         <p class=""><span class="mdi mdi-map-marker mr-2"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
@@ -61,12 +61,6 @@
                             <li class="mb-4">
                                 <a :href="route('auslpassers')" class="hover:underline cursor-pointer">2024 AUSL Bar Passers</a>
                             </li>
-                            <!-- <li class="mb-4">
-                                <a :href="route('response')" class="hover:underline cursor-pointer">Response</a>
-                            </li>
-                            <li class="mb-4">
-                                <a :href="route('track')" class="hover:underline cursor-pointer">Status</a>
-                            </li> -->
                         </ul>
                     </div>
                     <div>

@@ -24,7 +24,7 @@
             </div>
   
             <!-- asside -->
-            <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12 mb-6 ml-4">
+            <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12 mb-6 pl-4">
                 <div class="ml-2">
                   <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
                   <hr class="mb-2 border-1 border-official-purple-800">
