@@ -22,6 +22,7 @@ use App\Http\Controllers\ServerStatusController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\OfficePostController;
 use App\Http\Controllers\GwaController;
+use App\Http\Controllers\SubjectController;
 
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -212,6 +213,9 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::get('/library', function () {
         return Inertia::render('Main/Student/Library/Index');
     })->name('library');
+    Route::get('/closed-subject', function () {
+        return Inertia::render('Main/Student/ClosedSubject/Index');
+    })->name('closed-subject');
 
     Route::get('/downloadable-forms', [StudentController::class, 'form'])->name('downloadable-forms');
 });
@@ -233,7 +237,7 @@ Route::get('/privacy_policy', function () {
     return Inertia::render('Main/Footer/Privacy/Index');
 })->name('privacy_policy');
 
-// Relevant Links
+    // Relevant Links
 
     // Route::get('/manual', function () {
     //     return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdKYmxSPSOLMZ_Fih8L9ojrDT-KoSbJlb1qjZ4C5RlpD4dGrA/viewform');
@@ -290,6 +294,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::put('/users/{user}/role', [UserController::class, 'updateRole']);
     Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/closed-subjects', [SubjectController::class, 'index'])->name('closed-subjects');
 });
 
 // Profile route
