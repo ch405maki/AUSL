@@ -209,6 +209,7 @@ const links = ref([
       { title: 'Lawyers Oath', url: '/student/oath'},
       { title: 'AIMS Portal', url: 'https://aims.arellanolaw.edu/aims/students/'},
       { title: 'Downloadable Forms', url: '/student/downloadable-forms'},
+      { title: 'Closed Subjects', url: '/student/closed-subjects'},
       { title: 'Lawphil.net', url: 'https://lawphil.net/'},
       { title: 'Social Media', url: '/contact/socials'},
     ]

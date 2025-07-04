@@ -9,7 +9,7 @@ use Inertia\Inertia;
 class SubjectController extends Controller
 {
 
-    public function index()
+    public function create()
     {
         $subjects = Subject::all();
 
@@ -18,9 +18,13 @@ class SubjectController extends Controller
         ]);
     }
 
-    public function description()
+    public function closedSubjects()
     {
-        return response()->json(Subject::all());
+        $subjects = Subject::orderBy('id', 'desc')->get();
+
+        return Inertia::render('Main/Student/ClosedSubject/Index', [
+            'subjects' => $subjects
+        ]);
     }
 
     public function store(Request $request)
@@ -39,32 +43,27 @@ class SubjectController extends Controller
         ], 201);
     }
 
-
-    public function show($id)
-    {
-        $subject = Subject::findOrFail($id);
-        return response()->json($subject);
-    }
-
-    public function update(Request $request, $id)
+    public function update(Request $request, Subject $subject)
     {
         $request->validate([
             'description' => 'required|string|max:255',
         ]);
 
-        $subject = Subject::findOrFail($id);
-        $subject->update([
-            'description' => $request->description,
-        ]);
+        $subject->update($request->only('description'));
 
-        return response()->json($subject);
+        return response()->json([
+            'message' => 'Subject updated.',
+            'subject' => $subject,
+        ]);
     }
 
-    public function destroy($id)
+    public function destroy(Subject $subject)
     {
-        $subject = Subject::findOrFail($id);
         $subject->delete();
 
-        return response()->json(['message' => 'Subject deleted']);
+        return response()->json([
+            'message' => 'Subject deleted.',
+        ]);
     }
+
 }

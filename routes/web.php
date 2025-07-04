@@ -213,10 +213,8 @@ Route::prefix('student')->name('student.')->group(function () {
     Route::get('/library', function () {
         return Inertia::render('Main/Student/Library/Index');
     })->name('library');
-    Route::get('/closed-subject', function () {
-        return Inertia::render('Main/Student/ClosedSubject/Index');
-    })->name('closed-subject');
 
+    Route::get('/closed-subjects', [SubjectController::class, 'closedSubjects'])->name('closed-subjects');
     Route::get('/downloadable-forms', [StudentController::class, 'form'])->name('downloadable-forms');
 });
 
@@ -297,7 +295,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/closed-subjects', [SubjectController::class, 'index'])->name('closed-subjects');
+    Route::get('/closed-subjects', [SubjectController::class, 'create'])->name('closed-subjects');
 });
 
 // Profile route
