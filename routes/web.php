@@ -267,6 +267,9 @@ Route::get('/privacy_policy', function () {
     Route::get('/deansemail', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeCR_d5YoG9y5r-abu7Z5gnZJHa285MP3iHRh6hXOLjffmjyg/viewform');
     });
+    Route::get('/BeadlesRegistration', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSf-3oAe88G0-G8po9ObYSkXmxmYKGUfE9b7eH0Cs1fF_scC0Q/viewform');
+    });
 
     // Wifi link
 
