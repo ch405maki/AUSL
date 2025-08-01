@@ -37,6 +37,53 @@
                 </div>
               </div>
 
+              <!-- 2025 ONLINE PREBAR REVIEW SCHEDULE -->
+              <table class="w-full text-sm text-left text-gray-500">
+                  <tbody>
+                    <tr>
+                    <th scope="row" >
+                      <details class="group">
+                        <summary class="cursor-pointer list-none hover:bg-official-purple-300 hover:underline bg-official-purple-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto">
+                          <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                            <path fill="currentColor"
+                              d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                            </path>
+                          </svg>
+                          <span class="text-official-purple-800 text-sm md:text-md lg:text-lg">
+                            2025 ONLINE PRE-WEEK AND LAST-MINUTE LECTURES (AUGUST 23 – SEPTEMBER 28)
+                          </span>
+                          <!-- Move this container to the end and apply ml-auto -->
+                          <div class="ml-auto flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                            </svg>
+                          </div>
+                        </summary>
+
+                        <div class="pb-6 mt-8 text-gray-800 text-base font-normal leading-relaxed">
+                          <!-- Start -->
+                          <img
+                            src="/images/academic/2025online_pre_week1.jpg"
+                            class="object-cover cursor-pointer"
+                            alt="Carousel Image 3"
+                            @click="openLightbox(4)"
+                          />
+                          <img
+                            src="/images/academic/2025online_pre_week2.jpg"
+                            class="object-cover cursor-pointer"
+                            alt="Carousel Image 3"
+                            @click="openLightbox(4)"
+                          />
+                          <!-- End -->
+                        </div>
+                      </details>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
 
               <!-- 2025 ONLINE PREBAR REVIEW SCHEDULE -->
               <table class="w-full text-sm text-left text-gray-500 mb-8">
@@ -50,7 +97,7 @@
                               d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
                             </path>
                           </svg>
-                          <span class="text-official-purple-800 text-sm md:text-lg lg:text-xl">
+                          <span class="text-official-purple-800 text-sm md:text-md lg:text-lg">
                             2025 ONLINE PREBAR REVIEW SCHEDULE
                           </span>
                           <!-- Move this container to the end and apply ml-auto -->
@@ -208,6 +255,7 @@
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
                               <div class="p-[4px]">April 6, 2025</div>
                               <div class="p-[4px] text-white border-b border-gray-300">.</div>
+                              <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px]">April 19, 2025</div>
                               <div class="p-[4px] text-white">.</div>
                               <div class="p-[4px] text-white">.</div>
@@ -218,8 +266,9 @@
                               <div class="p-[4px] text-white  border-b border-gray-300">.</div> 
                               <div class="p-[4px]">Sunday</div>
                               <div class="p-[4px] text-white  border-b border-gray-300">.</div> 
-                              <div class="p-[4px] ">Saturday</div>
                               <div class="p-[4px] text-white">.</div>
+                              <div class="p-[4px] ">Saturday</div>
+                              <div class="p-[4px] text-white">.</div> 
                               <div class="p-[4px] text-white">.</div> 
                             </div>
                             <div class="border border-gray-300">
@@ -231,6 +280,7 @@
                               <div class="p-[4px] border-b">SPECIAL CONTRACTS</div>
                               <div class="p-[4px] border-b">TORTS & DAMAGES</div>
                               <div class="p-[4px] border-b">SPECIAL LECTURE IN CIVIL LAW I</div>
+                              <div class="p-[4px] border-b">SPECIAL LECTURE IN CIVIL LAW II</div>
                             </div>
                             <div class="border border-gray-300">
                               <div class="p-[4px] border-b border-gray-300">Atty. Primo Antonio Ramos III</div>
@@ -241,6 +291,7 @@
                               <div class="p-[4px] border-b border-gray-300">Atty. Primo Antonio Ramos, III</div>
                               <div class="p-[4px] border-b border-gray-300">Atty. Nico B. Valderrama</div>
                               <div class="p-[4px] border-b border-gray-300">Dean Ma. Soledad Deriquito-Mawis</div>
+                              <div class="p-[4px] border-b border-gray-300">Atty. Crisostomo A. Uribe</div>
                             </div>
                           </div>
                           <div class="grid grid-cols-1 border border-gray-300 overflow-hidden">
@@ -454,7 +505,7 @@
                           </div>
                           <a 
                             class="hover:underline text-official-purple-600"
-                            href="https://drive.google.com/file/d/1Ez-a6EV44GLmsI4iG4mvKqZi2g279WW4/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1b6RFBt0kzlURvfNGxUTA3J9u3hxC0LpB/view?usp=sharing"
                             target="_blank"
                             >
                             <div class="bg-official-purple-200 px-6 py-4 mb-4 mx-2 mt-6 rounded-md text-lg flex items-center mx-auto border">
@@ -627,6 +678,8 @@
     "/images/academic/online_bar_review_program_2.jpg",
     "/images/academic/online_bar_review_program_1.jpg",
     "/images/academic/roster.png",
+    "/images/academic/2025online_pre_week1.jpg",
+    "/images/academic/2025online_pre_week2.jpg"
   ];
 
   // Open lightbox function
