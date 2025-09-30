@@ -139,11 +139,11 @@ const setStep = (newStep) => {
 
 
 const contact = ref([
-  { office: 'Accounting Office', local: '13', email: 'accounting@arellanolaw.edu', mobile: '0991-978-6813'},
+  { office: 'Accounting Office', local: '13', email: 'accounting@arellanolaw.edu', mobile: '0919-095-9425'},
   { office: 'Admissions Office', local: ['33', ' 51'], email: 'admissions@arellanolaw.edu' },
   { office: 'Alumni Office', local: '32', email: 'alumni@arellanolaw.edu' },
   { office: 'Audio Visual Office', local: '22', email: 'audiovisual@arellanolaw.edu' },
-  { office: 'Bursar’s Office', local: ['35', ' 39'], email: '', mobile: '0927-552-9049 <br> 0919-095-9425'},
+  { office: 'Bursar’s Office', local: ['35', ' 39'], email: '', mobile: '0991-978-6813 <br> 0927-552-9049'},
   { office: 'CLEAR Office', local: '29', email: 'clear@arellanolaw.edu' },
   { office: 'Clinic', local: ['24', ' 27'], email: 'auslclinic@arellanolaw.edu' },
   { office: 'Office of the Assistant Dean', local: '14', email: 'collegesecretary@arellanolaw.edu' },
