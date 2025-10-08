@@ -270,6 +270,9 @@ Route::get('/privacy_policy', function () {
     Route::get('/BeadlesRegistration', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSf-3oAe88G0-G8po9ObYSkXmxmYKGUfE9b7eH0Cs1fF_scC0Q/viewform');
     });
+    Route::get('/MCLEMaterials', function () {
+        return redirect()->away('https://drive.google.com/drive/folders/1Ogrg_mX9mssSH9cib70n_UsfBYfG1p77?usp=drive_link');
+    });
 
     // Wifi link
 
