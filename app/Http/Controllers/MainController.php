@@ -23,12 +23,15 @@ class MainController extends Controller
         $carousells = Carousell::orderBy('order', 'asc')->get();
         $posts = Post::where('category', 'News')
             ->where('state', 'Active')
-            ->orderBy('created_at', 'desc')
+            ->latest()
+            ->take(6)
             ->get();
         $announcements = Post::whereIn('category', ['Announcement', 'Deans', 'Exam'])
             ->where('state', 'Active')
-            ->orderBy('created_at', 'desc')
+            ->latest()
+            ->take(6)
             ->get();
+
         $events = Post::where('category', 'Events')
             ->where('state', 'Active')
             ->orderBy('created_at', 'desc')
