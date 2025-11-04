@@ -93,7 +93,7 @@ const symbols = ['❄', '❅', '❆', '✻', '•'];
 const animationClasses = ['pattern-1', 'pattern-2', 'pattern-3', 'pattern-4', 'pattern-5', 'straight'];
 
 const createSnowflakes = () => {
-  const numFlakes = 30;
+  const numFlakes = 80;
   const newSnowflakes = [];
   
   for (let i = 0; i < numFlakes; i++) {

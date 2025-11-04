@@ -59,7 +59,7 @@
                                 <a :href="route('admissions.process')" class="hover:underline cursor-pointer">Admission</a>
                             </li>
                             <li class="mb-4">
-                                <a :href="route('auslpassers')" class="hover:underline cursor-pointer">2024 AUSL Bar Passers</a>
+                                <a :href="route('auslpassers')" class="hover:underline cursor-pointer">AUSL Bar Passers</a>
                             </li>
                         </ul>
                     </div>
