@@ -51,9 +51,6 @@ const initializeFotorama = () => {
     fotorama.startAutoplay(7000);  // Set your autoplay interval in milliseconds
   });
 
-  // Log items and check for blank slides
-  console.log('Items:', props.items);
-
   // Create indicators
   const indicatorsContainer = $(fotoramaContainer.value).find('.fotorama-indicators');
   props.items.forEach((_, index) => {
