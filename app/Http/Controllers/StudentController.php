@@ -10,7 +10,9 @@ class StudentController extends Controller
 {
     public function form (){
         
-        $documents = Document::where('location', 'student')->get();
+        $documents = Document::where('location', 'student')
+            ->orderBy('code')
+            ->get();
 
         return Inertia::render('Main/Student/Downloadable/Index', ['documents' => $documents]);
     }
