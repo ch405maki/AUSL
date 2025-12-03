@@ -78,8 +78,7 @@
     </MainLayout>
 </template>
     
-    <script setup>
-    import { ref, computed } from 'vue';
+<script setup>
     import { Head, usePage } from '@inertiajs/vue3';
     import MainLayout from '@/Layouts/MainLayout.vue';
     import Header from '../../Components/Header.vue';
@@ -109,4 +108,4 @@
             margin-bottom: 2rem; /* Add spacing between sections */
         }
     }
-    </style>
+</style>

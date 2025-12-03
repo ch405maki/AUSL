@@ -485,7 +485,7 @@ const subjects = ref([
           description: 'Prerequisite: Labor Law and Social Legislation <br><br> A review course intended for bar examinees focusing on labor laws, social legislation and related jurisprudence. More importantly, the course provides integration of key principles, and discussion of important updates on jurisprudence and trends as may be projected to be covered in the bar examinations.'
         }
       ],
-      totalUnits: 17,
+      totalUnits: 19,
     },
     {
       name: 'Fourth Year - Second Semester',
@@ -1169,7 +1169,7 @@ const subjects_2026 = ref([
         units: 4,
       },
     ],
-    totalUnits: 16
+    totalUnits: 18
   },
 ]);
 </script>
