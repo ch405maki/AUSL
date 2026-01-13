@@ -118,12 +118,8 @@
 </div>
 </template>
   
-  <script setup>
+<script setup>
   import {onMounted } from 'vue';
-  import { Link, Head } from '@inertiajs/vue3';
-  import { ref } from 'vue';
-
-  
   const props = defineProps({
     announcements: {
       type: Array,
@@ -170,9 +166,9 @@
       console.error('jQuery is not loaded');
     }
   });
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   .owl-carousel .item {
     display: flex;
     justify-content: center;
@@ -229,4 +225,4 @@
       justify-content: center;
     }
   }
-  </style>
+</style>

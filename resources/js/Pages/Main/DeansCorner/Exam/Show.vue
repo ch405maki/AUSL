@@ -60,13 +60,19 @@
                               >
                               <div class="py-5">
                                   <!-- Render images with zoom-in cursor -->
-                                  <img
-                                  v-if="item.image && item.image.length"
-                                  :src="item.image[0]"
-                                  alt="Exam Image"
-                                  class="w-full rounded-lg mb-4 object-cover cursor-zoom-in"
-                                  @click="showLightbox(index)"
-                                  />
+                                  <div
+                                    v-if="item.image && item.image.length"
+                                    class="space-y-4"
+                                  >
+                                    <img
+                                      v-for="(img, imgIndex) in item.image"
+                                      :key="imgIndex"
+                                      :src="img"
+                                      class="w-full rounded-lg cursor-zoom-in"
+                                      @click="openExamLightbox(item.image, imgIndex)"
+                                    />
+                                  </div>
+
                                   <p class="mb-2 text-gray-500 dark:text-gray-400">
                                   {{ item.content || '' }}
                                   </p>
@@ -111,84 +117,21 @@
                 </div>
                 <!-- End Links, Events & Seminars -->
               </div>
-  
-              <!-- News and Announcement Section -->
-              <div class="w-7xl px-2">
-              <h1 class="text-official-purple-900 font-bold mb-4 mt-8 text-md sm:text-xl text-pretty text-start">
-                Latest Deans Announcement
-              </h1>
-              <hr class="mb-4 border-1 border-official-purple-800">
-              <div class="w-full">
-                    <div v-for="dean in deans" :key="dean.id" id="news">
-                      <div class="text-left flex items-justify mb-4">
-                        <!-- Conditionally render dean.pubmat image -->
-                        <div v-if="dean.pubmat" class="mr-0 hidden sm:block">
-                          <img :src="dean.pubmat" alt="Image Logo" class="min-w-32 w-32 h-min max-h-100 mr-2">
-                        </div>
-
-                        <!-- Conditionally render fallback image -->
-                        <div v-else class="relative w-32 mr-2 hidden sm:block">
-                          <!-- Image -->
-                          <img src="/images/announcement/announcementbg.jpg" alt="Announcement Image" class="w-full h-auto rounded-md">
-
-                          <!-- Overlay for hover effect -->
-                          <div class="absolute inset-0 opacity-50"></div>
-
-                          <!-- Overlay text -->
-                          <h1
-                            class="absolute inset-0 flex items-center justify-center text-white text-xs font-bold px-2 text-center duration-300"
-                          >
-                            {{ dean.title.length > 26 ? dean.title.slice(0, 21) + '...' : dean.title }}
-                          </h1>
-                        </div>
-
-                        <!-- Content section -->
-                        <div class="ml-2">
-                          <h3 class="text-official-purple-800 font-semibold text-md tracking-wide leading-6">
-                            <a
-                              :href="dean.category === 'Exam' ? `/exam/show/${dean.id}` : `/deans/show/${dean.id}`"
-                              class="text-lg font-medium text-official-purple-900 hover:underline"
-                              >
-                                {{ dean.title }}
-                            </a>                           
-                          </h3>
-                          <p class="text-slate-600">
-                            {{ new Date(dean.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
-                          </p>
-                          <div v-if="dean.content">
-                            <p v-if="dean.content.length > 0">
-                              <div class="text-slate-700 text-lg font-normal text-gray-600" v-html="dean.content.substring(0, 400)"></div>
-                            </p>
-                            <p v-else>{{ dean.content }}</p>
-                          </div>
-                          <a
-                            :href="dean.category === 'Exam' ? `/exam/show/${dean.id}` : `/deans/show/${dean.id}`"
-                            class="text-lg font-normal text-gray-700 mb-4 hover:text-official-purple-600 hover:underline"
-                            >Read more
-                          </a>                        
-                        </div>
-                      </div>
-
-                    <hr class="mb-4 border-1 border-official-purple-200">
-                    </div>
-                    <!-- End Breadcrumb -->
-                </div>
-                </div>
-            <!-- End News and Announcement Section -->  
+            <!-- End News and Announcement Section --> 
             </div>
           </div>
         </main>
       </div>
     </MainLayout>
     <vue-easy-lightbox
-  :visible="visible"
-  :imgs="exam.map(item => item.image[0]).filter(img => img)" 
-  :index="index"
-  @hide="handleHide"
-/>
+      :visible="visible"
+      :imgs="lightboxImages"
+      :index="index"
+      @hide="handleHide"
+    />
   </template>
   
-  <script setup>
+<script setup>
 import { Link, Head } from '@inertiajs/vue3';
 import { defineProps, ref, onMounted } from 'vue';
 import MainLayout from '@/Layouts/MainLayout.vue';
@@ -215,11 +158,15 @@ const props = defineProps({
 // Lightbox
 const visible = ref(false);
 const index = ref(0);
+const lightboxImages = ref([])
 
-const showLightbox = (i) => {
-  index.value = i;
-  visible.value = true;
-};
+
+const openExamLightbox = (images, startIndex = 0) => {
+  lightboxImages.value = images
+  index.value = startIndex
+  visible.value = true
+}
+
 
 const handleHide = () => {
   visible.value = false;
