@@ -10,7 +10,7 @@
       <Message />
       <Announcement :announcements="announcements" :events="props.events" />
       <Post :posts="posts" />
-      <Countdown />
+      <Countdown :countdown="props.countdown" />
       <Gallery />
       <GoogleFacebook />
       <RelatedWeb />
@@ -52,6 +52,7 @@ const props = defineProps({
   alumni: { type: Array, required: true },
   banners: { type: Array, required: true },
   onLoadBanners: { type: Array, required: true },
+  countdown: { type: Object, required: false }, 
 });
 
 onMounted(() => {

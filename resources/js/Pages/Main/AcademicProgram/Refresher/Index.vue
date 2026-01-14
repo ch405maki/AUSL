@@ -21,6 +21,21 @@
                   <h1 class="text-official-purple-800 font-bold text-xl sm:text-2xl text-pretty p-2">
                     Refresher Curriculum
                   </h1>
+                  <div class="bg-red-200 px-6 py-4 mb-4 mx-2 mt-4 rounded-md text-lg flex items-center mx-auto border">
+                    <svg viewBox="0 0 24 24" class="text-red-600 w-8 h-8 sm:w-5 sm:h-5 mr-3">
+                      <path fill="currentColor"
+                        d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                      </path>
+                    </svg>
+                    <span class="text-red-800 sm:text-xs text-xs tracking-wide">
+                      <p>Note: An enrolee in the refresher course must enroll in the pre-bar review class as pre-requisite to the issuance of an official certificate. </p>
+                      Please email a photocopy of Government Issued IDs to
+                      <span class="underline font-medium">
+                        <a href="mailto:records@arellanolaw.edu?subject=Request%20for%20Documents&body=Hi%20Records%20Office," class="underline hover:text-rose-900">
+                          records@arellanolaw.edu
+                        </a></span> for validation purposes.
+                      </span>
+                  </div>
                   <div v-for="semester in subjects" :key="semester.name" class="grid grid-flow-col text-center rounded-lg mt-8 mb-8">
                     <table class="w-full text-sm text-left text-gray-500 border-Collapse border border-green-900">
                       <thead class="bg-official-purple-100">

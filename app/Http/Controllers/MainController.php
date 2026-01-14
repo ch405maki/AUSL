@@ -12,6 +12,7 @@ use App\Models\Banner;
 use App\Models\Office;
 use App\Models\OnLoadBanner;
 use App\Models\UserLog;
+use App\Models\CountdownEvent;
 
 
 class MainController extends Controller
@@ -37,6 +38,12 @@ class MainController extends Controller
             ->orderBy('created_at', 'desc')
             ->first();
 
+        // **Get upcoming countdown event**
+        $countdown = CountdownEvent::where('is_active', true)
+            ->where('target_date', '>=', now())
+            ->orderBy('target_date', 'asc')
+            ->first();
+
         $alumni = Alumni::where('status', true)->get();
 
         UserLog::create([
@@ -45,7 +52,6 @@ class MainController extends Controller
             'ip_address' => request()->ip(),
             'user_agent' => request()->header('User-Agent'),
         ]);
-        
 
         return Inertia::render('Main/Home/Index', [
             'posts' => $posts,  
@@ -55,8 +61,10 @@ class MainController extends Controller
             'events' => $events,
             'onLoadBanners' => $onLoadBanners,
             'announcements' => $announcements,
+            'countdown' => $countdown, 
         ]);
     }
+
 
     public function show($id)
     {

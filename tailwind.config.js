@@ -20,7 +20,7 @@ export default {
             },
             colors: {
                     'official-purple': {
-                    '50': '#ebf9ff',
+                    '50':  '#ebf9ff',
                     '100': '#d1f2ff',
                     '200': '#aeeaff',
                     '300': '#76dfff',

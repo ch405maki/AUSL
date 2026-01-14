@@ -282,7 +282,8 @@
     { name: 'Forms', route: 'documents'},
     { name: 'Main Banner', route: 'banner'},
     { name: 'Offices', route: 'offices'},
-    { name: 'On Load Banner', route: 'onload'}
+    { name: 'On Load Banner', route: 'onload'},
+    { name: 'Counter', route: 'countdown.index'}
   ];
 
   const settings = [
