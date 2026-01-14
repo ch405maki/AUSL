@@ -88,12 +88,12 @@
         </h1>
         <a 
           :href="route('events.upcomming')" 
-          class="block sm:hidden w-[200px] max-w-xs text-center text-slate-800 font-medium text-base border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+          class="block sm:hidden w-[200px] max-w-xs text-center text-official-purple-900 font-medium text-base border-[1px] border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
           Show All Events
         </a>
       </div>
 
-        <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto">
+        <div class="overflow-hidden flex flex-col max-w-xl mb-10 mx-auto rounded-lg">
           <a :href="events.link ">
             <!-- Hide image on mobile screens -->
             <div 
@@ -106,7 +106,7 @@
           </a>
         </div>
         <div class="hidden sm:block flex justify-center sm:justify-start mb-6">
-          <a :href="route('events.upcomming')" class="text-slate-800 font-medium text-base border border-official-purple-800 hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
+          <a :href="route('events.upcomming')" class="text-official-purple-900 font-normal mt-8 mb-4 border-[1px] border-official-purple-800 hover:cursor-pointer hover:bg-official-purple-800 hover:text-white rounded-xl px-4 py-2 transition-colors duration-300">
             Show All Events
           </a>
         </div>
