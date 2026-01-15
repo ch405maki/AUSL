@@ -9,24 +9,32 @@
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
-                    <div class="mb-6 md:mb-0 flex items-center space-x-4">
-                    <!-- AUSL Logo -->
-                    <img src="/images/ausllogo2.png" class="h-16 w-auto" alt="AUSL Logo" />
+                    <div class="mb-6 md:mb-0 flex space-x-4">
+                      <!-- AUSL Logo -->
+                      <img
+                        src="/images/ausllogo2.png"
+                        alt="AUSL Logo"
+                        class="
+                          h-10 sm:h-12 md:h-16 lg:h-20
+                          w-auto
+                          mt-2 sm:mt-0
+                        "
+                      />
 
-                    <!-- Text Content -->
-                    <div class="text-slate-700 text-sm sm:text-xl">
-                        <span class="text-invicta self-center text-sm sm:text-xl font-semibold whitespace-nowrap text-official-purple-900">
-                            Arellano University School of Law
-                        </span>
-                        <p class=""><span class="mdi mdi-map-marker mr-2"></span> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
-                        <p class=""><span class="mdi mdi-phone mr-2"></span> Tel. Nos. 8404-30 89 to 93</p>
-                        <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline ">
-                            <span class="mdi mdi-email mr-2"></span> onlinesupport@arellanolaw.edu
-                        </a><br>
-                        <a href="mailto:itc@arellanolaw.edu" class="hover:underline ">
-                            <span class="mdi mdi-email mr-2"></span> itc@arellanolaw.edu
-                        </a>
-                    </div>
+                      <!-- Text Content -->
+                      <div class="text-slate-700 text-sm sm:text-xl">
+                          <span class="text-invicta self-center text-sm sm:text-xl font-semibold whitespace-nowrap text-official-purple-900">
+                              Arellano University School of Law
+                          </span>
+                          <p class="mb-2"> Taft Avenue Corner Menlo Street, Pasay City, Metro Manila, Philippines</p>
+                          <p><span class="mdi mdi-phone mr-2"></span> Tel. Nos. 8404-30 89 to 93</p>
+                          <a href="mailto:onlinesupport@arellanolaw.edu" class="hover:underline ">
+                              <span class="mdi mdi-email mr-2"></span> onlinesupport@arellanolaw.edu
+                          </a><br>
+                          <a href="mailto:itc@arellanolaw.edu" class="hover:underline ">
+                              <span class="mdi mdi-email mr-2"></span> itc@arellanolaw.edu
+                          </a>
+                      </div>
                 </div>
 
                 <div class="hidden sm:flex justify-center space-x-4 mt-6 items-center">
