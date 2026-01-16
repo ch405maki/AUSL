@@ -27,6 +27,7 @@
         <div class="tab-content">
           <!-- 2020s -->
           <div v-show="activeTab === '2020s'" class="space-y-8">
+            <Y2025 />
             <Y2024 />
             <Y2023 />
             <Y2022 />
@@ -107,6 +108,7 @@ import Y2020 from '@/Pages/Main/BarPassers/2020.vue';
 import Y2022 from '@/Pages/Main/BarPassers/2022.vue';
 import Y2023 from '@/Pages/Main/BarPassers/2023.vue';
 import Y2024 from '@/Pages/Main/BarPassers/2024.vue';
+import Y2025 from '@/Pages/Main/BarPassers/2025.vue';
 
 // Tabs configuration
 const tabs = [
