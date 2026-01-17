@@ -42,7 +42,7 @@
           <tr class="bg-gradient-to-r from-purple-50 to-indigo-50">
             <td colspan="3" class="px-6 py-4 text-center">
               <div class="text-lg font-bold text-purple-800 uppercase tracking-wide">
-                The 378 New Arellano Lawyers
+                The 378 Arellano Lawyers
               </div>
             </td>
           </tr>

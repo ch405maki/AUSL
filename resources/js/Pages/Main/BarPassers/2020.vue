@@ -51,7 +51,7 @@
             <td
               v-for="(column, colIndex) in exemplaryColumns"
               :key="colIndex"
-              class="w-full px-6 py-3 text-sm leading-6 text-purple-900 md:w-auto text-center md:text-left font-semibold"
+              class="w-full px-6 py-3 text-sm leading-6 text-purple-900 md:w-auto text-left md:text-left font-semibold"
             >
               {{ column[rowIndex] || '' }}
             </td>
@@ -61,7 +61,7 @@
           <tr class="bg-gradient-to-r from-blue-50 to-cyan-50">
             <td colspan="3" class="px-6 py-4 text-center">
               <div class="text-lg font-bold text-blue-800 uppercase tracking-wide">
-                The 722 New Arellano Lawyers
+                The 722 Arellano Lawyers
               </div>
             </td>
           </tr>
@@ -71,7 +71,7 @@
             <td
               v-for="(column, colIndex) in regularColumns"
               :key="colIndex"
-              class="w-full px-6 py-3 text-sm leading-6 text-gray-800 md:w-auto text-center md:text-left hover:bg-gray-50 transition-colors"
+              class="w-full px-6 py-3 text-sm leading-6 text-gray-800 md:w-auto text-left md:text-left hover:bg-gray-50 transition-colors"
             >
               {{ column[rowIndex] || '' }}
             </td>

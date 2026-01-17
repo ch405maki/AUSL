@@ -17,6 +17,14 @@
               The 2024 Bar Examinations Passers
             </th>
           </tr>
+          <tr>
+            <th
+              colspan="3"
+              class="px-4 py-4 text-lg sm:text-xl font-bold text-center bg-official-purple-700"
+            >
+              Hail to the 364 Arellano Lawyers!
+            </th>
+          </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
           <!-- Regular Passers in 3 Columns -->
@@ -406,9 +414,24 @@ const allNames = [
   "Zetha, Jadrin Edison Dizon"
 ];
 
-// Computed properties for reactive data
-const sortedNames = computed(() => [...allNames].sort((a, b) => a.localeCompare(b)));
 
+// Function to capitalize last name
+const capitalizeLastName = (fullName) => {
+  const parts = fullName.split(",");
+  if (parts.length < 2) return fullName;
+  const lastName = parts[0].toUpperCase();        // capitalize last name
+  const firstName = parts[1].trim();             // keep first name as-is
+  return `${lastName}, ${firstName}`;
+};
+
+// Sorted and capitalized names
+const sortedNames = computed(() =>
+  [...allNames]
+    .map(name => capitalizeLastName(name))
+    .sort((a, b) => a.localeCompare(b))
+);
+
+// Divide into columns
 const divideIntoColumns = (list, columnCount) => {
   const columns = Array.from({ length: columnCount }, () => []);
   list.forEach((name, index) => {

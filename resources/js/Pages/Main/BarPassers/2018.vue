@@ -14,7 +14,7 @@
               colspan="3"
               class="px-4 py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center uppercase tracking-wide"
             >
-              The 2018 Bar Examination Passers
+              The 2018 Examination Passers
             </th>
           </tr>
         </thead>
