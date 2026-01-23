@@ -294,7 +294,7 @@ const allNames = [
   "GUEVARRA, Alyssa Mae Francisco",
   "GUICO, Ramon Carlo Caronongan",
   "GUILING, Scandar Bryan Dator",
-  "GUITERING, Jesel France Navarro",
+  "GUITERING, Jessel France Navarro",
   "GUIYAB, Pauline Karol Gabbuat",
   "GURO, Aga-Hamza Mulok",
   "HERNANDEZ, Adrian Baluyut",
