@@ -11,6 +11,24 @@
               <h2 class="text-official-purple-600 font-bold mb-8 text-xl sm:text-2xl text-pretty text-start">
                 Program
               </h2>
+              <div class="mb-8 relative">
+                <div class="flex flex-wrap md:flex-nowrap justify-center gap-3">
+                  <!-- First Image -->
+                  <img
+                    src="/images/academic/bar_review_program_1.jpg"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
+                    alt="Carousel Image 1"
+                    @click="openLightbox(0)"
+                  />
+                  <!-- Second Image -->
+                  <img
+                    src="/images/academic/bar_review_program_2.jpg"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
+                    alt="Carousel Image 2"
+                    @click="openLightbox(1)"
+                  />
+                </div>
+              </div>
               <div>
                 <div class="mb-8">
                   <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">How to Register and Enroll in Course on <span class="underline italic">clear.arellanolaw.org </span> Without an account</h1>
@@ -159,8 +177,8 @@
 
   // Images array for the lightbox
   const images = [
-    "/images/academic/online_bar_review_program_2.jpg",
-    "/images/academic/online_bar_review_program_1.jpg",
+    "/images/academic/bar_review_program_1.jpg",
+    "/images/academic/bar_review_program_2.jpg",
     "/images/academic/roster.png",
     "/images/academic/2025online_pre_week1.jpg",
     "/images/academic/2025online_pre_week2.jpg"
