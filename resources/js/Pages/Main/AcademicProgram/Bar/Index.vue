@@ -28,7 +28,7 @@
                         <li>
                           Click
                           <div class="flex flex-row sm:flex-row items-center justify-between my-6 ">
-                            <a href="https://clear.arellanolaw.org/product/pre-bar-review-2025/" title="Click Here">
+                            <a href="https://clear.arellanolaw.org/product/pre-bar-review-2026/" title="Click Here">
                               <img src="/images/academic/online_bar_review_2025.jpg" class="carousel-image object-fit sm:w-[88%] transform transition-transform duration-300 hover:scale-105" alt="Carousel Image" />
                             </a>
                           </div>
