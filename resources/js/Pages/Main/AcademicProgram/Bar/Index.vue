@@ -27,8 +27,66 @@
                     alt="Carousel Image 2"
                     @click="openLightbox(1)"
                   />
+
+                  <!-- Third Image -->
+                  <img
+                    src="/images/academic/2026_roster_of_lecturer.jpg"
+                    class="w-4/5 sm:w-1/2 md:w-1/3 lg:w-1/4 object-cover cursor-pointer"
+                    alt="Carousel Image 3"
+                    @click="openLightbox(2)"
+                  />
                 </div>
               </div>
+
+              <!-- 2026 ONLINE PREBAR REVIEW SCHEDULE -->
+              <table class="w-full text-sm text-left text-gray-500">
+                  <tbody>
+                    <tr>
+                    <th scope="row" >
+                      <details class="group">
+                        <summary class="cursor-pointer list-none hover:bg-official-purple-300 hover:underline bg-official-purple-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto">
+                          <svg viewBox="0 0 24 24" class="text-official-purple-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                            <path fill="currentColor"
+                              d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm.25,5a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,12.25,5ZM14.5,18.5h-4a1,1,0,0,1,0-2h.75a.25.25,0,0,0,.25-.25v-4.5a.25.25,0,0,0-.25-.25H10.5a1,1,0,0,1,0-2h1a2,2,0,0,1,2,2v4.75a.25.25,0,0,0,.25.25h.75a1,1,0,1,1,0,2Z">
+                            </path>
+                          </svg>
+                          <span class="text-official-purple-800 text-sm md:text-md lg:text-lg">
+                            2026 ONLINE PREBAR REVIEW SCHEDULE (FEB 28 – MAY 31)
+                          </span>
+                          <!-- Move this container to the end and apply ml-auto -->
+                          <div class="ml-auto flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="block h-5 w-5 group-open:hidden">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden h-5 w-5 group-open:block">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                            </svg>
+                          </div>
+                        </summary>
+
+                        <div class="mt-8 text-gray-800 text-base font-normal leading-relaxed">
+                          <!-- Start -->
+                          <img
+                            src="/images/academic/2026_ABRP_Schedule_4.26_page-0001.jpg"
+                            class="object-cover cursor-pointer"
+                            alt="item 1"
+                            @click="openLightbox(3)"
+                          />
+                          <img
+                            src="/images/academic/2026_ABRP_Schedule_4.26_page-0002.jpg"
+                            class="object-cover cursor-pointer"
+                            alt="item 2"
+                            @click="openLightbox(4)"
+                          />
+                          <!-- End -->
+                        </div>
+
+                      </details>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+
               <div>
                 <div class="mb-8">
                   <h1 class="text-official-purple-800 font-bold mb-2 text-xl sm:text-2xl text-pretty">How to Register and Enroll in Course on <span class="underline italic">clear.arellanolaw.org </span> Without an account</h1>
@@ -126,7 +184,7 @@
                     </th>
                   </tr>
                   </tbody>
-                  </table>
+                </table>
             </div>
           </section>
 
@@ -179,9 +237,9 @@
   const images = [
     "/images/academic/bar_review_program_1.jpg",
     "/images/academic/bar_review_program_2.jpg",
-    "/images/academic/roster.png",
-    "/images/academic/2025online_pre_week1.jpg",
-    "/images/academic/2025online_pre_week2.jpg"
+    "/images/academic/2026_roster_of_lecturer.jpg",
+    "/images/academic/2026_ABRP_Schedule_4.26_page-0001.jpg",
+    "/images/academic/2026_ABRP_Schedule_4.26_page-0002.jpg",
   ];
 
   // Open lightbox function
@@ -208,12 +266,14 @@
   
   <style scoped>
 
-.garamond {
-  font-family: 'Garamond', serif;
-}
+  .garamond {
+    font-family: 'Garamond', serif;
+  }
 
   .container {
-  max-width: 1200px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
   
   .sticky {
@@ -239,10 +299,6 @@
   
   .right-4 {
   right: 1rem;
-  }
-  
-  .flex {
-  display: flex;
   }
   
   .space-x-2 > :not([hidden]) ~ :not([hidden]) {

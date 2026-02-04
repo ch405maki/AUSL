@@ -40,7 +40,6 @@
                     <li><span class="mx-2 text-neutral-500">/ {{post.title}}</span></li>
                   </ol>
                 </nav>
-                
               </div>
               <!-- End main content section -->
               <!-- Links, Events & Seminars --> 
