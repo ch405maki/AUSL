@@ -1053,10 +1053,6 @@ const subjects_2026 = ref([
         units: 2,
       },
       { 
-        name: 'PRIVATE INTERNATIONAL LAW',
-        units: 2,
-      },
-      { 
         name: 'SPECIAL RULES AND PROCEEDINGS',
         units: 3,
       },
@@ -1069,8 +1065,8 @@ const subjects_2026 = ref([
         units: 2,
       },
       { 
-        name: 'Medical Jurisprudence',
-        units: 2,
+        name: 'EVIDENCE ',
+        units: 4,
       },
     ],
     totalUnits: 18,
@@ -1087,8 +1083,8 @@ const subjects_2026 = ref([
         units: 2,
       },
       { 
-        name: 'EVIDENCE ',
-        units: 4,
+        name: 'Medical Jurisprudence',
+        units: 2,
       },
       { 
         name: 'TAXATION II (Electives Subj.)',
@@ -1104,6 +1100,10 @@ const subjects_2026 = ref([
       },
       { 
         name: 'Human Rights Law (Elective Subj.) ',
+        units: 2,
+      },
+      { 
+        name: 'PRIVATE INTERNATIONAL LAW',
         units: 2,
       },
     ],
