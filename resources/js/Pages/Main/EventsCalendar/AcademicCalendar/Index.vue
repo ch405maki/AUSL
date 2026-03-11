@@ -18,6 +18,7 @@
               <!-- Main content section -->
               <section class="w-full px-6">
                 <!-- Tab Content -->
+                <AcademicYear2026 v-if="activeTab === '2026-2027'" />
                 <AcademicYear2025 v-if="activeTab === '2025-2026'" />
                 <AcademicYear2024 v-if="activeTab === '2024-2025'" />
               </section>
@@ -29,12 +30,21 @@
                   <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
                   <hr class="mb-2 border-1 border-official-purple-800">
                   <h1 class="text-lg font-normal text-gray-800">Academic Calendar</h1>
-                  <h1 
-                    @click="activeTab = '2025-2026'"
-                      :class="[
-                        'text-lg font-normal underline cursor-pointer mb-1',
-                        activeTab === '2025-2026' ? 'text-purple-800' : 'text-gray-600 hover:text-purple-800'
-                      ]"
+                    <h1 
+                      @click="activeTab = '2026-2027'"
+                        :class="[
+                          'text-lg font-normal underline cursor-pointer mb-1',
+                          activeTab === '2026-2027' ? 'text-purple-800' : 'text-gray-600 hover:text-purple-800'
+                        ]"
+                    >
+                      Academic Year 2026-2027
+                    </h1>
+                    <h1 
+                      @click="activeTab = '2025-2026'"
+                        :class="[
+                          'text-lg font-normal underline cursor-pointer mb-1',
+                          activeTab === '2025-2026' ? 'text-purple-800' : 'text-gray-600 hover:text-purple-800'
+                        ]"
                     >
                       Academic Year 2025-2026
                     </h1>
@@ -70,10 +80,10 @@
     import RelatedLinks from '../Components/RelatedLinks.vue';
     import AcademicYear2024 from './Components/AcademicYear2024.vue';
     import AcademicYear2025 from './Components/AcademicYear2025.vue';
-    import Header from '../../Components/Header.vue';
+    import AcademicYear2026 from './Components/AcademicYear2026.vue';
 
     // Tab state - default to 2025-2026 as shown in your example
-    const activeTab = ref('2025-2026');
+    const activeTab = ref('2026-2027');
   
     // Create a ref for the current step
     const step = ref(1);
