@@ -7,7 +7,7 @@
           <h1 class="text-white text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-center">
             ARELLANO UNIVERSITY SCHOOL OF LAW
             <br>
-            Amended Academic Year <br><span class="underline">{{ activeTab === '2024-2025' ? '2024-2025' : '2025-2026' }}</span>
+            Amended Academic Year <br><span class="underline">{{ activeTab }}</span>
           </h1>
         </div>
       </div>
@@ -24,7 +24,7 @@
               </section>
             </div>
   
-            <!-- asside -->
+            <!-- aside -->
             <aside class="w-full md:w-1/3 sticky top-0 sm:mt-12 mb-6 pl-4">
                 <div class="ml-2">
                   <h2 class="text-official-purple-900 text-lg font-medium mb-2">On this page</h2>
@@ -82,9 +82,9 @@
     import AcademicYear2025 from './Components/AcademicYear2025.vue';
     import AcademicYear2026 from './Components/AcademicYear2026.vue';
 
-    // Tab state - default to 2025-2026 as shown in your example
+    // Tab state - default to 2026-2027
     const activeTab = ref('2026-2027');
   
-    // Create a ref for the current step
+    // Create a ref for the current step (if needed elsewhere)
     const step = ref(1);
   </script>
