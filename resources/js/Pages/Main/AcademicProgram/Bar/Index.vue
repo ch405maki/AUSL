@@ -100,7 +100,7 @@
                         <li>Click "Click Here", You will be directed to the <a href="https://clear.arellanolaw.org" class="text-blue-500 underline">https://clear.arellanolaw.org</a></li>
                         <li>Click "My Account" then enter your username and password.</li>
                         <li>Click "Orders"</li>  
-                        <li>Click "browser products"</li>
+                        <li>Click "browse products"</li>
                         <li>
                           Click
                           <div class="flex flex-row sm:flex-row items-center justify-between my-6 ">
