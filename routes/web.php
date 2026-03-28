@@ -414,6 +414,11 @@ Route::get('/storage-link', function() {
     return 'Storage link created!';
 });
 
+// test route
+Route::get('/inventory', function () {
+    return Inertia::render('Inventory/Index');
+})->name('inventory');
+
 require __DIR__.'/auth.php';
 require __DIR__.'/redirect.php';
 require __DIR__.'/setup/counter.php';
