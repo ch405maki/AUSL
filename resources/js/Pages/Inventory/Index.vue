@@ -105,7 +105,7 @@ const getStockStatusBadgeClass = (quantity: number, minStock: number) => {
 const fetchItems = async () => {
     loading.value = true;
     try {
-        const response = await axios.get('http://192.168.0.145/api/items');
+        const response = await axios.get('/api/items');
         items.value = response.data;
     } catch (error) {
         console.error('Error fetching items:', error);
