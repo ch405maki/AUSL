@@ -108,7 +108,7 @@ const secondSemester = [
   { activity: "GRADUATING RECOLLECTION/SEMINAR", date: "March 21-22, 2026" },
   { activity: "FINAL EXAMINATIONS (Graduating)", date: "April 18-26, 2026" },
   { activity: "DEADLINE FOR SUBMISSION OF FINAL GRADES", date: "May 10, 2026" },
-  { activity: "FINAL EXAMINATIONS (Non-Graduating) (18 weeks)", date: "April 26 - May 3, 2026", note: "May 1 - Holiday" },
+  { activity: "FINAL EXAMINATIONS (Non-Graduating) (18 weeks)", date: "April 25 - May 3, 2026", note: "May 1 - Holiday" },
   { activity: "DEADLINE FOR SUBMISSION OF FINAL GRADES", date: "May 17, 2026" },
   { activity: "DELIBERATION", date: "May 22, 2026" },
   { activity: "GRADUATION DAY", date: "May 28, 2026" }
