@@ -41,16 +41,16 @@ class MainController extends Controller
         // **Get upcoming countdown event**
         $countdown = CountdownEvent::where('is_active', true)
             ->where(function($query) {
-                // Events with end date: still ongoing or in the future
+                // Case 1: Events with an end date that hasn't passed yet (ongoing today included)
                 $query->whereNotNull('end_date')
-                    ->where('end_date', '>=', now());
+                    ->whereDate('end_date', '>=', now()->toDateString());
             })
             ->orWhere(function($query) {
-                // Events without end date: future target date
+                // Case 2: Events without end date but target_date is today or in the future
                 $query->whereNull('end_date')
-                    ->where('target_date', '>=', now());
+                    ->whereDate('target_date', '>=', now()->toDateString());
             })
-            ->orderBy('target_date', 'asc') // soonest target date first
+            ->orderBy('target_date', 'asc') // soonest event first
             ->first();
 
         $alumni = Alumni::where('status', true)->get();
