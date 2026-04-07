@@ -11,16 +11,34 @@ const form = ref({
   id: null,
   title: '',
   target_date: '',
+  end_date: '', // Add this
   type: 'none',
   is_active: true,
 });
 
+// Helper function to format datetime-local input
+const formatDateForInput = (date: string | null) => {
+  if (!date) return '';
+  return date.slice(0, 16); // Format: "YYYY-MM-DDThh:mm"
+};
+
 // Open modal (for add or edit)
 const openModal = (event: any = null) => {
   if (event) {
-    form.value = { ...event };
+    form.value = { 
+      ...event,
+      target_date: formatDateForInput(event.target_date),
+      end_date: formatDateForInput(event.end_date)
+    };
   } else {
-    form.value = { id: null, title: '', target_date: '', type: 'none', is_active: true };
+    form.value = { 
+      id: null, 
+      title: '', 
+      target_date: '', 
+      end_date: '', // Reset this too
+      type: 'none', 
+      is_active: true 
+    };
   }
   showModal.value = true;
 };
@@ -59,11 +77,15 @@ const toggleActive = (event: any) => {
   Inertia.post(`/admin/countdown/${event.id}/toggle`);
 };
 
+// Format date for display
+const formatDisplayDate = (date: string | null) => {
+  if (!date) return 'No end date';
+  return new Date(date).toLocaleDateString();
+};
+
 // Access Inertia props
 const page = usePage();
 </script>
-
-
 
 <template>
   <Head title="Countdown" />
@@ -82,7 +104,8 @@ const page = usePage();
               <thead>
                 <tr class="bg-gray-200 text-left">
                   <th class="p-2">Title</th>
-                  <th class="p-2">Date</th>
+                  <th class="p-2">Target Date</th>
+                  <th class="p-2">End Date</th> <!-- Add this column -->
                   <th class="p-2">Type</th>
                   <th class="p-2">Active</th>
                   <th class="p-2 text-right">Actions</th>
@@ -92,8 +115,13 @@ const page = usePage();
                 <tr v-for="event in $page.props.events" :key="event.id" class="border-b">
                   <td class="p-2">{{ event.title }}</td>
                   <td class="p-2">{{ new Date(event.target_date).toLocaleDateString() }}</td>
+                  <td class="p-2">{{ formatDisplayDate(event.end_date) }}</td> <!-- Display end date -->
                   <td class="p-2">{{ event.type }}</td>
-                  <td class="p-2">{{ event.is_active ? 'Yes' : 'No' }}</td>
+                  <td class="p-2">
+                    <span :class="event.is_active ? 'text-green-600' : 'text-red-600'">
+                      {{ event.is_active ? 'Yes' : 'No' }}
+                    </span>
+                  </td>
                   <td class="p-2 space-x-2 text-right">
                     <button @click="openModal(event)" class="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
                     <button @click="toggleActive(event)" class="bg-yellow-500 text-white px-2 py-1 rounded">
@@ -123,8 +151,13 @@ const page = usePage();
             <input type="text" v-model="form.title" class="w-full border px-2 py-1 rounded" required />
           </div>
           <div class="mb-2">
-            <label class="block font-semibold mb-1">Date</label>
-            <input type="date" v-model="form.target_date" class="w-full border px-2 py-1 rounded" required />
+            <label class="block font-semibold mb-1">Target Date</label>
+            <input type="datetime-local" v-model="form.target_date" class="w-full border px-2 py-1 rounded" required />
+          </div>
+          <div class="mb-2">
+            <label class="block font-semibold mb-1">End Date (Optional)</label>
+            <input type="datetime-local" v-model="form.end_date" class="w-full border px-2 py-1 rounded" />
+            <p class="text-xs text-gray-500 mt-1">Leave empty if no end date</p>
           </div>
           <div class="mb-2">
             <label class="block font-semibold mb-1">Type</label>

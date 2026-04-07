@@ -22,6 +22,7 @@ class CounterController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'target_date' => 'required|date',
+            'end_date' => 'nullable|date|after:target_date', // Add validation
             'type' => 'required|string',
             'is_active' => 'boolean',
         ]);
@@ -36,6 +37,7 @@ class CounterController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'target_date' => 'required|date',
+            'end_date' => 'nullable|date|after:target_date',
             'type' => 'required|string',
             'is_active' => 'boolean',
         ]);

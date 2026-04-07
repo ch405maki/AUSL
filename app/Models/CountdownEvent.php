@@ -12,6 +12,7 @@ class CountdownEvent extends Model
     protected $fillable = [
         'title',
         'target_date',
+        'end_date',
         'type',
         'is_active',
     ];

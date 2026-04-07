@@ -40,8 +40,17 @@ class MainController extends Controller
 
         // **Get upcoming countdown event**
         $countdown = CountdownEvent::where('is_active', true)
-            ->where('target_date', '>=', now())
-            ->orderBy('target_date', 'asc')
+            ->where(function($query) {
+                // Events with end date: still ongoing or in the future
+                $query->whereNotNull('end_date')
+                    ->where('end_date', '>=', now());
+            })
+            ->orWhere(function($query) {
+                // Events without end date: future target date
+                $query->whereNull('end_date')
+                    ->where('target_date', '>=', now());
+            })
+            ->orderBy('target_date', 'asc') // soonest target date first
             ->first();
 
         $alumni = Alumni::where('status', true)->get();
