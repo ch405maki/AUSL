@@ -58,7 +58,7 @@
             </svg>
           </div>
           <div class="px-4 text-gray-700">
-            <h3 class="text-sm tracking-wider">Unique Visitors Today</h3>
+            <h3 class="text-sm tracking-wider">Visitors Today</h3>
             <p class="text-3xl">{{ uniqueVisitorsToday }}</p>
           </div>
         </div>
@@ -70,7 +70,7 @@
             </svg>
           </div>
           <div class="px-4 text-gray-700">
-            <h3 class="text-sm tracking-wider">Total Visits Today</h3>
+            <h3 class="text-sm tracking-wider">Page Visits</h3>
             <p class="text-3xl">{{ totalVisitsToday }}</p>
           </div>
         </div>
@@ -82,15 +82,61 @@
             </svg>
           </div>
           <div class="px-4 text-gray-700">
-            <h3 class="text-sm tracking-wider">Bots Blocked Today</h3>
+            <h3 class="text-sm tracking-wider">Bots Today</h3>
             <p class="text-3xl">{{ botVisitsFiltered }}</p>
           </div>
         </div>
       </div>
 
+      <div class="px-4 mt-8 sm:px-8">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Quick Access</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a :href="route('announcement')" class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow-md hover:border-indigo-200 transition-all">
+            <div class="p-4 bg-purple-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38a.875.875 0 01-1.23-.84 17.8 17.8 0 01-.424-3.204m0-9.18A17.8 17.8 0 019 6.43M18.75 12a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+              </svg>
+            </div>
+            <div class="px-4 text-gray-700">
+              <p class="text-sm font-medium">Announcement</p>
+            </div>
+          </a>
+          <a :href="route('carousell')" class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow-md hover:border-indigo-200 transition-all">
+            <div class="p-4 bg-pink-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A1.5 1.5 0 0021.75 19.5V4.5A1.5 1.5 0 0020.25 3H3.75A1.5 1.5 0 002.25 4.5v15A1.5 1.5 0 003.75 21z" />
+              </svg>
+            </div>
+            <div class="px-4 text-gray-700">
+              <p class="text-sm font-medium">Carousel</p>
+            </div>
+          </a>
+          <a :href="route('countdown.index')" class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow-md hover:border-indigo-200 transition-all">
+            <div class="p-4 bg-amber-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="px-4 text-gray-700">
+              <p class="text-sm font-medium">Counter</p>
+            </div>
+          </a>
+          <a :href="route('posts')" class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow-md hover:border-indigo-200 transition-all">
+            <div class="p-4 bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+              </svg>
+            </div>
+            <div class="px-4 text-gray-700">
+              <p class="text-sm font-medium">News Posting</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 gap-4 px-4 mt-8 lg:grid-cols-3 sm:px-8">
         <div class="lg:col-span-2 bg-white p-4 border rounded-lg">
-          <h3 class="text-lg font-semibold text-gray-800 mb-4">Unique Visitors (Last 7 Days)</h3>
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Visitors (Last 7 Days)</h3>
           <canvas id="pageVisitsChart"></canvas>
         </div>
 
@@ -115,7 +161,7 @@
               </div>
               <div class="text-right ml-2">
                 <p class="text-sm font-semibold text-indigo-600">{{ page.unique_visitors }}</p>
-                <p class="text-xs text-gray-400">unique</p>
+                <p class="text-xs text-gray-400"></p>
               </div>
             </div>
           </div>
@@ -217,7 +263,7 @@
         labels: labels,
         datasets: [
           {
-            label: 'Unique Visitors',
+            label: 'Visitors',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
