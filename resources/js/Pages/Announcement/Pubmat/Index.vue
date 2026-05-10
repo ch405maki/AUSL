@@ -88,20 +88,30 @@
   
   // Function to export the image section
   const exportImage = () => {
-    const targetElement = document.querySelector('#image-section'); // Select the part to export
+    const targetElement = document.querySelector('#image-section');
   
     html2canvas(targetElement, {
-      scale: 2, // Higher scale for better resolution
-      useCORS: true, // Enable cross-origin handling for images
+      scale: 2,
+      useCORS: true,
     })
       .then((canvas) => {
-        const imgURL = canvas.toDataURL('image/png'); // Convert to image format
-  
-        // Trigger download
-        const link = document.createElement('a');
-        link.href = imgURL;
-        link.download = 'pubmat.png';
-        link.click();
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            const imgURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = imgURL;
+            link.download = 'pubmat.png';
+            link.click();
+            return;
+          }
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'pubmat.webp';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(link.href);
+        }, 'image/webp', 0.85);
       })
       .catch((error) => {
         console.error('Error generating image:', error);

@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 use App\Models\UserLog;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\ImageOptimizer;
 
 use HTMLPurifier;
 use HTMLPurifier_Config;
@@ -58,6 +59,7 @@ class AnnouncementController extends Controller
         $pubmatPath = null;
         if ($request->hasFile('pubmat')) {
             $pubmatPath = $request->file('pubmat')->store('public/pubmats');
+            $pubmatPath = ImageOptimizer::optimizeToWebp($pubmatPath);
             $data['pubmat'] = Storage::url($pubmatPath);
         }
 
@@ -110,7 +112,8 @@ class AnnouncementController extends Controller
         // Handle the pubmat file (if any)
         if ($request->hasFile('pubmat')) {
             $pubmatPath = $request->file('pubmat')->store('public/pubmats');
-            $post->pubmat = Storage::url($pubmatPath);  // Store pubmat file URL
+            $pubmatPath = ImageOptimizer::optimizeToWebp($pubmatPath);
+            $post->pubmat = Storage::url($pubmatPath);
         }
 
         // Update the post record with the new data, ensuring 'state' is set to 'Active'
