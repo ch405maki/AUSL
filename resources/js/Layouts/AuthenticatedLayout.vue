@@ -55,7 +55,7 @@
                     <img class="h-8 w-8 rounded-full" src="/images/user.png" alt="user icon">
                   </button>
                   <!-- Profile dropdown -->
-                  <div v-if="isProfileMenuOpen" @click.away="isProfileMenuOpen = false" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div v-if="isProfileMenuOpen" ref="profileRef" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <a href="#" class="block py-2 px-4 text-sm text-gray-700">Hi, {{ $page.props.auth.user.name }}</a>
                     <a :href="route('profile.edit')" class="block py-2 px-4 text-sm text-gray-700">Your Profile</a> 
                     <a :href="route('logout')"  as="button" class="block py-2 px-4 text-sm text-gray-700">Sign out</a>
@@ -67,53 +67,101 @@
           </div>
 
           <!-- Mobile Menu -->
-          <nav v-if="isMenuOpen" class="lg:hidden" aria-label="Global" @click.away="isMenuOpen = false">
-            <div class="border-t border-gray-200 pt-4">
-              <div class="mx-auto max-w-3xl space-y-1 px-4">
-                <a :href="route('dashboard')" class="bg-gray-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md" aria-current="page" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;bg-gray-200 text-gray-900&quot;, Default: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" x-description="Heroicon name: outline/home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <nav v-if="isMenuOpen" ref="navRef" class="lg:hidden" aria-label="Global">
+            <div class="border-t border-gray-200 pt-4 pb-8 overflow-y-auto" style="max-height: calc(100vh - 4rem);">
+              <div class="mx-auto max-w-3xl space-y-1 px-4" @click="onMobileNavClick">
+                <a :href="route('dashboard')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-3 text-sm font-medium rounded-md">
+                  <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
                   </svg>
                   <span class="truncate">Home</span>
                 </a>
-                
-                <a :href="route('main')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+
+                <a :href="route('main')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-3 text-sm font-medium rounded-md">
+                  <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.25C7.167 3.25 3.25 7.167 3.25 12S7.167 20.75 12 20.75 20.75 16.833 20.75 12 16.833 3.25 12 3.25zM12 18.75c-3.723 0-6.75-3.027-6.75-6.75S8.277 5.25 12 5.25s6.75 3.027 6.75 6.75-3.027 6.75-6.75 6.75z"></path>
                   </svg>
                   <span class="truncate">Web Preview</span>
                 </a>
 
-                <a :href="route('posts')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
-                  </svg>
-                  <span class="truncate">News</span>
-                </a>
-                <a :href="route('announcement')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
-                  </svg>
-                  <span class="truncate">Announcement</span>
-                </a>
-                <a :href="route('archive')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
-                  </svg>
-                  <span class="truncate">Archives</span>
-                </a>
-                <a :href="route('gallery')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5zM5.25 6a.75.75 0 100 1.5h.75a.75.75 0 100-1.5h-.75zM9 6a.75.75 0 100 1.5h9.75a.75.75 0 100-1.5H9zM12 9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM3.75 18l4.5-5.25 3 3.75h9.75"></path>
+                <details class="group">
+                  <summary class="flex items-center justify-between px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 marker:content-none cursor-pointer">
+                    <span class="flex items-center">
+                      <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 11.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-4.5M16.5 2.25l5.25 5.25M16.5 2.25v5.25H21.75"></path>
+                      </svg>
+                      <span>Posting</span>
+                    </span>
+                    <svg class="w-5 h-5 text-gray-500 transition-transform group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-11 mr-4 pb-2 space-y-1">
+                    <a :href="route('posts')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">News</a>
+                    <a :href="route('announcement')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Announcement</a>
+                    <hr class="my-1.5 border-gray-200">
+                    <a :href="route('pubmat')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">PubMat</a>
+                    <a :href="route('maintenance')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Advisory</a>
+                    <hr class="my-1.5 border-gray-200">
+                    <a :href="route('subjects-status')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Subjects Status</a>
+                    <a :href="route('archive')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Archives</a>
+                  </div>
+                </details>
+
+                <details class="group">
+                  <summary class="flex items-center justify-between px-3 py-3 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 marker:content-none cursor-pointer">
+                    <span class="flex items-center">
+                      <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"></path>
+                      </svg>
+                      <span>Offices</span>
+                    </span>
+                    <svg class="w-5 h-5 text-gray-500 transition-transform group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-11 mr-4 pb-2 space-y-1">
+                    <a :href="route('officepost.default')" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Archived</a>
+                    <hr class="my-1.5 border-gray-200">
+                    <a :href="route('officepost.index', { category: 'Bursar' })" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Bursar</a>
+                    <a :href="route('officepost.index', { category: 'Guidance' })" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Guidance</a>
+                    <a :href="route('officepost.index', { category: 'IT Center' })" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">IT Center</a>
+                    <a :href="route('officepost.index', { category: 'Library' })" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Library</a>
+                    <a :href="route('officepost.index', { category: 'Registrar' })" class="block px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">Registrar</a>
+                  </div>
+                </details>
+
+                <a :href="route('gallery')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-3 text-sm font-medium rounded-md">
+                  <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A1.5 1.5 0 0021.75 19.5V4.5A1.5 1.5 0 0020.25 3H3.75A1.5 1.5 0 002.25 4.5v15A1.5 1.5 0 003.75 21z" />
                   </svg>
                   <span class="truncate">Gallery</span>
                 </a>
-                <a :href="route('onload')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md" x-state-description="undefined: &quot;bg-gray-200 text-gray-900&quot;, undefined: &quot;text-gray-700 hover:bg-gray-50&quot;">
-                  <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5zM5.25 6a.75.75 0 100 1.5h.75a.75.75 0 100-1.5h-.75zM9 6a.75.75 0 100 1.5h9.75a.75.75 0 100-1.5H9zM12 9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM3.75 18l4.5-5.25 3 3.75h9.75"></path>
+
+                <a v-if="$page.props.auth.user.role_id == 4" :href="route('gwa.index')" class="text-gray-700 hover:bg-gray-50 group flex items-center px-3 py-3 text-sm font-medium rounded-md">
+                  <svg class="text-gray-400 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5zM5.25 6a.75.75 0 100 1.5h.75a.75.75 0 100-1.5h-.75zM9 6a.75.75 0 100 1.5h9.75a.75.75 0 100-1.5H9zM12 9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zM3.75 18l4.5-5.25 3 3.75h9.75" />
                   </svg>
-                  <span class="truncate">On load Banner</span>  
+                  <span class="truncate">GWA Deficiency</span>
                 </a>
+
+                <div v-if="$page.props.auth.user.role_id == 3" class="pt-5">
+                  <p class="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Setup Page</p>
+                  <div class="mt-2 space-y-1">
+                    <a v-for="link in links" :key="link.name" :href="route(link.route)" class="flex items-center px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">
+                      <span class="truncate">{{ link.name }}</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div v-if="$page.props.auth.user.role_id == 3" class="pt-5">
+                  <p class="px-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Settings</p>
+                  <div class="mt-2 space-y-1">
+                    <a v-for="setting in settings" :key="setting.name" :href="route(setting.route)" class="flex items-center px-3 py-2.5 text-sm text-gray-600 hover:text-purple-800 rounded-md hover:bg-gray-50">
+                      <span class="truncate">{{ setting.name }}</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
@@ -294,15 +342,19 @@
   ];
 
 
-// State management using ref for menu visibility
 const isMenuOpen = ref(false);
 const isProfileMenuOpen = ref(false);
+const navRef = ref(null);
+const profileRef = ref(null);
 
 const logout = () => {
   Inertia.post(route('logout'));
 };
 
-// Methods to toggle the menus
+const closeMenu = () => {
+  isMenuOpen.value = false;
+};
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
@@ -311,8 +363,20 @@ const toggleProfileMenu = () => {
   isProfileMenuOpen.value = !isProfileMenuOpen.value;
 };
 
-// Ref to manage the visibility of the dropdown
-const showingNavigationDropdown = ref(false);
+const onMobileNavClick = (e) => {
+  if (e.target.closest('a')) {
+    closeMenu();
+  }
+};
+
+const onDocumentClick = (e) => {
+  if (isMenuOpen.value && navRef.value && !navRef.value.contains(e.target) && !e.target.closest('[class*="lg:hidden"] button')) {
+    closeMenu();
+  }
+  if (isProfileMenuOpen.value && profileRef.value && !profileRef.value.contains(e.target) && !e.target.closest('button')) {
+    isProfileMenuOpen.value = false;
+  }
+};
 
 // Ref to manage the header class
 const headerClass = ref('bg-white shadow pt-16');
@@ -326,15 +390,15 @@ const updateHeaderClass = () => {
   }
 };
 
-// Add event listener on mount
 onMounted(() => {
   updateHeaderClass();
   window.addEventListener('resize', updateHeaderClass);
+  document.addEventListener('mousedown', onDocumentClick);
 });
 
-// Remove event listener before unmount
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateHeaderClass);
+  document.removeEventListener('mousedown', onDocumentClick);
 });
 
 // Use Inertia's usePage hook to access the page props
