@@ -66,14 +66,58 @@
             />
           </div>
   
+          <!-- Existing Pubmat Preview -->
+          <div v-if="existingPubmatUrl && pubmatMode !== 'create'" class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Current Pubmat</label>
+            <img :src="existingPubmatUrl" alt="Current Pubmat" class="w-48 h-auto rounded-lg shadow-sm border" />
+          </div>
+
+          <!-- Pubmat Section -->
           <div class="mb-4">
-            <label for="pubmat" class="block text-sm font-medium text-gray-700">Upload Pubmat Image</label>
-            <input
-              type="file"
-              id="pubmat"
-              @change="handlePubmatChange"
-              class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-blue-50 hover:file:bg-blue-100"
-            />
+            <label class="block text-sm font-medium text-gray-700">Pubmat</label>
+            <div class="flex gap-2 mt-1">
+              <button type="button" @click="pubmatMode = 'none'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'none' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700']">Keep Existing</button>
+              <button type="button" @click="pubmatMode = 'create'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'create' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700']">Create New</button>
+              <button type="button" @click="pubmatMode = 'upload'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'upload' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700']">Upload New</button>
+            </div>
+
+            <!-- Create Mode -->
+            <div v-if="pubmatMode === 'create'" class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div class="lg:col-span-2">
+                <div id="pubmat-preview-edit" class="relative max-w-full mx-auto border rounded-lg overflow-hidden">
+                  <div class="relative">
+                    <img src="/images/announcement/announcementbg.jpg" alt="Pubmat Background" class="w-full" />
+                    <div class="absolute top-20 left-10 text-white font-semibold text-2xl p-4" style="max-width: 600px; word-wrap: break-word;">
+                      <div v-html="pubmatContent"></div>
+                    </div>
+                    <div class="absolute top-80 left-10 text-white font-normal text-base p-4" style="max-width: 600px; word-wrap: break-word;">
+                      <div class="text-center" v-html="pubmatFootnote"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-1 space-y-4">
+                <div>
+                  <label for="pubmat-content-edit" class="block text-sm font-medium text-gray-700">Pubmat Content</label>
+                  <ckeditor id="pubmat-content-edit" :editor="editor" v-model="pubmatContent" :config="pubmatEditorConfig"></ckeditor>
+                </div>
+                <div>
+                  <label for="pubmat-footnote-edit" class="block text-sm font-medium text-gray-700">Pubmat Footnote</label>
+                  <ckeditor id="pubmat-footnote-edit" :editor="editor" v-model="pubmatFootnote" :config="pubmatEditorConfig"></ckeditor>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upload Mode -->
+            <div v-if="pubmatMode === 'upload'" class="mt-4">
+              <input
+                type="file"
+                id="pubmat"
+                @change="handlePubmatChange"
+                accept="image/*"
+                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border file:border-gray-300 file:text-sm file:font-semibold file:bg-blue-50 hover:file:bg-blue-100"
+              />
+            </div>
           </div>
   
           <button
@@ -89,11 +133,12 @@
   
   
   <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import CKEditor from '@ckeditor/ckeditor5-vue';
+import html2canvas from 'html2canvas';
 
 const props = defineProps(['post']);
 
@@ -115,6 +160,12 @@ const form = ref({
   pubmat: null,
 });
 
+const pubmatMode = ref(props.post.pubmat ? 'none' : 'none');
+const pubmatContent = ref('<p>Text content goes here.</p>');
+const pubmatFootnote = ref('<p>Foot note.</p>');
+
+const existingPubmatUrl = computed(() => props.post.pubmat || null);
+
 const handleFileChange = (event) => {
   form.value.newImages = Array.from(event.target.files);
 };
@@ -123,7 +174,7 @@ const handlePubmatChange = (event) => {
   form.value.pubmat = event.target.files[0];
 };
 
-const updatePost = () => {
+const updatePost = async () => {
   if (!form.value.created_at) {
     Swal.fire('Error', 'Date is required', 'error');
     return;
@@ -131,17 +182,30 @@ const updatePost = () => {
 
   const formData = new FormData();
   formData.append('title', form.value.title);
-  formData.append('content', form.value.content); // Add content
-  formData.append('link', form.value.link); // Add link
-  formData.append('created_at', form.value.created_at); // Always append the date
-  formData.append('_method', 'PUT'); // Spoof the method to PUT for Laravel
+  formData.append('content', form.value.content);
+  formData.append('link', form.value.link);
+  formData.append('created_at', form.value.created_at);
+  formData.append('_method', 'PUT');
 
   form.value.newImages.forEach((file, index) => {
     formData.append(`newImages[${index}]`, file);
   });
 
-  if (form.value.pubmat) {
-    formData.append('pubmat', form.value.pubmat); // Add pubmat
+  if (pubmatMode.value === 'create') {
+    const targetEl = document.querySelector('#pubmat-preview-edit');
+    if (targetEl) {
+      try {
+        const canvas = await html2canvas(targetEl, { scale: 2, useCORS: true });
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', 0.85));
+        if (blob) {
+          formData.append('pubmat', new File([blob], 'pubmat.webp', { type: 'image/webp' }));
+        }
+      } catch (e) {
+        console.error('Pubmat capture failed:', e);
+      }
+    }
+  } else if (form.value.pubmat) {
+    formData.append('pubmat', form.value.pubmat);
   }
 
   Inertia.post(route('announcement.update', props.post.id), formData, {
@@ -157,6 +221,10 @@ const updatePost = () => {
 const editor = ClassicEditor;
 const editorConfig = {
   toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'],
+};
+
+const pubmatEditorConfig = {
+  toolbar: ['heading', 'bold', 'italic', 'fontSize', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'mediaEmbed'],
 };
 </script>
 

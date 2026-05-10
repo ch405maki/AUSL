@@ -37,7 +37,7 @@ class AnnouncementController extends Controller
             'content' => 'nullable|string',
             'iframe' => 'nullable|string',
             'image.*' => 'nullable|image|mimes:jpg,png,gif|max:10240',
-            'pubmat' => 'nullable|image|mimes:jpg,png,gif|max:10240',
+            'pubmat' => 'nullable|image|mimes:jpg,png,gif,webp|max:10240',
             'category' => 'required|string',
             'state' => 'nullable|string',
             'link' => 'nullable|url',
@@ -92,7 +92,7 @@ class AnnouncementController extends Controller
             'link' => 'nullable|url',
             'state' => 'nullable|string', // You can still allow state to be nullable
             'newImages.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // For additional images
-            'pubmat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // For pubmat image
+            'pubmat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048', // For pubmat image
         ]);
 
         // Retrieve the existing post record

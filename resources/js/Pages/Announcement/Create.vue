@@ -63,19 +63,55 @@
                     />
                   </div>
 
-                    <!-- Pubmat Input -->
+                    <!-- Pubmat Section -->
                     <div class="col-span-12">
-                      <InputLabel for="pubmat" value="Upload Pubmat" />
-                      <input
-                        type="file"
-                        id="pubmat"
-                        @change="handlePubmatChange"
-                        accept="image/*" 
-                        class="mt-1 block w-full border border-gray-300 rounded-lg"
-                      />
-                      <div v-if="previewPubmat" class="mt-2 relative w-[100px]">
-                        <img :src="previewPubmat" alt="Pubmat Preview" class="w-full h-auto rounded-md" />
-                        <button @click="removePubmat" class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold">X</button>
+                      <InputLabel value="Pubmat" />
+                      <div class="flex gap-2 mt-1">
+                        <button type="button" @click="pubmatMode = 'none'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'none' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700']">None</button>
+                        <button type="button" @click="pubmatMode = 'create'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'create' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700']">Create Pubmat</button>
+                        <button type="button" @click="pubmatMode = 'upload'" :class="['px-3 py-1 rounded text-sm', pubmatMode === 'upload' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700']">Upload Pubmat</button>
+                      </div>
+
+                      <!-- Create Mode -->
+                      <div v-if="pubmatMode === 'create'" class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                          <div id="pubmat-preview" class="relative max-w-full mx-auto border rounded-lg overflow-hidden">
+                            <div class="relative">
+                              <img src="/images/announcement/announcementbg.jpg" alt="Pubmat Background" class="w-full" />
+                              <div class="absolute top-20 left-10 text-white font-semibold text-4xl p-4" style="max-width: 600px; word-wrap: break-word;">
+                                <div v-html="pubmatContent"></div>
+                              </div>
+                              <div class="absolute top-80 left-10 text-white font-normal text-xl p-4" style="max-width: 600px; word-wrap: break-word;">
+                                <div class="text-center" v-html="pubmatFootnote"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="lg:col-span-1 space-y-4">
+                          <div>
+                            <InputLabel for="pubmat-content" value="Pubmat Content" />
+                            <ckeditor id="pubmat-content" :editor="editor" v-model="pubmatContent" :config="pubmatEditorConfig"></ckeditor>
+                          </div>
+                          <div>
+                            <InputLabel for="pubmat-footnote" value="Pubmat Footnote" />
+                            <ckeditor id="pubmat-footnote" :editor="editor" v-model="pubmatFootnote" :config="pubmatEditorConfig"></ckeditor>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Upload Mode -->
+                      <div v-if="pubmatMode === 'upload'" class="mt-4">
+                        <input
+                          type="file"
+                          id="pubmat"
+                          @change="handlePubmatChange"
+                          accept="image/*"
+                          class="mt-1 block w-full border border-gray-300 rounded-lg"
+                        />
+                        <div v-if="previewPubmat" class="mt-2 relative w-[100px]">
+                          <img :src="previewPubmat" alt="Pubmat Preview" class="w-full h-auto rounded-md" />
+                          <button @click="removePubmat" type="button" class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold">X</button>
+                        </div>
                       </div>
                     </div>
 
@@ -147,7 +183,7 @@
                     
                     <!-- Submit Button -->
                     <div class="col-span-12 flex justify-center">
-                      <PrimaryButton :disabled="form.processing">
+                      <PrimaryButton :disabled="processing">
                         <i class="fa-solid fa-save"></i> Save
                       </PrimaryButton>
                     </div>
@@ -170,6 +206,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Inertia } from '@inertiajs/inertia';
+import html2canvas from 'html2canvas';
 
 const props = defineProps({
   imagePath: String, 
@@ -191,6 +228,11 @@ created_at: '',
 const previewImages = ref([]);
 const previewPubmat = ref(null); // Ref for pubmat preview
 const errors = ref({});
+
+const pubmatMode = ref('create');
+const pubmatContent = ref('<p>Text content goes here.</p>');
+const pubmatFootnote = ref('<p>Foot note.</p>');
+const processing = ref(false);
 
 // Handle file change for images
 const handleFileChange = (event) => {
@@ -228,27 +270,48 @@ form.pubmat = null;
 };
 
 // Submit the form
-const submitForm = () => {
+const submitForm = async () => {
+processing.value = true;
 const formData = new FormData();
 formData.append('title', form.title);
 formData.append('content', form.content);
-form.image.forEach((image) => formData.append('image[]', image));
-if (form.pubmat) {
-formData.append('pubmat', form.pubmat); // Append pubmat to form data
-}
+formData.append('category', form.category);
 formData.append('created_at', form.created_at);
+if (form.iframe) formData.append('iframe', form.iframe);
+if (form.link) formData.append('link', form.link);
+form.image.forEach((image) => formData.append('image[]', image));
 
-form.post(route('announcement.store'), {
-data: formData,
+if (pubmatMode.value === 'create') {
+  const targetEl = document.querySelector('#pubmat-preview');
+  if (targetEl) {
+    try {
+      const canvas = await html2canvas(targetEl, { scale: 2, useCORS: true });
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', 0.85));
+      if (blob) {
+        formData.append('pubmat', new File([blob], 'pubmat.webp', { type: 'image/webp' }));
+      }
+    } catch (e) {
+      console.error('Pubmat capture failed:', e);
+    }
+  }
+} else if (form.pubmat) {
+  formData.append('pubmat', form.pubmat);
+}
+
+Inertia.post(route('announcement.store'), formData, {
 onSuccess: () => {
   form.reset();
   previewImages.value = [];
-  previewPubmat.value = null; // Reset pubmat preview
+  previewPubmat.value = null;
+  pubmatMode.value = 'none';
+  pubmatContent.value = '<p>Text content goes here.</p>';
+  pubmatFootnote.value = '<p>Foot note.</p>';
   errors.value = {};
+  processing.value = false;
 },
-onError: (error) => errors.value = error,
-headers: {
-  'Content-Type': 'multipart/form-data',
+onError: (error) => {
+  errors.value = error;
+  processing.value = false;
 },
 });
 };
@@ -265,6 +328,10 @@ const titleCaseTitle = computed({
 const editor = ClassicEditor;
 const editorConfig = {
 toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote','insertTable', 'mediaEmbed', ],
+};
+
+const pubmatEditorConfig = {
+toolbar: ['heading', 'bold', 'italic', 'fontSize', 'bulletedList', 'numberedList', 'blockQuote', 'insertTable', 'mediaEmbed'],
 };
 </script>
 

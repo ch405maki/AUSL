@@ -23,13 +23,13 @@
                     <img src="/images/announcement/announcementbg.jpg" alt="Maintenance" class="w-full" />
                     <!-- Text overlay box -->
                     <div
-                      class="absolute top-20 left-10 text-white font-semibold text-5xl p-4"
+                      class="absolute top-20 left-10 text-white font-semibold text-2xl p-4"
                       style="max-width: 600px; word-wrap: break-word;"
                     >
                       <div v-html="form.content"></div>
                     </div>
                     <div
-                      class="absolute top-80 left-10 text-white font-normal text-xl p-4"
+                      class="absolute top-80 left-10 text-white font-normal text-base p-4"
                       style="max-width: 600px; word-wrap: break-word;"
                     >
                       <div class="text-center" v-html="form.footnote"></div>
