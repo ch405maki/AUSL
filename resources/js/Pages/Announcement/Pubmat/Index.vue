@@ -79,7 +79,6 @@
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   import html2canvas from 'html2canvas';
-  
   // Reactive form data
   const form = ref({
     content: '<p>Text content goes here.</p>', 

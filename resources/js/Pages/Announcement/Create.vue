@@ -78,10 +78,16 @@
                           <div id="pubmat-preview" class="relative max-w-full mx-auto border rounded-lg overflow-hidden">
                             <div class="relative">
                               <img src="/images/announcement/announcementbg.jpg" alt="Pubmat Background" class="w-full" />
-                              <div class="absolute top-20 left-10 text-white font-semibold text-4xl p-4" style="max-width: 600px; word-wrap: break-word;">
+                              <div
+                                class="absolute text-white font-semibold"
+                                style="top: 15%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.7rem, 2.92vw, 1.75rem); padding: 1.5%; padding-top: clamp(0.4rem, 1.5vw, 1.2rem);"
+                              >
                                 <div v-html="pubmatContent"></div>
                               </div>
-                              <div class="absolute top-80 left-10 text-white font-normal text-xl p-4" style="max-width: 600px; word-wrap: break-word;">
+                              <div
+                                class="absolute text-white font-normal"
+                                style="top: 55%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.6rem, 2.1vw, 1.75rem); padding: 1.5%; padding-top: clamp(0.4rem, 1.2vw, 1rem);"
+                              >
                                 <div class="text-center" v-html="pubmatFootnote"></div>
                               </div>
                             </div>
@@ -207,7 +213,6 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Inertia } from '@inertiajs/inertia';
 import html2canvas from 'html2canvas';
-
 const props = defineProps({
   imagePath: String, 
 });

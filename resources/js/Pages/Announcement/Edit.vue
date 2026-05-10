@@ -85,7 +85,7 @@
             <div v-if="pubmatMode === 'create'" class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div class="lg:col-span-2">
                 <div id="pubmat-preview-edit" class="relative max-w-full mx-auto border rounded-lg overflow-hidden">
-                  <div class="relative">
+                    <div class="relative">
                     <img src="/images/announcement/announcementbg.jpg" alt="Pubmat Background" class="w-full" />
                     <div class="absolute top-20 left-10 text-white font-semibold text-2xl p-4" style="max-width: 600px; word-wrap: break-word;">
                       <div v-html="pubmatContent"></div>
@@ -139,7 +139,6 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import html2canvas from 'html2canvas';
-
 const props = defineProps(['post']);
 
 // Helper to format date to YYYY-MM-DD
@@ -159,6 +158,8 @@ const form = ref({
   newImages: [],
   pubmat: null,
 });
+
+const { contentStyle: contentStyleE, footnoteStyle: footnoteStyleE } = usePubmatScaling(24, 16);
 
 const pubmatMode = ref(props.post.pubmat ? 'none' : 'none');
 const pubmatContent = ref('<p>Text content goes here.</p>');
