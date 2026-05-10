@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-
 use Inertia\Inertia;
 use App\Models\Post;
 use App\Models\Carousell;
@@ -54,13 +51,6 @@ class MainController extends Controller
             ->first();
 
         $alumni = Alumni::where('status', true)->get();
-
-        UserLog::create([
-            'user_id' => Auth::check() ? Auth::id() : null,
-            'action' => 'Page Visit',
-            'ip_address' => request()->ip(),
-            'user_agent' => request()->header('User-Agent'),
-        ]);
 
         return Inertia::render('Main/Home/Index', [
             'posts' => $posts,  

@@ -1,15 +1,42 @@
 <template>
     <Head title="Dashboard" />
-  
+
     <AuthenticatedLayout>
       <template #action>
-        <div class="flex flex-grow p-5">
+        <div class="flex items-center justify-between flex-grow p-5">
           <h2 class="font-normal text-xl text-gray-800 leading-tight">Dashboard</h2>
+          <div class="flex items-center gap-2">
+            <button
+              @click="pruneAnalytics"
+              class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+              Clear Analytics
+            </button>
+            <button
+              @click="refreshAnalytics"
+              :disabled="refreshing"
+              class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+            >
+              <svg
+                :class="{ 'animate-spin': refreshing }"
+                class="w-4 h-4 mr-1.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              {{ refreshing ? 'Refreshing...' : 'Refresh Analytics' }}
+            </button>
+          </div>
         </div>
       </template>
-  
-      <!-- Dashboard Stats -->
-      <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-2 sm:px-8">
+
+      <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-8">
         <div class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow">
           <div class="p-4 bg-blue-400">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -19,94 +46,201 @@
             </svg>
           </div>
           <div class="px-4 text-gray-700">
-            <h3 class="text-sm tracking-wider">Active Post</h3>
+            <h3 class="text-sm tracking-wider">Active Posts</h3>
             <p class="text-3xl">{{ post.length }}</p>
+          </div>
+        </div>
+        <div class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow">
+          <div class="p-4 bg-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div class="px-4 text-gray-700">
+            <h3 class="text-sm tracking-wider">Unique Visitors Today</h3>
+            <p class="text-3xl">{{ uniqueVisitorsToday }}</p>
+          </div>
+        </div>
+        <div class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow">
+          <div class="p-4 bg-indigo-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div class="px-4 text-gray-700">
+            <h3 class="text-sm tracking-wider">Total Visits Today</h3>
+            <p class="text-3xl">{{ totalVisitsToday }}</p>
           </div>
         </div>
         <div class="flex items-center bg-white border rounded-lg overflow-hidden hover:shadow">
           <div class="p-4 bg-red-400">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
-              </path>
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
             </svg>
           </div>
           <div class="px-4 text-gray-700">
-            <h3 class="text-sm tracking-wider">Todays Visitor(s)</h3>
-            <p class="text-3xl">{{ currentDateVisitors }}</p>
+            <h3 class="text-sm tracking-wider">Bots Blocked Today</h3>
+            <p class="text-3xl">{{ botVisitsFiltered }}</p>
           </div>
         </div>
       </div>
-  
-      <!-- Page Visits Chart -->
-      <div class="px-4 mt-8 sm:px-8">
-        <div class="bg-white p-4 border rounded-lg">
-          <h3 class="text-lg font-semibold text-gray-800 mb-4">Page Visits Chart</h3>
+
+      <div class="grid grid-cols-1 gap-4 px-4 mt-8 lg:grid-cols-3 sm:px-8">
+        <div class="lg:col-span-2 bg-white p-4 border rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Unique Visitors (Last 7 Days)</h3>
           <canvas id="pageVisitsChart"></canvas>
+        </div>
+
+        <div class="bg-white p-4 border rounded-lg">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-800">Top Pages (7 Days)</h3>
+            <button
+              @click="clearTopPages"
+              class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
+              title="Clear Top Pages"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
+          <div v-if="topPages.length" class="space-y-3">
+            <div v-for="page in topPages" :key="page.route_path" class="flex items-center justify-between border-b pb-2">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 truncate">{{ page.route_name || page.route_path }}</p>
+                <p class="text-xs text-gray-500 truncate">/{{ page.route_path }}</p>
+              </div>
+              <div class="text-right ml-2">
+                <p class="text-sm font-semibold text-indigo-600">{{ page.unique_visitors }}</p>
+                <p class="text-xs text-gray-400">unique</p>
+              </div>
+            </div>
+          </div>
+          <div v-else class="text-center text-gray-400 py-8">
+            <p>No page data yet</p>
+          </div>
         </div>
       </div>
 
       <div class="px-4 mt-8 sm:px-8">
         <div class="bg-white p-4 border rounded-lg">
           <h1>Server Dashboard</h1>
-            <ServerStatus />
+          <ServerStatus />
         </div>
       </div>
-
-      
     </AuthenticatedLayout>
   </template>
-  
+
   <script setup>
   import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
   import ServerStatus from '@/Components/ServerStatus.vue';
-  import { Head } from '@inertiajs/vue3';
-  import { defineProps, onMounted } from 'vue';
+  import { Head, router } from '@inertiajs/vue3';
+  import { ref, onMounted } from 'vue';
   import Chart from 'chart.js/auto';
-  
-  // Define props
+  import Swal from 'sweetalert2';
+
+  const refreshing = ref(false);
+
   const props = defineProps({
     post: { type: Array, required: true },
-    logs: { type: Array, required: true }, 
-    currentDateVisitors: { type: Number, required: true },
+    uniqueVisitorsToday: { type: Number, required: true },
+    totalVisitsToday: { type: Number, required: true },
+    visitsPerDay: { type: Array, required: true },
+    topPages: { type: Array, required: true },
+    botVisitsFiltered: { type: Number, required: true },
   });
-  
-  // Initialize chart on mount
-  onMounted(() => {
-    // Map logs data for the chart
-    const labels = props.logs.map((log) => log.date);
-    const counts = props.logs.map((log) => log.count);
-  
-    const data = {
-      labels: labels,
-      datasets: [
-        {
-          label: 'Page Visits',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-          data: counts,
-        },
-      ],
-    };
-  
-    const config = {
+
+  const refreshAnalytics = () => {
+    refreshing.value = true;
+    router.reload({
+      only: ['uniqueVisitorsToday', 'totalVisitsToday', 'visitsPerDay', 'topPages', 'botVisitsFiltered'],
+      onSuccess: () => {
+        refreshing.value = false;
+        renderChart();
+      },
+      onError: () => {
+        refreshing.value = false;
+      },
+    });
+  };
+
+  const clearTopPages = () => {
+    Swal.fire({
+      title: 'Clear top pages data?',
+      text: 'This will reset the top pages list. Visitor counts and other analytics will not be affected.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#6b7280',
+      confirmButtonText: 'Yes, clear top pages',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.post(route('dashboard.clear-top-pages'));
+      }
+    });
+  };
+
+  const pruneAnalytics = () => {
+    Swal.fire({
+      title: 'Clear analytics data?',
+      text: 'This will permanently delete analytics records older than 5 days. The most recent 5 days of data will be preserved.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#6b7280',
+      confirmButtonText: 'Yes, prune old data',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.post(route('dashboard.prune-analytics'));
+      }
+    });
+  };
+
+  const renderChart = () => {
+    const canvas = document.getElementById('pageVisitsChart');
+    if (!canvas) return;
+
+    const existing = Chart.getChart(canvas);
+    if (existing) existing.destroy();
+
+    const labels = props.visitsPerDay.map((d) => d.date);
+    const counts = props.visitsPerDay.map((d) => d.count);
+
+    new Chart(canvas, {
       type: 'bar',
-      data: data,
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Unique Visitors',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            data: counts,
+          },
+        ],
+      },
       options: {
         responsive: true,
         plugins: {
           legend: { position: 'top' },
-          title: {
-            display: true,
-            text: 'Page Visits Per Date',
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { precision: 0 },
           },
         },
       },
-    };
-  
-    // Render chart
-    new Chart(document.getElementById('pageVisitsChart'), config);
+    });
+  };
+
+  onMounted(() => {
+    renderChart();
   });
   </script>
-  

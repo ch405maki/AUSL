@@ -33,14 +33,6 @@ use App\Models\Academic;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-Route::get('/', function () {
-    // Fetch the posts data from your database
-    return Inertia::render('Main/Index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
- });
-
 Route::get('/logout', function() {
     Auth::logout();
     return redirect('/');
@@ -238,15 +230,7 @@ Route::get('/privacy_policy', function () {
 // End routes can be open without auth -------------------------------------------------------------------------------------------------------//
 // Start routes can be open with auth -------------------------------------------------------------------------------------------------------//
 
-// Dashboard route 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 // User Management route
-// Route::middleware(['auth', 'verified'])->group(function () {
-//     Route::get('/gwa', [GwaController::class, 'index'])->name('gwa.index');
-// });
 
 Route::get('/response', [GwaController::class, 'response'])->name('response');
 Route::get('/track', [GwaController::class, 'track'])->name('track');
@@ -322,6 +306,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('dashboard/clear-top-pages', [DashboardController::class, 'clearTopPages'])->name('dashboard.clear-top-pages');
+    Route::post('dashboard/prune-analytics', [DashboardController::class, 'pruneAnalytics'])->name('dashboard.prune-analytics');
 });
 
 // alumni route
