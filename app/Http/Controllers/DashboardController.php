@@ -17,20 +17,23 @@ class DashboardController extends Controller
             return Inertia::location(route('gwa.index'));
         }
 
-        $today = Carbon::today()->toDateString();
-        $sevenDaysAgo = Carbon::today()->subDays(6)->toDateString();
+        $todayStart = Carbon::today();
+        $todayEnd = Carbon::tomorrow();
+        $sevenDaysAgo = Carbon::today()->subDays(6);
 
         $post = Post::where('state', 'Active')
             ->orderBy('created_at', 'desc')
             ->get();
 
         $uniqueVisitorsToday = PageAnalytic::where('is_bot', false)
-            ->whereDate('visited_at', $today)
+            ->where('visited_at', '>=', $todayStart)
+            ->where('visited_at', '<', $todayEnd)
             ->distinct('visitor_id')
             ->count('visitor_id');
 
         $totalVisitsToday = PageAnalytic::where('is_bot', false)
-            ->whereDate('visited_at', $today)
+            ->where('visited_at', '>=', $todayStart)
+            ->where('visited_at', '<', $todayEnd)
             ->count();
 
         $dailyVisits = PageAnalytic::select(
@@ -39,7 +42,7 @@ class DashboardController extends Controller
                 DB::raw('COUNT(*) as total_count')
             )
             ->where('is_bot', false)
-            ->whereDate('visited_at', '>=', $sevenDaysAgo)
+            ->where('visited_at', '>=', $sevenDaysAgo)
             ->groupBy(DB::raw('DATE(visited_at)'))
             ->orderBy('date', 'asc')
             ->get();
@@ -60,14 +63,15 @@ class DashboardController extends Controller
             ->where('is_bot', false)
             ->whereNotNull('route_name')
             ->where('exclude_from_top_pages', false)
-            ->whereDate('visited_at', '>=', $sevenDaysAgo)
+            ->where('visited_at', '>=', $sevenDaysAgo)
             ->groupBy('route_name', 'route_path')
             ->orderByDesc('unique_visitors')
             ->take(10)
             ->get();
 
         $botVisitsFiltered = PageAnalytic::where('is_bot', true)
-            ->whereDate('visited_at', $today)
+            ->where('visited_at', '>=', $todayStart)
+            ->where('visited_at', '<', $todayEnd)
             ->count();
 
         return Inertia::render('Dashboard', [
@@ -97,8 +101,13 @@ class DashboardController extends Controller
     public function pruneAnalytics()
     {
         $fiveDaysAgo = Carbon::now()->subDays(5);
+        $query = PageAnalytic::where('visited_at', '<=', $fiveDaysAgo);
 
-        PageAnalytic::where('visited_at', '<=', $fiveDaysAgo)->delete();
+        do {
+            $ids = (clone $query)->limit(1000)->pluck('id');
+            if ($ids->isEmpty()) break;
+            PageAnalytic::whereIn('id', $ids)->delete();
+        } while (true);
 
         UserLog::create([
             'action' => 'Prune Analytics',
