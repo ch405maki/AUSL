@@ -80,14 +80,13 @@
                               <img src="/images/announcement/announcementbg.jpg" alt="Pubmat Background" class="w-full" />
                               <div
                                 class="absolute text-white font-semibold"
-                                style="top: 15%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.7rem, 2.92vw, 1.75rem); padding: 1.5%; padding-top: clamp(0.4rem, 1.5vw, 1.2rem);"
+                                style="top: 22%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.8rem, 3.5vw, 2.5rem); line-height: 1.2; letter-spacing: 0.01em; padding: 0.5%; padding-top: 0;"
                               >
                                 <div v-html="pubmatContent"></div>
                               </div>
                               <div
                                 class="absolute text-white font-normal"
-                                style="top: 55%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.6rem, 2.1vw, 1.75rem); padding: 1.5%; padding-top: clamp(0.4rem, 1.2vw, 1rem);"
-                              >
+                                style="top: 78%; left: 3%; right: 3%; max-width: 94%; word-wrap: break-word; font-size: clamp(0.5rem, 1.8vw, 1.25rem); line-height: 1.4; letter-spacing: 0.01em; padding: 0.5%; padding-top: 0;"  >
                                 <div class="text-center" v-html="pubmatFootnote"></div>
                               </div>
                             </div>

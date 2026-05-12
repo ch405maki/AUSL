@@ -159,8 +159,6 @@ const form = ref({
   pubmat: null,
 });
 
-const { contentStyle: contentStyleE, footnoteStyle: footnoteStyleE } = usePubmatScaling(24, 16);
-
 const pubmatMode = ref(props.post.pubmat ? 'none' : 'none');
 const pubmatContent = ref('<p>Text content goes here.</p>');
 const pubmatFootnote = ref('<p>Foot note.</p>');
