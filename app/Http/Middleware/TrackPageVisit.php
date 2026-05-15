@@ -20,6 +20,7 @@ class TrackPageVisit
         'sanctum/csrf-cookie',
         'livewire',
         'log',
+        'documents',
     ];
 
     protected array $botPatterns = [
@@ -38,7 +39,9 @@ class TrackPageVisit
     {
         $response = $next($request);
 
-        if ($response->status() === 200 && $this->shouldTrack($request)) {
+        $statusCode = method_exists($response, 'status') ? $response->status() : $response->getStatusCode();
+
+        if ($statusCode === 200 && $this->shouldTrack($request)) {
             $userAgent = $request->userAgent() ?? '';
             $ip = $request->ip() ?? '0.0.0.0';
 
