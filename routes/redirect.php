@@ -35,3 +35,6 @@
     Route::get('/MCLEmaterials', function () {
         return redirect()->away('https://drive.google.com/drive/folders/1Ogrg_mX9mssSH9cib70n_UsfBYfG1p77?usp=drive_link');
     });
+    Route::get('/wifi', function () {
+        return redirect()->away('https://forms.gle/LqEXz28Zeno2WB1e7');
+    });
