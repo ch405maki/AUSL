@@ -96,6 +96,8 @@ const images = [
 "images/about/viloria.jpg",
 "images/about/panotes.jpg",
 "images/about/hadjinoor.jpg",
+"images/about/paran.jpg",
+"images/about/pabilane.jpg",
 ];
 
 function openLightbox(index) {

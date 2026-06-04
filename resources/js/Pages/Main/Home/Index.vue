@@ -37,11 +37,10 @@ import RelatedWeb from '@/Pages/Main/Home/Partials/RelatedWeb.vue';
 import Countdown from './Countdown/Index.vue';
 
 const loading = ref(true);
-const showCookiePopup = ref(false); // Initially set to false
-
+const showCookiePopup = ref(false);
 const acceptCookies = () => {
-  showCookiePopup.value = false; // Hide the popup
-  sessionStorage.setItem('cookiesAccepted', 'true'); // Set flag in session storage
+  showCookiePopup.value = false;
+  sessionStorage.setItem('cookiesAccepted', 'true'); 
 };
 
 const props = defineProps({
