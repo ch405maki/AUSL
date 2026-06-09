@@ -24,7 +24,7 @@
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSewXtsFJ0dIPCRxGCI2Pexy9XBRWXdHTpyqA5okULvzg1y2Jw/viewform?fbclid=IwAR2CYNO8m1j1lgVkPIEVXKrxKxv9QKu30K0jnzfkZZeeqUtlrbffATRZrHc');
     });
     Route::get('/gwa', function () {
-        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSdd4mzMVkddcuLAAQ3cws4U-Q4DFzSWlx1P102t0qpQaWMA1A/viewform');
+        return redirect()->away('https://forms.gle/ehuis2b6qFmoHuTT6');
     });
     Route::get('/deansemail', function () {
         return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSeCR_d5YoG9y5r-abu7Z5gnZJHa285MP3iHRh6hXOLjffmjyg/viewform');
