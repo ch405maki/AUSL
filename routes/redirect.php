@@ -38,3 +38,6 @@
     Route::get('/wifi', function () {
         return redirect()->away('https://forms.gle/LqEXz28Zeno2WB1e7');
     });
+    Route::get('/CLEP', function () {
+        return redirect()->away('https://docs.google.com/forms/d/e/1FAIpQLSfH3KwvD63gVjO4pg-5wfQYEk6_O5S3efUxnsRTqrYgtREriw/viewform?usp=dialog');
+    });
